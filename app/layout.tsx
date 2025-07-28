@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 import "@/app/globals.css";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 const ibmPlexSans = IBM_Plex_Sans({
     variable: "--font-content",
@@ -30,11 +31,15 @@ export default function RootLayout({
                 className={`${ibmPlexSans.variable}  antialiased w-full flex justify-center px-4`}
             >
                 <PostHogProvider>
-                    <div>
-                        <Navbar />
-                        <div className="w-full max-w-[1200px]">{children}</div>
-                        <Footer />
-                    </div>
+                    <TooltipProvider>
+                        <div>
+                            <Navbar />
+                            <div className="w-full max-w-[1200px]">
+                                {children}
+                            </div>
+                            <Footer />
+                        </div>
+                    </TooltipProvider>
                 </PostHogProvider>
             </body>
         </html>

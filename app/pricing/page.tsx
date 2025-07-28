@@ -1,6 +1,10 @@
 "use client";
 
 import posthog from "posthog-js";
+import {
+    LucideBadgeCheck as IconBadgeCheck,
+    LucideInfo as IconInfo,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
@@ -16,26 +20,27 @@ import {
     TableCell,
     TableCaption,
 } from "@/ui/table";
+import { Tooltip } from "@/ui/tooltip";
+import Link from "next/link";
 
-export default function PricingPage() {
+export default function Pricing() {
     const [yearly, setYearly] = useState(true);
     const monthlyPrice = 199;
-    const yearlyDiscount = 0.505;
-    const yearlyPricePerMonth = Math.round(monthlyPrice * (1 - yearlyDiscount)); // ₹99
+    const yearlyPricePerMonth = 99;
 
     return (
-        <div className="text-text-primary py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-                <h1 className="mx-auto justify-center gap-x-2 text-center md:gap-x-3.5 gap-y-1 md:gap-y-2 text-3xl sm:text-5xl md:text-7xl font-medium lg:font-semibold leading-tight">
+        <div className="text-text-primary mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mt-12 md:mt-16 mb-12 text-center">
+                <h1 className="mx-auto justify-center gap-x-2 gap-y-1 text-center text-3xl leading-tight font-medium sm:text-5xl md:gap-x-3.5 md:gap-y-2 md:text-7xl lg:font-semibold">
                     Two plans,{" "}
-                    <span className="inline! text-accent">one purpose</span>
+                    <span className="text-accent inline!">one purpose</span>
                 </h1>
 
-                <div className="mt-6 inline-flex items-center bg-muted rounded-md p-1 relative justify-center w-fit mx-auto">
+                <div className="bg-muted relative mx-auto mt-6 inline-flex w-fit items-center justify-center rounded-md p-1">
                     <button
                         onClick={() => setYearly(true)}
                         className={cn(
-                            "px-4 py-1 rounded-md text-sm font-medium transition",
+                            "rounded-md px-4 py-1 text-sm font-medium transition",
                             yearly
                                 ? "bg-primary text-primary-foreground"
                                 : "text-muted-foreground"
@@ -46,7 +51,7 @@ export default function PricingPage() {
                     <button
                         onClick={() => setYearly(false)}
                         className={cn(
-                            "px-4 py-1 rounded-md text-sm font-medium transition",
+                            "rounded-md px-4 py-1 text-sm font-medium transition",
                             !yearly
                                 ? "bg-primary text-primary-foreground"
                                 : "text-muted-foreground"
@@ -56,67 +61,75 @@ export default function PricingPage() {
                     </button>
                 </div>
 
-                <div className="flex-center gap-x-1 mt-2">
+                <div className="flex-center mt-2 gap-x-1">
                     <Tag variant="success" size="small">
                         50% off
                     </Tag>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-muted-foreground text-xs">
                         on yearly billing
                     </span>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 ">
-                <Card className="text-center flex flex-col justify-between relative h-60 ">
+            <div className="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <Card className="relative flex h-60 flex-col justify-between">
                     <div>
                         <h3 className="heading mb-1">Free</h3>
-                        <p className="text-sm text-muted-foreground mb-2">
-                            Ideal for hobbyists, beginners & curious minds
+                        <p className="text-muted-foreground mb-2 text-sm">
+                            Ideal for hobbyists, beginners & curious minds.
                         </p>
-                        <p className="text-4xl font-bold text-text-primary absolute-center">
+                        <p className="text-text-primary absolute-center text-4xl font-bold">
                             ₹0
-                            <span className="text-base font-medium text-muted-foreground">
+                            <span className="text-muted-foreground text-base font-medium">
                                 /month
                             </span>
                         </p>
                     </div>
                     <a
                         href="https://web.arthveda.app"
+                        className="unstyled-link hover:-translate-y-0.5 transition-transform"
                         onClick={() =>
                             posthog.capture("free_plan_clicked_on_pricing_page")
                         }
-                        className="unstyled-link hover:-translate-y-0.5 transition-transform"
                     >
                         <Button
-                            className="mt-4 px-4 py-2 w-full"
+                            className="mt-4 w-full px-4 py-2"
                             variant="secondary"
                         >
-                            Free forever
+                            {`Get started. It's free forever.`}
                         </Button>
                     </a>
                 </Card>
 
-                <Card className="text-center flex flex-col justify-between h-60 relative">
+                <Card className="relative flex h-60 flex-col justify-between">
                     <div>
                         <h3 className="heading mb-1">Pro</h3>
-                        <p className="text-sm text-muted-foreground mx-auto">
-                            Ideal for active traders who are performance-driven
+                        <p className="text-muted-foreground mx-auto text-sm">
+                            Ideal for active traders who are performance-driven.
                         </p>
-                        <p className="text-4xl font-bold text-text-primary absolute-center">
+                        <p className="text-text-primary absolute-center text-4xl font-bold">
                             ₹{yearly ? yearlyPricePerMonth : monthlyPrice}
-                            <span className="text-base font-medium text-muted-foreground">
+                            <span className="text-muted-foreground text-base font-medium">
                                 /month
                             </span>
                         </p>
                     </div>
 
                     <div className="unstyled-link hover:-translate-y-0.5 transition-transform">
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-muted-foreground text-xs">
                             {yearly
                                 ? `Billed yearly as ₹${
                                       yearlyPricePerMonth * 12
                                   }`
                                 : "Billed monthly"}
+                            . No refund once paid. Read our{" "}
+                            <Link
+                                className="cursor-pointer! text-xs!"
+                                href="/refund"
+                            >
+                                refund policy
+                            </Link>
+                            .
                         </p>
                         <a
                             href="https://web.arthveda.app"
@@ -138,7 +151,7 @@ export default function PricingPage() {
                 </Card>
             </div>
 
-            <p className="text-sm text-muted-foreground mb-6 font-medium italic text-pretty!">
+            <p className="text-muted-foreground mb-6 text-sm font-medium text-pretty! italic">
                 💡{" "}
                 <span className="text-foreground font-semibold">
                     Subscribe yearly
@@ -148,104 +161,205 @@ export default function PricingPage() {
             </p>
 
             <div className="overflow-x-auto">
-                <Table className="min-w-full text-sm border-collapse rounded-md overflow-hidden">
-                    <TableCaption>Compare Free and Pro plan</TableCaption>
+                <Table className="min-w-full border-collapse overflow-hidden rounded-md text-sm">
+                    <TableCaption>Free vs Pro</TableCaption>
                     <TableHeader>
                         <TableRow className="bg-muted text-left">
-                            <TableHead className="py-4 px-6 font-semibold text-base">
+                            <TableHead className="px-6 py-4 text-base font-semibold">
                                 Feature
                             </TableHead>
-                            <TableHead className="py-4 px-6 font-semibold text-base">
+                            <TableHead className="px-6 py-4 text-base font-semibold">
                                 Free
                             </TableHead>
-                            <TableHead className="py-4 px-6 font-semibold text-base">
-                                Pro
+                            <TableHead className="px-6 py-4 text-base font-semibold">
+                                <div className="flex-x items-baseline">
+                                    Pro
+                                    <p className="text-xs font-normal">
+                                        (everything in Free)
+                                    </p>
+                                </div>
                             </TableHead>
                         </TableRow>
                     </TableHeader>
-                    <TableBody className="divide-y divide-muted/20">
+                    <TableBody className="divide-muted/20 divide-y">
                         <TableRow>
-                            <TableCell className="py-3 px-6">
-                                Number of trades
+                            <TableCell className="px-6 py-3">
+                                Position imports
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Up to 360 in last 12 months
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />{" "}
+                                    Unlimited
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Unlimited
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />{" "}
+                                    Unlimited
+                                </div>
                             </TableCell>
                         </TableRow>
                         <TableRow className="bg-muted/5">
-                            <TableCell className="py-3 px-6">
+                            <TableCell className="px-6 py-3">
                                 Analytics
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Last 12 months positions
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-accent"
+                                    />
+                                    Last 12 months only
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                All positions
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />
+                                    Unlimited
+                                </div>
                             </TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell className="py-3 px-6">
-                                Explore Positions
+                            <TableCell className="px-6 py-3">
+                                Explore positions
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Last 12 months positions
+                            <TableCell className="px-6 py-3">
+                                {" "}
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-accent"
+                                    />
+                                    Last 12 months only
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                All positions
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />
+                                    Unlimited
+                                </div>
                             </TableCell>
                         </TableRow>
                         <TableRow className="bg-muted/5">
-                            <TableCell className="py-3 px-6">
+                            <TableCell className="px-6 py-3">
                                 Import from broker
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                File import
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-accent"
+                                    />
+                                    File upload
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Sync + file import
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />
+                                    {`1-click sync today's trades`}
+                                </div>
                             </TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell className="py-3 px-6">
-                                Broker Accounts
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    Broker accounts <BrokerAccountInfoTooltip />
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                1 account
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-accent"
+                                    />
+                                    1 account
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                5 accounts
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />
+                                    10 accounts
+                                </div>
                             </TableCell>
                         </TableRow>
                         <TableRow className="bg-muted/5">
-                            <TableCell className="py-3 px-6">Support</TableCell>
-                            <TableCell className="py-3 px-6">
-                                Normal support
+                            <TableCell className="px-6 py-3">Support</TableCell>
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />
+                                    Normal
+                                </div>
                             </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Priority support
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell className="py-3 px-6">
-                                Access to future features
-                            </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Limited access
-                            </TableCell>
-                            <TableCell className="py-3 px-6">
-                                Full access to everything
+                            <TableCell className="px-6 py-3">
+                                <div className="flex-x">
+                                    <IconBadgeCheck
+                                        size={16}
+                                        className="text-text-success"
+                                    />
+                                    Priority
+                                </div>
                             </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
-                <p className="text-xs italic text-muted-foreground mt-4">
+                <p className="text-muted-foreground mt-4 text-xs italic">
                     Unlimited = subject to fair usage. Abusive usage or bot
                     imports may be throttled.
+                </p>
+            </div>
+
+            <div className="h-4" />
+
+            <div className="mt-8 text-center">
+                <p className="text-sm text-gray-400">
+                    <span className="font-medium text-white">
+                        Arthveda is growing every month.
+                    </span>{" "}
+                    <Link href="/roadmap">See what’s coming →</Link>
                 </p>
             </div>
         </div>
     );
 }
+
+export const BrokerAccountInfoTooltip = () => {
+    return (
+        <Tooltip
+            content={
+                <>
+                    <p>
+                        Broker account represents your account with a broker
+                        (e.g., Zerodha - Personal).
+                    </p>
+                    <p>
+                        Positions you import or sync are to be associated to a
+                        broker account.
+                    </p>
+                </>
+            }
+        >
+            <IconInfo size={14} />
+        </Tooltip>
+    );
+};

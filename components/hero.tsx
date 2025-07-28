@@ -76,7 +76,7 @@ const slideInStyles = `
 
 export default function Hero() {
     return (
-        <main className="mt-12 md:mt-24">
+        <main className="mt-12 md:mt-16">
             <h1 className="w-[80%] flex flex-wrap mx-auto justify-center gap-x-2 text-center md:gap-x-3.5 gap-y-1 md:gap-y-2 text-3xl sm:text-5xl md:text-7xl font-medium lg:font-semibold leading-tight">
                 The Trading Journal Built for
                 <span className="inline! text-accent">Indian Markets</span>
@@ -137,7 +137,7 @@ export default function Hero() {
 
             <div className="h-2" />
 
-            <div className="text-center">
+            {/* <div className="text-center">
                 <small className="italic text-muted-foreground">
                     Arthveda is not a trading platform and does not facilitate
                     any financial transactions or offer investment advice. It is
@@ -145,7 +145,7 @@ export default function Hero() {
                     help users log, review, and analyze their own historical
                     trades.
                 </small>
-            </div>
+            </div> */}
         </main>
     );
 }
