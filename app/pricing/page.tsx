@@ -343,7 +343,7 @@ export default function Pricing() {
     );
 }
 
-export const BrokerAccountInfoTooltip = () => {
+function BrokerAccountInfoTooltip() {
     return (
         <Tooltip
             content={
@@ -362,4 +362,4 @@ export const BrokerAccountInfoTooltip = () => {
             <IconInfo size={14} />
         </Tooltip>
     );
-};
+}
