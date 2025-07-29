@@ -81,12 +81,12 @@ Based on demand and paying user interest:
 
 export default function RoadmapPage() {
     return (
-        <div className="mt-12 md:mt-16 mb-12 text-center">
+        <div className="mt-12 md:mt-16 mb-12">
             <h1 className="mx-auto justify-center gap-x-2 gap-y-1 text-center text-3xl leading-tight font-medium sm:text-5xl md:gap-x-3.5 md:gap-y-2 md:text-7xl lg:font-semibold">
                 {`What's`} next for{" "}
                 <span className="inline! text-accent">Arthveda?</span>
             </h1>
-            <p className="text-text-muted mb-10">
+            <p className="text-text-muted mb-10 text-center">
                 Here’s a look at the roadmap — driven by real trading pain
                 points.
             </p>

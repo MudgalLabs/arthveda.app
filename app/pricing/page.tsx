@@ -8,7 +8,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
-import { Card } from "@/ui/card";
+import { Card, CardTitle } from "@/ui/card";
 import { Tag } from "@/ui/tag";
 import { useState } from "react";
 import {
@@ -28,8 +28,108 @@ export default function Pricing() {
     const monthlyPrice = 199;
     const yearlyPricePerMonth = 99;
 
+    const features = [
+        {
+            label: "Position imports",
+            free: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    Unlimited
+                </div>
+            ),
+            pro: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    Unlimited
+                </div>
+            ),
+        },
+        {
+            label: "Analytics",
+            free: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-accent" /> Last 12
+                    months only
+                </div>
+            ),
+            pro: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    Unlimited
+                </div>
+            ),
+        },
+        {
+            label: "Explore positions",
+            free: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-accent" /> Last 12
+                    months only
+                </div>
+            ),
+            pro: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    Unlimited
+                </div>
+            ),
+        },
+        {
+            label: "Import from broker",
+            free: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-accent" /> File
+                    upload
+                </div>
+            ),
+            pro: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    1-click sync{" "}
+                    <span className="text-xs text-text-muted">
+                        (selected brokers)
+                    </span>
+                </div>
+            ),
+        },
+        {
+            label: (
+                <div className="flex-x">
+                    Broker accounts <BrokerAccountInfoTooltip />
+                </div>
+            ),
+            free: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-accent" /> 1
+                    account
+                </div>
+            ),
+            pro: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    10 accounts
+                </div>
+            ),
+        },
+        {
+            label: "Support",
+            free: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    Normal
+                </div>
+            ),
+            pro: (
+                <div className="flex-x">
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    Priority
+                </div>
+            ),
+        },
+    ];
+
     return (
-        <div className="text-text-primary mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div>
             <div className="mt-12 md:mt-16 mb-12 text-center">
                 <h1 className="mx-auto justify-center gap-x-2 gap-y-1 text-center text-3xl leading-tight font-medium sm:text-5xl md:gap-x-3.5 md:gap-y-2 md:text-7xl lg:font-semibold">
                     Two plans,{" "}
@@ -160,8 +260,69 @@ export default function Pricing() {
                 may increase, but yours won’t.
             </p>
 
-            <div className="overflow-x-auto">
-                <Table className="min-w-full border-collapse overflow-hidden rounded-md text-sm">
+            {/* Mobile: Card version */}
+            <div className="sm:hidden">
+                <p className="text-center mb-4 text-text-muted">Free vs Pro</p>
+
+                <p className="text-xs text-text-muted mb-2">
+                    Pro includes everything from Free
+                </p>
+                <div className="space-y-4">
+                    {features.map((row, i) => (
+                        <Card key={i}>
+                            <CardTitle className="font-medium mb-2 text-base">
+                                {row.label}
+                            </CardTitle>
+                            <div className="flex flex-col gap-2 relative">
+                                <div
+                                    className="rounded px-2 py-1 flex items-center gap-2"
+                                    style={{
+                                        background: "var(--color-surface-1)",
+                                        border: `1px solid var(--color-border)`,
+                                    }}
+                                >
+                                    <span
+                                        className="font-medium"
+                                        style={{
+                                            color: "var(--color-success-foreground)",
+                                        }}
+                                    >
+                                        Free
+                                    </span>
+                                    <span className="absolute left-16">
+                                        {row.free}
+                                    </span>
+                                </div>
+                                <div
+                                    className="rounded px-2 py-1 flex items-center gap-2"
+                                    style={{
+                                        background: "var(--color-surface-1)",
+                                        border: `1px solid var(--color-border)`,
+                                    }}
+                                >
+                                    <span
+                                        className="font-medium"
+                                        style={{ color: "var(--color-accent)" }}
+                                    >
+                                        Pro
+                                    </span>
+                                    <span className="absolute left-16">
+                                        {row.pro}
+                                    </span>
+                                </div>
+                            </div>
+                        </Card>
+                    ))}
+                </div>
+                <p className="text-muted-foreground mt-4 text-xs italic text-pretty!">
+                    Unlimited = subject to fair usage. Abusive usage or bot
+                    imports may be throttled.
+                </p>
+            </div>
+
+            {/* Desktop/tablet: Table version */}
+            <div className="hidden sm:block w-full overflow-x-auto">
+                <Table className="min-w-[600px] text-sm">
                     <TableCaption>Free vs Pro</TableCaption>
                     <TableHeader>
                         <TableRow className="bg-muted text-left">
@@ -182,145 +343,22 @@ export default function Pricing() {
                         </TableRow>
                     </TableHeader>
                     <TableBody className="divide-muted/20 divide-y">
-                        <TableRow>
-                            <TableCell className="px-6 py-3">
-                                Position imports
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />{" "}
-                                    Unlimited
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />{" "}
-                                    Unlimited
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow className="bg-muted/5">
-                            <TableCell className="px-6 py-3">
-                                Analytics
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-accent"
-                                    />
-                                    Last 12 months only
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />
-                                    Unlimited
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell className="px-6 py-3">
-                                Explore positions
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                {" "}
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-accent"
-                                    />
-                                    Last 12 months only
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />
-                                    Unlimited
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow className="bg-muted/5">
-                            <TableCell className="px-6 py-3">
-                                Import from broker
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-accent"
-                                    />
-                                    File upload
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />
-                                    {`1-click sync today's trades`}
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    Broker accounts <BrokerAccountInfoTooltip />
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-accent"
-                                    />
-                                    1 account
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />
-                                    10 accounts
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow className="bg-muted/5">
-                            <TableCell className="px-6 py-3">Support</TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />
-                                    Normal
-                                </div>
-                            </TableCell>
-                            <TableCell className="px-6 py-3">
-                                <div className="flex-x">
-                                    <IconBadgeCheck
-                                        size={16}
-                                        className="text-text-success"
-                                    />
-                                    Priority
-                                </div>
-                            </TableCell>
-                        </TableRow>
+                        {features.map((row, i) => (
+                            <TableRow
+                                key={i}
+                                className={i % 2 ? "bg-muted/5" : ""}
+                            >
+                                <TableCell className="px-6 py-3">
+                                    {row.label}
+                                </TableCell>
+                                <TableCell className="px-6 py-3">
+                                    {row.free}
+                                </TableCell>
+                                <TableCell className="px-6 py-3">
+                                    {row.pro}
+                                </TableCell>
+                            </TableRow>
+                        ))}
                     </TableBody>
                 </Table>
                 <p className="text-muted-foreground mt-4 text-xs italic">
