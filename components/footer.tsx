@@ -6,7 +6,7 @@ export default function Footer() {
         <footer className="border-t border-accent-muted mt-12 sm:mt-24">
             <div className="flex-x items-start justify-between mt-2">
                 <div>
-                    <p className="text-sm">© 2025 Arthveda</p>
+                    <p className="text-sm">© 2025 Mudgal Labs</p>
                 </div>
 
                 <div className="flex-y sm:flex-x gap-x-4!">
@@ -21,9 +21,9 @@ export default function Footer() {
             <div className="py-4 flex-center">
                 <div className="space-y-2 text-center">
                     <p className="text-sm sm:text-base inline-block text-foreground">
-                        Built with 🤍️ by{" "}
+                        Built with 💙️️ by{" "}
                         <a
-                            href="https://github.com/MudgalLabs"
+                            href="https://mudgallabs.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm! sm:text-base! inline-flex items-center"

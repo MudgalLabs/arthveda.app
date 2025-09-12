@@ -30,7 +30,7 @@ export default function Pricing() {
 
     const features = [
         {
-            label: "Position imports",
+            label: "Trade imports",
             free: (
                 <div className="flex-x">
                     <IconBadgeCheck size={16} className="text-text-success" />{" "}
@@ -75,20 +75,17 @@ export default function Pricing() {
             ),
         },
         {
-            label: "Import from broker",
+            label: "Broker integrations",
             free: (
                 <div className="flex-x">
-                    <IconBadgeCheck size={16} className="text-accent" /> File
-                    upload
+                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
+                    File import and daily sync
                 </div>
             ),
             pro: (
                 <div className="flex-x">
                     <IconBadgeCheck size={16} className="text-text-success" />{" "}
-                    1-click sync{" "}
-                    <span className="text-xs text-text-muted">
-                        (selected brokers)
-                    </span>
+                    File import and daily sync
                 </div>
             ),
         },
