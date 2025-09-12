@@ -5,20 +5,36 @@ export default function Brokers() {
     /* Replace these with real SVG components or <Image> tags */
     const brokers = [
         {
+            name: "Angel One",
+            svg: "/svgs/angel_one.svg",
+            homepage: "https://www.angelone.in/",
+        },
+        {
+            name: "Dhan",
+            svg: "/svgs/dhan.svg",
+            homepage: "https://dhan.co/",
+            isComingSoon: true,
+        },
+        {
             name: "Groww",
             svg: "/svgs/groww.svg",
             homepage: "https://groww.in/",
         },
         {
-            name: "Zerodha",
-            svg: "/svgs/zerodha.svg",
-            homepage: "https://zerodha.com/",
+            name: "Kotak Securities",
+            svg: "/svgs/kotak_securities.svg",
+            homepage: "https://www.kotaksecurities.com/",
         },
         {
             name: "Upstox",
             svg: "/svgs/upstox.svg",
             homepage: "https://upstox.com/",
             isComingSoon: false,
+        },
+        {
+            name: "Zerodha",
+            svg: "/svgs/zerodha.svg",
+            homepage: "https://zerodha.com/",
         },
         /* Add more brokers as integration ships */
     ];
