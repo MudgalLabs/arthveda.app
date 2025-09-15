@@ -47,8 +47,8 @@ export default function Pricing() {
         {
             label: (
                 <div className="flex-x">
-                    Data & Insights
-                    <Tooltip content="Includes dashboard, positions and calendar.">
+                    Data and insights
+                    <Tooltip content="Includes Dashboard, Positions and Calendar.">
                         <IconInfo size={14} />
                     </Tooltip>
                 </div>
