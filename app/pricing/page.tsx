@@ -45,32 +45,24 @@ export default function Pricing() {
             ),
         },
         {
-            label: "Analytics",
+            label: (
+                <div className="flex-x">
+                    Data & Insights
+                    <Tooltip content="Includes dashboard, positions and calendar.">
+                        <IconInfo size={14} />
+                    </Tooltip>
+                </div>
+            ),
             free: (
                 <div className="flex-x">
-                    <IconBadgeCheck size={16} className="text-accent" /> Last 12
-                    months only
+                    <IconBadgeCheck size={16} className="text-accent" /> Past 1
+                    year only
                 </div>
             ),
             pro: (
                 <div className="flex-x">
-                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
-                    Unlimited
-                </div>
-            ),
-        },
-        {
-            label: "Explore positions",
-            free: (
-                <div className="flex-x">
-                    <IconBadgeCheck size={16} className="text-accent" /> Last 12
-                    months only
-                </div>
-            ),
-            pro: (
-                <div className="flex-x">
-                    <IconBadgeCheck size={16} className="text-text-success" />{" "}
-                    Unlimited
+                    <IconBadgeCheck size={16} className="text-text-success" />
+                    Full history
                 </div>
             ),
         },
@@ -97,8 +89,8 @@ export default function Pricing() {
             ),
             free: (
                 <div className="flex-x">
-                    <IconBadgeCheck size={16} className="text-accent" /> 1
-                    account
+                    <IconBadgeCheck size={16} className="text-accent" /> 2
+                    accounts
                 </div>
             ),
             pro: (
@@ -248,13 +240,13 @@ export default function Pricing() {
                 </Card>
             </div>
 
-            <p className="text-muted-foreground mb-6 text-sm font-medium text-pretty! italic">
+            <p className="text-muted-foreground mb-6 text-sm font-medium text-pretty!">
                 💡{" "}
                 <span className="text-foreground font-semibold">
                     Subscribe yearly
                 </span>{" "}
-                and lock in this price for 12 months. As Arthveda grows, prices
-                may increase, but yours won’t.
+                and lock in this price for a year. As Arthveda grows, prices may
+                increase, but yours won’t.
             </p>
 
             {/* Mobile: Card version */}
