@@ -62,7 +62,7 @@ export default function Navbar() {
 
                     {/* Desktop Nav */}
                     <div className="hidden lg:flex flex-x md:gap-x-4 lg:gap-x-8 items-center px-14">
-                        <li>
+                        {/* <li>
                             <Link href="/#brokers">Brokers</Link>
                         </li>
                         <li>
@@ -70,6 +70,9 @@ export default function Navbar() {
                         </li>
                         <li>
                             <Link href="/#features">Features</Link>
+                        </li> */}
+                        <li>
+                            <Link href="/pricing">Pricing</Link>
                         </li>
                         <li>
                             <Link href="/roadmap">Roadmap</Link>
@@ -82,10 +85,6 @@ export default function Navbar() {
                             >
                                 Discord
                             </a>
-                        </li>
-
-                        <li>
-                            <Link href="/pricing">Pricing</Link>
                         </li>
                     </div>
 
@@ -108,14 +107,14 @@ export default function Navbar() {
 
                 {/* Mobile Dropdown */}
                 <div
-                    className={`md:hidden absolute top-14 left-0 w-full px-4 bg-surface-bg border border-surface-border shadow-lg z-50 transition-all duration-300 ease-out rounded-md will-change-transform ${
+                    className={`lg:hidden absolute top-14 left-0 w-full px-4 bg-surface-bg border border-surface-border shadow-lg z-50 transition-all duration-300 ease-out rounded-md will-change-transform ${
                         menuOpen
                             ? "opacity-100 pointer-events-auto translate-y-0 scale-100"
                             : "opacity-0 pointer-events-none -translate-y-2 scale-[0.98]"
                     }`}
                 >
                     <ul className="flex flex-col gap-y-2 py-4">
-                        <li>
+                        {/* <li>
                             <Link
                                 href="/#brokers"
                                 onClick={() => setMenuOpen(false)}
@@ -138,6 +137,14 @@ export default function Navbar() {
                             >
                                 Features
                             </Link>
+                        </li> */}
+                        <li>
+                            <Link
+                                href="/pricing"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Pricing
+                            </Link>
                         </li>
                         <li>
                             <Link
@@ -155,14 +162,6 @@ export default function Navbar() {
                             >
                                 Discord
                             </a>
-                        </li>
-                        <li>
-                            <Link
-                                href="/pricing"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                Pricing
-                            </Link>
                         </li>
                     </ul>
                 </div>

@@ -38,17 +38,6 @@ Build and save tailored dashboards to suit your trading style:
 `,
     },
     {
-        title: "Rich Journaling",
-        icon: "📝",
-        status: "Planned",
-        description: `Not just numbers. Build real insights.
-
-- Markdown-powered notes (like Notion).
-- Attach screenshots (e.g. TradingView chart snapshots).
-- Add tags and review mistakes/thoughts.
-- Helps you develop consistency and discipline.`,
-    },
-    {
         title: "Visualize entries and exits on real market charts",
         icon: "📈",
         status: "Planned",
@@ -119,7 +108,7 @@ export default function RoadmapPage() {
                 ))}
             </div>
             <p className="text-xs text-text-muted mt-16">
-                Last updated: July 20, 2025
+                Last updated: Oct 9, 2025
             </p>
         </div>
     );

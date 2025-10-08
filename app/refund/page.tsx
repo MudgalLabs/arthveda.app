@@ -4,28 +4,25 @@ export default function RefundPage() {
             <h1 className="big-heading mb-12">Refund Policy</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> June 25, 2025
+                <strong>Effective Date:</strong> October 9, 2025
             </p>
 
             <p className="mb-4">Thank you for subscribing to Arthveda.</p>
             <p className="mb-4">
-                All subscription purchases are final. We <strong>DO NOT</strong>{" "}
-                offer refunds, whether for monthly or yearly plans.
-            </p>
-            <p className="mb-4">
-                We encourage you to explore Arthveda using the free plan before
-                upgrading. This policy helps us operate sustainably while
-                continuing to serve serious traders with premium features.
-            </p>
-            <p className="mb-4">
-                For any concerns or questions, feel free to reach out at{" "}
+                We provide a 14-day 100% money-back guarantee. No questions
+                asked. If you are not satisfied with our service within the
+                first 14 days of your subscription, please contact us at{" "}
                 <a
                     href="mailto:hey@arthveda.app"
                     className="font-bold text-sm! sm:text-base!"
                 >
                     hey@arthveda.app
-                </a>
-                .
+                </a>{" "}
+                and we will process your refund promptly.
+            </p>
+            <p>
+                You can also reach out to us if you have any questions or
+                concerns.
             </p>
         </div>
     );

@@ -32,7 +32,7 @@ export default function RootLayout({
             >
                 <PostHogProvider>
                     <TooltipProvider>
-                        <div>
+                        <div className="w-full max-w-[1200px]">
                             <Navbar />
                             <div className="w-full max-w-[1200px]">
                                 {children}
