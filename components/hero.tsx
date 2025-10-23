@@ -116,8 +116,8 @@ export default function Hero() {
                     alt="Arthveda Dashboard"
                     width={1900}
                     height={900}
-                    className={`hidden md:block w-full md:w-[100%] mx-auto h-auto outline-offset-1 outline-1 md:outline-1 hover:outline-border-hover outline-border-subtle rounded-none md:rounded-md transition-all duration-300 ease-in-out animate-slide-in-bottom`}
-                    loading="lazy"
+                    className={`hidden md:block w-full md:w-[100%] mx-auto h-auto outline-offset-1 outline-1 md:outline-1 hover:outline-border-hover outline-border-subtle rounded-none md:rounded-sm transition-all duration-300 ease-in-out animate-slide-in-bottom`}
+                    loading="eager"
                 />
             </a>
             <a
