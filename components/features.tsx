@@ -1,134 +1,132 @@
-"use client";
-import Image from "next/image";
+import { Screenshot } from "./screenshot";
 
 export default function Features() {
     return (
-        <section id="features" className="mt-24">
-            <div className="text-center mb-14">
-                <h2 className="big-heading">
-                    Arthveda gives you tools to track, analyze, and improve{" "}
-                    <span className="font-semibold! text-accent">
-                        your trading.
-                    </span>
-                </h2>
-            </div>
+        <section id="features" className="text-center mt-24">
+            <div className="space-y-24">
+                <section>
+                    <h3 className="section-header">
+                        Your trading at a glance.
+                    </h3>
 
-            <div className="mt-16 space-y-12 sm:space-y-24 [&_img]:outline-1 [&_img]:outline-offset-1 [&_img]:md:outline-offset-2 [&_img]:outline-border-subtle [&_img]:hover:outline-border-hover [&_img]:transition-all [&_img]:duration-300 [&_img]:ease-in-out [&_img]:rounded-sm [&_li]:text-sm [&_li]sm:text-base">
-                <div className="flex flex-col lg:flex-row items-center gap-12">
-                    <div className="w-full lg:w-4/6">
-                        <a
-                            href="/images/dashboard_zoomed.png"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Image
-                                src="/images/dashboard_zoomed.png"
-                                alt="Analytics Dashboard"
-                                width={1200}
-                                height={900}
-                                className="w-full rounded-sm transition-all duration-300 ease-in-out outline-2 outline-offset-1 outline-accent-muted hover:outline-accent"
-                            />
-                        </a>
-                    </div>
-                    <div className="w-full lg:w-2/6 space-y-4">
-                        <h3 className="text-xl md:text-2xl font-medium text-foreground">
-                            Analytics Dashboard
-                        </h3>
-                        <ul className="text-foreground-muted list-disc list-inside space-y-2">
-                            <li>
-                                Track net/gross PnL, R Factor, win rate & more.
-                            </li>
-                            <li>View cumulative PnL curves over time.</li>
-                            <li>
-                                Performance by strategy, duration, time of day.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                    <div className="h-4" />
 
-                <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-                    <div className="w-full lg:w-4/6">
-                        <a
-                            href="/images/import_positions.png"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Image
-                                src="/images/import_positions.png"
-                                alt="Import from broker"
-                                width={1200}
-                                height={900}
-                                className="w-full rounded-sm transition-all duration-300 ease-in-out outline-2 outline-offset-1 outline-accent-muted hover:outline-accent"
-                            />
-                        </a>
-                    </div>
-                    <div className="w-full lg:w-2/6 space-y-4">
-                        <h3 className="text-xl md:text-2xl font-medium text-foreground">
-                            Import from Your Broker
-                        </h3>
-                        <ul className="text-foreground-muted list-disc list-inside space-y-2">
-                            <li>Guided import wizard for file uploads.</li>
-                            <li>Import 1,000s of trades in under 10s.</li>
-                            <li>{`Auto-sync trades after each trading session.`}</li>
-                        </ul>
-                    </div>
-                </div>
+                    <p className="section-detail">
+                        A clear view of your overall trading performance at a
+                        glance.
+                    </p>
 
-                <div className="flex flex-col lg:flex-row items-center gap-12">
-                    <div className="w-full lg:w-4/6">
-                        <a
-                            href="/images/explore_positions.png"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Image
-                                src="/images/explore_positions.png"
-                                alt="Explore Positions"
-                                width={1200}
-                                height={900}
-                                className="w-full rounded-sm transition-all duration-300 ease-in-out outline-2 outline-offset-1 outline-accent-muted hover:outline-accent"
-                            />
-                        </a>
-                    </div>
-                    <div className="w-full lg:w-2/6 space-y-4">
-                        <h3 className="text-xl md:text-2xl font-medium text-foreground">
-                            Explore Your Positions
-                        </h3>
-                        <ul className="text-foreground-muted list-disc list-inside space-y-2">
-                            <li>Search, filter, and sort with ease.</li>
-                            <li>See detailed metrics for each position.</li>
-                            <li>Go beyond basic broker reports.</li>
-                        </ul>
-                    </div>
-                </div>
+                    <div className="h-8" />
 
-                <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-                    <div className="w-full lg:w-4/6">
-                        <a
-                            href="/images/position.png"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Image
-                                src="/images/position.png"
-                                alt="View/Add Position"
-                                width={1200}
-                                height={900}
-                                className="w-full rounded-sm transition-all duration-300 ease-in-out outline-2 outline-offset-1 outline-accent-muted hover:outline-accent"
-                            />
-                        </a>
-                    </div>
-                    <div className="w-full lg:w-2/6 space-y-4">
-                        <h3 className="text-xl md:text-2xl font-medium text-foreground">
-                            Know Your Position
-                        </h3>
-                        <ul className="text-foreground-muted list-disc list-inside space-y-2">
-                            <li>Manually add positions when needed.</li>
-                            <li>See all trades, metrics, and notes.</li>
-                            <li>We auto-calculate charges for you.</li>
-                        </ul>
-                    </div>
-                </div>
+                    <Screenshot
+                        src="/images/dashboard.webp"
+                        alt="Analytics dashboard showing trading performance"
+                        loading="lazy"
+                    />
+                </section>
+
+                <section>
+                    <h3 className="section-header">
+                        Every trade. Organized. Searchable.
+                    </h3>
+
+                    <div className="h-4" />
+
+                    <p className="section-detail">
+                        Your trades tell a <strong>story</strong>. Search,
+                        filter and sort your entire trading history instantly.
+                        Track your evolution as a trader.
+                    </p>
+
+                    <div className="h-8" />
+
+                    <Screenshot
+                        src="/images/positions.webp"
+                        alt="Positions list with filters"
+                        loading="lazy"
+                    />
+                </section>
+
+                <section>
+                    <h3 className="section-header">
+                        Every position has a story
+                    </h3>
+
+                    <div className="h-4" />
+
+                    <p className="section-detail">
+                        A trade without notes is just a number. Log the{" "}
+                        <strong>why and how</strong>, not just the result. Write
+                        rich notes, attach screenshots, track emotions, setups,
+                        and mistakes with tags.
+                    </p>
+
+                    <div className="h-8" />
+
+                    <Screenshot
+                        src="/images/journaling.webp"
+                        alt="Position log with notes and tags"
+                        loading="lazy"
+                    />
+                </section>
+
+                <section>
+                    <h3 className="section-header">
+                        Your trading as a timeline.
+                    </h3>
+
+                    <div className="h-4" />
+
+                    <p className="section-detail">
+                        See your performance day by day, week by week, all the
+                        way to the big yearly picture. Green days, red days,
+                        overtrading days. A calendar view highlights your
+                        consistency and patterns you might miss.
+                    </p>
+
+                    <div className="h-8" />
+
+                    <Screenshot
+                        src="/images/calendar.webp"
+                        alt="Trading calendar"
+                        loading="lazy"
+                    />
+                </section>
+
+                <section>
+                    <h3 className="section-header">
+                        Patterns create profits. They also create losses.
+                    </h3>
+
+                    <div className="h-4" />
+
+                    <p className="section-detail">
+                        Break down performance by tags, symbols, time, and
+                        instruments. Discover where you win most, where you
+                        struggle, and where to focus next. Decisions backed by
+                        data beat decisions backed by hope.
+                    </p>
+
+                    <div className="h-8" />
+
+                    <Screenshot
+                        src="/images/analytics.webp"
+                        alt="Analytics breakdowns"
+                        loading="lazy"
+                    />
+                </section>
+
+                <section>
+                    <h3 className="section-header">And there’s so much more</h3>
+
+                    <div className="h-4" />
+
+                    <p className="section-detail">
+                        We’re adding new features based on real trader feedback.
+                        Arthveda will keep growing with you and your trading
+                        journey.
+                    </p>
+                </section>
             </div>
         </section>
     );

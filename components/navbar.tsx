@@ -61,27 +61,23 @@ export default function Navbar() {
                     </div>
 
                     {/* Desktop Nav */}
-                    <div className="hidden lg:flex flex-x md:gap-x-4 lg:gap-x-8 items-center px-14">
-                        {/* <li>
-                            <Link href="/#brokers">Brokers</Link>
+                    <div className="hidden lg:flex flex-x md:gap-x-4 lg:gap-x-8 items-center px-14 ">
+                        <li>
+                            <Link href="/pricing" className="text-base!">
+                                Pricing
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/#motivation">Motivation</Link>
-                        </li>
-                        <li>
-                            <Link href="/#features">Features</Link>
-                        </li> */}
-                        <li>
-                            <Link href="/pricing">Pricing</Link>
-                        </li>
-                        <li>
-                            <Link href="/roadmap">Roadmap</Link>
+                            <Link href="/roadmap" className="text-base!">
+                                Roadmap
+                            </Link>
                         </li>
                         <li>
                             <a
                                 href="https://discord.com/invite/QtFxX6g3Ev"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className="text-base!"
                             >
                                 Discord
                             </a>

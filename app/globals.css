@@ -203,7 +203,7 @@
     --font-heading: IBM Plex Sans;
     --font-content: IBM Plex Sans;
     --font-logo: Museo Sans;
-    --font-reallysans: Really Sans Large;
+    --font-reallysans: "Really Sans Large", "sans-serif";
     --font-moniker: Moniker;
 }
 
