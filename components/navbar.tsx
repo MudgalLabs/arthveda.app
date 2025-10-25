@@ -11,23 +11,23 @@ import { Button } from "@/ui/button";
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const signUpAndSignInButtons = useMemo(() => {
+    const goToAppButton = useMemo(() => {
         return (
             <>
-                <a
+                {/* <a
                     href="https://web.arthveda.app"
                     onClick={() => posthog.capture("Clicked Sign In")}
                     className="unstyled-link"
                 >
                     <Button variant="ghost">Sign in</Button>
-                </a>
+                </a> */}
 
                 <a
                     href="https://web.arthveda.app"
                     onClick={() => posthog.capture("Clicked Sign Up")}
                     className="unstyled-link"
                 >
-                    <Button>Sign up</Button>
+                    <Button size="large">Go to App</Button>
                 </a>
             </>
         );
@@ -88,12 +88,10 @@ export default function Navbar() {
                         </li>
                     </div>
 
-                    <div className="hidden lg:flex-x">
-                        {signUpAndSignInButtons}
-                    </div>
+                    <div className="hidden lg:flex-x">{goToAppButton}</div>
 
                     <div className="lg:hidden flex items-center gap-4">
-                        {signUpAndSignInButtons}
+                        {goToAppButton}
 
                         <button
                             aria-label="Open menu"
