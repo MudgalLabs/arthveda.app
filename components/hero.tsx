@@ -27,9 +27,18 @@ export default function Hero() {
                 {/* <OpenDemo /> */}
                 <GetStarted />
 
-                {/* <div className="h-4" />
+                <div className="h-4" />
 
-                <p className=" text-xs sm:text-base text-text-muted italic font-moniker text-center">
+                <a
+                    href="https://cal.com/ceoshikhar/arthveda-demo"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-center block text-sm sm:text-base! font-moniker"
+                >
+                    Book a demo with the founder
+                </a>
+
+                {/* <p className=" text-xs sm:text-base text-text-muted italic font-moniker text-center">
                     No credit card required.
                 </p> */}
             </footer>
