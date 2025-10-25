@@ -70,7 +70,7 @@ const moniker = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Arthveda",
+    title: "Arthveda — A trading journal built for Indian markets",
     description:
         "Trading analytics platform with seamless broker integrations built exclusively for Indian traders.",
 };
