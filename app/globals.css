@@ -327,11 +327,15 @@ select:-webkit-autofill:focus {
     font-family: var(--font-moniker) !important;
 }
 
-@utility title-gradient {
-    background: linear-gradient(135deg, #2ee8ff 0%, #2ebeff 50%, #2e94ff 100%);
+@utility brand-gradient {
+    /* background: linear-gradient(135deg, #2ee8ff 0%, #2ebeff 50%, #2e94ff 100%); */
     background: linear-gradient(135deg, #96dcff 0%, #14a6ef 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
+}
+
+@utility brand-gradient-bg {
+    background: linear-gradient(135deg, #96dcff -70%, #14a6ef 100%);
 }
