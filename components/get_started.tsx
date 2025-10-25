@@ -18,7 +18,7 @@ export const GetStarted = ({ shortened }: { shortened?: boolean }) => {
             >
                 <Button
                     className={cn(
-                        "font-moniker font-bold arrow-button text-sm py-3 px-4 sm:text-xl sm:py-5 sm:px-6",
+                        "font-moniker font-bold arrow-button text-base py-3 px-4 sm:text-xl sm:py-5 sm:px-6",
                         {
                             "text-sm sm:text-base!": shortened,
                         }

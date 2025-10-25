@@ -33,7 +33,7 @@ export default function Hero() {
                     href="https://cal.com/ceoshikhar/arthveda-demo"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-center block text-sm sm:text-base! font-moniker"
+                    className="text-center block text-sm font-moniker"
                 >
                     Book a demo with the founder
                 </a>

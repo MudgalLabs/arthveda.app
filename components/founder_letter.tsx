@@ -30,17 +30,8 @@ export default function FounderLetter() {
                         opacity: 0.7,
                     }}
                 />
-                <div
-                    className="hidden dark:block bg-surface-2 shadow-lg absolute w-full h-full"
-                    style={{
-                        top: 32,
-                        left: 36,
-                        transform: "rotate(1.5deg)",
-                        zIndex: 0,
-                        opacity: 0.5,
-                    }}
-                />
             </div>
+
             {/* Main letter, slanted */}
             <article
                 className="relative bg-surface-2 dark:bg-surface shadow-lg px-[93px] py-[87px] text-text-primary"
