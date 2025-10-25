@@ -211,7 +211,7 @@
 
 * {
     box-sizing: border-box;
-    text-wrap: balance;
+    /* text-wrap: balance; */
 }
 
 html {
@@ -280,7 +280,7 @@ select:-webkit-autofill:focus {
 /* Typography */
 
 @utility big-heading {
-    @apply font-heading text-[24px] sm:text-[32px] font-medium leading-tight;
+    @apply font-heading text-[30px] sm:text-[48px] font-medium leading-tight;
 }
 @utility heading {
     @apply font-heading text-[24px] font-medium;
@@ -299,6 +299,12 @@ select:-webkit-autofill:focus {
 }
 @utility small {
     @apply font-content text-[14px] font-normal;
+}
+@utility section-header {
+    @apply big-heading font-reallysans brand-gradient;
+}
+@utility section-detail {
+    @apply text-base sm:text-2xl text-text-primary max-w-3xl mx-auto;
 }
 
 /* Layout */
@@ -338,4 +344,15 @@ select:-webkit-autofill:focus {
 
 @utility brand-gradient-bg {
     background: linear-gradient(135deg, #96dcff -70%, #14a6ef 100%);
+}
+
+/* Keyframes */
+
+@keyframes broker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
