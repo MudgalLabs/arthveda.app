@@ -2,8 +2,6 @@
 
 /* Theme*/
 
-/* Theme*/
-
 @theme {
     --color-background: hsl(224, 76%, 5%);
 
@@ -205,6 +203,8 @@
     --font-heading: IBM Plex Sans;
     --font-content: IBM Plex Sans;
     --font-logo: Museo Sans;
+    --font-reallysans: Really Sans Large;
+    --font-moniker: Moniker;
 }
 
 /* Global */
@@ -317,4 +317,21 @@ select:-webkit-autofill:focus {
 
 @utility flex-y {
     @apply flex flex-col justify-center gap-y-2;
+}
+
+@utility font-reallysans {
+    font-family: var(--font-reallysans) !important;
+}
+
+@utility font-moniker {
+    font-family: var(--font-moniker) !important;
+}
+
+@utility title-gradient {
+    background: linear-gradient(135deg, #2ee8ff 0%, #2ebeff 50%, #2e94ff 100%);
+    background: linear-gradient(135deg, #96dcff 0%, #14a6ef 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }

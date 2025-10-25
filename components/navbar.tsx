@@ -34,7 +34,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="sticky top-2 z-50 border-1 rounded-md md:rounded-2xl border-surface-border p-3 backdrop-blur-md backdrop-saturate-150 bg-surface-bg/80 w-full px-2 md:mx-4 lg:max-w-[1200px] lg:mx-auto">
+        <nav className="sticky top-2 z-50 border-1 rounded-md border-surface-border p-3 backdrop-blur-md backdrop-saturate-150 bg-surface-bg/80 w-full px-2 md:mx-4 lg:max-w-[1200px] lg:mx-auto">
             <div className="relative">
                 <ul className="w-full flex justify-between items-center px-2 md:px-0">
                     {/* Branding */}

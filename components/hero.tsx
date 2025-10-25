@@ -77,26 +77,17 @@ const slideInStyles = `
 export default function Hero() {
     return (
         <main className="mt-12 md:mt-16">
-            <h1 className="w-[80%] flex flex-wrap mx-auto justify-center gap-x-2 text-center md:gap-x-3.5 gap-y-1 md:gap-y-2 text-3xl sm:text-5xl md:text-7xl font-medium lg:font-semibold leading-tight">
-                The Trading Journal Built for
-                <span className="inline! text-accent">Indian Markets</span>
+            <h1 className="font-reallysans title-gradient mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight">
+                We finally built a trading journal for the Indian markets!
             </h1>
 
-            <div className="h-6" />
+            <div className="h-2" />
 
-            <p className="text-center mx-auto text-sm sm:text-base md:w-[75%] md:text-xl text-foreground">
-                Arthveda is an{" "}
-                <a
-                    className="text-sm! sm:text-base! md:text-xl!"
-                    href="https://github.com/MudgalLabs/arthveda"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    open-source
-                </a>{" "}
-                trading journal that imports your trades, reveals powerful
-                analytics, and helps you improve.
-            </p>
+            <h2 className="font-moniker font-bold text-center text-foreground text-2xl sm:text-[40px] leading-tight">
+                Arthveda is India-first with seamless broker integrations and
+                fair pricing.
+            </h2>
+
             <div className="h-8" />
 
             {/* <OpenDemo /> */}
@@ -107,12 +98,12 @@ export default function Hero() {
             {/* Inject animation styles */}
             <style>{slideInStyles}</style>
             <a
-                href="/images/dashboard.png"
+                href="/images/dashboard.webp"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Image
-                    src="/images/dashboard.png"
+                    src="/images/dashboard.webp"
                     alt="Arthveda Dashboard"
                     width={1900}
                     height={900}
@@ -121,7 +112,7 @@ export default function Hero() {
                 />
             </a>
             <a
-                href="/images/dashboard.png"
+                href="/images/dashboard.webp"
                 target="_blank"
                 rel="noopener noreferrer"
             >

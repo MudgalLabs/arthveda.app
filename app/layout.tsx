@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
+import localFont from "next/font/local";
 
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
@@ -12,6 +13,60 @@ const ibmPlexSans = IBM_Plex_Sans({
     variable: "--font-content",
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
+});
+
+const reallySans = localFont({
+    src: [
+        {
+            path: "../public/fonts/ReallySansLarge-Extra-Black.woff2",
+            weight: "800",
+            style: "normal",
+        },
+        {
+            path: "../public/fonts/ReallySansLarge-Extra-BlackItalic.woff2",
+            weight: "800",
+            style: "italic",
+        },
+        {
+            path: "../public/fonts/ReallySansLarge-Ultra.woff2",
+            weight: "900",
+            style: "normal",
+        },
+    ],
+    variable: "--font-reallysans",
+    display: "swap",
+});
+
+const moniker = localFont({
+    src: [
+        {
+            path: "../public/fonts/MonikerWebRegular.woff2",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "../public/fonts/MonikerWebRegularItalic.woff2",
+            weight: "400",
+            style: "italic",
+        },
+        {
+            path: "../public/fonts/MonikerWebMedium.woff2",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "../public/fonts/MonikerWebMediumItalic.woff2",
+            weight: "500",
+            style: "italic",
+        },
+        {
+            path: "../public/fonts/MonikerWebBold.woff2",
+            weight: "700",
+            style: "normal",
+        },
+    ],
+    variable: "--font-moniker",
+    display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +83,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${ibmPlexSans.variable}  antialiased w-full flex justify-center px-4`}
+                className={`${ibmPlexSans.variable} ${reallySans.variable} ${moniker.variable} antialiased w-full flex justify-center px-4`}
             >
                 <PostHogProvider>
                     <TooltipProvider>
