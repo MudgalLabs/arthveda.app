@@ -84,8 +84,10 @@ export default function Hero() {
             <div className="h-2" />
 
             <h2 className="font-moniker font-bold text-center text-foreground text-2xl sm:text-[40px] leading-tight">
-                Arthveda is India-first with seamless broker integrations and
-                fair pricing.
+                {/* Arthveda is India-first with seamless broker integrations and
+                fair pricing. */}
+                Arthveda shows you the metrics that matter and the behaviours
+                that lead to profit with the power of journaling and analytics.
             </h2>
 
             <div className="h-8" />
