@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-accent-muted mt-12 sm:mt-24">
+        <footer className="border-t border-accent-muted mt-24 sm:mt-32">
             <div className="flex-x items-start justify-between mt-2">
                 <div>
                     <p className="text-sm">© 2025 Mudgal Labs</p>
