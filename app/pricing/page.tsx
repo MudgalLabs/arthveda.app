@@ -1,3 +1,5 @@
+"use client";
+
 import {
     LucideBadgeCheck as IconBadgeCheck,
     LucideInfo as IconInfo,
