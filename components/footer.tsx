@@ -18,7 +18,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="py-4 flex-center">
+            <div className="py-4 flex-center mt-8 mb-18">
                 <div className="space-y-2 text-center">
                     <p className="text-sm sm:text-base inline-block text-foreground">
                         Built with 💙️️ by{" "}

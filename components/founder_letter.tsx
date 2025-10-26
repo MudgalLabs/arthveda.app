@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FounderLetter() {
     return (
-        <div className="relative max-w-[814px] mx-auto my-12 mt-32">
+        <div className="relative max-w-[814px] mx-auto my-12 mt-32 overflow-hidden sm:overflow-visible">
             {/* Stacked background pages - top and bottom */}
             <div
                 className="pointer-events-none select-none absolute inset-0"
@@ -10,7 +10,7 @@ export default function FounderLetter() {
             >
                 {/* Top stack */}
                 <div
-                    className="hidden dark:block bg-surface-2 shadow-lg absolute w-full h-full"
+                    className="dark:bg-surface-2 shadow-lg absolute w-full h-full"
                     style={{
                         top: -24,
                         left: -18,
@@ -21,7 +21,7 @@ export default function FounderLetter() {
                 />
                 {/* Bottom stacks */}
                 <div
-                    className="hidden dark:block bg-surface-2 shadow-lg absolute w-full h-full"
+                    className="dark:bg-surface-2 shadow-lg absolute w-full h-full"
                     style={{
                         top: 16,
                         left: 18,
@@ -36,7 +36,7 @@ export default function FounderLetter() {
             <article
                 className="relative bg-surface-2 dark:bg-surface shadow-lg px-[93px] py-[87px] text-text-primary"
                 role="article"
-                style={{ zIndex: 1, transform: "rotate(-2deg)" }}
+                style={{ zIndex: 1, transform: "rotate(-0.5deg)" }}
             >
                 <div className="text-[15px] sm:text-[22px] leading-snug space-y-8 not-italic">
                     <p>Hey everyone —</p>
