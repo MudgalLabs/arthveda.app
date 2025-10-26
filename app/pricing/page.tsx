@@ -3,12 +3,11 @@ import {
     LucideInfo as IconInfo,
 } from "lucide-react";
 
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, getUserTimezone } from "@/lib/utils";
 import { Card } from "@/ui/card";
 import { Tooltip } from "@/ui/tooltip";
 import Link from "next/link";
 import { GetStarted } from "@/components/get_started";
-import { usePricing } from "@/app/pricing/usePricing";
 
 const FEATURES = [
     "Journal unlimited positions via import or manual entry",
@@ -23,7 +22,10 @@ const FEATURES = [
 ];
 
 export default function Pricing() {
-    const { isIndia, currency, yearlyPrice } = usePricing();
+    const tz = getUserTimezone();
+    const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
+    const yearlyPrice = isIndia ? 1500 : 50;
+    const currency = isIndia ? "inr" : "usd";
 
     return (
         <div>
