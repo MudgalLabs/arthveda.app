@@ -27,7 +27,9 @@ export default function Navbar() {
                     onClick={() => posthog.capture("Clicked Sign Up")}
                     className="unstyled-link"
                 >
-                    <Button size="large">Go to App</Button>
+                    <Button variant="ghost" size="large">
+                        Go to App
+                    </Button>
                 </a>
             </>
         );
