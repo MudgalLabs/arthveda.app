@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <div>
             <header className="mt-12 md:mt-16">
-                <h1 className="font-reallysans brand-gradient mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight">
+                <h1 className="page-header">
                     We finally built a trading journal for the Indian markets!
                 </h1>
 

@@ -200,11 +200,11 @@
     /* On darker surfaces */
     --color-accent-muted: var(--color-surface-5);
 
-    --font-heading: IBM Plex Sans;
-    --font-content: IBM Plex Sans;
     --font-logo: Museo Sans;
     --font-reallysans: "Really Sans Large", "sans-serif";
     --font-moniker: Moniker;
+    --font-heading: var(--font-reallysans);
+    --font-content: var(--font-moniker);
 }
 
 /* Global */
@@ -280,16 +280,16 @@ select:-webkit-autofill:focus {
 /* Typography */
 
 @utility big-heading {
-    @apply font-heading text-[30px] sm:text-[48px] font-medium leading-tight;
+    @apply font-reallysans text-[30px] sm:text-[48px] font-medium leading-tight;
 }
 @utility heading {
-    @apply font-heading text-[24px] font-medium;
+    @apply font-reallysans text-[24px] font-medium;
 }
 @utility sub-heading {
-    @apply font-heading text-[20px] font-medium;
+    @apply font-reallysans text-[20px] font-medium;
 }
 @utility paragraph {
-    @apply font-content text-[16px] font-normal;
+    @apply font-moniker text-[16px] font-normal;
 }
 @utility label {
     @apply text-foreground text-sm font-medium;
@@ -298,7 +298,10 @@ select:-webkit-autofill:focus {
     @apply text-foreground-muted text-sm font-normal;
 }
 @utility small {
-    @apply font-content text-[14px] font-normal;
+    @apply font-moniker text-[14px] font-normal;
+}
+@utility page-header {
+    @apply font-reallysans brand-gradient mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight;
 }
 @utility section-header {
     @apply big-heading font-reallysans brand-gradient;

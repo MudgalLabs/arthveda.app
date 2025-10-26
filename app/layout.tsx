@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import FloatingGetStarted from "@/components/floating_get_started";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
-
-const ibmPlexSans = IBM_Plex_Sans({
-    variable: "--font-content",
-    subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
-});
 
 const reallySans = localFont({
     src: [
@@ -83,7 +77,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${ibmPlexSans.variable} ${reallySans.variable} ${moniker.variable} antialiased w-full flex justify-center px-4`}
+                className={`${reallySans.variable} ${moniker.variable} antialiased w-full flex justify-center px-4`}
             >
                 <PostHogProvider>
                     <TooltipProvider>
@@ -92,6 +86,7 @@ export default function RootLayout({
                             <div className="w-full max-w-[1200px]">
                                 {children}
                             </div>
+                            <FloatingGetStarted />
                             <Footer />
                         </div>
                     </TooltipProvider>

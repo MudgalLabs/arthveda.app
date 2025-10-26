@@ -3,19 +3,6 @@ import { Tag } from "@/ui/tag";
 
 const roadmap = [
     {
-        title: "Tags and Tag Groups",
-        icon: "🔖",
-        status: "In Progress",
-        description: `Give structure to your trades. Power filters, insights, and journaling.
-
-Use Tag Groups like:
-- Setup → Breakout, Pullback, Range.
-- Mistake → FOMO, Sold Early, Revenge Trade.
-- Emotion → Fear, Greed, Hesitation.
-
-Tags power segmented performance analysis, filtering, and richer journaling.`,
-    },
-    {
         title: "Share Positions and Dashboards",
         icon: "👥",
         status: "Planned",
@@ -71,14 +58,13 @@ Based on demand and paying user interest:
 export default function RoadmapPage() {
     return (
         <div className="mt-12 md:mt-16 mb-12">
-            <h1 className="mx-auto justify-center gap-x-2 gap-y-1 text-center text-3xl leading-tight font-medium sm:text-5xl md:gap-x-3.5 md:gap-y-2 md:text-7xl lg:font-semibold">
-                {`What's`} next for{" "}
-                <span className="inline! text-accent">Arthveda?</span>
-            </h1>
-            <p className="text-text-muted mb-10 text-center">
+            <h1 className="page-header">{`What's`} next for Arthveda?</h1>
+
+            <h2 className="mb-12 font-medium text-xl text-center">
                 Here’s a look at the roadmap — driven by real trading pain
                 points.
-            </p>
+            </h2>
+
             <div className="relative space-y-10 border-l border-border ml-2">
                 {roadmap.map((item, index) => (
                     <div key={index} className="pl-6 relative">
@@ -107,8 +93,8 @@ export default function RoadmapPage() {
                     </div>
                 ))}
             </div>
-            <p className="text-xs text-text-muted mt-16">
-                Last updated: Oct 9, 2025
+            <p className="text-sm text-text-muted mt-16">
+                Last updated: Oct 26, 2025
             </p>
         </div>
     );

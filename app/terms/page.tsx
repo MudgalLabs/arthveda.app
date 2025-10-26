@@ -1,7 +1,7 @@
 export default function TermsPage() {
     return (
         <div className="mt-12">
-            <h1 className="big-heading mb-4">Terms of Service</h1>
+            <h1 className="big-heading mb-12">Terms of Service</h1>
 
             <p className="mb-2">
                 <strong>Effective Date:</strong> June 29, 2025
