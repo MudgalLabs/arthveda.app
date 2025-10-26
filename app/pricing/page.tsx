@@ -1,15 +1,13 @@
-"use client";
-
 import {
     LucideBadgeCheck as IconBadgeCheck,
     LucideInfo as IconInfo,
 } from "lucide-react";
 
-import { formatCurrency, getUserTimezone } from "@/lib/utils";
 import { Card } from "@/ui/card";
 import { Tooltip } from "@/ui/tooltip";
 import Link from "next/link";
 import { GetStarted } from "@/components/get_started";
+import { PricingCost } from "@/app/pricing/pricing_cost";
 
 const FEATURES = [
     "Journal unlimited positions via import or manual entry",
@@ -24,11 +22,6 @@ const FEATURES = [
 ];
 
 export default function Pricing() {
-    const tz = getUserTimezone();
-    const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
-    const yearlyPrice = isIndia ? 1500 : 50;
-    const currency = isIndia ? "inr" : "usd";
-
     return (
         <div>
             <div className="mt-12 md:mt-16 mb-12 text-center">
@@ -42,19 +35,7 @@ export default function Pricing() {
 
             <div className="w-full max-w-md mx-auto mb-10">
                 <Card className="">
-                    <div>
-                        {/* <h3 className="heading">Subscribe to Arthveda</h3> */}
-                        <p className="text-text-primary text-center text-4xl font-bold mt-4">
-                            {formatCurrency(yearlyPrice, { currency })}
-                            <span className="text-muted-foreground text-base font-medium">
-                                /year
-                            </span>
-                        </p>
-                        <p className="text-text-muted mt-2 text-center text-sm">
-                            (inclusive of{" "}
-                            {isIndia ? "GST" : "VAT if applicable"})
-                        </p>
-                    </div>
+                    <PricingCost />
 
                     <div className="mt-4">
                         <GetStarted />

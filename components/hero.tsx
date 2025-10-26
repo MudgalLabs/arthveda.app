@@ -1,6 +1,5 @@
-// import OpenDemo from "@/components/open_demo";
 import { GetStarted } from "@/components/get_started";
-import { Screenshot } from "@/components/screenshot";
+import { HeroScreenshot } from "./hero_screenshot";
 
 export default function Hero() {
     return (
@@ -13,39 +12,30 @@ export default function Hero() {
                 <div className="h-4" />
 
                 <h2 className="font-moniker font-bold text-center text-text-primary text-2xl sm:text-4xl leading-tight text-balance">
-                    {/* Arthveda is India-first with seamless broker integrations and
-                fair pricing. */}
-                    Arthveda shows you the metrics that matter and the
-                    behaviours that lead to profit with the power of journaling
-                    and analytics.
+                    Arthveda shows you the story behind profits and losses.
                 </h2>
 
                 <div className="h-12" />
             </header>
 
             <footer>
-                {/* <OpenDemo /> */}
                 <GetStarted />
-
-                <div className="h-4" />
-
-                <a
-                    href="https://cal.com/ceoshikhar/arthveda-demo"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-center block text-sm font-moniker"
-                >
-                    Book a demo with the founder
-                </a>
-
-                {/* <p className=" text-xs sm:text-base text-text-muted italic font-moniker text-center">
-                    No credit card required.
-                </p> */}
             </footer>
 
-            <div className="h-15" />
+            <div className="h-12" />
 
-            <Screenshot src="/images/dashboard.webp" alt="Arthveda Dashboard" />
+            <HeroScreenshot />
+
+            <div className="h-8" />
+
+            <a
+                href="https://cal.com/ceoshikhar/arthveda-demo"
+                target="_blank"
+                rel="noreferrer"
+                className="text-center block text-base!"
+            >
+                Book a demo with the founder
+            </a>
         </div>
     );
 }

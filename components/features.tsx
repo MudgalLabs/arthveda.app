@@ -12,8 +12,10 @@ export default function Features() {
                     <div className="h-4" />
 
                     <p className="section-detail">
-                        A clear view of your overall trading performance at a
-                        glance.
+                        A <strong>clear view </strong> of your overall trading
+                        performance. Cumulative PnL shows your long-term
+                        trajectory. Key stats reveal strengths, weaknesses, and
+                        improvement areas.
                     </p>
 
                     <div className="h-8" />
@@ -80,8 +82,8 @@ export default function Features() {
                     <p className="section-detail">
                         See your performance day by day, week by week, all the
                         way to the big yearly picture. Green days, red days,
-                        overtrading days. A calendar view highlights your
-                        consistency and patterns you might miss.
+                        overtrading days. A <strong>calendar view</strong>{" "}
+                        highlights your consistency and patterns you might miss.
                     </p>
 
                     <div className="h-8" />
@@ -103,8 +105,9 @@ export default function Features() {
                     <p className="section-detail">
                         Break down performance by tags, symbols, time, and
                         instruments. Discover where you win most, where you
-                        struggle, and where to focus next. Decisions backed by
-                        data beat decisions backed by hope.
+                        struggle, and where to focus next. Decisions{" "}
+                        <strong>backed by data </strong> beat decisions backed
+                        by hope.
                     </p>
 
                     <div className="h-8" />
@@ -123,8 +126,8 @@ export default function Features() {
 
                     <p className="section-detail">
                         We’re adding new features based on real trader feedback.
-                        Arthveda will keep growing with you and your trading
-                        journey.
+                        Arthveda will keep growing with you and your trading{" "}
+                        <strong>journey</strong>.
                     </p>
                 </section>
             </div>

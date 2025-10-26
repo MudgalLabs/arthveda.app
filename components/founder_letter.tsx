@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function FounderLetter() {
     return (
@@ -78,13 +79,19 @@ export default function FounderLetter() {
                     </p>
                 </div>
                 <div className="mt-10 flex items-center">
+                    <Image
+                        src="/images/me.webp"
+                        alt="Shikhar Sharma"
+                        className="rounded-full mr-4"
+                        width={64}
+                        height={64}
+                        loading="lazy"
+                    />
                     <div>
                         <div className="font-bold text-base text-text-primary">
                             Shikhar Sharma
                         </div>
-                        <div className="text-text-muted text-base ">
-                            Founder
-                        </div>
+                        <div className="text-text-muted text-base">Founder</div>
                     </div>
                 </div>
             </article>
