@@ -35,7 +35,7 @@ export default function FounderLetter() {
 
             {/* Main letter, slanted */}
             <article
-                className="relative bg-surface-2 dark:bg-surface shadow-lg px-[93px] py-[87px] text-text-primary"
+                className="relative bg-surface-2 dark:bg-surface shadow-lg px-8 py-4 md:px-[93px] md:py-[87px] text-text-primary"
                 role="article"
                 style={{ zIndex: 1, transform: "rotate(-0.5deg)" }}
             >
