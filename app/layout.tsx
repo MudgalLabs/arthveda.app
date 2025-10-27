@@ -64,9 +64,9 @@ const moniker = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Arthveda — A trading journal built for Indian markets",
+    title: "Arthveda: Trading journal for Indian stock market traders",
     description:
-        "Trading analytics platform with seamless broker integrations built exclusively for Indian traders.",
+        "Track trades, analyze performance, and improve profitability with Arthveda — the trading journal built for Indian traders. Seamless import from Zerodha, Upstox, and Groww.",
 };
 
 export default function RootLayout({

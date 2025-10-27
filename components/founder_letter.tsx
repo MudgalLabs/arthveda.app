@@ -85,6 +85,7 @@ export default function FounderLetter() {
                         className="rounded-full mr-4"
                         width={64}
                         height={64}
+                        sizes="(min-width: 768px) 64px, 64px" // ensures sharpness on high-DPI screens
                         loading="lazy"
                     />
                     <div>
