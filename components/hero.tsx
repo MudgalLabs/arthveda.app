@@ -1,5 +1,5 @@
 import { GetStarted } from "@/components/get_started";
-import { HeroScreenshot } from "./hero_screenshot";
+import { HeroScreenshot } from "@/components/hero_screenshot";
 
 export default function Hero() {
     return (
@@ -20,6 +20,11 @@ export default function Hero() {
 
             <footer>
                 <GetStarted />
+
+                <div className="h-4" />
+                <p className="text-center italic text-text-muted">
+                    No credit card required.
+                </p>
             </footer>
 
             <div className="h-12" />

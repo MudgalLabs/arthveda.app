@@ -1,7 +1,7 @@
 "use client";
 
 import posthog from "posthog-js";
-import { ArrowRight as IconRight } from "lucide-react";
+// import { ArrowRight as IconRight } from "lucide-react";
 
 import { Button } from "@/ui/button";
 import { cn } from "@/lib/utils";
@@ -24,8 +24,8 @@ export const GetStarted = ({ shortened }: { shortened?: boolean }) => {
                         }
                     )}
                 >
-                    {/* TRY ARTHVEDA FREE {!shortened && "FOR 30-DAYS"} */}
-                    Start journaling <IconRight size={22} strokeWidth={3} />
+                    TRY ARTHVEDA FREE {!shortened && "FOR 30-DAYS"}
+                    {/* Start journaling <IconRight size={22} strokeWidth={3} /> */}
                 </Button>
             </a>
         </div>
