@@ -27,9 +27,8 @@ export default function Pricing() {
             <div className="mt-12 md:mt-16 mb-12 text-center">
                 <h1 className="page-header">Powerful. Affordable.</h1>
 
-                <p className="mt-4 font-medium text-xl">
-                    We provide a 14-day, no questions asked, money-back
-                    guarantee!
+                <p className="mt-4 font-reallysans font-medium text-3xl">
+                    All features. One price. Unlimited potential.
                 </p>
             </div>
 
