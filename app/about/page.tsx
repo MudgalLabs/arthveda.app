@@ -12,7 +12,7 @@ export default function AboutPage() {
                 Built by{" "}
                 <a
                     className="text-base!"
-                    href="https://github.com/MudgalLabs"
+                    href="https://mudgallabs.com"
                     target="_blank"
                     rel="noopener noreferrer"
                 >

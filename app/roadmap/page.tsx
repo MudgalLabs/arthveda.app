@@ -38,11 +38,11 @@ Build and save tailored dashboards to suit your trading style:
 
 Currently supported:
 - Zerodha (1-Click Sync for today's trades)
-- Excel Import: Zerodha, Upstox, Groww
+- Excel Import: Zerodha, Upstox, Groww, Angel One, Kotak Securities.
 
 Based on demand and paying user interest:
 - More excel import and 1-click sync integrations for other brokers.
-- Crypto start with CoinDCX?`,
+- Start Crypto with CoinDCX?`,
     },
     {
         title: "Weekly Summary Emails",

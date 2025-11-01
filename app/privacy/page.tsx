@@ -4,7 +4,7 @@ export default function PrivacyPage() {
             <h1 className="big-heading mb-12">Privacy Policy</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> June 29, 2025
+                <strong>Effective Date:</strong> November 1, 2025
             </p>
 
             <p className="mb-8">
@@ -60,26 +60,7 @@ export default function PrivacyPage() {
                 measures to protect it from unauthorized access or loss.
             </p>
 
-            <h2 className="sub-heading mt-4">
-                5. Transparency and Source Availability
-            </h2>
-            <p>
-                Arthveda’s is <strong>open source</strong> on GitHub to promote
-                transparency and build trust. You can view it here:{" "}
-                <a
-                    className="text-base!"
-                    href="https://github.com/MudgalLabs/arthveda"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    github.com/MudgalLabs/arthveda
-                </a>
-            </p>
-            <p>
-                Note: Arthveda is licensed under the <strong>AGPL-3.0</strong>.
-            </p>
-
-            <h2 className="sub-heading mt-4">6. Your Rights</h2>
+            <h2 className="sub-heading mt-4">5. Your Rights</h2>
             <ul>
                 <li>
                     You may delete your account or request data deletion at any
@@ -92,14 +73,14 @@ export default function PrivacyPage() {
                 </li>
             </ul>
 
-            <h2 className="sub-heading mt-4">7. Changes to This Policy</h2>
+            <h2 className="sub-heading mt-4">6. Changes to This Policy</h2>
             <p>
                 We may update this policy in the future. If we make major
                 changes, we’ll try out best to notify you in the app or via
                 email.
             </p>
 
-            <h2 className="sub-heading mt-4">8. Contact</h2>
+            <h2 className="sub-heading mt-4">7. Contact</h2>
             <p>
                 Have questions or concerns? Reach out to{" "}
                 <a className="text-base!" href="mailto:hey@arthveda.app">
