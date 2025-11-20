@@ -33,14 +33,14 @@ export default function Hero() {
 
             <div className="h-8" />
 
-            <a
+            {/* <a
                 href="https://cal.com/ceoshikhar/arthveda-demo"
                 target="_blank"
                 rel="noreferrer"
                 className="text-center block text-base!"
             >
                 Book a demo with the founder
-            </a>
+            </a> */}
         </div>
     );
 }
