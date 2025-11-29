@@ -16,6 +16,11 @@ export default function Brokers() {
             homepage: "https://www.angelone.in/",
         },
         {
+            name: "Fyers",
+            svg: "/svgs/fyers.svg",
+            homepage: "https://fyers.in/",
+        },
+        {
             name: "Dhan",
             svg: "/svgs/dhan.svg",
             homepage: "https://dhan.co/",
