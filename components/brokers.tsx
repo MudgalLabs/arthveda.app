@@ -32,6 +32,11 @@ export default function Brokers() {
             homepage: "https://groww.in/",
         },
         {
+            name: "INDmoney",
+            svg: "/svgs/indmoney.svg",
+            homepage: "https://www.indmoney.com/",
+        },
+        {
             name: "Kotak Securities",
             svg: "/svgs/kotak_securities.svg",
             homepage: "https://www.kotaksecurities.com/",
@@ -102,7 +107,7 @@ function BrokerStrip({ brokers }: { brokers: Broker[] }) {
                                         alt={`${name} logo`}
                                         width={150}
                                         height={40}
-                                        // className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200"
+                                        className="grayscale opacity-69 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200 max-h-24"
                                     />
                                 </div>
                             </a>
@@ -115,7 +120,7 @@ function BrokerStrip({ brokers }: { brokers: Broker[] }) {
                                 </Tag>
                             )}
                         </div>
-                    )
+                    ),
                 )}
             </div>
         </div>
