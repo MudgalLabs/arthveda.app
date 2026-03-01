@@ -28,7 +28,7 @@ export default function Pricing() {
                 <h1 className="page-header">Powerful. Affordable.</h1>
 
                 <p className="mt-4 font-reallysans font-medium text-3xl">
-                    All features. One price. Unlimited potential.
+                    One plan. All features. Unlimited potential.
                 </p>
             </div>
 

@@ -3,6 +3,7 @@
 import { CurrencyCode, getUserTimezone } from "@/lib/utils";
 
 interface PricingInfo {
+    monthlyPrice: number;
     yearlyPrice: number;
     currency: CurrencyCode;
     isIndia: boolean;
@@ -11,8 +12,9 @@ interface PricingInfo {
 export function usePricing(): PricingInfo {
     const tz = getUserTimezone();
     const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
-    const yearlyPrice = isIndia ? 1500 : 50;
+    const monthlyPrice = isIndia ? 399 : 9;
+    const yearlyPrice = isIndia ? 1999 : 69;
     const currency = isIndia ? "inr" : "usd";
 
-    return { yearlyPrice, currency, isIndia };
+    return { monthlyPrice, yearlyPrice, currency, isIndia };
 }
