@@ -30,6 +30,9 @@ export default function Pricing() {
                 <p className="mt-4 font-reallysans font-medium text-3xl">
                     One plan. All features. Unlimited potential.
                 </p>
+                <p className="text-muted-foreground mx-auto">
+                    14-day 100% money-back guarantee. No questions asked.
+                </p>
             </div>
 
             <div className="w-full max-w-md mx-auto mb-10">
