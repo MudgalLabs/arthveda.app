@@ -63,13 +63,61 @@ const moniker = localFont({
     display: "swap",
 });
 
-const TITLE = "Arthveda: Trading journal for Indian stock market traders";
+const TITLE = "Trading Journal for Indian Traders | Arthveda";
 const DESCRIPTION =
-    "Track trades, analyze performance, and improve profitability with Arthveda — the trading journal built for Indian traders. Seamless import from Zerodha, Upstox, and Groww.";
+    "Track, analyze, and improve your trading with Arthveda — a trading journal for Indian traders. Import trades from Zerodha, Upstox, and Groww. Start with a 30-day free trial.";
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://arthveda.app"),
+
     title: TITLE,
     description: DESCRIPTION,
+
+    keywords: [
+        "trading journal India",
+        "Zerodha journal",
+        "stock trading tracker India",
+        "trade analysis tool",
+    ],
+
+    alternates: {
+        canonical: "/",
+    },
+
+    openGraph: {
+        title: TITLE,
+        description: DESCRIPTION,
+        url: "/",
+        siteName: "Arthveda",
+        type: "website",
+        images: [
+            {
+                url: "/images/og-image.png",
+                width: 1200,
+                height: 630,
+                type: "image/png",
+                alt: "Arthveda trading journal dashboard",
+            },
+        ],
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: TITLE,
+        description: DESCRIPTION,
+        images: ["/images/og-image.png"],
+    },
+
+    icons: {
+        icon: "/favicon.ico",
+    },
+
+    themeColor: "#0f172a",
+
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function RootLayout({
@@ -80,24 +128,25 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                <meta property="og:title" content={TITLE} />
-                <meta property="og:description" content={DESCRIPTION} />
-                <meta property="og:url" content="https://arthveda.app/" />
-                <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="Arthveda" />
-                <meta
-                    property="og:image"
-                    content="https://arthveda.app/images/og-image.png"
-                />
-                <meta property="og:image:type" content="image/png" />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={TITLE} />
-                <meta name="twitter:description" content={DESCRIPTION} />
-                <meta
-                    name="twitter:image"
-                    content="https://arthveda.app/images/og-image.png"
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "SoftwareApplication",
+                            name: "Arthveda",
+                            applicationCategory: "FinanceApplication",
+                            operatingSystem: "Web",
+                            description:
+                                "Track, analyze, and improve your trading with Arthveda — a trading journal for Indian traders. Import trades from Zerodha, Upstox, and Groww. Start with a 30-day free trial.",
+                            url: "https://arthveda.app",
+                            offers: {
+                                "@type": "Offer",
+                                price: "399",
+                                priceCurrency: "INR",
+                            },
+                        }),
+                    }}
                 />
             </head>
             <body
