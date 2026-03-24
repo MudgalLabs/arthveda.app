@@ -1,12 +1,22 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Youtube, Instagram } from "lucide-react";
 
 export default function Footer() {
     return (
         <footer className="border-t border-accent-muted mt-24 sm:mt-32">
             <div className="flex-x items-start justify-between mt-2">
-                <div>
+                <div className="flex-y gap-y-4!">
                     <p className="text-sm">© 2025 Mudgal Labs</p>
+                    <div className="flex-x gap-x-4">
+                        <a href="https://www.instagram.com/arthvedahq">
+                            <Instagram size={24} />
+                        </a>
+
+                        <a href="https://www.youtube.com/@ArthvedaHQ">
+                            <Youtube size={24} />
+                        </a>
+                    </div>
                 </div>
 
                 <div className="flex-y sm:flex-x gap-x-4!">
