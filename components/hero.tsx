@@ -30,7 +30,7 @@ export default function Hero() {
 
             {/* <HeroScreenshot /> */}
 
-            <div className="relative w-fit mx-auto">
+            <div className="w-full mx-auto bg-surface-2 p-2 md:p-4 rounded-sm sm:rounded-md flex justify-center items-center">
                 {/* <span className="absolute -top-2 md:-top-2 -right-1 md:-right-4 z-10">
                     <PriceTag />
                 </span> */}
