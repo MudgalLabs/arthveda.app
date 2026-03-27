@@ -1,5 +1,4 @@
 import { GetStarted } from "@/components/get_started";
-import { HeroScreenshot } from "@/components/hero_screenshot";
 
 export default function Hero() {
     return (
@@ -29,7 +28,23 @@ export default function Hero() {
 
             <div className="h-12" />
 
-            <HeroScreenshot />
+            {/* <HeroScreenshot /> */}
+
+            <div className="relative w-fit mx-auto">
+                {/* <span className="absolute -top-2 md:-top-2 -right-1 md:-right-4 z-10">
+                    <PriceTag />
+                </span> */}
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto outline-offset-1 outline-1 md:outline-1 hover:outline-border-hover outline-border-soft rounded-sm sm:rounded-md transition-all duration-300 ease-in-out animate-slide-in-bottom"
+                >
+                    <source src="/videos/dashboard.webm" type="video/webm" />
+                    <source src="/videos/dashboard.mp4" type="video/mp4" />
+                </video>
+            </div>
 
             <div className="h-8" />
 
