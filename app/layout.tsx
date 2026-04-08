@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
+import { Inter } from "next/font/google";
 
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
@@ -9,58 +10,9 @@ import FloatingGetStarted from "@/components/floating_get_started";
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 
-const reallySans = localFont({
-    src: [
-        {
-            path: "../public/fonts/ReallySansLarge-Extra-Black.woff2",
-            weight: "800",
-            style: "normal",
-        },
-        {
-            path: "../public/fonts/ReallySansLarge-Extra-BlackItalic.woff2",
-            weight: "800",
-            style: "italic",
-        },
-        {
-            path: "../public/fonts/ReallySansLarge-Ultra.woff2",
-            weight: "900",
-            style: "normal",
-        },
-    ],
-    variable: "--font-reallysans",
-    display: "swap",
-});
-
-const moniker = localFont({
-    src: [
-        {
-            path: "../public/fonts/MonikerWebRegular.woff2",
-            weight: "400",
-            style: "normal",
-        },
-        {
-            path: "../public/fonts/MonikerWebRegularItalic.woff2",
-            weight: "400",
-            style: "italic",
-        },
-        {
-            path: "../public/fonts/MonikerWebMedium.woff2",
-            weight: "500",
-            style: "normal",
-        },
-        {
-            path: "../public/fonts/MonikerWebMediumItalic.woff2",
-            weight: "500",
-            style: "italic",
-        },
-        {
-            path: "../public/fonts/MonikerWebBold.woff2",
-            weight: "700",
-            style: "normal",
-        },
-    ],
-    variable: "--font-moniker",
-    display: "swap",
+const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
 });
 
 const TITLE = "Trading Journal for Indian Traders | Arthveda";
@@ -150,15 +102,46 @@ export default function RootLayout({
                 />
             </head>
             <body
-                className={`${reallySans.variable} ${moniker.variable} antialiased w-full flex justify-center px-4`}
+                className={`${GeistSans.variable} ${inter.variable} antialiased w-full flex justify-center px-4`}
             >
                 <PostHogProvider>
                     <TooltipProvider>
-                        <div className="w-full max-w-[1200px]">
+                        <div className="fixed inset-0 -z-10 bg-[#05070f] overflow-hidden">
+                            {/* Primary glow */}
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    backgroundImage: `
+        radial-gradient(circle 600px at 70% 20%, rgba(99,102,241,0.25), transparent),
+        radial-gradient(circle 500px at 30% 60%, rgba(59,130,246,0.15), transparent)
+      `,
+                                }}
+                            />
+
+                            {/* Soft atmospheric layer */}
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    background:
+                                        "radial-gradient(circle at 50% 40%, rgba(255,255,255,0.05), transparent 60%)",
+                                    filter: "blur(40px)",
+                                }}
+                            />
+
+                            {/* Subtle vignette */}
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    background:
+                                        "radial-gradient(circle, transparent 40%, rgba(0,0,0,0.6))",
+                                }}
+                            />
+                        </div>
+
+                        {/* Content */}
+                        <div className="w-full max-w-[1200px] relative">
                             <Navbar />
-                            <div className="w-full max-w-[1200px]">
-                                {children}
-                            </div>
+                            {children}
                             <FloatingGetStarted />
                             <Footer />
                         </div>

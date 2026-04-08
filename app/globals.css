@@ -200,11 +200,8 @@
     /* On darker surfaces */
     --color-accent-muted: var(--color-surface-5);
 
-    --font-logo: Museo Sans;
-    --font-reallysans: "Really Sans Large", "sans-serif";
-    --font-moniker: Moniker;
-    --font-heading: var(--font-reallysans);
-    --font-content: var(--font-moniker);
+    --font-heading: var(--font-geist-sans);
+    --font-content: var(--font-inter);
 }
 
 /* Global */
@@ -280,16 +277,16 @@ select:-webkit-autofill:focus {
 /* Typography */
 
 @utility big-heading {
-    @apply font-reallysans text-[30px] sm:text-[48px] font-medium leading-tight;
+    @apply font-heading text-[30px] sm:text-[48px] font-medium leading-tight;
 }
 @utility heading {
-    @apply font-reallysans text-[24px] font-medium;
+    @apply font-heading text-[24px] font-medium;
 }
 @utility sub-heading {
-    @apply font-reallysans text-[20px] font-medium;
+    @apply font-heading text-[20px] font-medium;
 }
 @utility paragraph {
-    @apply font-moniker text-[16px] font-normal;
+    @apply font-content text-[16px] font-normal;
 }
 @utility label {
     @apply text-foreground text-sm font-medium;
@@ -298,13 +295,13 @@ select:-webkit-autofill:focus {
     @apply text-foreground-muted text-sm font-normal;
 }
 @utility small {
-    @apply font-moniker text-[14px] font-normal;
+    @apply font-content text-[14px] font-normal;
 }
 @utility page-header {
-    @apply font-reallysans brand-gradient mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight;
+    @apply font-heading text-text-primary mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight;
 }
 @utility section-header {
-    @apply big-heading font-reallysans brand-gradient;
+    @apply big-heading font-heading brand-gradient;
 }
 @utility section-detail {
     @apply text-base sm:text-2xl text-text-primary max-w-3xl mx-auto;
@@ -328,12 +325,12 @@ select:-webkit-autofill:focus {
     @apply flex flex-col justify-center gap-y-2;
 }
 
-@utility font-reallysans {
-    font-family: var(--font-reallysans) !important;
+@utility font-heading {
+    font-family: var(--font-heading) !important;
 }
 
-@utility font-moniker {
-    font-family: var(--font-moniker) !important;
+@utility font-content {
+    font-family: var(--font-content) !important;
 }
 
 @utility brand-gradient {
@@ -346,7 +343,11 @@ select:-webkit-autofill:focus {
 }
 
 @utility brand-gradient-bg {
-    background: linear-gradient(135deg, #96dcff -70%, #14a6ef 100%);
+    background: linear-gradient(135deg, #4c6fff 0%, #5a5fe8 40%, #3f7fe0 100%);
+}
+
+@utility brand-gradient-bg {
+    background: linear-gradient(135deg, #3f5fff 0%, #5a52d6 45%, #3b6fd1 100%);
 }
 
 /* Keyframes */
