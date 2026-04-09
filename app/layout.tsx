@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     },
 
     icons: {
-        icon: "/favicon.ico",
+        icon: "/favicon.png",
     },
 
     themeColor: "#0f172a",

@@ -6,7 +6,7 @@ import { BrokerStrip } from "@/components/brokers";
 
 export default function Hero() {
     return (
-        <div className="mt-16 md:mt-24">
+        <section className="mt-16 md:mt-24">
             <div className="md:px-4 xl:px-0 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* LEFT */}
                 <div className="text-center lg:text-left">
@@ -134,6 +134,6 @@ export default function Hero() {
             </div>
 
             <div className="h-8" /> */}
-        </div>
+        </section>
     );
 }
