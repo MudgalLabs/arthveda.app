@@ -1,17 +1,47 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GetStarted } from "./get_started";
+import { GetStarted } from "@/components/get_started";
 
 export default function FloatingGetStarted() {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => {
-            setShow(window.scrollY > 150);
+        const hero = document.getElementById("hero-cta");
+        const footer = document.getElementById("bottom-cta");
+
+        let pastHero = false;
+        let nearFooter = false;
+
+        const update = () => {
+            setShow(pastHero && !nearFooter);
         };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
+
+        const heroObserver = new IntersectionObserver(
+            ([entry]) => {
+                pastHero = !entry.isIntersecting;
+                update();
+            },
+            { threshold: 0.1 },
+        );
+
+        const footerObserver = new IntersectionObserver(
+            ([entry]) => {
+                nearFooter = entry.isIntersecting;
+                update();
+            },
+            {
+                rootMargin: "-200px 0px -100px 0px",
+            },
+        );
+
+        if (hero) heroObserver.observe(hero);
+        if (footer) footerObserver.observe(footer);
+
+        return () => {
+            heroObserver.disconnect();
+            footerObserver.disconnect();
+        };
     }, []);
 
     return (

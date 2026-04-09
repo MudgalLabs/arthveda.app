@@ -187,8 +187,8 @@
     --color-border-accent: var(--color-azure-500);
 
     /* === Text Layers === */
-    --color-text-primary: hsl(210, 40%, 98%);
-    --color-text-muted: hsl(213, 30%, 70%);
+    --color-text-primary: hsl(210, 40%, 100%);
+    --color-text-muted: hsl(213, 30%, 80%);
     --color-text-subtle: hsl(215, 15%, 50%);
     --color-text-placeholder: hsl(215, 13%, 45%);
     --color-text-destructive: lch(80 80 29);
@@ -301,10 +301,10 @@ select:-webkit-autofill:focus {
     @apply font-heading text-text-primary mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight;
 }
 @utility section-header {
-    @apply big-heading font-heading brand-gradient;
+    @apply big-heading font-heading text-text-primary;
 }
 @utility section-detail {
-    @apply text-base sm:text-2xl text-text-primary max-w-3xl mx-auto;
+    @apply text-base sm:text-2xl text-text-muted max-w-3xl mx-auto;
 }
 
 /* Layout */
@@ -357,6 +357,25 @@ select:-webkit-autofill:focus {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-33.33%);
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.01);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
     }
 }

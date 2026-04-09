@@ -3,7 +3,11 @@
 import posthog from "posthog-js";
 import { ArrowRight as IconRight } from "lucide-react";
 
-export const GetStarted = () => {
+interface GetStartedProps {
+    shortened?: boolean;
+}
+
+export const GetStarted = ({ shortened = false }: GetStartedProps) => {
     return (
         <div className="flex-center flex-col">
             <a
@@ -23,7 +27,11 @@ export const GetStarted = () => {
 
                         {/* Content */}
                         <span className="relative z-10 flex-x">
-                            Start free <IconRight size={18} strokeWidth={2.5} />
+                            {/* Start free <IconRight size={18} strokeWidth={2.5} /> */}
+                            {shortened
+                                ? "Start free"
+                                : "See your trading insights"}
+                            <IconRight size={18} strokeWidth={2.5} />
                         </span>
                     </button>
                 </div>

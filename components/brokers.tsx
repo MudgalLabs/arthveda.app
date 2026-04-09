@@ -71,8 +71,6 @@ export default function Brokers() {
                     welcome!
                 </p>
             </div>
-
-            <BrokerStrip />
         </section>
     );
 }
@@ -84,7 +82,7 @@ export function BrokerStrip() {
     return (
         <div className="relative overflow-hidden w-full py-6">
             <div
-                className="flex items-center gap-x-6 animate-[broker-scroll_40s_linear_infinite]"
+                className="flex items-center gap-x-6 animate-[broker-scroll_30s_linear_infinite] will-change-transform"
                 style={{ minWidth: "max-content" }}
             >
                 {scrollingBrokers.map(
@@ -100,7 +98,7 @@ export function BrokerStrip() {
                                     <Image
                                         src={svg}
                                         alt={`${name} logo`}
-                                        width={80}
+                                        width={90}
                                         height={20}
                                         className="grayscale opacity-69 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200 max-h-24"
                                     />

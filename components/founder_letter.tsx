@@ -39,7 +39,7 @@ export default function FounderLetter() {
                 role="article"
                 style={{ zIndex: 1, transform: "rotate(-0.5deg)" }}
             >
-                <div className="text-[15px] sm:text-[22px] leading-snug space-y-8 not-italic">
+                <div className="text-sm sm:text-base leading-snug space-y-6 not-italic">
                     <p>Hey everyone —</p>
 
                     <p>I’m Shikhar, founder of Arthveda.</p>
@@ -92,7 +92,7 @@ export default function FounderLetter() {
                         <div className="font-bold text-base text-text-primary">
                             Shikhar Sharma
                         </div>
-                        <div className="text-text-muted text-base">Founder</div>
+                        <div className="text-text-muted text-sm">Founder</div>
                     </div>
                 </div>
             </article>
