@@ -13,6 +13,13 @@ import { NAV_PRODUCT_KEYS, PRODUCT } from "@/lib/product_constants";
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [mobileOpen, setMobileOpen] = useState<{
+        product: boolean;
+        solutions: boolean;
+    }>({
+        product: false,
+        solutions: false,
+    });
 
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -130,7 +137,7 @@ export default function Navbar() {
                         </div>
 
                         {/* SOLUTIONS */}
-                        <div
+                        {/* <div
                             onMouseEnter={() => handleEnter("solutions")}
                             onMouseLeave={handleLeave}
                             className="relative"
@@ -174,7 +181,7 @@ export default function Navbar() {
                                     />
                                 </div>
                             </DesktopDropdownContent>
-                        </div>
+                        </div> */}
 
                         <Link href="/brokers">
                             <Button variant="ghost">Brokers</Button>
@@ -208,7 +215,7 @@ export default function Navbar() {
                             : "opacity-0 pointer-events-none -translate-y-2 scale-[0.98]"
                     }`}
                 >
-                    <ul className="flex flex-col gap-y-2 py-4">
+                    {/* <ul className="flex flex-col gap-y-2 py-4">
                         <li>
                             <Link
                                 href="/pricing"
@@ -233,6 +240,137 @@ export default function Navbar() {
                             >
                                 Discord
                             </a>
+                        </li>
+                    </ul> */}
+
+                    <ul className="flex flex-col gap-y-1 py-4">
+                        {/* PRODUCT */}
+                        <li>
+                            <button
+                                onClick={() =>
+                                    setMobileOpen((prev) => ({
+                                        ...prev,
+                                        product: !prev.product,
+                                    }))
+                                }
+                                className="w-full flex items-center justify-between py-2 text-left"
+                            >
+                                <span>Product</span>
+                                <ChevronDown
+                                    size={18}
+                                    className={cn("transition-transform", {
+                                        "rotate-180": mobileOpen.product,
+                                    })}
+                                />
+                            </button>
+
+                            <div
+                                className={cn(
+                                    "overflow-hidden transition-all duration-200",
+                                    mobileOpen.product
+                                        ? "max-h-96 mt-1"
+                                        : "max-h-0",
+                                )}
+                            >
+                                <div className="flex flex-col pl-4">
+                                    {NAV_PRODUCT_KEYS.map((key) => {
+                                        const item = PRODUCT[key];
+
+                                        return (
+                                            <Link
+                                                key={item.href}
+                                                href={item.href}
+                                                onClick={() =>
+                                                    setMenuOpen(false)
+                                                }
+                                                className="py-2 text-sm text-text-muted"
+                                            >
+                                                {item.title}
+                                            </Link>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </li>
+
+                        {/* SOLUTIONS */}
+                        {/* <li>
+                            <button
+                                onClick={() =>
+                                    setMobileOpen((prev) => ({
+                                        ...prev,
+                                        solutions: !prev.solutions,
+                                    }))
+                                }
+                                className="w-full flex items-center justify-between py-2 text-left"
+                            >
+                                <span>Solutions</span>
+                                <ChevronDown
+                                    size={18}
+                                    className={cn("transition-transform", {
+                                        "rotate-180": mobileOpen.solutions,
+                                    })}
+                                />
+                            </button>
+
+                            <div
+                                className={cn(
+                                    "overflow-hidden transition-all duration-200",
+                                    mobileOpen.solutions
+                                        ? "max-h-96 mt-1"
+                                        : "max-h-0",
+                                )}
+                            >
+                                <div className="flex flex-col pl-4">
+                                    <Link
+                                        href="/solutions/intraday"
+                                        onClick={() => setMenuOpen(false)}
+                                        className="py-2 text-sm text-text-muted"
+                                    >
+                                        Intraday traders
+                                    </Link>
+                                    <Link
+                                        href="/solutions/swing"
+                                        onClick={() => setMenuOpen(false)}
+                                        className="py-2 text-sm text-text-muted"
+                                    >
+                                        Swing traders
+                                    </Link>
+                                    <Link
+                                        href="/solutions/beginners"
+                                        onClick={() => setMenuOpen(false)}
+                                        className="py-2 text-sm text-text-muted"
+                                    >
+                                        Beginners
+                                    </Link>
+                                    <Link
+                                        href="/solutions/overtrading"
+                                        onClick={() => setMenuOpen(false)}
+                                        className="py-2 text-sm text-text-muted"
+                                    >
+                                        Overtrading
+                                    </Link>
+                                </div>
+                            </div>
+                        </li> */}
+
+                        {/* DIRECT LINKS */}
+                        <li>
+                            <Link
+                                href="/brokers"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Brokers
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link
+                                href="/pricing"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Pricing
+                            </Link>
                         </li>
                     </ul>
                 </div>

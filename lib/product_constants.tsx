@@ -90,7 +90,7 @@ export const PRODUCT = {
     brokers: {
         title: "Brokers",
         desc: "Get your trades into Arthveda.",
-        href: "/product/brokers",
+        href: "/brokers",
         Icon: Building2,
         image: "/images/product_brokers.png",
         alt: "Brokers",
