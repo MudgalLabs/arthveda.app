@@ -5,7 +5,7 @@ export default function FounderLetter() {
     return (
         <section>
             <div className="mx-auto">
-                <div className="text-center">
+                <div className="text-center mb-8 sm:mb-12 md:mb-16">
                     <h3 className="section-header">Why Arthveda exists</h3>
                     <p className="text-text-muted mt-3">
                         My small message to you.

@@ -43,7 +43,7 @@ const steps: Step[] = [
 export default function ImprovementTimeline() {
     return (
         <section>
-            <div className="text-center mb-12 sm:mb-24">
+            <div className="text-center mb-8 sm:mb-24 md:mb-32">
                 <h3 className="section-header mx-auto leading-tight">
                     This is how your trading improves with Arthveda
                 </h3>

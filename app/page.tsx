@@ -9,7 +9,7 @@ import ImprovementTimeline from "@/components/improvement_timeline";
 
 export default function Home() {
     return (
-        <div className="space-y-16 sm:space-y-20 md:space-y-28">
+        <div className="space-y-20 sm:space-y-24 md:space-y-32">
             <Hero />
             <ImprovementTimeline />
             <Product />
