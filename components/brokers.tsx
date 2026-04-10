@@ -80,7 +80,7 @@ export function BrokerStrip() {
     const scrollingBrokers = [...brokers, ...brokers, ...brokers];
 
     return (
-        <div className="relative overflow-hidden w-full py-6">
+        <div className="relative overflow-hidden w-full pb-6 sm:pt-6">
             <div
                 className="flex items-center gap-x-6 animate-[broker-scroll_30s_linear_infinite] will-change-transform"
                 style={{ minWidth: "max-content" }}

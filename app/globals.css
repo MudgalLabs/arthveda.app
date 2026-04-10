@@ -227,7 +227,7 @@ a {
 }
 
 @utility unstyled-link {
-    @apply cursor-default! text-base! font-normal! text-inherit! no-underline!;
+    @apply text-base! font-normal! text-inherit! no-underline!;
 }
 
 button {
@@ -340,10 +340,6 @@ select:-webkit-autofill:focus {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-}
-
-@utility brand-gradient-bg {
-    background: linear-gradient(135deg, #4c6fff 0%, #5a5fe8 40%, #3f7fe0 100%);
 }
 
 @utility brand-gradient-bg {

@@ -2,11 +2,14 @@ import Image from "next/image";
 
 export default function Testimonials() {
     return (
-        <section className="mt-16 md:mt-24">
-            <div className="max-w-6xl mx-auto px-6">
-                {/* Heading */}
-                <div className="text-center mb-12">
+        <section>
+            <div className="mx-auto">
+                <div className=" mb-12">
                     <h3 className="section-header">What traders are saying</h3>
+
+                    <p className="text-text-muted mt-3">
+                        Real feedback from traders using Arthveda.
+                    </p>
                 </div>
 
                 <div className="space-y-6">

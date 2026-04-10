@@ -101,6 +101,7 @@ export default function RootLayout({
                     }}
                 />
             </head>
+
             <body
                 className={`${GeistSans.variable} ${inter.variable} antialiased w-full flex justify-center px-4`}
             >
@@ -112,9 +113,9 @@ export default function RootLayout({
                                 className="absolute inset-0"
                                 style={{
                                     backgroundImage: `
-        radial-gradient(circle 600px at 70% 20%, rgba(99,102,241,0.25), transparent),
-        radial-gradient(circle 500px at 30% 60%, rgba(59,130,246,0.15), transparent)
-      `,
+                                        radial-gradient(circle 600px at 70% 20%, rgba(99,102,241,0.25), transparent),
+                                        radial-gradient(circle 500px at 30% 60%, rgba(59,130,246,0.15), transparent)
+                                    `,
                                 }}
                             />
 
@@ -139,11 +140,14 @@ export default function RootLayout({
                         </div>
 
                         {/* Content */}
-                        <div className="w-full max-w-[1200px] relative">
+                        <div className="w-full">
                             <Navbar />
-                            {children}
-                            <FloatingGetStarted />
-                            <Footer />
+
+                            <div className="w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px] xl:px-16">
+                                {children}
+                                <FloatingGetStarted />
+                                <Footer />
+                            </div>
                         </div>
                     </TooltipProvider>
                 </PostHogProvider>

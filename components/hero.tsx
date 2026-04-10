@@ -1,36 +1,48 @@
 import Image from "next/image";
-import { Star } from "lucide-react";
 
 import { GetStarted } from "@/components/get_started";
 import { BrokerStrip } from "@/components/brokers";
+import { Tag } from "@/ui/tag";
 
 export default function Hero() {
     return (
-        <section className="mt-16 md:mt-24">
-            <div className="md:px-4 xl:px-0 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <section className="mt-8 md:mt-12">
+            <div className="mx-auto w-fit">
+                <Tag variant="primary">
+                    <p className="font-content text-text-muted text-xs sm:text-sm">
+                        Brokers show trades. Arthveda shows what to fix.
+                    </p>
+                </Tag>
+            </div>
+
+            <div className="h-8 md:h-12" />
+
+            <div className="md:px-4 xl:px-0 grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 {/* LEFT */}
                 <div className="text-center lg:text-left">
                     <h1 className="font-heading text-text-primary text-[36px] sm:text-[52px] md:text-[60px] font-semibold leading-[1.05] tracking-[-0.02em]">
-                        You’re not learning from your trades.
+                        You’re not learning <br />
+                        from your trades.
                     </h1>
 
-                    <div className="h-6" />
+                    <div className="h-4" />
 
-                    <h2 className="font-content  text-text-primary text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        Arthveda turns your trades into clear insights —
+                    <h2 className="font-content text-text-primary text-base sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        {/* Arthveda turns your trades into clear insights —
                         <br className="hidden sm:inline-block" /> so you know
-                        what’s working, what’s hurting, and what to fix.
+                        why you’re making or losing money. */}
+                        Arthveda shows you exactly why you&apos;re making or
+                        losing money. Built for Indian traders who want to
+                        improve their trading results.
                     </h2>
 
-                    <div className="h-6" />
+                    <div className="h-4" />
 
-                    <p className="font-content text-text-muted text-sm sm:text-base max-w-md mx-auto lg:mx-0">
-                        Brokers show what happened.
-                        <br />
-                        Arthveda shows what to change.
+                    <p className="text-text-muted text-sm">
+                        Works with Zerodha, Groww, Angel One and more.
                     </p>
 
-                    <div className="h-10" />
+                    <div className="h-12" />
 
                     <div
                         id="hero-cta"
@@ -46,8 +58,12 @@ export default function Hero() {
                     <div className="h-12" />
 
                     <span className="flex-x gap-x-1 text-text-muted text-sm justify-center">
-                        <Star size={16} />
-                        <p>Trusted by 500+ traders · 75,000+ trades analyzed</p>
+                        <p className="flex-x gap-x-1!">
+                            <span className="hidden sm:inline-block">
+                                Trusted by
+                            </span>
+                            500+ Indian traders · 75,000+ trades analyzed
+                        </p>
                     </span>
                 </div>
 
@@ -76,11 +92,11 @@ export default function Hero() {
 
                         {/* NOTES (LEFT OVERLAY — mid height of PnL) */}
                         <Image
-                            src="/images/notes.png"
+                            src="/images/product_journal.png"
                             alt="Trade notes"
                             width={800}
                             height={600}
-                            className="absolute top-[42%] left-[2%] w-[360px] h-auto rounded-sm z-1
+                            className="absolute top-[42%] left-[2%] w-[320px] h-auto rounded-sm z-1
                             mask-[linear-gradient(to_bottom,black_60%,transparent)]
                             [-webkit-mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
                         />
@@ -107,8 +123,8 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="mt-6 w-full">
-                <div className="flex flex-col sm:flex-x! items-start sm:items-center h-full">
+            <div className="mt-12 md:mt-2 w-full">
+                <div className="flex-y sm:flex-x! items-start sm:items-center h-full gap-y-2">
                     <span className="text-sm text-text-muted sm:px-3 sm:py-1 w-32 leading-none sm:leading-normal">
                         Works with:
                     </span>

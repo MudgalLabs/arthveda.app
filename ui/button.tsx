@@ -22,6 +22,11 @@ const buttonVariants = cva(
                     "bg-green-bg text-foreground enabled:hover:bg-green-bg/90 focus-visible:ring-foreground!",
                 ghost: "text-text-muted enabled:hover:bg-secondary-hover enabled:hover:text-text-primary",
                 link: "text-accent underline-offset-4 hover:underline p-0! h-fit!",
+                gradient:
+                    "text-white border-white/10 " +
+                    "bg-[linear-gradient(135deg,#3f5fff_0%,#5a52d6_45%,#3b6fd1_100%)] " +
+                    "shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_10px_30px_rgba(80,120,255,0.25)] " +
+                    "enabled:hover:opacity-90",
             },
             size: {
                 default: "text-sm px-3 h-9",
@@ -34,12 +39,11 @@ const buttonVariants = cva(
             variant: "primary",
             size: "default",
         },
-    }
+    },
 );
 
 interface ButtonProps
-    extends ComponentProps<"button">,
-        VariantProps<typeof buttonVariants> {
+    extends ComponentProps<"button">, VariantProps<typeof buttonVariants> {
     loading?: boolean;
 }
 
@@ -58,7 +62,7 @@ const Button: FC<ButtonProps> = memo((props) => {
         <button
             className={cn(
                 "relative",
-                buttonVariants({ variant, size, className })
+                buttonVariants({ variant, size, className }),
             )}
             disabled={disabled || loading}
             {...rest}
@@ -75,7 +79,7 @@ const Button: FC<ButtonProps> = memo((props) => {
                     {
                         "opacity-0": loading,
                         "opacity-100": !loading,
-                    }
+                    },
                 )}
             >
                 {children}
