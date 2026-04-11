@@ -24,13 +24,14 @@ const FEATURES = [
 export default function Pricing() {
     return (
         <div>
-            <div className="mt-12 md:mt-16 mb-12 text-center">
+            <div className="mt-12 md:mt-16 mb-12 text-center space-y-4">
                 <h1 className="page-header">Powerful. Affordable.</h1>
 
-                <p className="mt-4 font-reallysans font-medium text-3xl">
+                <p className="mt-4 font-medium text-3xl">
                     One plan. All features. Unlimited potential.
                 </p>
-                <p className="text-muted-foreground mx-auto">
+
+                <p className="text-text-muted mx-auto">
                     14-day 100% money-back guarantee. No questions asked.
                 </p>
             </div>
@@ -62,13 +63,11 @@ export default function Pricing() {
                 </p>
             </div>
 
-            <div className="mt-8 text-center">
-                <p className="">
-                    Arthveda is growing every month.{" "}
-                    <Link href="/roadmap" className="text-base!">
-                        See what’s coming →
-                    </Link>
-                </p>
+            <div className="mt-8 text-center space-y-2">
+                <p>Arthveda is growing every month. </p>
+                <Link href="/roadmap" className="text-base!">
+                    See what’s coming →
+                </Link>
             </div>
         </div>
     );
