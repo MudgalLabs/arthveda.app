@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export function Screenshot(props: ImageProps) {
     const { className, ...restProps } = props;
     return (
-        <div className="w-full mx-auto  p-2 md:p-4 rounded-sm sm:rounded-md flex justify-center items-center">
+        <div className="w-full mx-auto sm:p-2 md:p-4 rounded-sm sm:rounded-md flex justify-center items-center">
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
                 width={1600}
