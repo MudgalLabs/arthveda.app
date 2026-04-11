@@ -1,58 +1,7 @@
-import { Tag } from "@/ui/tag";
 import Image from "next/image";
 
-interface Broker {
-    name: string;
-    svg: string;
-    homepage: string;
-    isComingSoon?: boolean;
-}
-
-const brokers: Broker[] = [
-    {
-        name: "Angel One",
-        svg: "/svgs/angel_one.svg",
-        homepage: "https://www.angelone.in/",
-    },
-    {
-        name: "Fyers",
-        svg: "/svgs/fyers.svg",
-        homepage: "https://fyers.in/",
-    },
-    {
-        name: "Dhan",
-        svg: "/svgs/dhan.svg",
-        homepage: "https://dhan.co/",
-        isComingSoon: true,
-    },
-    {
-        name: "Groww",
-        svg: "/svgs/groww.svg",
-        homepage: "https://groww.in/",
-    },
-    {
-        name: "INDmoney",
-        svg: "/svgs/indmoney.svg",
-        homepage: "https://www.indmoney.com/",
-    },
-    {
-        name: "Kotak Securities",
-        svg: "/svgs/kotak_securities.svg",
-        homepage: "https://www.kotaksecurities.com/",
-    },
-    {
-        name: "Upstox",
-        svg: "/svgs/upstox.svg",
-        homepage: "https://upstox.com/",
-        isComingSoon: false,
-    },
-    {
-        name: "Zerodha",
-        svg: "/svgs/zerodha.svg",
-        homepage: "https://zerodha.com/",
-    },
-    /* Add more brokers as integration ships */
-];
+import { BROKERS } from "@/lib/brokers";
+import { Tag } from "@/ui/tag";
 
 export default function Brokers() {
     return (
@@ -77,7 +26,7 @@ export default function Brokers() {
 
 export function BrokerStrip() {
     // Duplicate brokers for seamless scroll
-    const scrollingBrokers = [...brokers, ...brokers, ...brokers];
+    const scrollingBrokers = [...BROKERS, ...BROKERS, ...BROKERS];
 
     return (
         <div className="relative overflow-hidden w-full pb-6 sm:pt-6">
