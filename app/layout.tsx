@@ -14,9 +14,9 @@ const inter = Inter({
     variable: "--font-inter",
 });
 
-const TITLE = "Trading Journal for Indian Traders | Arthveda";
+const TITLE = "Turn trades into insights | Arthveda";
 const DESCRIPTION =
-    "Track, analyze, and improve your trading with Arthveda — a trading journal for Indian traders. Import trades from Zerodha, Upstox, and Groww. Start with a 30-day free trial.";
+    "Turn your trades into clear insights — see what’s costing you money and what’s making it. Works with Zerodha, Upstox, and Groww.";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://arthveda.app"),
@@ -25,10 +25,13 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
 
     keywords: [
+        "trading insights",
+        "trade analysis tool",
+        "trading performance analytics",
+        "Zerodha trading analysis",
+        "stock trading tracker India",
         "trading journal India",
         "Zerodha journal",
-        "stock trading tracker India",
-        "trade analysis tool",
     ],
 
     alternates: {
@@ -43,11 +46,11 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/images/og-image.png",
+                url: "/images/performance_hero.png",
                 width: 1200,
                 height: 630,
                 type: "image/png",
-                alt: "Arthveda trading journal dashboard",
+                alt: "Arthveda trading insights dashboard",
             },
         ],
     },
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: TITLE,
         description: DESCRIPTION,
-        images: ["/images/og-image.png"],
+        images: ["/images/performance_hero.png"],
     },
 
     icons: {
@@ -89,11 +92,11 @@ export default function RootLayout({
                             applicationCategory: "FinanceApplication",
                             operatingSystem: "Web",
                             description:
-                                "Track, analyze, and improve your trading with Arthveda — a trading journal for Indian traders. Import trades from Zerodha, Upstox, and Groww. Start with a 30-day free trial.",
+                                "Turn your trades into clear insights — see what’s costing you money and what’s making you money. Works with Zerodha, Upstox, and Groww.",
                             url: "https://arthveda.app",
                             offers: {
                                 "@type": "Offer",
-                                price: "399",
+                                price: "299",
                                 priceCurrency: "INR",
                             },
                         }),

@@ -28,17 +28,16 @@ export default function Hero() {
                     <div className="h-4" />
 
                     <h2 className="font-content text-text-primary text-base sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        {/* Arthveda turns your trades into clear insights —
+                        Arthveda turns your trades into clear insights —
                         <br className="hidden sm:inline-block" /> so you know
-                        why you’re making or losing money. */}
-                        Arthveda shows you exactly why you&apos;re making or
-                        losing money. Built for Indian traders who want to
-                        improve their trading results.
+                        why you’re losing money or making it.
                     </h2>
 
                     <div className="h-4" />
 
                     <p className="text-text-muted text-sm">
+                        Built for Indian traders.
+                        <br />
                         Works with Zerodha, Groww, Angel One and more.
                     </p>
 

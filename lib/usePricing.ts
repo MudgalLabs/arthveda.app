@@ -12,7 +12,7 @@ interface PricingInfo {
 export function usePricing(): PricingInfo {
     const tz = getUserTimezone();
     const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
-    const monthlyPrice = isIndia ? 399 : 9;
+    const monthlyPrice = isIndia ? 299 : 9;
     const yearlyPrice = isIndia ? 1999 : 69;
     const currency = isIndia ? "inr" : "usd";
 
