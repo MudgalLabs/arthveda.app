@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import FloatingGetStarted from "@/components/floating_get_started";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
@@ -145,7 +144,6 @@ export default function RootLayout({
 
                             <div className="w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px] xl:px-16">
                                 {children}
-                                <FloatingGetStarted />
                                 <Footer />
                             </div>
                         </div>

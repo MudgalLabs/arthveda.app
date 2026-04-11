@@ -7,12 +7,13 @@ export default function FounderLetter() {
             <div className="mx-auto">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16">
                     <h3 className="section-header">Why Arthveda exists</h3>
+
                     <p className="text-text-muted mt-3">
                         My small message to you.
                     </p>
                 </div>
 
-                <div className="relative max-w-[814px] mx-auto my-12 mt-18 overflow-hidden sm:overflow-visible">
+                <div className="relative max-w-[814px] mx-auto my-12 sm:mt-12 md:mt-18 overflow-hidden sm:overflow-visible">
                     {/* Stacked background pages - top and bottom */}
                     <div
                         className="pointer-events-none select-none absolute inset-0"

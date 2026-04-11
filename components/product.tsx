@@ -57,7 +57,7 @@ type ProductCardProps = {
 
 export function ProductCard({ title, subtitle, children }: ProductCardProps) {
     return (
-        <div className="rounded-xl bg-surface-1 overflow-hidden group border-border-subtle/50 border shadow-2xl">
+        <div className="rounded-xl bg-surface-1 overflow-hidden group border-border-subtle/50 border shadow-2xl hover:border-border-subtle transition-all">
             <div className="p-6">
                 <h4 className="text-lg font-medium text-text-primary leading-tight">
                     {title}

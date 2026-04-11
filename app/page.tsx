@@ -6,6 +6,8 @@ import Testimonials from "@/components/testimonials";
 import BottomCTA from "@/components/bottom_cta";
 import Product from "@/components/product";
 import ImprovementTimeline from "@/components/improvement_timeline";
+import FAQ from "@/components/faq";
+import FloatingGetStarted from "@/components/floating_get_started";
 
 export default function Home() {
     return (
@@ -14,10 +16,12 @@ export default function Home() {
             <ImprovementTimeline />
             <Product />
             <Testimonials />
+            <FAQ />
             {/* <Brokers />
             <Features /> */}
             <FounderLetter />
             <BottomCTA />
+            <FloatingGetStarted />
         </div>
     );
 }
