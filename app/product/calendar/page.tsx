@@ -24,7 +24,7 @@ export default function ProductCalendarPage() {
             <Screenshot
                 src="/images/calendar_hero.png"
                 alt="Trading calendar showing daily profit and loss patterns"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );

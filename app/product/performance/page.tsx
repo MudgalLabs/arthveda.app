@@ -27,7 +27,7 @@ export default function ProductPerformancePage() {
             <Screenshot
                 src="/images/performance_hero.png"
                 alt="Trading performance dashboard showing PnL, win rate and equity curve"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );

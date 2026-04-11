@@ -27,7 +27,7 @@ export default function ProductJournalPage() {
             <Screenshot
                 src="/images/journal_hero.png"
                 alt="Trading journal with notes and reasoning for a trade"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );

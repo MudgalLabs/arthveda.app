@@ -27,7 +27,7 @@ export default function ProductReportsPage() {
             <Screenshot
                 src="/images/reports_hero.png"
                 alt="Trading reports showing performance breakdown across setups and symbols"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );

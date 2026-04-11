@@ -25,7 +25,7 @@ export default function ProductTradesPage() {
             <Screenshot
                 src="/images/trades_hero.png"
                 alt="Table of trades showing positions, pnl, charges and filters"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );

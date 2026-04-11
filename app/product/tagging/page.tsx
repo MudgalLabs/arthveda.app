@@ -26,7 +26,7 @@ export default function ProductTaggingPage() {
             <Screenshot
                 src="/images/tagging_hero.png"
                 alt="Tagged trades showing patterns across setups and behaviors"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );

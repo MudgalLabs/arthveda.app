@@ -26,7 +26,7 @@ export default function ProductAccountsPage() {
             <Screenshot
                 src="/images/accounts_hero.png"
                 alt="Multiple trading accounts tracked in one place with performance overview"
-                className="w-[80%]"
+                className="md:w-[80%]"
             />
         </main>
     );
