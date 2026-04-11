@@ -6,10 +6,10 @@ import {
     ListOrdered,
     CalendarDays,
     Tags,
-    Building2,
+    Wallet,
 } from "lucide-react";
 
-export const PRODUCT = {
+export const PRODUCTS = {
     insights: {
         title: "Insights",
         desc: "See your mistakes clearly.",
@@ -87,12 +87,12 @@ export const PRODUCT = {
             "absolute top-0 left-0 origin-top-left scale-[1.4] group-hover:scale-[1.45]",
     },
 
-    brokers: {
-        title: "Brokers",
-        desc: "Get your trades into Arthveda.",
-        href: "/brokers",
-        Icon: Building2,
-        image: "/images/product_brokers.png",
+    accounts: {
+        title: "Accounts",
+        desc: "All your trading accounts, in one place.",
+        href: "/product/accounts",
+        Icon: Wallet,
+        image: "/images/product_accounts.png",
         alt: "Brokers",
         imageClassName:
             "absolute top-0 left-0 origin-top-left scale-[1.2] group-hover:scale-[1.25]",
@@ -107,7 +107,5 @@ export const PRODUCT_KEYS = [
     "trades",
     "calendar",
     "tagging",
-    "brokers",
+    "accounts",
 ] as const;
-
-export const NAV_PRODUCT_KEYS = PRODUCT_KEYS.filter((key) => key !== "brokers");

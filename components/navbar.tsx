@@ -8,7 +8,7 @@ import posthog from "posthog-js";
 
 import { Button } from "@/ui/button";
 import { cn } from "@/lib/utils";
-import { NAV_PRODUCT_KEYS, PRODUCT } from "@/lib/product_constants";
+import { PRODUCTS, PRODUCT_KEYS } from "@/lib/product_constants";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -113,8 +113,8 @@ export default function Navbar() {
                                 className="max-w-[760px] w-[760px]"
                             >
                                 <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                                    {NAV_PRODUCT_KEYS.map((key) => {
-                                        const item = PRODUCT[key];
+                                    {PRODUCT_KEYS.map((key) => {
+                                        const item = PRODUCTS[key];
 
                                         return (
                                             <NavDesktopDropdownLink
@@ -273,8 +273,8 @@ export default function Navbar() {
                                 )}
                             >
                                 <div className="flex flex-col pl-4">
-                                    {NAV_PRODUCT_KEYS.map((key) => {
-                                        const item = PRODUCT[key];
+                                    {PRODUCT_KEYS.map((key) => {
+                                        const item = PRODUCTS[key];
 
                                         return (
                                             <Link

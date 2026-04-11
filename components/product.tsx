@@ -1,4 +1,4 @@
-import { PRODUCT, PRODUCT_KEYS } from "@/lib/product_constants";
+import { PRODUCTS, PRODUCT_KEYS } from "@/lib/product_constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export default function Product() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {PRODUCT_KEYS.map((key) => {
-                        const item = PRODUCT[key];
+                        const item = PRODUCTS[key];
 
                         return (
                             <Link
