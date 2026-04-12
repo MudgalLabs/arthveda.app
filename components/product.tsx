@@ -11,7 +11,9 @@ export default function Product() {
                     <h3 className="section-header">Understand your trading</h3>
 
                     <p className="text-text-muted mt-3">
-                        Analyze your trades. Find what works. Fix what doesn’t.
+                        Analyze your trades. Find what works.{" "}
+                        <br className="sm:hidden" />
+                        Fix what doesn’t.
                     </p>
                 </div>
 
