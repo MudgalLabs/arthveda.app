@@ -42,7 +42,7 @@ export default function Hero() {
                         {/* Arthveda shows where you’re losing money and how to fix
                         it -<br className="hidden sm:inline-block" /> so you can
                         become a more profitable trader. */}
-                        Arthveda shows where you’re losing money and how to fix
+                        Arthveda shows why you’re losing money and how to fix
                         it. <br className="hidden sm:inline-block" />
                         So you can become more profitable.
                     </h2>

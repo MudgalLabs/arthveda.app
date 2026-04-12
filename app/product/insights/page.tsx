@@ -16,9 +16,9 @@ export default function ProductInsightsPage() {
                 </h1>
 
                 <p className="font-content text-muted-foreground mx-auto max-w-2xl">
-                    Arthveda analyzes your trades to show where you lose money,
-                    where you make it, and what needs to change — so you can
-                    improve with clarity, not intuition.
+                    Arthveda analyzes your trades to show why you lose money and
+                    what needs to change — so you can improve with clarity, not
+                    intuition.
                 </p>
             </div>
 

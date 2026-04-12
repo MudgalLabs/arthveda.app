@@ -24,7 +24,7 @@ const steps: Step[] = [
         label: "Week 1",
         title: "Find your mistakes",
         points: [
-            "See where you're losing money",
+            "See why you're losing money",
             "Spot patterns in bad trades",
             "Understand what’s hurting you",
         ],
