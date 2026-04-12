@@ -56,16 +56,9 @@ export default function Hero() {
 
                     <div className="h-12" />
 
-                    <div
-                        id="hero-cta"
-                        className="flex flex-col sm:flex-x! items-center justify-center lg:justify-start gap-4 sm:gap-8!"
-                    >
+                    <span id="hero-cta">
                         <GetStarted />
-
-                        <p className="text-text-muted text-sm">
-                            No credit card required.
-                        </p>
-                    </div>
+                    </span>
 
                     <div className="h-12" />
 

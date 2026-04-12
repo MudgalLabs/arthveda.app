@@ -10,7 +10,7 @@ interface GetStartedProps {
 
 export const GetStarted = ({ shortened = false }: GetStartedProps) => {
     return (
-        <div className="flex-center flex-col">
+        <div>
             <a
                 href="https://web.arthveda.app"
                 onClick={() =>
@@ -20,12 +20,22 @@ export const GetStarted = ({ shortened = false }: GetStartedProps) => {
                 <Button size="large">
                     <span className="relative z-10 flex-x">
                         {shortened
-                            ? "Start free"
+                            ? "Start for free"
                             : "Start improving your trades"}
-                        <IconRight size={16} strokeWidth={2} />
+                        <IconRight size={16} strokeWidth={2.5} />
                     </span>
                 </Button>
             </a>
+
+            {!shortened && (
+                <>
+                    <div className="h-4" />
+
+                    <p className="text-text-muted text-xs">
+                        30-day free trial. No credit card required.
+                    </p>
+                </>
+            )}
         </div>
     );
 };

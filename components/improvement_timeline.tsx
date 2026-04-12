@@ -67,7 +67,9 @@ export default function ImprovementTimeline() {
                             >
                                 <Tag
                                     variant={i === 2 ? "primary" : "muted"}
-                                    className="absolute w-18 -top-12"
+                                    className={cn("absolute w-20 -top-12", {
+                                        "font-medium text-base": i === 2,
+                                    })}
                                 >
                                     {step.label}
                                 </Tag>
@@ -100,7 +102,7 @@ export default function ImprovementTimeline() {
                                     className={cn(
                                         "absolute left-3 top-1.5 w-2.5 h-2.5 rounded-full bg-text-muted",
                                         {
-                                            "bg-accent w-3.5 h-3.5 left-2.5":
+                                            "bg-accent font-bold w-3.5 h-3.5 left-2.5":
                                                 i === 2,
                                         },
                                     )}
@@ -109,7 +111,9 @@ export default function ImprovementTimeline() {
                                 {/* Tag */}
                                 <Tag
                                     variant={i === 2 ? "primary" : "muted"}
-                                    className="mb-3"
+                                    className={cn("mb-3", {
+                                        "font-medium text-base": i === 2,
+                                    })}
                                 >
                                     {step.label}
                                 </Tag>
