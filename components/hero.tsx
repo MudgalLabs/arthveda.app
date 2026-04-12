@@ -21,24 +21,37 @@ export default function Hero() {
                 {/* LEFT */}
                 <div className="text-center lg:text-left">
                     <h1 className="font-heading text-text-primary text-[36px] sm:text-[52px] md:text-[60px] font-semibold leading-[1.05] tracking-[-0.02em]">
-                        You’re not learning <br />
+                        You’re not learning{" "}
+                        <br className="hidden sm:inline-block" />
                         from your trades.
+                        {/* Your trades should make you better.
+                        <br /> They don’t. */}
                     </h1>
 
                     <div className="h-4" />
 
-                    <h2 className="font-content text-text-primary text-base sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        Arthveda turns your trades into clear insights —
+                    <h2 className="font-content text-text-primary text-base sm:text-xl leading-relaxed max-w-70 sm:max-w-xl mx-auto lg:mx-0">
+                        {/* Arthveda turns your trades into clear insights —
                         <br className="hidden sm:inline-block" /> so you know
-                        why you’re losing money or making it.
+                        why you’re losing money or making it. */}
+                        {/* Arthveda shows what’s really happening in your trades —
+                        <br className="hidden sm:inline-block" /> so you know
+                        why you’re losing money and how to stop it. */}
+                        {/* Arthveda analyzes your trades — so you can stop losing
+                        money and become more profitable. */}
+                        {/* Arthveda shows where you’re losing money and how to fix
+                        it -<br className="hidden sm:inline-block" /> so you can
+                        become a more profitable trader. */}
+                        Arthveda shows where you’re losing money and how to fix
+                        it. <br className="hidden sm:inline-block" />
+                        So you can become more profitable.
                     </h2>
 
                     <div className="h-4" />
 
                     <p className="text-text-muted text-sm">
-                        Built for Indian traders.
-                        <br />
-                        Works with Zerodha, Groww, Angel One and more.
+                        Built for Indian traders. Works with Zerodha, Groww,
+                        Angel One and more.
                     </p>
 
                     <div className="h-12" />
@@ -56,12 +69,12 @@ export default function Hero() {
 
                     <div className="h-12" />
 
-                    <span className="flex-x gap-x-1 text-text-muted text-sm justify-center">
+                    <span className="flex-x gap-x-1 text-text-muted text-sm justify-center sm:justify-start">
                         <p className="flex-x gap-x-1!">
                             <span className="hidden sm:inline-block">
-                                Trusted by
+                                Used by
                             </span>
-                            500+ Indian traders · 75,000+ trades analyzed
+                            500+ traders. 75,000+ trades analyzed.
                         </p>
                     </span>
                 </div>

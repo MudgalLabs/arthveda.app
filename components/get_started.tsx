@@ -19,7 +19,9 @@ export const GetStarted = ({ shortened = false }: GetStartedProps) => {
             >
                 <Button size="large">
                     <span className="relative z-10 flex-x">
-                        {shortened ? "Start free" : "See your insights"}
+                        {shortened
+                            ? "Start free"
+                            : "Start improving your trades"}
                         <IconRight size={16} strokeWidth={2} />
                     </span>
                 </Button>
