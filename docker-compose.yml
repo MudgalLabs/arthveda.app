@@ -1,4 +1,5 @@
 services:
+    container_name: arthveda_app
     arthveda_app:
         build:
             context: .
