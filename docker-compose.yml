@@ -1,5 +1,5 @@
 services:
-    arthveda-app:
+    arthveda_app:
         build:
             context: .
             dockerfile: Dockerfile
