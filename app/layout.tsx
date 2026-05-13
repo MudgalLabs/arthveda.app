@@ -14,9 +14,9 @@ const inter = Inter({
     variable: "--font-inter",
 });
 
-const TITLE = "Find why you're losing money in your trades | Arthveda";
+const TITLE = "Find why you are losing money in your trades | Arthveda";
 const DESCRIPTION =
-    "Arthveda shows why you're losing money in your trades — and how to fix it. Built for Indian traders. Works with Zerodha, Upstox, Groww, and more.";
+    "Arthveda shows why you are losing money in your trades — and how to fix it. Built for Indian traders. Works with Zerodha, Upstox, Groww, and more.";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://arthveda.app"),
