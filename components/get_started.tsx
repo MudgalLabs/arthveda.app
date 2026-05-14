@@ -12,7 +12,7 @@ export const GetStarted = ({ shortened = false }: GetStartedProps) => {
     return (
         <div>
             <a
-                href="https://web.arthveda.app"
+                href="https://arthveda.app/app/"
                 onClick={() =>
                     posthog.capture("Clicked on try Arthveda free for 30 days")
                 }

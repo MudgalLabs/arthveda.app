@@ -49,7 +49,7 @@ export default function Navbar() {
         return (
             <>
                 {/* <a
-                    href="https://web.arthveda.app"
+                    href="https://arthveda.app/app/"
                     onClick={() => posthog.capture("Clicked Sign In")}
                     className="unstyled-link"
                 >
@@ -57,7 +57,7 @@ export default function Navbar() {
                 </a> */}
 
                 <a
-                    href="https://web.arthveda.app"
+                    href="https://arthveda.app/app/"
                     onClick={() => posthog.capture("Clicked Sign Up")}
                     className="unstyled-link"
                 >
