@@ -58,10 +58,10 @@ export default function Navbar() {
 
                 <a
                     href="https://arthveda.app/app/"
-                    onClick={() => posthog.capture("Clicked Sign Up")}
+                    onClick={() => posthog.capture("Clicked Open App")}
                     className="unstyled-link"
                 >
-                    <Button>Go to app</Button>
+                    <Button>Open App</Button>
                 </a>
             </>
         );
