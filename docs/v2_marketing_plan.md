@@ -27,6 +27,19 @@
 - **Guardrails (do not market):** not a broker, not a charting platform, not
   intraday/streaming, not a leaderboard/copy-trading network, not tips/guaranteed
   returns. **Do not leak the roadmap** — see §8.
+- **Metadata (locked — replaces the v1 journal metadata in `app/layout.tsx`):**
+  - **Title:** `Trading OS for India · Arthveda` — *center dot `·`, never a pipe `|`.*
+  - **Description** (~155 chars, derived from the hero subtitle, **no "free"
+    callout**): `Built for Indian swing traders: discover stocks, build intelligent
+    watchlists, track your journey with every stock, journal trades, and share your
+    process.`
+  - **Keywords (v2, replacing the journal-centric set):** trading OS India, stock
+    screener India, swing trading India, trading journal India, trading watchlist,
+    trader profile.
+  - **OG / JSON-LD:** swap the OG image off `performance_hero.png` to a v2 visual;
+    the JSON-LD `SoftwareApplication` description must match the new positioning
+    (drop the "losing money" line). Per-page metadata on `/product/*`, `/pricing`,
+    etc. also needs the v2 refresh — the current `app/layout.tsx` is 100% v1 journal.
 
 ---
 
@@ -126,10 +139,11 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 **Section order:**
 
 1. **Navbar**
-2. **Hero** — headline + locked subtitle, **one** primary CTA *"Try the free
-   screener"* (filled) + a quiet secondary *"Explore product"* (ghost). Helper
-   line: *"Built for Indian swing traders. The Screener is free — no signup, no
-   broker login."* The hero visual is the **flow-loop video** (see §6).
+2. **Hero** — headline + locked subtitle, **one** primary CTA *"Get started"*
+   (filled, **sentence case** — see Copy voice; "Start for free" is the one-word
+   swap if we ever want the friction-reducer) + a quiet secondary *"Explore
+   product"* (ghost). **No "free"-callout helper line** — the product is free to
+   enter; we don't shout it. The hero visual is the **flow-loop video** (see §6).
 3. **"Watch the full walkthrough"** — directly under the hero video. Opens an
    **on-site overlay with a lite/facade YouTube embed** (thumbnail + play button;
    heavy iframe loads only on click). Primary cut is **English**; a small *"Watch
@@ -158,8 +172,8 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 6. **Founder note** — short, founder-led, authentic; rewrite the existing
    `founder_letter` content. Process-over-P&L, no tips/signals.
 7. **FAQ** — see §9.
-8. **Final CTA** — *"Start building your trading process"* → *"Try the free
-   screener"* / *"Open app"*.
+8. **Final CTA** — *"Start building your trading process"* → *"Get started"* /
+   *"Open app"*.
 9. **Footer** — grouped by product (Discover / Journal / Social feature links) +
    Company (Founder note, Contact, Terms, Privacy, Refund). **No roadmap.**
 
@@ -174,6 +188,22 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 - **Social** — *"Build proof around your process."* Publish your screeners and
   watchlists and showcase how you think — without a P&L leaderboard or a noisy
   feed. → Explore Social.
+
+**Copy voice (locked).**
+- **Don't shout "free."** The product is free to enter; people discover what's
+  gated by clicking. No "free screener" / "try the free screener" in CTAs, hero, or
+  metadata. ("Start for free" as a button is acceptable; anchoring "free" on the
+  *screener* is not.)
+- **The Screener is the acquisition surface, NOT the sell.** We don't win on "best
+  screener." Sell the **connected workflow** (everything around the trade except
+  execution, intraday/live charts, and price alerts). CTAs stay product-level
+  ("Get started"), never screener-level ("Try the screener").
+- **Button / CTA case = sentence case** (Deepvue-style): "Get started", "Open app",
+  "Explore product". The repo's current **"Open App"** (Title Case) →
+  change to **"Open app"**. Nav *section* labels may stay single-word Title Case
+  (Discover, Journal, Social, Pricing).
+- **Page-title format: center dot `·`, never a pipe `|`** — e.g.
+  `Trading OS for India · Arthveda`.
 
 ---
 
@@ -215,8 +245,7 @@ Headline + subtitle → one stacked section per shipped feature (visual + 2–3 
 pitch + link to the feature page) → a "how this connects to the other families"
 beat → a family-appropriate CTA.
 
-- **Discover:** *"Discover and track better stock ideas."* CTA: Try the free
-  screener.
+- **Discover:** *"Discover and track better stock ideas."* CTA: Open the screener.
 - **Journal:** *"Turn trades into feedback."* Protects v1's depth — Journal must
   still read as a serious product. CTA: Start journaling.
 - **Social:** *"Build a public trading identity around your process."* Only the
