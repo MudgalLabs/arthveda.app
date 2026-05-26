@@ -202,6 +202,13 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
   "Explore product". The repo's current **"Open App"** (Title Case) →
   change to **"Open app"**. Nav *section* labels may stay single-word Title Case
   (Discover, Journal, Social, Pricing).
+- **Button icons.** Filled **primary CTA → no icon** (the fill carries it):
+  "Get started". **App-launch / nav button → trailing arrow** (outbound "go" cue):
+  "Open app →". **Secondary text / ghost link → small chevron** for affordance:
+  "Explore product ›". Keep arrows subtle — static or a gentle translate-on-hover
+  nudge, never aggressive. Applies to: `navbar.tsx` ("Open app →"),
+  `get_started.tsx` / `hero.tsx` ("Get started" with no icon; secondary "Explore
+  product ›").
 - **Page-title format: center dot `·`, never a pipe `|`** — e.g.
   `Trading OS for India · Arthveda`.
 
