@@ -27,14 +27,6 @@ export const BROKERS: Broker[] = [
         importTypes: ["file"],
     },
     {
-        name: "Dhan",
-        svg: "/svgs/dhan.svg",
-        homepage: "https://dhan.co/",
-        instruments: ["equity", "futures", "options"],
-        importTypes: ["file"],
-        isComingSoon: true,
-    },
-    {
         name: "Groww",
         svg: "/svgs/groww.svg",
         homepage: "https://groww.in/",
