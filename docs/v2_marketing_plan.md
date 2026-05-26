@@ -16,10 +16,11 @@
 
 - **Headline:** **Trading OS for India**
 - **Subtitle (verbatim):** *"Built for swing traders to discover stocks, build
-  intelligent watchlists, track your journey with every stock, journal trades,
-  and share their process, not just P&L — all from one workspace."*
-  - Phrasing is deliberate: **"your journey with every stock"** (the trader's
-    personal history), not "every stock's journey."
+  intelligent watchlists, track their journey with every stock, journal trades,
+  and share their process — not just P&L. All from one workspace."*
+  - Phrasing is deliberate: consistent **third person** ("their journey / their
+    process", never a your/their mix), and **"their journey with every stock"**
+    (the trader's personal history), not "every stock's journey."
 - **ICP:** Indian equity **swing traders** (EOD/daily-candle, NSE/BSE). Not
   intraday scalpers, not options-Greeks power users, not algo builders.
 - **Emotional core:** *process over P&L*. Confident and modern; never hype,
@@ -31,8 +32,8 @@
   - **Title:** `Trading OS for India · Arthveda` — *center dot `·`, never a pipe `|`.*
   - **Description** (~155 chars, derived from the hero subtitle, **no "free"
     callout**): `Built for Indian swing traders: discover stocks, build intelligent
-    watchlists, track your journey with every stock, journal trades, and share your
-    process.`
+    watchlists, track their journey with every stock, journal trades, and share
+    their process.`
   - **Keywords (v2, replacing the journal-centric set):** trading OS India, stock
     screener India, swing trading India, trading journal India, trading watchlist,
     trader profile.
