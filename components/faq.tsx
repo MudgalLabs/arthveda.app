@@ -6,86 +6,61 @@ import { cn } from "@/lib/utils";
 
 const FAQS = [
     {
-        q: "Do I need to manually enter my trades?",
+        q: "Is Arthveda a broker?",
         a: (
             <>
-                No.
-                <br />
-                Import your trades using your broker’s exported file in seconds.
+                No. It never executes or controls your trades. Arthveda is the
+                workflow and identity layer that sits around your broker.
             </>
         ),
     },
     {
-        q: "Which brokers are supported?",
+        q: "Is the Screener free?",
         a: (
             <>
-                Zerodha, Groww, Angel One, and others via file upload.
-                <br />
-                Can 1-click sync today’s trades for Zerodha.
+                Yes. You can run scans and open any published screener with no
+                signup. A free account lets you save, star, clone, and publish
+                screeners, and use Progressive Scan.
             </>
         ),
     },
     {
-        q: "How is this different from what my broker provides?",
+        q: "Which markets does it cover?",
+        a: <>Indian equities, on the NSE and BSE.</>,
+    },
+    {
+        q: "Is it for intraday trading?",
         a: (
             <>
-                Your broker shows what happened.
-                <br />
-                Arthveda shows what to change.
+                No. Arthveda is built for swing and positional trading, on
+                daily, end-of-day workflows.
             </>
         ),
     },
     {
-        q: "How is this different from spreadsheets?",
+        q: "Can I import trades from my broker?",
         a: (
             <>
-                Spreadsheets help you log trades.
-                <br />
-                Arthveda helps you understand them.
+                Yes. The Journal supports manual logging and broker imports. See
+                the brokers page for the supported list.
             </>
         ),
     },
     {
-        q: "Is this only for experienced traders?",
+        q: "Will my trades and notes be public?",
         a: (
             <>
-                No.
-                <br />
-                If you&apos;re trading, you should be learning from it.
+                No. Everything is private by default. Nothing is public unless
+                you explicitly publish or share it.
             </>
         ),
     },
     {
-        q: "Is my trading data secure?",
+        q: "Do you give tips or signals?",
         a: (
             <>
-                Yes.
-                <br />
-                Your data is used only to power your analytics inside Arthveda.
-                <br />
-                It is never sold or used for advertising.
-            </>
-        ),
-    },
-    {
-        q: "Will this actually help me become profitable?",
-        a: (
-            <>
-                Arthveda won’t trade for you.
-                <br />
-                But it will show you what’s working, what’s hurting, and what to
-                fix.
-            </>
-        ),
-    },
-    {
-        q: "Is there a free plan?",
-        a: (
-            <>
-                No.
-                <br />
-                You get a 30-day free trial — no credit card required.
-                <br />A free plan is coming soon.
+                Never. Arthveda is about process, discovery, journaling, and
+                review. No tips, no guaranteed returns, no copy-trading.
             </>
         ),
     },

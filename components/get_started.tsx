@@ -1,41 +1,27 @@
 "use client";
 
 import posthog from "posthog-js";
-import { ArrowRight as IconRight } from "lucide-react";
 import { Button } from "@/ui/button";
+import { APP_URL } from "@/lib/links";
 
 interface GetStartedProps {
     shortened?: boolean;
+    /** Override the label for family-appropriate CTAs (e.g. "Start journaling"). */
+    label?: string;
 }
 
-export const GetStarted = ({ shortened = false }: GetStartedProps) => {
+// Primary product-level CTA. Filled → no icon, sentence case (plan §5 Copy
+// voice). `shortened` swaps to the "Start for free" friction-reducer wording.
+export const GetStarted = ({ shortened = false, label }: GetStartedProps) => {
+    const text = label ?? (shortened ? "Start for free" : "Get started");
+
     return (
-        <div>
-            <a
-                href="https://arthveda.app/app/"
-                onClick={() =>
-                    posthog.capture("Clicked on try Arthveda free for 30 days")
-                }
-            >
-                <Button size="large">
-                    <span className="relative z-10 flex-x">
-                        {shortened
-                            ? "Start for free"
-                            : "Start improving your trades"}
-                        <IconRight size={16} strokeWidth={2.5} />
-                    </span>
-                </Button>
-            </a>
-
-            {!shortened && (
-                <>
-                    <div className="h-4" />
-
-                    <p className="text-text-muted text-xs">
-                        30-day free trial. No credit card required.
-                    </p>
-                </>
-            )}
-        </div>
+        <a
+            href={APP_URL}
+            onClick={() => posthog.capture("Clicked Get started", { label: text })}
+            className="unstyled-link"
+        >
+            <Button size="large">{text}</Button>
+        </a>
     );
 };

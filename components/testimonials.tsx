@@ -5,10 +5,13 @@ export default function Testimonials() {
         <section>
             <div className="mx-auto">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                    <h3 className="section-header">What traders are saying</h3>
+                    <h3 className="section-header">
+                        Built with traders, not in a vacuum
+                    </h3>
 
                     <p className="text-text-muted mt-3">
-                        Real feedback from traders using Arthveda.
+                        Real messages from traders building their process with
+                        Arthveda.
                     </p>
                 </div>
 

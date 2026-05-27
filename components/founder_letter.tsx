@@ -50,42 +50,42 @@ export default function FounderLetter() {
                         style={{ zIndex: 1, transform: "rotate(-0.5deg)" }}
                     >
                         <div className="text-sm sm:text-base leading-snug space-y-6 not-italic">
-                            <p>Hey —</p>
+                            <p>Hey,</p>
 
                             <p>I’m Shikhar, founder of Arthveda.</p>
 
                             <p>
-                                When I started trading, I struggled to
-                                understand my own performance.
+                                When I started swing trading, my process was
+                                scattered across a dozen tabs. A screener here, a
+                                watchlist there, trade notes in a spreadsheet,
+                                and nothing that remembered why I made a call or
+                                whether it actually worked.
                             </p>
 
                             <p>
-                                I tried journaling tools, but none really worked
-                                for Indian traders — no broker integrations,
-                                expensive pricing.
-                            </p>
-
-                            <p>We were clearly not the audience.</p>
-
-                            <p>So I built Arthveda — journal made for India.</p>
-
-                            <p>
-                                Integrates with Indian brokers. Clear analytics
-                                that actually help you improve. Pricing that
-                                doesn’t punish beginners.
+                                So the tools never helped me get better. They
+                                just stored data.
                             </p>
 
                             <p>
-                                I believe learning from your trades shouldn’t be
-                                complicated or costly.
+                                I built Arthveda to hold the whole loop in one
+                                place: find an idea, track what happens to it,
+                                journal the decision, and learn from the outcome.
+                                Process over P&amp;L.
                             </p>
 
                             <p>
-                                If it helps you trade with more clarity and
-                                discipline, that’s a win.
+                                No tips. No signals. No leaderboards. Just a
+                                workspace that helps you trade more deliberately,
+                                and a track record you can stand behind.
                             </p>
 
-                            <p>Thanks for giving it a look.</p>
+                            <p>
+                                If it helps you trade with more clarity, that’s a
+                                win.
+                            </p>
+
+                            <p>Thanks for taking a look.</p>
                         </div>
                         <div className="mt-10 flex items-center">
                             <Image

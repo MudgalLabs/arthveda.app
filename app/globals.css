@@ -187,7 +187,8 @@
     --color-border-accent: var(--color-azure-500);
 
     /* === Text Layers === */
-    --color-text-primary: hsl(210, 40%, 100%);
+    /* Linear's off-white heading color (#F7F8F8) — softer than pure white. */
+    --color-text-primary: #f7f8f8;
     --color-text-muted: hsl(213, 30%, 80%);
     --color-text-subtle: hsl(215, 15%, 50%);
     --color-text-placeholder: hsl(215, 13%, 45%);
@@ -200,7 +201,8 @@
     /* On darker surfaces */
     --color-accent-muted: var(--color-surface-5);
 
-    --font-heading: var(--font-geist-sans);
+    /* Linear-style typography: Inter Variable throughout (headings + body). */
+    --font-heading: var(--font-inter);
     --font-content: var(--font-inter);
 }
 

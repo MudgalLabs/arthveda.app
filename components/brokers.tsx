@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { BROKERS } from "@/lib/brokers";
 import { Tag } from "@/ui/tag";
@@ -21,6 +22,44 @@ export default function Brokers() {
                 </p>
             </div>
         </section>
+    );
+}
+
+// A few well-known brokers to feature on the homepage Journal block. The full
+// list lives on /brokers, so this stays compact as we add more integrations.
+const FEATURED_BROKERS = ["Angel One", "Groww", "Zerodha"];
+
+// Compact, static broker strip for the homepage Journal block — a few logos +
+// "+N more" → /brokers, so adding brokers never expands this. See plan §5.
+export function BrokerStripStatic() {
+    const featured = FEATURED_BROKERS.map((name) =>
+        BROKERS.find((b) => b.name === name),
+    ).filter((b): b is (typeof BROKERS)[number] => Boolean(b));
+
+    const moreCount = BROKERS.length - featured.length;
+
+    return (
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {featured.map(({ name, svg }) => (
+                <Image
+                    key={name}
+                    src={svg}
+                    alt={`${name} logo`}
+                    width={90}
+                    height={20}
+                    className="max-h-6 w-auto shrink-0 opacity-60 grayscale"
+                />
+            ))}
+
+            {moreCount > 0 && (
+                <Link
+                    href="/brokers"
+                    className="text-sm font-medium text-text-muted no-underline! transition-colors hover:text-text-primary"
+                >
+                    +{moreCount} more
+                </Link>
+            )}
+        </div>
     );
 }
 

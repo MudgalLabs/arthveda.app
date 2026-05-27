@@ -14,9 +14,10 @@ const inter = Inter({
     variable: "--font-inter",
 });
 
-const TITLE = "Find why you’re losing money in your trades | Arthveda";
+// v2 metadata (plan §1). Center dot `·`, never a pipe. No "free" callout.
+const TITLE = "Trading OS for India · Arthveda";
 const DESCRIPTION =
-    "Arthveda shows why you’re losing money in your trades — and how to fix it. Built for Indian traders. Works with Zerodha, Upstox, Groww, and more.";
+    "Built for Indian swing traders: discover stocks, build intelligent watchlists, track their journey with every stock, journal trades, and share their process.";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://arthveda.app"),
@@ -25,13 +26,12 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
 
     keywords: [
-        "trading insights",
-        "trade analysis tool",
-        "trading performance analytics",
-        "Zerodha trading analysis",
-        "stock trading tracker India",
+        "trading OS India",
+        "stock screener India",
+        "swing trading India",
         "trading journal India",
-        "Zerodha journal",
+        "trading watchlist",
+        "trader profile",
     ],
 
     alternates: {
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/images/performance_hero.png",
+                url: "/images/og-image.png",
                 width: 1200,
                 height: 630,
                 type: "image/png",
-                alt: "Arthveda trading insights dashboard",
+                alt: "Arthveda — Trading OS for India",
             },
         ],
     },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: TITLE,
         description: DESCRIPTION,
-        images: ["/images/performance_hero.png"],
+        images: ["/images/og-image.png"],
     },
 
     icons: {
@@ -92,7 +92,7 @@ export default function RootLayout({
                             applicationCategory: "FinanceApplication",
                             operatingSystem: "Web",
                             description:
-                                "Turn your trades into clear insights — see what’s costing you money and what’s making you money. Works with Zerodha, Upstox, and Groww.",
+                                "The Trading OS for India — built for swing traders to discover stocks, build intelligent watchlists, track your journey with every stock, journal trades, and share their process.",
                             url: "https://arthveda.app",
                             offers: {
                                 "@type": "Offer",
@@ -105,44 +105,20 @@ export default function RootLayout({
             </head>
 
             <body
-                className={`${GeistSans.variable} ${inter.variable} antialiased w-full flex justify-center px-4`}
+                className={`${GeistSans.variable} ${inter.variable} antialiased w-full flex justify-center`}
             >
                 <PostHogProvider>
                     <TooltipProvider>
-                        <div className="fixed inset-0 -z-10 bg-[#05070f] overflow-hidden">
-                            {/* Primary glow */}
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    backgroundImage: `
-                                        radial-gradient(circle 600px at 70% 20%, rgba(99,102,241,0.25), transparent),
-                                        radial-gradient(circle 500px at 30% 60%, rgba(59,130,246,0.15), transparent)
-                                    `,
-                                }}
-                            />
+                        {/* Solid background everywhere. The atmospheric glow/
+                            lighting lives only in the hero + video container. */}
+                        <div className="fixed inset-0 -z-10 bg-[#05070f]" />
 
-                            {/* Soft atmospheric layer */}
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    background:
-                                        "radial-gradient(circle at 50% 40%, rgba(255,255,255,0.05), transparent 60%)",
-                                    filter: "blur(40px)",
-                                }}
-                            />
-
-                            {/* Subtle vignette */}
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    background:
-                                        "radial-gradient(circle, transparent 40%, rgba(0,0,0,0.6))",
-                                }}
-                            />
-                        </div>
-
-                        {/* Content */}
-                        <div className="w-full">
+                        {/* Content. overflow-x-clip here (not on the inner
+                            column) lets full-bleed children — the hero stage —
+                            escape the max-width column while still preventing any
+                            horizontal scroll. clip doesn't create a scroll
+                            container, so the sticky navbar is unaffected. */}
+                        <div className="w-full overflow-x-clip">
                             <Navbar />
 
                             <div className="w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px] xl:px-16">

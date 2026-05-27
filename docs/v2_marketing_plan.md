@@ -68,15 +68,16 @@ Product
 │   ├── Screener            [shipped]
 │   ├── Progressive Scan    [shipped]
 │   ├── Watchlists          [shipped]
-│   └── Stock Journey       [shipped]   (per-stock workspace, /symbols/:ticker)
+│   └── Symbol Journey      [shipped]   (per-symbol workspace, /symbols/:ticker)
 │
 ├── Journal         review trades and improve your process  (this is all of v1)
 │   ├── Dashboard           [shipped]
-│   ├── Positions           [shipped]
-│   ├── Calendar            [shipped]
-│   ├── Reports & Analytics [shipped]
 │   ├── Insights            [shipped]
-│   ├── Tags & Mistakes     [shipped]
+│   ├── Reports & Analytics [shipped]
+│   ├── Trades              [shipped]   (was "Positions")
+│   ├── Notebook            [shipped]   (trade notes + screenshots; was "Journal")
+│   ├── Calendar            [shipped]
+│   ├── Tagging             [shipped]
 │   └── Accounts            [shipped]   (multi-account / broker import)
 │
 └── Social          build a public trading identity
@@ -117,16 +118,16 @@ Top nav (left → right): **logo · Product ▾ · Pricing · Log in · Open app
 
 ```
 Discover · Find and track stock ideas
-  Screener           Run scans across NSE/BSE — free, no signup
-  Progressive Scan   Find stocks that keep appearing across scans
-  Watchlists         Track ideas with notes + performance since added
-  Stock Journey      Your full history with every stock
+  Screener           Scan the whole NSE/BSE
+  Progressive Scan   Stocks that keep showing up
+  Watchlists         Track performance, with add/remove notes
+  Symbol Journey     Your full history with every symbol
 
 Journal · Review trades, improve your process
-  Dashboard · Positions · Calendar · Reports & Analytics · Insights · Tags & Mistakes
+  Dashboard · Insights · Reports & Analytics · Trades · Notebook · Calendar · Tagging · Accounts
 
 Social · Build your public trading identity
-  Trader Profiles    Showcase your process — not a P&L leaderboard
+  Trader Profiles    Showcase your process, not just P&L
 ```
 
 ---
@@ -154,7 +155,7 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
    one screenshot + one-liner + *"Explore [family] →"* into the hub. **No tabs.**
    Stacked is more scannable, better on mobile, and SEO-visible (not hidden
    behind a switcher). Screenshots (deduped against the video, which is
-   Discovery-flow only and ends on the Stock Journey):
+   Discovery-flow only and ends on the Symbol Journey):
    - **Discover → Screener** result view (the free front door; the video already
      covered the command center, so don't repeat it here).
    - **Journal → Insights** (where you make/lose money — the differentiator;
@@ -212,6 +213,19 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
   product ›").
 - **Page-title format: center dot `·`, never a pipe `|`** — e.g.
   `Trading OS for India · Arthveda`.
+- **Naming — "Symbol" for feature names, "stock" for descriptive copy
+  (decision 2026-05-27, supersedes the earlier "market it as Stock Journey"
+  call).** Split by *word type*, not by surface:
+  - **Proper-noun feature/page names use "Symbol"** — on the site *and* in the
+    app — so the two never call the same thing different names. The per-symbol
+    workspace is **"Symbol Journey"** (not "Stock Journey"); code/DB/URLs stay
+    `/symbols/:ticker`, `symbol_id`.
+  - **Descriptive copy** (headlines, subtitles, blurbs, body) speaks the ICP's
+    language: **"stock(s)"** — "discover stocks", "your journey with every stock".
+  Why "Symbol" is the product primitive: it's instrument-agnostic — the coming
+  equity F&O / index F&O / commodity F&O underlyings all resolve to a symbol, so
+  naming it "Stock" now forces a rename later. **Don't mix both nouns in one tight
+  phrase.** (Source of truth: `arthveda/docs/marketing_context.md` §8.)
 
 ---
 
@@ -221,15 +235,44 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 
 - **Hero = ONE flow-loop video (~30s)** showing the connected loop end-to-end —
   this is the only artifact that proves "it all connects," which is the whole v2
-  thesis. Script: go to Screeners → run a screener → keyboard-navigate the first
-  few results → add one to a watchlist via **Auto-Create** + a note → open that
-  watchlist (note + add-marker on the chart) → ⌘K / Search → open **/symbols/IRFC**
-  (most-active, highest-PnL) → zoom the chart to full history (all markers) →
-  click a Journey tile → trade marker → hover and end.
+  thesis — scoped to **Discover → Journal** (we deliberately do **not** force
+  Social into the loop; see below). Script (~25–30s; **IRFC is the hero symbol
+  throughout**): run a screener (real results — demonstrates discovery) → on the
+  watchlist, **Add Symbol → IRFC** (added explicitly via "Add Symbol", since the
+  live screener can't be relied on to return IRFC) with a short *real* note
+  ("7★ VCP, buy > 450") → click **IRFC's row** in the watchlist to open its symbol page (no ⌘K — a row-click reads more clearly in a 2s window) → chart zooms to full history
+  with your trade markers → click a **trade marker** → the **Journey** item
+  highlights (the "it connects" money shot) → click **Trade** → the **journal
+  entry** opens (entries/exits on the chart, tags, note). End on that journal
+  payoff, then gently loop back to the screener.
   - **Front-load the hook:** the first ~5s must be visually gripping (skimmers
     won't watch 30s), then let the narrative play.
-  - **Muted, looping**, with subtle **pause/scrub** controls and short on-screen
-    **English** text labels (matches the app UI).
+  - **Type real content into the app's own fields — not meta-narration.** The
+    watchlist note is a *real* reason ("7★ VCP, 3 weeks tight — buy > 195, stop
+    182"); the journal entry is a short *real* reflection ("Bought the breakout,
+    added on the pullback to the 10-DMA, trailed out under the 20-DMA — clean trend
+    trade."). Don't type "talking to the viewer" text ("now I'm
+    journaling my logged trade") into the fields — it makes the data look fake and
+    turns the demo into a tutorial. Narrate via the **on-screen overlay labels**
+    (outside the app UI): "Discover" → "Track it — with your reason" → "Its whole
+    journey" → "Reflect in the journal". Keep typed text short — no slow
+    full-sentence type-out; viewers can't read much in a muted 30s loop.
+  - **Autoplay, muted, looping** — it just plays; **no click-to-play and no big
+    play button** on the hero loop (that affordance belongs to the in-depth
+    walkthrough below). A subtle **pause/scrub** control + short on-screen
+    **English** labels (match the app UI). **No persistent caption overlay** in the
+    final — the loop narrates itself. Respect `prefers-reduced-motion`: don't
+    autoplay — show the poster with a small play control instead.
+  - **Poster frame (the LCP + reduced-motion still) = the `/symbols/IRFC` command
+    center** — chart with your trade markers + the Journey timeline + the
+    performance snapshot. It's the richest, most differentiated still ("this
+    connects everything," not "just a screener") and the loop's visual peak. A
+    polished composed still is fine; it needn't be an exact video frame.
+  - **Discover + Journal only — NOT Social.** The loop's job is to prove
+    *connection*, and find → track → reflect nails it as one believable
+    single-session story. Publishing to a profile is a different *kind* of action
+    (identity, not workflow continuity); cramming it in makes the loop a tour, not
+    a story. Social gets its own product block + family page below.
   - **Performance:** a great **poster frame is the LCP** (instant paint); the
     video **lazy-loads and streams after**. Video in the hero ≠ slow when done
     this way.
@@ -256,6 +299,13 @@ beat → a family-appropriate CTA.
 - **Discover:** *"Discover and track better stock ideas."* CTA: Open the screener.
 - **Journal:** *"Turn trades into feedback."* Protects v1's depth — Journal must
   still read as a serious product. CTA: Start journaling.
+  - **Re-home the v1 journal feature cards here.** The product cards that lived on
+    the v1 homepage / Product section (Insights, Performance, Reports, Trades,
+    Calendar, Tagging, Accounts) **become the feature cards on `/product/journal`**
+    — they leave the homepage (which now carries only the 3 stacked family blocks)
+    and live under the Journal hub. This is the concrete form of "Journal keeps its
+    full v1 depth, re-parented, not deleted." Each card links to its feature page
+    (`/product/journal/{insights|reports|calendar|...}`); see the §11 redirect map.
 - **Social:** *"Build a public trading identity around your process."* Only the
   Trader Profiles story. CTA: View trader profiles.
 
@@ -311,7 +361,7 @@ Single source of truth: `arthveda/docs/marketing_context.md` §6. Summary:
 - **Free login:** save / star / clone / publish screeners; have a profile;
   **Progressive Scan** (decision 2026-05-26: moving Pro → free + login; anon
   deferred; pending product change).
-- **Pro/Trial (today):** Watchlists, Stock Journey + private notes, full Journal.
+- **Pro/Trial (today):** Watchlists, Symbol Journey + private notes, full Journal.
   The broader freemium split is **in flux** — keep the pricing teaser **soft**;
   do not hardcode tier copy until the founder finalizes it.
 
@@ -320,10 +370,10 @@ Single source of truth: `arthveda/docs/marketing_context.md` §6. Summary:
 ## 11. Routing & redirects
 
 **New routes:** `/`, `/product/discover` (+ `/screener`, `/progressive-scan`,
-`/watchlists`, `/stock-journey`), `/product/journal` (+ `/dashboard`,
-`/positions`, `/calendar`, `/reports`, `/insights`, `/tagging`, `/accounts`),
-`/product/social` (+ `/trader-profiles`), `/pricing`, `/brokers`, `/about`,
-`/contact`, `/privacy`, `/terms`, `/refund`.
+`/watchlists`, `/symbol-journey`), `/product/journal` (+ `/dashboard`,
+`/insights`, `/reports`, `/trades`, `/notebook`, `/calendar`, `/tagging`,
+`/accounts`), `/product/social` (+ `/trader-profiles`), `/pricing`, `/brokers`,
+`/about`, `/contact`, `/privacy`, `/terms`, `/refund`.
 
 **301 the old v1 `/product/*` pages** so we don't drop journal SEO:
 | Old | New |
@@ -332,7 +382,7 @@ Single source of truth: `arthveda/docs/marketing_context.md` §6. Summary:
 | `/product/insights` | `/product/journal/insights` |
 | `/product/performance` | `/product/journal/reports` |
 | `/product/reports` | `/product/journal/reports` |
-| `/product/trades` | `/product/journal/positions` |
+| `/product/trades` | `/product/journal/trades` |
 | `/product/calendar` | `/product/journal/calendar` |
 | `/product/tagging` | `/product/journal/tagging` |
 | `/product/accounts` | `/product/journal/accounts` |
