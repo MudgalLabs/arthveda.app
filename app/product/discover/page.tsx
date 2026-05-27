@@ -3,37 +3,38 @@ import type { Metadata } from "next";
 import FeatureCard from "@/components/feature_card";
 import { FamilyLabel } from "@/components/family_label";
 import { GetStarted } from "@/components/get_started";
-import { JOURNAL_FEATURES } from "@/lib/journal_sections";
+import { DISCOVER_FEATURES } from "@/lib/discover_sections";
 import { FAMILY_ICONS } from "@/lib/families";
+import { SCREENER_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-    title: "Journal · Arthveda",
+    title: "Discover · Arthveda",
     description:
-        "Review trades and improve your process. Log or import trades, journal the decisions behind them, and use performance analytics and insights to see where you make money, where you lose it, and what to fix.",
-    alternates: { canonical: "/product/journal" },
+        "Scan the whole NSE/BSE, build intelligent watchlists with the reason you added each stock, and keep a full history of every stock you track.",
+    alternates: { canonical: "/product/discover" },
 };
 
 // Group features into pairs — each pair renders as one bordered container.
-const ROWS = Array.from({ length: Math.ceil(JOURNAL_FEATURES.length / 2) }, (_, i) =>
-    JOURNAL_FEATURES.slice(i * 2, i * 2 + 2)
+const ROWS = Array.from({ length: Math.ceil(DISCOVER_FEATURES.length / 2) }, (_, i) =>
+    DISCOVER_FEATURES.slice(i * 2, i * 2 + 2)
 );
 
-export default function JournalHubPage() {
+export default function DiscoverHubPage() {
     return (
         <main className="pb-24">
             {/* Hero — left-aligned (homepage hero style, no CTAs). The heading
                 drops its width cap at lg so it sits on one line on wide screens;
-                text-balance keeps any wrap on narrower screens even. The
-                subheading keeps a readable measure. */}
+                text-balance keeps any wrap on narrower screens even (no lone
+                "next." dangling). The subheading keeps a readable measure. */}
             <section className="pt-12 md:pt-16 lg:pt-20">
-                <FamilyLabel name="Journal" Icon={FAMILY_ICONS.journal} />
+                <FamilyLabel name="Discover" Icon={FAMILY_ICONS.discover} />
                 <h1 className="mt-5 max-w-3xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
-                    Turn trades into feedback.
+                    Find ideas. Track what happens next.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Log or import your trades, journal the decisions behind them,
-                    and use performance analytics and insights to see where you
-                    make money, where you lose it, and what to fix.
+                    Scan the whole market, save what matters with the reason you
+                    added it, and keep a running history of every stock you
+                    track, so good ideas don&apos;t slip away.
                 </p>
             </section>
 
@@ -58,6 +59,7 @@ export default function JournalHubPage() {
                                 heading={feature.heading}
                                 subheading={feature.subheading}
                                 image={feature.image}
+                                placeholderLabel={feature.placeholderLabel}
                                 priority={ri === 0}
                             />
                         ))}
@@ -68,11 +70,11 @@ export default function JournalHubPage() {
             {/* CTA */}
             <div className="mt-20 text-center md:mt-28">
                 <h2 className="section-header">
-                    Ready to learn from every trade?
+                    Ready to find your next idea?
                 </h2>
                 <div className="h-8" />
                 <div className="mx-auto w-fit">
-                    <GetStarted label="Start journaling" />
+                    <GetStarted label="Open the screener" href={SCREENER_URL} />
                 </div>
             </div>
         </main>

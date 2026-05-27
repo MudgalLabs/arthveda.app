@@ -31,7 +31,7 @@ export default function LitMedia({
     videoSrcWebm,
 }: LitMediaProps) {
     return (
-        <div className="relative left-1/2 w-[calc(100vw-16px)] max-w-[1920px] -translate-x-1/2 overflow-hidden rounded-xl px-2 pt-8 pb-20 sm:px-6 sm:pt-12 sm:pb-28">
+        <div className="relative left-1/2 w-[calc(100vw-16px)] max-w-[1920px] -translate-x-1/2 overflow-hidden rounded-xl px-2 pt-8 pb-10 sm:px-6 sm:pt-12 sm:pb-28">
             {/* Lit backdrop: top edge = page bg, bottom = brand glow. */}
             <div
                 aria-hidden

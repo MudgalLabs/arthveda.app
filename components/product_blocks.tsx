@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { FAMILIES, type ProductFamily } from "@/lib/families";
+import { FAMILIES, FAMILY_ICONS, type ProductFamily } from "@/lib/families";
 import { BrokerStripStatic } from "@/components/brokers";
+import { FamilyLabel } from "@/components/family_label";
 
 // Three product sections (Discover · Journal · Social), Linear-style: a
 // two-column header (title left, description + CTA right) over a large,
@@ -49,9 +50,7 @@ function ProductBlock({ family }: { family: ProductFamily }) {
             {/* Header — title left, description + CTA right (Linear-style). */}
             <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-12">
                 <div>
-                    <p className="text-sm font-medium uppercase tracking-wide text-accent">
-                        {family.name}
-                    </p>
+                    <FamilyLabel name={family.name} Icon={FAMILY_ICONS[family.key]} />
                     <h3 className="mt-3 text-balance font-heading text-2xl font-semibold leading-tight tracking-[-0.01em] text-text-primary sm:text-3xl md:text-[40px]">
                         {family.tagline}
                     </h3>
@@ -107,10 +106,10 @@ function ProductBlock({ family }: { family: ProductFamily }) {
                                 fill
                                 quality={90}
                                 sizes="(max-width: 1440px) 100vw, 1312px"
-                                // On mobile the full app shot is tiny, so zoom in
-                                // (~1.5x) biased right of center — skips the left
-                                // sidebar. Full image on desktop.
-                                className="object-cover object-top scale-[1.5] origin-[65%_0%] lg:scale-100 lg:origin-top"
+                                // Same framing at every size — object-cover from
+                                // the top. (No mobile zoom: it cropped the shot
+                                // too hard and read as a weird close-up.)
+                                className="object-cover object-top"
                             />
                         </div>
 

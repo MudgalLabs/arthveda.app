@@ -31,7 +31,7 @@ export default function Hero() {
 
                 <div className="h-9 sm:h-10" />
 
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                     {/* Primary, product-level CTA — filled, no icon, sentence
                         case (plan §5 Copy voice). Goes to the app, not the
                         screener; we never anchor a screener-level CTA. */}

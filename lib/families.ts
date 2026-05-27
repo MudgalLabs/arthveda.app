@@ -1,7 +1,17 @@
+import { Telescope, BookOpenText, Users, type LucideIcon } from "lucide-react";
+
 // The three product families (Discover / Journal / Social) that power the
 // stacked homepage blocks and, later, the hub pages. Copy is locked in
 // docs/v2_marketing_plan.md §5 — do not invent features. Social ships ONLY
 // Trader Profiles (no shared trades / chart study / feed).
+
+// Single source of truth for the per-family icons — reused as a visual cue
+// anywhere a family name appears (nav dropdown, homepage blocks, hub heroes).
+export const FAMILY_ICONS: Record<ProductFamily["key"], LucideIcon> = {
+    discover: Telescope,
+    journal: BookOpenText,
+    social: Users,
+};
 
 export interface ProductFamily {
     key: "discover" | "journal" | "social";

@@ -3,22 +3,23 @@ import type { Metadata } from "next";
 import FeatureCard from "@/components/feature_card";
 import { FamilyLabel } from "@/components/family_label";
 import { GetStarted } from "@/components/get_started";
-import { JOURNAL_FEATURES } from "@/lib/journal_sections";
+import { SOCIAL_FEATURES } from "@/lib/social_sections";
 import { FAMILY_ICONS } from "@/lib/families";
+import { TRADERS_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-    title: "Journal · Arthveda",
+    title: "Social · Arthveda",
     description:
-        "Review trades and improve your process. Log or import trades, journal the decisions behind them, and use performance analytics and insights to see where you make money, where you lose it, and what to fix.",
-    alternates: { canonical: "/product/journal" },
+        "Build a public trading identity around your process — your screeners, watchlists, and activity — and follow traders who think like you. Not a P&L leaderboard.",
+    alternates: { canonical: "/product/social" },
 };
 
 // Group features into pairs — each pair renders as one bordered container.
-const ROWS = Array.from({ length: Math.ceil(JOURNAL_FEATURES.length / 2) }, (_, i) =>
-    JOURNAL_FEATURES.slice(i * 2, i * 2 + 2)
+const ROWS = Array.from({ length: Math.ceil(SOCIAL_FEATURES.length / 2) }, (_, i) =>
+    SOCIAL_FEATURES.slice(i * 2, i * 2 + 2)
 );
 
-export default function JournalHubPage() {
+export default function SocialHubPage() {
     return (
         <main className="pb-24">
             {/* Hero — left-aligned (homepage hero style, no CTAs). The heading
@@ -26,14 +27,15 @@ export default function JournalHubPage() {
                 text-balance keeps any wrap on narrower screens even. The
                 subheading keeps a readable measure. */}
             <section className="pt-12 md:pt-16 lg:pt-20">
-                <FamilyLabel name="Journal" Icon={FAMILY_ICONS.journal} />
+                <FamilyLabel name="Social" Icon={FAMILY_ICONS.social} />
                 <h1 className="mt-5 max-w-3xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
-                    Turn trades into feedback.
+                    Build a reputation on your process.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Log or import your trades, journal the decisions behind them,
-                    and use performance analytics and insights to see where you
-                    make money, where you lose it, and what to fix.
+                    Your public profile shows how you actually trade — your
+                    published screeners and watchlists, your activity, your
+                    consistency — so you build credibility on process, not P&amp;L
+                    screenshots.
                 </p>
             </section>
 
@@ -58,6 +60,7 @@ export default function JournalHubPage() {
                                 heading={feature.heading}
                                 subheading={feature.subheading}
                                 image={feature.image}
+                                placeholderLabel={feature.placeholderLabel}
                                 priority={ri === 0}
                             />
                         ))}
@@ -68,11 +71,11 @@ export default function JournalHubPage() {
             {/* CTA */}
             <div className="mt-20 text-center md:mt-28">
                 <h2 className="section-header">
-                    Ready to learn from every trade?
+                    Ready to build your trading identity?
                 </h2>
                 <div className="h-8" />
                 <div className="mx-auto w-fit">
-                    <GetStarted label="Start journaling" />
+                    <GetStarted label="View trader profiles" href={TRADERS_URL} />
                 </div>
             </div>
         </main>

@@ -1,138 +1,40 @@
-import {
-    Radar,
-    Play,
-    Bookmark,
-    Telescope,
-    LayoutDashboard,
-    Sparkles,
-    PieChart,
-    ListOrdered,
-    NotebookPen,
-    CalendarDays,
-    Tags,
-    Wallet,
-    UserRound,
-    type LucideIcon,
-} from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
-export interface NavItem {
-    title: string;
-    /** Short one-liner — keep brief so it stays on a single line in the menu. */
-    desc: string;
-    /** Links to the feature page, e.g. /product/discover#screener. */
+import { FAMILY_ICONS } from "@/lib/families";
+
+export interface NavFamily {
+    name: string;
+    /** One-line subtitle — the family names are abstract, so the subtitle
+        does the explaining (plan §4). */
+    subtitle: string;
+    /** Family hub page. */
     href: string;
     Icon: LucideIcon;
 }
 
-export interface NavFamily {
-    name: string;
-    /** Family hub page. */
-    href: string;
-    /** Feature pages. A family with a single item renders as a plain nav link. */
-    items: NavItem[];
-}
-
-// The product families that drive the nav (plan §3/§4). Families appear only
-// once they ship — Options/Algo get added here later.
-//
-// Naming note: feature names use "Symbol" (concrete) since we'll later expand
-// to index/F&O underlyings; ICP marketing copy can still say "stock".
+// The Product menu lists ONLY the 3 families — no per-feature links and no
+// `#anchor` deep-links (plan §4). The family names are abstract layers (esp.
+// "Social"), so a one-line subtitle does the explaining; each hub page lists
+// its own features. This decouples the nav from each hub's card count, so cards
+// can be added / renamed / collapsed freely without ever touching the nav.
+// Families appear only once they ship — Options/Algo get added here later.
 export const NAV_FAMILIES: NavFamily[] = [
     {
         name: "Discover",
+        subtitle: "Find, track, and remember your stock ideas",
         href: "/product/discover",
-        items: [
-            {
-                title: "Screener",
-                desc: "Scan the whole NSE/BSE",
-                href: "/product/discover#screener",
-                Icon: Radar,
-            },
-            {
-                title: "Progressive Scan",
-                desc: "Stocks that keep showing up",
-                href: "/product/discover#progressive-scan",
-                Icon: Play,
-            },
-            {
-                title: "Watchlists",
-                desc: "Track performance, with add/remove notes",
-                href: "/product/discover#watchlists",
-                Icon: Bookmark,
-            },
-            {
-                title: "Symbol Journey",
-                desc: "Your full history with every symbol",
-                href: "/product/discover#symbol-journey",
-                Icon: Telescope,
-            },
-        ],
+        Icon: FAMILY_ICONS.discover,
     },
     {
         name: "Journal",
+        subtitle: "Review trades and improve your process",
         href: "/product/journal",
-        items: [
-            {
-                title: "Dashboard",
-                desc: "Your trading at a glance",
-                href: "/product/journal#dashboard",
-                Icon: LayoutDashboard,
-            },
-            {
-                title: "Insights",
-                desc: "Where you make and lose money",
-                href: "/product/journal#insights",
-                Icon: Sparkles,
-            },
-            {
-                title: "Reports & Analytics",
-                desc: "Your performance breakdown",
-                href: "/product/journal#reports",
-                Icon: PieChart,
-            },
-            {
-                title: "Trades",
-                desc: "All your trades, in one place",
-                href: "/product/journal#trades",
-                Icon: ListOrdered,
-            },
-            {
-                title: "Notebook",
-                desc: "The why behind every trade",
-                href: "/product/journal#notebook",
-                Icon: NotebookPen,
-            },
-            {
-                title: "Calendar",
-                desc: "Your activity, day by day",
-                href: "/product/journal#calendar",
-                Icon: CalendarDays,
-            },
-            {
-                title: "Tagging",
-                desc: "Spot patterns you'd otherwise miss",
-                href: "/product/journal#tagging",
-                Icon: Tags,
-            },
-            {
-                title: "Accounts",
-                desc: "All your trading accounts, in one place",
-                href: "/product/journal#accounts",
-                Icon: Wallet,
-            },
-        ],
+        Icon: FAMILY_ICONS.journal,
     },
     {
         name: "Social",
+        subtitle: "Build a public trading identity",
         href: "/product/social",
-        // Single shipped product → renders as a plain link, not a dropdown.
-        items: [
-            {
-                title: "Trader Profiles",
-                desc: "Showcase your process, not just P&L",
-                href: "/product/social#trader-profiles",
-                Icon: UserRound,
-            },
-        ],
+        Icon: FAMILY_ICONS.social,
     },
 ];

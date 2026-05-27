@@ -108,27 +108,31 @@ are *surfaces inside the profile*, not separate products:
 
 ## 4. Navigation
 
-Top nav (left → right): **logo · Product ▾ · Pricing · Log in · Open app**
+Top nav (left → right): **logo · Product ▾ · Brokers · Pricing · Open app →**
 
-- **Open app** is the primary pill (not "Sign up" — there are free surfaces).
-- **Product ▾** is a Linear-style mega-menu containing the three families. Each
-  family label links to its hub page; under it, one-liner links go **straight to
-  each feature page** (serve both the browser and the high-intent visitor). Only
-  families that exist today appear — add Algo/Options later.
+- **Open app →** is the primary pill (trailing arrow; not "Sign up" — there are
+  free surfaces).
+- **Product ▾ = just the 3 family cards** — Discover, Journal, Social — each with a
+  one-line subtitle, each linking to its hub (`/product/discover|journal|social`).
+  **No per-feature links and no `#anchor` deep-links.** Rationale: the family names
+  are abstract (esp. "Social"), so the subtitle does the explaining and a dropdown
+  gives it room; the hub page itself lists the features. This **decouples the nav
+  from each hub's card count** — add / rename / collapse cards freely, the nav never
+  needs to match (this is what makes the card choices "guilt-free"). It mirrors the
+  homepage's 3 stacked family blocks, and scales: Options/Algo become a 4th/5th
+  card only when they ship.
 
 ```
-Discover · Find and track stock ideas
-  Screener           Scan the whole NSE/BSE
-  Progressive Scan   Stocks that keep showing up
-  Watchlists         Track performance, with add/remove notes
-  Symbol Journey     Your full history with every symbol
-
-Journal · Review trades, improve your process
-  Dashboard · Insights · Reports & Analytics · Trades · Notebook · Calendar · Tagging · Accounts
-
-Social · Build your public trading identity
-  Trader Profiles    Showcase your process, not just P&L
+Product ▾
+  Discover   Find, track, and remember your stock ideas        → /product/discover
+  Journal    Review trades and improve your process            → /product/journal
+  Social     Build a public trading identity                   → /product/social
 ```
+
+- **Why not bare flat links** (Deepvue-style Charts/Screener/…): Deepvue's words are
+  self-explanatory tool names; ours are abstract layers, so they need the subtitle.
+- **Feature-level SEO pages** (e.g. `/product/discover/screener`) can be added later
+  and linked from the hub + sitemap — they don't need to live in the nav.
 
 ---
 
@@ -319,6 +323,60 @@ Example — **Progressive Scan:** *"Find stocks that keep showing up."* Run mult
 screeners into one session; repetition becomes signal, not duplicate noise.
 Access: *"Free — account required to save your scan session."* CTA: Start
 Progressive Scan free.
+
+### Discover & Social hub page copy (ready to build)
+
+Mirror the `/product/journal` build (`lib/journal_sections.ts` + `FeatureCard`):
+left-aligned hero (label / heading / subheading; no CTAs in the hero) → 2-up grid
+of feature cards → a closing CTA. **Card copy is second person** ("…so you…"),
+matching the Journal cards. **Naming:** feature *labels* use "Symbol", *prose* uses
+"stock" — never both in one phrase (see `marketing_context.md` §8). **Keep card
+counts even** (2 per row): Discover = 4, Social = 4 (we drop a dedicated "Find
+traders" card — it's about discovering *others*, off-thesis for a "build your
+identity" page; it lives in the hero subheading + the CTA instead). Card images at
+**2×**, from **one demo account with IRFC as the recurring hero stock**; no empty
+states; keep framing consistent with the Journal cards.
+
+#### `/product/discover` — label "Discover" · title `Discover · Arthveda`
+- **Hero heading:** Find ideas. Track what happens next.
+- **Hero subheading:** Scan the whole market, save what matters with the reason you added it, and keep a running history of every stock you track — so good ideas don't slip away.
+- **Metadata description:** Scan the whole NSE/BSE, build intelligent watchlists with the reason you added each stock, and keep a full history of every stock you track.
+- **CTA:** Open the screener
+- **Cards** (`lib/discover_sections.ts`):
+
+| id | label | heading | subheading | image + shot |
+|---|---|---|---|---|
+| `screener` | Screener | Scan the whole market in seconds. | Filter every NSE/BSE stock by price, volume, technicals, and breakout signals, and inspect each hit with an inline chart, so you go from noise to a shortlist fast. | `/images/discover/screener.png` — result view: filter chips + ~8–10 names (IRFC among them) + inline chart preview on a selected row. |
+| `progressive-scan` | Progressive Scan | Find the stocks that keep showing up. | Run several screeners into one session and surface the names that repeat across them, so confluence becomes your signal instead of duplicate noise. | `/images/discover/progressive_scan.png` — the Unique/Duplicate split (or Repeat-signals panel) with a symbol shown across 2–3 screeners + the floating session box. |
+| `watchlists` | Watchlists | Watchlists that remember why. | Add a note to every stock you track and see how it moved since — percent change, max gain, max drawdown — so you learn whether your reasoning actually worked. | `/images/discover/watchlists.png` — populated watchlist table with the intelligence columns + a legible note ("7★ VCP…"). |
+| `symbol-journey` | Symbol Journey | Every stock gets a timeline. | Open any stock to see your full history with it — every watchlist add, note, and trade on one timeline beside the chart — so the whole story stays in one place. | `/images/discover/symbol_journey.png` — the `/symbols/IRFC` command center: chart + markers + Journey timeline + performance snapshot. **Same frame as the hero video poster — reuse it.** |
+
+#### `/product/social` — label "Social" · title `Social · Arthveda`
+- **Hero heading:** Build a reputation on your process.
+- **Hero subheading:** Your public profile shows how you actually trade — your published screeners and watchlists, your activity, your consistency — so you build credibility on process, not P&L screenshots.
+- **Metadata description:** Build a public trading identity around your process — your screeners, watchlists, and activity — and follow traders who think like you. Not a P&L leaderboard.
+- **CTA:** View trader profiles  (alt: Create your profile)
+- **Cards** (`lib/social_sections.ts`) — **2 cards**, both crops of one rich profile:
+
+| id | label | heading | subheading | image + shot |
+|---|---|---|---|---|
+| `showcase` | Showcase | Show your work, not your P&L. | Publish your screeners and watchlists for anyone to open and clone, and pin your best to a showcase, so your reputation rests on your ideas, not P&L screenshots. | `/images/social/showcase.png` — the profile's showcase + published screeners/watchlists (pinned main card + thumbs + the published grid). |
+| `activity` | Activity | Let your consistency show. | An activity heatmap, a workflow breakdown, and a recent timeline, so your discipline is visible to others — and you can see whether you're running the full process or just logging trades. | `/images/social/activity.png` — heatmap (populated) + the workflow/category distribution + the recent-activity timeline. |
+
+> **Why only 2 cards:** "Trader Profile" was dropped — the hero already says the
+> page is about building your identity, so a "your identity, on one page" card is
+> redundant. "Showcase" + "Published work" were **merged** — same idea (your
+> published screeners/watchlists, curated). "Find traders" stays off the grid
+> (discovering *others* is off-thesis; carried by the hero subheading + CTA). Two
+> cards is honest for the thinnest family, stays even, and grows as Social does.
+
+> **Nav doesn't mirror these cards — by design.** Per §4, the Product menu lists
+> **only the 3 families** (no per-feature nav links anywhere), so no hub's card
+> count ever needs to match the nav — that's exactly what makes these card choices
+> free. The "Social" family card links to this hub (`/product/social`); the page
+> CTA ("View trader profiles") points to the live `/traders` app. When Social gains
+> real surface area later, collapse Trader Profiles into 1–2 cards freely — nothing
+> in the nav changes.
 
 ---
 

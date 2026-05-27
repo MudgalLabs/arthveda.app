@@ -14,7 +14,6 @@ import { APP_URL } from "@/lib/links";
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [productOpen, setProductOpen] = useState(false); // desktop hover
-    const [activeFamily, setActiveFamily] = useState(NAV_FAMILIES[0].name);
 
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -37,8 +36,17 @@ export default function Navbar() {
     const closeProduct = () => {
         timeoutRef.current = setTimeout(() => {
             setProductOpen(false);
-            setActiveFamily(NAV_FAMILIES[0].name); // reopen on Discover
         }, 200);
+    };
+
+    // Close the dropdown immediately (e.g. after clicking a family card), so it
+    // doesn't linger open over the page we just navigated to.
+    const closeProductNow = () => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+        }
+        setProductOpen(false);
     };
 
     const closeMenu = () => setMenuOpen(false);
@@ -132,8 +140,7 @@ export default function Navbar() {
                 >
                     <ProductMegaMenu
                         isActive={productOpen}
-                        activeFamily={activeFamily}
-                        onHoverFamily={setActiveFamily}
+                        onNavigate={closeProductNow}
                     />
                 </div>
 
@@ -153,29 +160,34 @@ export default function Navbar() {
             )}
         >
             <div className="px-6 py-8">
-                {NAV_FAMILIES.map((family) => (
-                    <div key={family.name} className="mb-9">
+                <p className="mb-3 text-xs font-medium uppercase tracking-wider text-text-subtle">
+                    Product
+                </p>
+                <div className="mb-9 flex flex-col gap-y-1">
+                    {NAV_FAMILIES.map((family) => (
                         <Link
+                            key={family.name}
                             href={family.href}
                             onClick={closeMenu}
-                            className="mb-3 block text-xs font-medium uppercase tracking-wider text-text-subtle no-underline!"
+                            className="flex items-start gap-3.5 rounded-lg py-2.5 no-underline!"
                         >
-                            {family.name}
+                            <div className="mt-0.5 flex items-center justify-center rounded-md bg-secondary p-2.5">
+                                <family.Icon
+                                    size={18}
+                                    className="text-text-muted"
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-xl text-text-primary">
+                                    {family.name}
+                                </span>
+                                <span className="text-sm text-text-muted">
+                                    {family.subtitle}
+                                </span>
+                            </div>
                         </Link>
-                        <div className="flex flex-col gap-y-1">
-                            {family.items.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={closeMenu}
-                                    className="block py-1.5 text-xl text-text-primary no-underline!"
-                                >
-                                    {item.title}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
 
                 <div className="flex flex-col gap-y-1 border-t border-border-subtle pt-7">
                     <Link
@@ -199,96 +211,55 @@ export default function Navbar() {
     );
 }
 
-// The Product dropdown: a row of family sub-tabs (Discover · Journal · Social)
-// and, below it, the feature cards for whichever family is hovered. Each sub-tab
-// links to its hub (cursor-pointer), so the hub is discoverable too.
-interface ProductMegaMenuProps {
-    isActive: boolean;
-    activeFamily: string;
-    onHoverFamily: (name: string) => void;
-}
-
+// The Product dropdown: just the 3 family cards (Discover · Journal · Social),
+// each a one-line subtitle linking to its hub. No per-feature links and no
+// `#anchor` deep-links — see plan §4. It mirrors the homepage's 3 stacked family
+// blocks and scales: Options/Algo become a 4th/5th card only when they ship.
 function ProductMegaMenu({
     isActive,
-    activeFamily,
-    onHoverFamily,
-}: ProductMegaMenuProps) {
-    const family =
-        NAV_FAMILIES.find((f) => f.name === activeFamily) ?? NAV_FAMILIES[0];
-
+    onNavigate,
+}: {
+    isActive: boolean;
+    onNavigate: () => void;
+}) {
     return (
         <div
             className={cn(
-                // Fixed width so the panel never resizes between families —
-                // a collapsing width would reflow the sub-tabs under the cursor.
-                "mt-2.5 w-[720px]",
+                "mt-2.5 w-[380px]",
                 "rounded-lg border border-border-subtle bg-surface-1",
-                "shadow-[0_20px_60px_rgba(0,0,0,0.5)] p-3",
+                "shadow-[0_20px_60px_rgba(0,0,0,0.5)] p-2",
                 "origin-top transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 isActive
                     ? "opacity-100 translate-y-0 scale-100"
                     : "opacity-0 -translate-y-1 scale-95 pointer-events-none",
             )}
         >
-            {/* Family sub-tabs — links to the hubs; hover switches the cards. */}
-            <div className="flex items-center gap-1 border-b border-border-subtle pb-3">
-                {NAV_FAMILIES.map((f) => (
+            <div className="flex flex-col">
+                {NAV_FAMILIES.map((family) => (
                     <Link
-                        key={f.name}
-                        href={f.href}
-                        onMouseEnter={() => onHoverFamily(f.name)}
-                        className={cn(
-                            "cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium no-underline! transition-colors",
-                            f.name === activeFamily
-                                ? "bg-surface-2 text-text-primary"
-                                : "text-text-muted hover:text-text-primary",
-                        )}
+                        key={family.name}
+                        href={family.href}
+                        onClick={onNavigate}
+                        className="group flex items-start gap-3.5 rounded-lg px-3 py-3 no-underline! hover:bg-surface-2"
                     >
-                        {f.name}
+                        <div className="mt-0.5 flex items-center justify-center rounded-md bg-secondary p-2.5 transition-colors group-hover:bg-primary/80">
+                            <family.Icon
+                                size={18}
+                                className="text-text-muted transition-colors group-hover:text-text-primary"
+                            />
+                        </div>
+
+                        <div className="flex flex-col">
+                            <span className="text-sm font-medium text-text-primary">
+                                {family.name}
+                            </span>
+                            <span className="text-sm text-text-muted">
+                                {family.subtitle}
+                            </span>
+                        </div>
                     </Link>
                 ))}
             </div>
-
-            {/* Feature cards — 2 equal columns within the fixed-width panel. */}
-            <div className="grid grid-cols-2 gap-x-6 gap-y-1 pt-3">
-                {family.items.map((item) => (
-                    <NavFeatureCard key={item.href} {...item} />
-                ))}
-            </div>
         </div>
-    );
-}
-
-interface NavFeatureCardProps {
-    title: string;
-    desc: string;
-    href: string;
-    Icon: React.ComponentType<{ size?: number; className?: string }>;
-}
-
-function NavFeatureCard({ title, desc, href, Icon }: NavFeatureCardProps) {
-    return (
-        <Link
-            href={href}
-            className="group block h-fit rounded-lg px-3 py-2.5 no-underline! hover:bg-surface-2"
-        >
-            <div className="flex items-center gap-3.5">
-                <div className="flex items-center justify-center rounded-md bg-secondary p-2.5 transition-colors group-hover:bg-primary/80">
-                    <Icon
-                        size={18}
-                        className="text-text-muted transition-colors group-hover:text-text-primary"
-                    />
-                </div>
-
-                <div className="flex flex-col">
-                    <span className="text-sm font-medium text-text-primary">
-                        {title}
-                    </span>
-                    <span className="whitespace-nowrap text-sm text-text-muted">
-                        {desc}
-                    </span>
-                </div>
-            </div>
-        </Link>
     );
 }

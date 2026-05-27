@@ -5,7 +5,10 @@ interface FeatureCardProps {
     label: string;
     heading: string;
     subheading: string;
-    image: string;
+    /** Screenshot path, or null to render a styled placeholder frame. */
+    image: string | null;
+    /** Short label shown inside the placeholder when `image` is null. */
+    placeholderLabel?: string;
     priority?: boolean;
 }
 
@@ -24,51 +27,65 @@ export default function FeatureCard({
     heading,
     subheading,
     image,
+    placeholderLabel,
     priority = false,
 }: FeatureCardProps) {
     return (
         <div
             id={id}
-            className="group flex scroll-mt-24 flex-col p-4 md:min-h-[calc(100svh-10rem)] md:p-6"
+            className="group flex scroll-mt-24 flex-col px-4 pb-4 pt-2.5 md:min-h-[calc(100svh-10rem)] md:p-6"
         >
             {/* Subtle caption above the image (Linear-style). */}
             <p className="text-xs font-medium uppercase tracking-wider text-text-subtle">
                 {label}
             </p>
 
-            {/* Screenshot floats in the upper area. */}
-            <div className="flex flex-1 items-center">
+            {/* Screenshot floats in the upper area. On mobile a gap separates it
+                from the eyebrow (the eyebrow itself sits close to the top edge);
+                on md+ the image is vertically centered in the tall card. */}
+            <div className="mt-6 flex flex-1 items-center md:mt-0">
                 <div className="relative aspect-[16/10] w-full">
-                    {/* Masked image — fades into the background on all edges. */}
-                    <div
-                        className="absolute inset-0 overflow-hidden"
-                        style={{
-                            maskImage: FADE,
-                            WebkitMaskImage: FADE,
-                            maskComposite: "intersect",
-                            WebkitMaskComposite: "source-in",
-                        }}
-                    >
-                        <Image
-                            src={image}
-                            alt={heading}
-                            fill
-                            quality={90}
-                            sizes="(max-width: 768px) 100vw, 660px"
-                            priority={priority}
-                            className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
-                        />
-                    </div>
+                    {image ? (
+                        <>
+                            {/* Masked image — fades into the background on all edges. */}
+                            <div
+                                className="absolute inset-0 overflow-hidden"
+                                style={{
+                                    maskImage: FADE,
+                                    WebkitMaskImage: FADE,
+                                    maskComposite: "intersect",
+                                    WebkitMaskComposite: "source-in",
+                                }}
+                            >
+                                <Image
+                                    src={image}
+                                    alt={heading}
+                                    fill
+                                    quality={90}
+                                    sizes="(max-width: 768px) 100vw, 660px"
+                                    priority={priority}
+                                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+                                />
+                            </div>
 
-                    {/* Spotlight from the top of the image. */}
-                    <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-0"
-                        style={{
-                            background:
-                                "radial-gradient(60% 55% at 50% 0%, rgba(150,163,255,0.18), transparent 70%)",
-                        }}
-                    />
+                            {/* Spotlight from the top of the image. */}
+                            <div
+                                aria-hidden
+                                className="pointer-events-none absolute inset-0"
+                                style={{
+                                    background:
+                                        "radial-gradient(60% 55% at 50% 0%, rgba(150,163,255,0.18), transparent 70%)",
+                                }}
+                            />
+                        </>
+                    ) : (
+                        /* Placeholder frame until the screenshot is captured. */
+                        <div className="absolute inset-0 flex items-center justify-center rounded-md border border-white/[0.06]">
+                            <span className="rounded-full border border-white/[0.06] bg-background/60 px-4 py-1.5 text-xs font-medium tracking-wide text-text-muted">
+                                {placeholderLabel ?? label}
+                            </span>
+                        </div>
+                    )}
                 </div>
             </div>
 
