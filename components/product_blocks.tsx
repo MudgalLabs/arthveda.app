@@ -21,20 +21,24 @@ export default function ProductBlocks() {
     );
 }
 
-// Subtle rounded border + vignette that dissolves edges into the page
-// (Linear-style — no background/glow added). Screenshots are 16:9.
+// Lighting treatment shared with the product feature cards: a top-down spotlight
+// plus a mask that fades the screenshot into the page on every edge (lightly on
+// the top/sides, harder at the bottom). Screenshots are 16:9.
+const SPOTLIGHT =
+    "radial-gradient(60% 55% at 50% 0%, rgba(150,163,255,0.18), transparent 70%)";
+const SIDE_FADE =
+    "linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%)";
 
-// Discover/Journal: crop ~20% off the bottom (useful content is in the top 80%)
-// and fade the bottom edge into the page.
+// Discover/Journal: content lives in the top ~80%, so fade the bottom hard.
 const TOP_HEAVY = {
-    aspect: "aspect-[20/9]", // 16:9 with the bottom 20% cropped (object-top)
-    mask: "linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%)",
+    aspect: "aspect-[20/9]", // 16:9 with the bottom cropped (object-top)
+    mask: `linear-gradient(to bottom, transparent 0%, #000 4%, #000 68%, transparent 100%), ${SIDE_FADE}`,
 };
 
-// Social: keep full height (heatmap is at the bottom); fade top + bottom.
+// Social: heatmap sits lower, so keep more of the bottom; fade top + sides.
 const BOTTOM_HEAVY = {
     aspect: "aspect-video",
-    mask: "linear-gradient(to bottom, transparent 0%, #000 14%, #000 88%, transparent 100%)",
+    mask: `linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%), ${SIDE_FADE}`,
 };
 
 function ProductBlock({ family }: { family: ProductFamily }) {
@@ -83,18 +87,19 @@ function ProductBlock({ family }: { family: ProductFamily }) {
                 </div>
             </div>
 
-            {/* Screenshot — full content width, left-aligned. Subtle rounded
-                border, no bg; one edge dissolves into the page via the mask. */}
-            <div className="mt-10 w-full md:mt-14">
+            {/* Screenshot — full content width, left-aligned. No frame: a
+                top-down spotlight + edge mask dissolve it into the page. */}
+            <div className="relative mt-10 w-full md:mt-14">
                 {family.image ? (
-                    // Muted border + small inner padding, so the screenshot sits
-                    // inside the frame with a thin gap (Linear-style).
-                    <div
-                        className="w-full overflow-hidden rounded-md border border-white/[0.1]"
-                        style={{ maskImage: t.mask, WebkitMaskImage: t.mask }}
-                    >
+                    <>
                         <div
-                            className={`relative w-full overflow-hidden rounded-sm ${t.aspect}`}
+                            className={`relative w-full overflow-hidden ${t.aspect}`}
+                            style={{
+                                maskImage: t.mask,
+                                WebkitMaskImage: t.mask,
+                                maskComposite: "intersect",
+                                WebkitMaskComposite: "source-in",
+                            }}
                         >
                             <Image
                                 src={family.image}
@@ -108,7 +113,14 @@ function ProductBlock({ family }: { family: ProductFamily }) {
                                 className="object-cover object-top scale-[1.5] origin-[65%_0%] lg:scale-100 lg:origin-top"
                             />
                         </div>
-                    </div>
+
+                        {/* Top-down spotlight. */}
+                        <div
+                            aria-hidden
+                            className="pointer-events-none absolute inset-0"
+                            style={{ background: SPOTLIGHT }}
+                        />
+                    </>
                 ) : (
                     <div
                         className={`flex w-full items-center justify-center rounded-md border border-white/[0.06] ${t.aspect}`}

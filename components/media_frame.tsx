@@ -26,6 +26,8 @@ interface MediaFrameProps {
     priority?: boolean;
     /** Aspect-ratio utility for the frame. Default 16:9. */
     aspectClassName?: string;
+    /** Overlay a top-down spotlight over the cover (matches the product images). */
+    spotlight?: boolean;
     className?: string;
 }
 
@@ -41,6 +43,7 @@ export default function MediaFrame({
     autoPlay = false,
     priority = false,
     aspectClassName = "aspect-video",
+    spotlight = false,
     className,
 }: MediaFrameProps) {
     const [clicked, setClicked] = useState(false);
@@ -130,6 +133,18 @@ export default function MediaFrame({
                                 }}
                             />
                         </>
+                    )}
+
+                    {/* Top-down spotlight over the cover. */}
+                    {spotlight && (
+                        <div
+                            aria-hidden
+                            className="pointer-events-none absolute inset-0"
+                            style={{
+                                background:
+                                    "radial-gradient(60% 55% at 50% 0%, rgba(150,163,255,0.18), transparent 70%)",
+                            }}
+                        />
                     )}
 
                     {/* Play button (centered) + caption stacked below it. */}

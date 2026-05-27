@@ -59,6 +59,7 @@ export default function LitMedia({
                 videoSrc={videoSrc}
                 videoSrcWebm={videoSrcWebm}
                 showPlay={Boolean(videoSrc)}
+                spotlight
                 // Always full 16:9 (no crop): width = the smaller of 1500px or
                 // the width whose 16:9 height = viewport − nav − small padding.
                 // So it fills the height when it can, and scales down (not crops)
