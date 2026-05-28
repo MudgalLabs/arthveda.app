@@ -8,7 +8,7 @@ import { PlansTable } from "@/app/pricing/plans_table";
 export const metadata: Metadata = {
     title: "Pricing · Arthveda",
     description:
-        "Free forever, with limits. Pro lifts every cap when daily use outgrows them. 30-day trial, no credit card required.",
+        "Free forever, with limits. Start a 30-day Pro trial — card required, no charge today. Cancel anytime before it ends.",
     alternates: { canonical: "/pricing" },
 };
 
@@ -40,16 +40,18 @@ export default function PricingPage() {
                 <PlansTable />
 
                 {/* Yearly nudge + trial footnote (plan §7: mechanics live here,
-                    not in the table; the post-launch card-required phase is
-                    deliberately not advertised). */}
+                    not in the table). Card-required trial: add a card to start,
+                    cancel anytime before it ends, otherwise it rolls into the
+                    plan you picked. */}
                 <div className="mx-auto mt-8 max-w-3xl space-y-3 text-center text-sm text-text-muted">
                     <p>
                         Building a track record is a long game. Most traders
                         go yearly.
                     </p>
                     <p className="text-xs text-text-subtle">
-                        30-day Pro trial, no credit card required. When it
-                        ends, you drop to Free. Never locked out.
+                        30-day Pro trial. Add a card to start, cancel anytime
+                        before it ends. If you don't, it rolls into the plan
+                        you picked.
                     </p>
                 </div>
             </div>

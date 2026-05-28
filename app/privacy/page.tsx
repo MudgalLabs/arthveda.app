@@ -4,7 +4,7 @@ export default function PrivacyPage() {
             <h1 className="big-heading mb-12">Privacy Policy</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> May 28, 2026
+                <strong>Effective Date:</strong> June 1, 2026
             </p>
 
             <p className="mb-8">
@@ -21,6 +21,13 @@ export default function PrivacyPage() {
                 </li>
                 <li>
                     The <strong>trade data</strong> you import into Arthveda.
+                </li>
+                <li>
+                    <strong>Payment information</strong> for paid plans,
+                    processed by <strong>Paddle</strong>, our payments
+                    partner and merchant of record. Arthveda does not store
+                    or see your full card details; Paddle&rsquo;s privacy
+                    policy applies to that data.
                 </li>
             </ul>
             <p>

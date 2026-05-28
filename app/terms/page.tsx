@@ -6,7 +6,7 @@ export default function TermsPage() {
             <h1 className="big-heading mb-12">Terms of Service</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> May 28, 2026
+                <strong>Effective Date:</strong> June 1, 2026
             </p>
 
             <p>Welcome to Arthveda!</p>
@@ -29,7 +29,24 @@ export default function TermsPage() {
             </h2>
             <p>
                 Arthveda offers monthly and yearly recurring plans, and a
-                one-time &ldquo;Lifetime&rdquo; purchase.
+                one-time &ldquo;Lifetime&rdquo; purchase. A free tier is
+                available alongside these and does not require a payment
+                method.
+            </p>
+            <p>
+                Monthly and yearly Pro plans include a 30-day free trial. A
+                valid payment method is required to start the trial, but you
+                are not charged during the trial period. If you do not
+                cancel before the trial ends, the plan auto-renews and is
+                charged at the listed price; the subscription then continues
+                to renew at the end of each billing period until cancelled.
+                You can cancel anytime from your account; cancellation takes
+                effect at the end of the current billing period. Lifetime
+                purchases are not eligible for a trial.
+            </p>
+            <p>
+                Payments are processed by Paddle, our merchant of record.
+                Paddle&rsquo;s terms also apply at checkout.
             </p>
             <p>
                 The word &ldquo;lifetime&rdquo; refers to the lifetime of the
@@ -44,9 +61,7 @@ export default function TermsPage() {
                 <Link className="text-base!" href="/refund">
                     refund policy
                 </Link>
-                . Recurring plans (monthly, yearly) can be cancelled at any
-                time and remain active until the end of the current billing
-                period.
+                .
             </p>
 
             <h2 className="sub-heading mt-4">3. Your Responsibilities</h2>

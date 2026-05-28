@@ -18,7 +18,7 @@ export function LifetimePromo() {
         return (
             <>
                 Do the whole workflow free, with limits. Pro lifts them all —
-                30-day trial, no card.
+                30-day free trial, card required.
             </>
         );
     }

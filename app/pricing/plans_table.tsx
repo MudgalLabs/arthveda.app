@@ -250,8 +250,8 @@ export function PlansTable() {
                             &nbsp;
                         </p>
                         {/* CTA carries the wording — no helper line beneath
-                            (plan §7: "No credit card required" belongs on Pro
-                            where there's actually a trial, not on Free). */}
+                            (the trial-mechanics line belongs on Pro, where
+                            there's actually a trial, not on Free). */}
                         <div className="mt-5">
                             <GetStarted
                                 fullWidth
@@ -311,13 +311,13 @@ export function PlansTable() {
 
                         <div className="mt-5">
                             <GetStarted
-                                label="Start 30-day trial"
+                                label="Start 30-day free trial"
                                 fullWidth
                                 size="default"
                             />
                         </div>
                         <p className="mt-3 text-center text-xs text-text-subtle">
-                            No credit card required
+                            Card required. No charge today.
                         </p>
                     </div>
                 </div>

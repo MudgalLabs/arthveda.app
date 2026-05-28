@@ -404,7 +404,8 @@ states; keep framing consistent with the Journal cards.
 
 ### `/pricing` page copy & UX
 
-> **Model locked 2026-05-28: FREEMIUM + 30-day Pro trial.** Everyone can use the
+> **Model locked 2026-05-29: FREEMIUM + 30-day Pro trial (card-required,
+> Paddle as merchant of record); no trial on Lifetime.** Everyone can use the
 > whole workflow free, with **hard caps**. Serious users upgrade to lift them.
 > **Always free, no caps (the growth engine — never touch this):** the Screener
 > (running scans, anon), viewing any published screener/watchlist/profile, any
@@ -459,10 +460,10 @@ No CTAs in the hero. Left-aligned; **not** the centered `page-header`.
       urgency above the fold.
     - **Post-promo fallback** (when the 10 seats are sold and the lifetime is
       pulled): swap the subline to the access pitch — _"Do the whole workflow
-      free, with limits. Pro lifts them all — 30-day trial, no card."_ Build the
-      subline so it's a single editable string driven by the same constant that
-      powers `lifetime_cohort_count` (when sold-out, render the fallback). Don't
-      leave a stale promo up.
+      free, with limits. Pro lifts them all — 30-day free trial, card
+      required."_ Build the subline so it's a single editable string driven by
+      the same constant that powers `lifetime_cohort_count` (when sold-out,
+      render the fallback). Don't leave a stale promo up.
 
 **Plans layout — one full-width 2-column table (ClickUp-style); NOT a centered card.**
 Each column's top is **name → price → (toggle on Pro) → CTA**; feature rows below.
@@ -483,8 +484,8 @@ floating card mid-page).
 - Heading: **Free**
 - Price: **₹0** with small `forever` beside it (same baseline).
 - CTA: **Start for free** (filled secondary tone — quieter than Pro's CTA).
-- **NO helper line.** Do not add "No credit card required" here (Free has no
-  card flow; the line belongs on Pro).
+- **NO helper line.** Don't add a card-required disclosure here (Free has no
+  card flow; that disclosure belongs on Pro).
 
 **Pro card (period-aware):**
 
@@ -507,11 +508,13 @@ floating card mid-page).
   _fact_ not an apology, and stays consistent between the hero subtitle and the
   card without a separate copy line. Same convention will apply to any future
   paid surface (annual upsell modals, lifetime, etc.).
-- CTA: **Start 30-day trial** (filled primary; same component family as
+- CTA: **Start 30-day free trial** (filled primary; same component family as
   hero/nav primary).
-- Helper line beneath the CTA: **No credit card required** _(Phase 1 only;
-  remove on Phase 2 MoR/Paddle switch and replace with_ **First month free ·
-  card required** _)._
+- Helper line beneath the CTA: **Card required. No charge today.** Paddle-
+  managed trial; auto-converts to the picked plan at trial end unless
+  cancelled. Wording is locked (2026-05-29) — the cancel-anytime detail
+  lives in the page-level footnote below the table, not under the CTA, so
+  the two surfaces don't duplicate.
 
 **Table convention — list every feature, ✓ both columns when both have it.**
 Industry standard (Linear / Notion / Vercel / GitHub): the pricing table doubles
@@ -635,30 +638,33 @@ how visitors meet the scarcity above the fold from the moment they arrive.
   wraps cleanly to two; either is acceptable for a launch-only promo). The
   `×` tap target needs ≥40×40 hit area via padding.
 
-**Trial mechanics — two phases (note this in the page, not in the table):**
+**Trial mechanics — single phase (note this in the page, not in the table):**
 
-- **At launch:** 30-day Pro trial, **no credit card required.** On expiry, the user
-  **drops to Free (capped)** — never locked out. Anti-abuse during this window:
-  email/IP rate-limits + block disposable email domains.
-- **Post-launch (soon, MoR/Paddle):** 30-day Pro trial becomes **card-required**,
-  marketed as **"First month free."** Same card can't be used twice. Auto-converts
-  to paid (monthly/yearly, picked at signup) unless cancelled — user can drop to
-  Free anytime.
-- **Grandfather** users who started under no-card — their trial finishes under
-  no-card terms.
-- **Measure first, then switch.** Watch abuse rate + trial→paid conversion during
-  the no-card window; the switch should be data-driven, not a calendar.
+- **30-day free trial** on Monthly + Yearly Pro via **Paddle** (merchant of
+  record). A valid card is required to start; **no charge during the trial**.
+- **Auto-converts** at trial end to the plan picked at signup (monthly or
+  yearly) unless cancelled. After conversion, the subscription renews at the
+  end of each billing period until cancelled.
+- **Cancellation is self-service** from the account; takes effect at the end
+  of the current period (during the trial: no charge ever lands).
+- **Lifetime is not eligible for a trial.** One-time purchase; 14-day refund
+  window after payment (see `/refund`).
+- **Single phase — no separate no-card window at launch.** The card-required
+  flow filters trial abuse (Paddle dedup + RBI e-mandate friction does the
+  work of email/IP rate-limits we'd otherwise need to build) and the
+  freemium tier already serves the no-card, kick-the-tires audience.
+  Decision collapsed from the earlier two-phase plan on 2026-05-29.
 
 **Yearly upsell — locked from design.** Period toggle defaults to **Yearly**;
 a small **"Save 44% with yearly"** label sits _above_ the toggle (right-
 aligned, indigo — see the period-toggle spec above the cards). Pro's Yearly
 view displays the effective per-month rate **₹167/mo** (rounded up from
 1999÷12 = ₹166.58 — honest) + the muted sub-line **`Billed yearly ₹1,999 +
-GST`**. Same 30-day trial on either period.
+GST`**. Same 30-day free trial on either period.
 
 **Remove from the current `/pricing`:** the v1 journal-only `FEATURES` list
 (replace with the table above), the **"14-day money-back guarantee"** line
-(freemium + no-card trial replaces it — keep only the quiet `/refund` link), and
+(freemium + Paddle trial replaces it — keep only the quiet `/refund` link), and
 the **"Arthveda is growing… See what's coming → /roadmap"** block. Also nuke the
 `/roadmap` route + any nav/footer link to it.
 
@@ -698,7 +704,8 @@ That's the ceiling.
 ## 10. Access model (for CTAs / pricing copy)
 
 Single source of truth: `arthveda/docs/marketing_context.md` §6. **Model locked
-2026-05-28: FREEMIUM + 30-day Pro trial.** Summary:
+2026-05-29: FREEMIUM + 30-day Pro trial (card-required, Paddle as merchant of
+record); no trial on Lifetime.** Summary:
 
 - **Anonymous (no account, uncapped — the growth engine):** run any screener, view
   any published screener / watchlist / profile, any stock's chart + performance.
@@ -713,13 +720,13 @@ Single source of truth: `arthveda/docs/marketing_context.md` §6. **Model locked
 - **Pro** (₹299/mo or ₹1,999/yr — **save 44%**; **GST extra**):
   all caps lifted, full history everywhere, broker sync, uploads up to 1 GB,
   priority support, every new feature.
-- **30-day Pro trial:**
-    - **At launch:** no credit card required → on expiry, **drops to Free** (not
-      locked out).
-    - **Soon after:** card-required via **MoR (Paddle)**, marketed as **"First month
-      free"**; same card can't be reused; auto-converts to paid unless cancelled.
-    - Grandfather no-card trialists; switch driven by abuse + conversion data, not a
-      calendar.
+- **30-day free trial** on Monthly + Yearly Pro via **Paddle** (merchant of
+  record): card required to start, **no charge during the trial**. Auto-converts
+  to the plan picked at signup (monthly or yearly) unless cancelled.
+  Self-service cancellation from the account, takes effect at the end of the
+  current period.
+- **Lifetime is not eligible for a trial.** One-time purchase; **14-day refund
+  window** after payment.
 - **Lifetime ₹3,999, first 10 users only** (launch promo — lives in the hero
   subline of `/pricing`, not a separate strip; then raise/remove — symmetric
   with ₹299/mo + ₹1,999/yr).
@@ -761,12 +768,14 @@ avoid cannibalization/duplicate content.
 
 ## 12. Open items (need founder input before/at build)
 
-- **Pricing architecture** — ✅ decided (**FREEMIUM** + 30-day Pro trial; see §7
-  `/pricing` + §10). Only the **price numbers** stay a moving target. ⚠️ This is a
-  real app-side build: server-side cap enforcement (watchlists, **12-month
-  visible window** across trades + analytics + explore, broker accounts, uploads,
-  tags) + trial state machine (Pro trial → drop to Free on expiry) +
-  (post-launch) MoR/Paddle integration + the **`/positions` → `/trades`** +
+- **Pricing architecture** — ✅ decided (**FREEMIUM** + 30-day Pro trial via
+  **Paddle (MoR), card-required**; no trial on Lifetime; see §7 `/pricing` +
+  §10). Only the **price numbers** stay a moving target. ⚠️ This is a real
+  app-side build: server-side cap enforcement (watchlists, **12-month visible
+  window** across trades + analytics + explore, broker accounts, uploads,
+  tags) + **Paddle trial state machine** (card capture → no charge during
+  trial → auto-convert at trial end to the plan picked at signup → renewing
+  subscription, with self-service cancel) + the **`/positions` → `/trades`** +
   "Trades table → Executions" rename. Tracked in `arthveda/docs/todo.md` §3 + §4.
 - **Founder note copy** — to be rewritten.
 - **Real broker list** — confirm against `lib/brokers.ts`; never list unsupported
