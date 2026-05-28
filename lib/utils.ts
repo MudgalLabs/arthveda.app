@@ -5,10 +5,6 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export function getUserTimezone(): string {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone; // e.g. "Asia/Kolkata"
-}
-
 export type CurrencyCode = "inr" | "usd";
 
 export function formatCurrency(

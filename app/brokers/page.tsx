@@ -1,21 +1,38 @@
+import type { Metadata } from "next";
+import { Plug } from "lucide-react";
+
+import { FamilyLabel } from "@/components/family_label";
 import { Broker, BROKERS } from "@/lib/brokers";
 import { Card, CardContent, CardTitle } from "@/ui/card";
 import { Tag } from "@/ui/tag";
 import { Check } from "lucide-react";
 
+export const metadata: Metadata = {
+    title: "Brokers · Arthveda",
+    description:
+        "Import your trades from supported Indian brokers in seconds — no manual work needed.",
+    alternates: { canonical: "/brokers" },
+};
+
 export default function BrokersPage() {
     return (
-        <div className="mt-12 md:mt-16 mb-12 text-center space-y-4">
-            <h1 className="page-header">Works with your broker.</h1>
+        <main className="pb-24">
+            {/* Hero — match the /product/* and /pricing hub heroes. */}
+            <section className="pt-12 md:pt-16 lg:pt-20">
+                <FamilyLabel name="Brokers" Icon={Plug} />
+                <h1 className="mt-5 max-w-3xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
+                    Works with your broker.
+                </h1>
+                <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
+                    Import your trades from supported brokers in seconds — no
+                    manual work needed.
+                </p>
+            </section>
 
-            <p className="font-content text-muted-foreground mx-auto max-w-2xl">
-                Import your trades from supported brokers in seconds — no manual
-                work needed.
-            </p>
+            {/* Full-bleed divider after the hero — same treatment as the hubs. */}
+            <hr className="relative left-1/2 mt-20 w-screen -translate-x-1/2 border-t border-[hsl(220,20%,13.5%)] md:mt-24" />
 
-            <div className="h-16" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {BROKERS.map(
                     (b) =>
                         !b.isComingSoon && (
@@ -23,7 +40,7 @@ export default function BrokersPage() {
                         ),
                 )}
             </div>
-        </div>
+        </main>
     );
 }
 

@@ -18,7 +18,8 @@ export const SCREENER_URL = IS_DEV
     ? "http://localhost:6969/app/screeners"
     : "https://arthveda.app/screeners";
 
-// Public trader profiles directory — the Social hub CTA links here.
-export const TRADERS_URL = IS_DEV
-    ? "http://localhost:6969/app/traders"
-    : "https://arthveda.app/traders";
+// The viewer's own trader profile — the Social hub CTA ("Create your profile")
+// links here; the app handles the login/redirect if needed.
+export const PROFILE_URL = IS_DEV
+    ? "http://localhost:6969/app/profile"
+    : "https://arthveda.app/profile";

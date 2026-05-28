@@ -5,7 +5,7 @@ import { FamilyLabel } from "@/components/family_label";
 import { GetStarted } from "@/components/get_started";
 import { SOCIAL_FEATURES } from "@/lib/social_sections";
 import { FAMILY_ICONS } from "@/lib/families";
-import { TRADERS_URL } from "@/lib/links";
+import { PROFILE_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
     title: "Social · Arthveda",
@@ -75,7 +75,7 @@ export default function SocialHubPage() {
                 </h2>
                 <div className="h-8" />
                 <div className="mx-auto w-fit">
-                    <GetStarted label="View trader profiles" href={TRADERS_URL} />
+                    <GetStarted label="Create your profile" href={PROFILE_URL} />
                 </div>
             </div>
         </main>

@@ -56,7 +56,7 @@ export default function FloatingGetStarted() {
             `}
         >
             <div className="sm:mr-16">
-                <GetStarted shortened />
+                <GetStarted />
             </div>
         </div>
     );
