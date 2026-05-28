@@ -31,8 +31,7 @@ export const SOCIAL_FEATURES: SocialFeature[] = [
         heading: "Show your work, not your P&L.",
         subheading:
             "Publish your screeners and watchlists for anyone to open and clone. Pin your best to a showcase, so your reputation rests on your ideas.",
-        image: null,
-        placeholderLabel: "Showcase · pinned & published screeners/watchlists",
+        image: "/images/product_profile_showcase.png",
     },
     {
         id: "activity",
@@ -40,7 +39,6 @@ export const SOCIAL_FEATURES: SocialFeature[] = [
         heading: "Let your consistency show.",
         subheading:
             "An activity heatmap, a workflow breakdown, and a recent timeline. Your discipline becomes visible to others, and to you.",
-        image: null,
-        placeholderLabel: "Activity · heatmap, workflow & timeline",
+        image: "/images/product_profile_activity.png",
     },
 ];

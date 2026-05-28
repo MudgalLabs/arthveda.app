@@ -59,6 +59,7 @@ export default function DiscoverHubPage() {
                                 subheading={feature.subheading}
                                 image={feature.image}
                                 placeholderLabel={feature.placeholderLabel}
+                                softBottomFade={feature.softBottomFade}
                                 priority={ri === 0}
                             />
                         ))}
