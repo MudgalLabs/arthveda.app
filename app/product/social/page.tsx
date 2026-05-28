@@ -10,13 +10,14 @@ import { PROFILE_URL } from "@/lib/links";
 export const metadata: Metadata = {
     title: "Social · Arthveda",
     description:
-        "Build a public trading identity around your process — your screeners, watchlists, and activity — and follow traders who think like you. Not a P&L leaderboard.",
+        "Build a public trading identity around your process: your screeners, watchlists, and activity. Follow traders who think like you. Not a P&L leaderboard.",
     alternates: { canonical: "/product/social" },
 };
 
 // Group features into pairs — each pair renders as one bordered container.
-const ROWS = Array.from({ length: Math.ceil(SOCIAL_FEATURES.length / 2) }, (_, i) =>
-    SOCIAL_FEATURES.slice(i * 2, i * 2 + 2)
+const ROWS = Array.from(
+    { length: Math.ceil(SOCIAL_FEATURES.length / 2) },
+    (_, i) => SOCIAL_FEATURES.slice(i * 2, i * 2 + 2),
 );
 
 export default function SocialHubPage() {
@@ -32,10 +33,9 @@ export default function SocialHubPage() {
                     Build a reputation on your process.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Your public profile shows how you actually trade — your
-                    published screeners and watchlists, your activity, your
-                    consistency — so you build credibility on process, not P&amp;L
-                    screenshots.
+                    Your public profile shows how you actually trade: published
+                    screeners and watchlists, your activity, your consistency.
+                    Credibility built on process, not P&amp;L screenshots.
                 </p>
             </section>
 
@@ -55,7 +55,6 @@ export default function SocialHubPage() {
                         {pair.map((feature) => (
                             <FeatureCard
                                 key={feature.id}
-                                id={feature.id}
                                 label={feature.label}
                                 heading={feature.heading}
                                 subheading={feature.subheading}
@@ -75,7 +74,7 @@ export default function SocialHubPage() {
                 </h2>
                 <div className="h-8" />
                 <div className="mx-auto w-fit">
-                    <GetStarted label="Create your profile" href={PROFILE_URL} />
+                    <GetStarted label="Build your profile" href={PROFILE_URL} />
                 </div>
             </div>
         </main>

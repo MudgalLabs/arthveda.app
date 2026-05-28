@@ -42,14 +42,10 @@ export default function PrivacyPage() {
             </ul>
 
             <h2 className="sub-heading mt-4">3. Cookies & Analytics</h2>
-            <p>We use cookie for authenticating users.</p>
+            <p>We use cookies to authenticate users.</p>
             <p>
-                We use cookies and tools like <strong>PostHog</strong> to help
-                us understand how users interact with Arthveda. These tools may
-                use cookies to record anonymous usage behavior (clicks, page
-                views, flows).
-            </p>
-            <p>
+                We also use <strong>PostHog</strong> to understand how people
+                interact with Arthveda (anonymous clicks, page views, flows).
                 This helps us improve usability, fix bugs, and guide product
                 decisions. We do not use third-party ad or tracking services.
             </p>
@@ -76,7 +72,7 @@ export default function PrivacyPage() {
             <h2 className="sub-heading mt-4">6. Changes to This Policy</h2>
             <p>
                 We may update this policy in the future. If we make major
-                changes, we’ll try out best to notify you in the app or via
+                changes, we’ll do our best to notify you in the app or via
                 email.
             </p>
 

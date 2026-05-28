@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { PromoBanner } from "@/components/promo_banner";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
                 width: 1200,
                 height: 630,
                 type: "image/png",
-                alt: "Arthveda — Trading OS for India",
+                alt: "Trading OS for India · Arthveda",
             },
         ],
     },
@@ -91,8 +92,7 @@ export default function RootLayout({
                             name: "Arthveda",
                             applicationCategory: "FinanceApplication",
                             operatingSystem: "Web",
-                            description:
-                                "The Trading OS for India — built for swing traders to discover stocks, build intelligent watchlists, track your journey with every stock, journal trades, and share their process.",
+                            description: DESCRIPTION,
                             url: "https://arthveda.app",
                             offers: {
                                 "@type": "Offer",
@@ -119,7 +119,16 @@ export default function RootLayout({
                             horizontal scroll. clip doesn't create a scroll
                             container, so the sticky navbar is unaffected. */}
                         <div className="w-full overflow-x-clip">
-                            <Navbar />
+                            {/* Sticky header unit — banner + navbar move as
+                                one. When the banner is hidden (dismissed /
+                                sold-out / on /pricing) the wrapper still
+                                keeps the navbar stuck to the top, identical
+                                to the pre-banner behavior. Launch-only promo
+                                rationale: see plan §7. */}
+                            <div className="sticky top-0 z-50">
+                                <PromoBanner />
+                                <Navbar />
+                            </div>
 
                             <div className="w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px] xl:px-16">
                                 {children}

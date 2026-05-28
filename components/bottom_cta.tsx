@@ -18,8 +18,8 @@ export default function BottomCTA() {
 
             {/* The single, vague forward-looking line (plan §8 — no roadmap leak). */}
             <p className="text-text-subtle mx-auto max-w-xl text-sm leading-relaxed">
-                Arthveda starts with the core swing-trading workflow, and keeps
-                expanding into a broader workspace for serious Indian traders.
+                Built for swing traders today. Growing into a broader
+                workspace for serious Indian traders.
             </p>
         </div>
     );

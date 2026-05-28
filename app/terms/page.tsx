@@ -16,10 +16,10 @@ export default function TermsPage() {
 
             <h2 className="sub-heading">1. Overview</h2>
             <p>
-                Arthveda is a trading journal and analytics platform that helps
-                traders track and analyze their trades. We currently offer a
-                free service with reasonable limits. Paid plans may be
-                introduced in the future.
+                Arthveda is a Trading OS for Indian swing traders. It helps
+                you discover stocks, journal trades, and share your process.
+                A free tier is available with reasonable limits, alongside
+                paid plans.
             </p>
 
             <h2 className="sub-heading mt-4">2. Your Responsibilities</h2>
@@ -47,9 +47,9 @@ export default function TermsPage() {
 
             <h2 className="sub-heading mt-4">4. Service Availability</h2>
             <p>
-                We aim to keep the platform stable and accessible but make no
-                guarantees regarding uptime or data retention. Features may
-                change or be removed without notice.
+                We aim to keep the platform stable and accessible, but make
+                no uptime or data-retention guarantees. Features may change
+                or be removed without notice.
             </p>
 
             <h2 className="sub-heading mt-4">5. Termination</h2>
@@ -64,7 +64,7 @@ export default function TermsPage() {
                 after changes means you accept the updated terms.
             </p>
 
-            <h2 className="sub-heading mt-4">8. Contact</h2>
+            <h2 className="sub-heading mt-4">7. Contact</h2>
             <p>
                 For questions or feedback, email us at{" "}
                 <a className="text-base!" href="mailto:hey@arthveda.app">

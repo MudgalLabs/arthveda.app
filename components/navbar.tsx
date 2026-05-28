@@ -17,12 +17,40 @@ export default function Navbar() {
 
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+    // Mobile menu top offset — measured off the nav's actual bottom so it sits
+    // flush under the sticky header, whether or not the promo banner is
+    // showing (banner pushes the nav down when present, see app/layout.tsx).
+    // Default 64 = h-16 = the nav's own height (correct when banner is hidden).
+    const navRef = useRef<HTMLElement>(null);
+    const [navBottom, setNavBottom] = useState(64);
+
     // Lock body scroll while the full-screen mobile menu is open.
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
         return () => {
             document.body.style.overflow = "";
         };
+    }, [menuOpen]);
+
+    // Keep `navBottom` in sync with the nav's actual viewport position.
+    // Re-measure on: mount, window resize, and every menu open (catches the
+    // banner-mounts-after-first-paint case — banner state is client-only so
+    // the nav shifts down a frame after page paint).
+    useEffect(() => {
+        const measure = () => {
+            if (navRef.current) {
+                setNavBottom(navRef.current.getBoundingClientRect().bottom);
+            }
+        };
+        measure();
+        window.addEventListener("resize", measure);
+        return () => window.removeEventListener("resize", measure);
+    }, []);
+
+    useEffect(() => {
+        if (menuOpen && navRef.current) {
+            setNavBottom(navRef.current.getBoundingClientRect().bottom);
+        }
     }, [menuOpen]);
 
     const openProduct = () => {
@@ -68,7 +96,11 @@ export default function Navbar() {
 
     return (
         <>
-        <nav className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/70 border-b border-white/[0.08]">
+        {/* Stickiness is owned by the wrapper in `app/layout.tsx` so the
+            promo banner + navbar move together as one sticky header unit.
+            When the banner is hidden, the wrapper still keeps the navbar
+            stuck to the top (same behavior as before). */}
+        <nav ref={navRef} className="w-full backdrop-blur-md bg-background/70 border-b border-white/[0.08]">
             <div className="relative mx-auto flex h-16 max-w-[1360px] items-center justify-between px-4 md:px-6 lg:px-8">
                 {/* Branding (left) */}
                 <Link href="/" className="shrink-0">
@@ -151,8 +183,9 @@ export default function Navbar() {
             outside <nav> because the navbar's backdrop-blur would trap a fixed
             child. */}
         <div
+            style={{ top: navBottom }}
             className={cn(
-                "lg:hidden fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-background",
+                "lg:hidden fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-background",
                 "transition-opacity duration-200",
                 menuOpen
                     ? "opacity-100 pointer-events-auto"

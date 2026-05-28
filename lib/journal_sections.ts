@@ -1,6 +1,7 @@
 // Journal family page: a left-aligned hero, then a 2-up grid of feature cards
-// (8 cards, 4 rows). Copy + images are the v1 feature pages, re-homed here (em
-// dashes removed). `id` is the nav deep-link anchor (/product/journal#insights).
+// (8 cards, 4 rows). Copy + images are the v1 feature pages, re-homed here.
+// `id` is the stable React key for the card list — NOT a deep-link anchor;
+// hubs are flat pages and we don't link to in-page sections (plan §4).
 
 export interface JournalFeature {
     id: string;
@@ -17,7 +18,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         label: "Insights",
         heading: "See what's actually hurting your trading.",
         subheading:
-            "Arthveda analyzes your trades to show why you lose money and what needs to change, so you can improve with clarity, not intuition.",
+            "See why you lose money and what to change. Improve with clarity, not intuition.",
         image: "/images/insights_hero.png",
     },
     {
@@ -25,7 +26,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         label: "Dashboard",
         heading: "Know if you're actually improving.",
         subheading:
-            "Track your PnL, win rate, and overall performance over time, so you can measure progress with real data, not assumptions.",
+            "Track PnL, win rate, and performance over time. Measure progress with data, not assumptions.",
         image: "/images/dashboard-hero.png",
     },
     {

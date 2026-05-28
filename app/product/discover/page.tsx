@@ -32,9 +32,9 @@ export default function DiscoverHubPage() {
                     Find ideas. Track what happens next.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Scan the whole market, save what matters with the reason you
-                    added it, and keep a running history of every stock you
-                    track, so good ideas don&apos;t slip away.
+                    Scan the whole market, save ideas with the reason you
+                    added them, and keep the full history of every stock you
+                    track.
                 </p>
             </section>
 
@@ -54,7 +54,6 @@ export default function DiscoverHubPage() {
                         {pair.map((feature) => (
                             <FeatureCard
                                 key={feature.id}
-                                id={feature.id}
                                 label={feature.label}
                                 heading={feature.heading}
                                 subheading={feature.subheading}

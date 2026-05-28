@@ -30,17 +30,17 @@ export const SOCIAL_FEATURES: SocialFeature[] = [
         label: "Showcase",
         heading: "Show your work, not your P&L.",
         subheading:
-            "Publish your screeners and watchlists for anyone to open and clone, and pin your best to a showcase, so your reputation rests on your ideas, not P&L screenshots.",
+            "Publish your screeners and watchlists for anyone to open and clone. Pin your best to a showcase, so your reputation rests on your ideas.",
         image: null,
-        placeholderLabel: "Showcase — pinned & published screeners/watchlists",
+        placeholderLabel: "Showcase · pinned & published screeners/watchlists",
     },
     {
         id: "activity",
         label: "Activity",
         heading: "Let your consistency show.",
         subheading:
-            "An activity heatmap, a workflow breakdown, and a recent timeline, so your discipline is visible to others — and you can see whether you're running the full process or just logging trades.",
+            "An activity heatmap, a workflow breakdown, and a recent timeline. Your discipline becomes visible to others, and to you.",
         image: null,
-        placeholderLabel: "Activity — heatmap, workflow & timeline",
+        placeholderLabel: "Activity · heatmap, workflow & timeline",
     },
 ];

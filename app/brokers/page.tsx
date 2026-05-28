@@ -10,7 +10,7 @@ import { Check } from "lucide-react";
 export const metadata: Metadata = {
     title: "Brokers · Arthveda",
     description:
-        "Import your trades from supported Indian brokers in seconds — no manual work needed.",
+        "Import your trades from supported Indian brokers in seconds. No manual work.",
     alternates: { canonical: "/brokers" },
 };
 
@@ -24,8 +24,8 @@ export default function BrokersPage() {
                     Works with your broker.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Import your trades from supported brokers in seconds — no
-                    manual work needed.
+                    Import your trades from supported brokers in seconds. No
+                    manual work.
                 </p>
             </section>
 

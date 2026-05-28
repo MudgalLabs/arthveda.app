@@ -24,7 +24,7 @@ export const DISCOVER_FEATURES: DiscoverFeature[] = [
         label: "Screener",
         heading: "Scan the whole market in seconds.",
         subheading:
-            "Filter every NSE/BSE stock by price, volume, technicals, and breakout signals, and inspect each hit with an inline chart, so you go from noise to a shortlist fast.",
+            "Filter every NSE/BSE stock by price, volume, technicals, and breakout signals. Inspect each hit with an inline chart and go from noise to a shortlist fast.",
         image: "/images/v2/product-discover.png",
     },
     {
@@ -32,25 +32,25 @@ export const DISCOVER_FEATURES: DiscoverFeature[] = [
         label: "Progressive Scan",
         heading: "Find the stocks that keep showing up.",
         subheading:
-            "Run several screeners into one session and surface the names that repeat across them, so confluence becomes your signal instead of duplicate noise.",
+            "Run several screeners into one session and surface the names that repeat across them. Confluence becomes your signal instead of duplicate noise.",
         image: null,
-        placeholderLabel: "Progressive Scan — repeat signals",
+        placeholderLabel: "Progressive Scan · repeat signals",
     },
     {
         id: "watchlists",
         label: "Watchlists",
         heading: "Watchlists that remember why.",
         subheading:
-            "Add a note to every stock you track and see how it moved since — percent change, max gain, max drawdown — so you learn whether your reasoning actually worked.",
+            "Add a note to every stock you track and see how it moved since: percent change, max gain, max drawdown. Learn whether your reasoning actually worked.",
         image: null,
-        placeholderLabel: "Watchlist — intelligence columns",
+        placeholderLabel: "Watchlist · intelligence columns",
     },
     {
         id: "symbol-journey",
         label: "Symbol Journey",
         heading: "Every stock gets a timeline.",
         subheading:
-            "Open any stock to see your full history with it — every watchlist add, note, and trade on one timeline beside the chart — so the whole story stays in one place.",
+            "Open any stock to see your full history with it. Every watchlist add, note, and trade on one timeline beside the chart, so the whole story stays in one place.",
         // Same frame as the hero video poster (the /symbols/IRFC command center).
         image: "/images/v2/video-poster.png",
     },

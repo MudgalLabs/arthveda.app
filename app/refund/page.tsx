@@ -15,8 +15,8 @@ export default function RefundPage() {
                 with a paid subscription.
             </p>
             <p>
-                If you have any questions, concerns or would like to{" "}
-                <strong>request for a refund</strong>, feel free to contact us
+                If you have any questions, concerns, or would like to{" "}
+                <strong>request a refund</strong>, feel free to contact us
                 at{" "}
                 <a
                     href="mailto:hey@arthveda.app"

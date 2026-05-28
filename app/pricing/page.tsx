@@ -8,7 +8,7 @@ import { PlansTable } from "@/app/pricing/plans_table";
 export const metadata: Metadata = {
     title: "Pricing · Arthveda",
     description:
-        "Free forever, with limits. Pro lifts every cap when daily use outgrows them — 30-day trial, no credit card required.",
+        "Free forever, with limits. Pro lifts every cap when daily use outgrows them. 30-day trial, no credit card required.",
     alternates: { canonical: "/pricing" },
 };
 
@@ -44,12 +44,12 @@ export default function PricingPage() {
                     deliberately not advertised). */}
                 <div className="mx-auto mt-8 max-w-3xl space-y-3 text-center text-sm text-text-muted">
                     <p>
-                        Building a track record is a long game — most traders
+                        Building a track record is a long game. Most traders
                         go yearly.
                     </p>
                     <p className="text-xs text-text-subtle">
-                        30-day Pro trial, no credit card required. When the
-                        trial ends, you drop to Free — never locked out.
+                        30-day Pro trial, no credit card required. When it
+                        ends, you drop to Free. Never locked out.
                     </p>
                 </div>
             </div>

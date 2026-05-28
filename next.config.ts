@@ -9,10 +9,49 @@ const nextConfig: NextConfig = {
         unoptimized: false,
     },
 
-    // The v1 /roadmap page is removed (plan §8/§11: do not leak the roadmap).
-    // Permanently redirect it to home so we don't drop any inbound links.
+    // v1 → v2 redirects (plan §11). Old per-feature product pages collapse
+    // into the single Journal hub — we deliberately don't deep-link to in-page
+    // sections; just land on the hub root. /roadmap was removed entirely
+    // (plan §8: don't leak the roadmap).
     async redirects() {
-        return [{ source: "/roadmap", destination: "/", permanent: true }];
+        return [
+            { source: "/roadmap", destination: "/", permanent: true },
+            {
+                source: "/product/insights",
+                destination: "/product/journal",
+                permanent: true,
+            },
+            {
+                source: "/product/calendar",
+                destination: "/product/journal",
+                permanent: true,
+            },
+            {
+                source: "/product/tagging",
+                destination: "/product/journal",
+                permanent: true,
+            },
+            {
+                source: "/product/trades",
+                destination: "/product/journal",
+                permanent: true,
+            },
+            {
+                source: "/product/accounts",
+                destination: "/product/journal",
+                permanent: true,
+            },
+            {
+                source: "/product/reports",
+                destination: "/product/journal",
+                permanent: true,
+            },
+            {
+                source: "/product/performance",
+                destination: "/product/journal",
+                permanent: true,
+            },
+        ];
     },
 };
 

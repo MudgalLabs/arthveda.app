@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 interface FeatureCardProps {
-    id: string;
     label: string;
     heading: string;
     subheading: string;
@@ -22,7 +21,6 @@ const FADE =
 // upper area (lit from the top, edges fading into the page) and the title +
 // description sit at the bottom.
 export default function FeatureCard({
-    id,
     label,
     heading,
     subheading,
@@ -31,10 +29,8 @@ export default function FeatureCard({
     priority = false,
 }: FeatureCardProps) {
     return (
-        <div
-            id={id}
-            className="group flex scroll-mt-24 flex-col px-4 pb-4 pt-2.5 md:min-h-[calc(100svh-10rem)] md:p-6"
-        >
+        <div className="group flex flex-col px-4 pb-4 pt-2.5 md:min-h-[calc(100svh-10rem)] md:p-6">
+
             {/* Subtle caption above the image (Linear-style). */}
             <p className="text-xs font-medium uppercase tracking-wider text-text-subtle">
                 {label}

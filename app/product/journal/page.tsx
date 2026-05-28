@@ -9,7 +9,7 @@ import { FAMILY_ICONS } from "@/lib/families";
 export const metadata: Metadata = {
     title: "Journal · Arthveda",
     description:
-        "Review trades and improve your process. Log or import trades, journal the decisions behind them, and use performance analytics and insights to see where you make money, where you lose it, and what to fix.",
+        "Review trades and improve your process. Log or import trades, journal the thinking behind them, and use analytics to see where you make money, where you lose it, and what to fix.",
     alternates: { canonical: "/product/journal" },
 };
 
@@ -31,9 +31,9 @@ export default function JournalHubPage() {
                     Turn trades into feedback.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Log or import your trades, journal the decisions behind them,
-                    and use performance analytics and insights to see where you
-                    make money, where you lose it, and what to fix.
+                    Log or import trades, journal the thinking behind them,
+                    and use analytics to see where you make money, where you
+                    lose it, and what to fix.
                 </p>
             </section>
 
@@ -53,7 +53,6 @@ export default function JournalHubPage() {
                         {pair.map((feature) => (
                             <FeatureCard
                                 key={feature.id}
-                                id={feature.id}
                                 label={feature.label}
                                 heading={feature.heading}
                                 subheading={feature.subheading}

@@ -4,8 +4,8 @@ export default function ContactPage() {
             <h1 className="big-heading mb-12">Contact Us</h1>
 
             <p className="mb-4">
-                Whether you have a question, want to share feedback, report a
-                bug, or just say hello — we’d love to hear from you.
+                Whether you have a question, want to share feedback, report
+                a bug, or just say hello. We’d love to hear from you.
             </p>
             <p className="mb-4">
                 You can reach us directly at:{" "}

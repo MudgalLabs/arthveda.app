@@ -95,7 +95,7 @@ const ROWS: Row[] = [
         free: "Last 12 months",
         pro: "Full history",
         tooltip:
-            "The setups and mistakes that consistently make you — or cost you — money.",
+            "The setups and mistakes that consistently make or cost you money.",
     },
     {
         kind: "feature",
@@ -112,7 +112,7 @@ const ROWS: Row[] = [
         free: "yes",
         pro: "yes",
         tooltip:
-            "Per-trade reflection — what you saw, what you did, what you'd do differently.",
+            "Per-trade reflection: what you saw, what you did, what you'd do differently.",
     },
     { kind: "feature", label: "Broker accounts", free: "1", pro: "Unlimited" },
     {
@@ -144,7 +144,7 @@ const ROWS: Row[] = [
         kind: "group",
         label: "Social",
         tooltip:
-            "Trader profile · publish screeners + watchlists · showcase · activity heatmap · follow & be followed. All free, no caps — not a Pro upsell, by design.",
+            "Trader profile · publish screeners + watchlists · showcase · activity heatmap · follow & be followed. All free, no caps. Not a Pro upsell, by design.",
     },
     { kind: "feature", label: "Everything", free: "yes", pro: "yes" },
 
