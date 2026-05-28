@@ -4,7 +4,7 @@ export default function PrivacyPage() {
             <h1 className="big-heading mb-12">Privacy Policy</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> November 1, 2025
+                <strong>Effective Date:</strong> May 28, 2026
             </p>
 
             <p className="mb-8">
@@ -28,7 +28,9 @@ export default function PrivacyPage() {
                 personalized and functional experience.
             </p>
 
-            <h2 className="sub-heading mt-4">2. How We Use Your Data</h2>
+            <h2 className="sub-heading mt-4">
+                2. How We Use Your Data (And What We Don&rsquo;t Look At)
+            </h2>
             <ul>
                 <li>
                     Your profile helps identify your account and personalize
@@ -40,6 +42,20 @@ export default function PrivacyPage() {
                 </li>
                 <li>We do not sell your data or use it for advertising.</li>
             </ul>
+            <p className="mt-4">
+                We do not read your individual trade data. The trades, notes,
+                watchlists, and screener runs you create in Arthveda are
+                private to your account. Automated systems process them to
+                render your charts, metrics, and analytics &mdash; operators
+                and support staff do not browse user trade histories.
+            </p>
+            <p>
+                For operational monitoring (keeping the service running,
+                handling billing, preventing fraud, debugging errors) we do
+                look at account-level signals: user profiles, subscription
+                status, invoices, login activity, and error logs. These never
+                include the contents of your trades.
+            </p>
 
             <h2 className="sub-heading mt-4">3. Cookies & Analytics</h2>
             <p>We use cookies to authenticate users.</p>
