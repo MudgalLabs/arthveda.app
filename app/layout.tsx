@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { Inter } from "next/font/google";
 
@@ -19,6 +19,11 @@ const inter = Inter({
 const TITLE = "Trading OS for India · Arthveda";
 const DESCRIPTION =
     "Built for Indian swing traders: discover stocks, build intelligent watchlists, track their journey with every stock, journal trades, and share their process.";
+
+// Next 15 wants themeColor in a viewport export, not metadata.
+export const viewport: Viewport = {
+    themeColor: "#0f172a",
+};
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://arthveda.app"),
@@ -47,10 +52,10 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/images/og-image.png",
+                url: "/images/og-image.jpg",
                 width: 1200,
                 height: 630,
-                type: "image/png",
+                type: "image/jpeg",
                 alt: "Trading OS for India · Arthveda",
             },
         ],
@@ -60,14 +65,12 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: TITLE,
         description: DESCRIPTION,
-        images: ["/images/og-image.png"],
+        images: ["/images/og-image.jpg"],
     },
 
     icons: {
         icon: "/favicon.png",
     },
-
-    themeColor: "#0f172a",
 
     robots: {
         index: true,

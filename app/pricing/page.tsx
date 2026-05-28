@@ -50,8 +50,8 @@ export default function PricingPage() {
                     </p>
                     <p className="text-xs text-text-subtle">
                         30-day Pro trial. Add a card to start, cancel anytime
-                        before it ends. If you don't, it rolls into the plan
-                        you picked.
+                        before it ends. If you don&apos;t, it rolls into the
+                        plan you picked.
                     </p>
                 </div>
             </div>
