@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className="border-t border-accent-muted mt-24 sm:mt-32">
             <div className="flex-x items-start justify-between mt-2">
                 <div className="flex-y gap-y-4!">
-                    <p className="text-sm">© 2025 Mudgal Labs</p>
+                    <p className="text-sm">© 2026 Mudgal Labs</p>
                     <div className="flex-x gap-x-4">
                         <a href="https://www.instagram.com/arthvedahq">
                             <Instagram size={24} />

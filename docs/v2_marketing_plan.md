@@ -145,11 +145,13 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 **Section order:**
 
 1. **Navbar**
-2. **Hero** — headline + locked subtitle, **one** primary CTA *"Get started"*
-   (filled, **sentence case** — see Copy voice; "Start for free" is the one-word
-   swap if we ever want the friction-reducer) + a quiet secondary *"Explore
-   product"* (ghost). **No "free"-callout helper line** — the product is free to
-   enter; we don't shout it. The hero visual is the **flow-loop video** (see §6).
+2. **Hero** — headline + locked subtitle, **one** primary CTA *"Start for free"*
+   (filled, **sentence case** — see Copy voice; rolled forward 2026-05-28 from
+   the earlier "Get started" to put the friction-reducer in the button itself,
+   since the whole-product-usable-free story is now central) + a quiet secondary
+   *"Explore product"* (ghost). **No extra "free" callout line below the CTA** —
+   the button already carries it; don't double up. The hero visual is the
+   **flow-loop video** (see §6).
 3. **"Watch the full walkthrough"** — directly under the hero video. Opens an
    **on-site overlay with a lite/facade YouTube embed** (thumbnail + play button;
    heavy iframe loads only on click). Primary cut is **English**; a small *"Watch
@@ -178,7 +180,7 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 6. **Founder note** — short, founder-led, authentic; rewrite the existing
    `founder_letter` content. Process-over-P&L, no tips/signals.
 7. **FAQ** — see §9.
-8. **Final CTA** — *"Start building your trading process"* → *"Get started"* /
+8. **Final CTA** — *"Start building your trading process"* → *"Start for free"* /
    *"Open app"*.
 9. **Footer** — grouped by product (Discover / Journal / Social feature links) +
    Company (Founder note, Contact, Terms, Privacy, Refund). **No roadmap.**
@@ -203,18 +205,25 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
 - **The Screener is the acquisition surface, NOT the sell.** We don't win on "best
   screener." Sell the **connected workflow** (everything around the trade except
   execution, intraday/live charts, and price alerts). CTAs stay product-level
-  ("Get started"), never screener-level ("Try the screener").
-- **Button / CTA case = sentence case** (Deepvue-style): "Get started", "Open app",
+  ("Start for free"), never screener-level ("Try the screener").
+- **Button / CTA case = sentence case** (Deepvue-style): "Start for free", "Open app",
   "Explore product". The repo's current **"Open App"** (Title Case) →
   change to **"Open app"**. Nav *section* labels may stay single-word Title Case
   (Discover, Journal, Social, Pricing).
+- **Primary CTA label = "Start for free"** (locked 2026-05-28). Build action:
+  flip the default in `components/get_started.tsx` so the component returns
+  **"Start for free"** when no `label` prop is passed; drop the explicit
+  `label="Get started"` on the Free plan card in `app/pricing/plans_table.tsx`
+  and let the default kick in; update `hero.tsx`'s hard-coded "Get started" to
+  match. Family hubs continue overriding via `label` ("Start journaling",
+  "Open the screener", etc.).
 - **Button icons.** Filled **primary CTA → no icon** (the fill carries it):
-  "Get started". **App-launch / nav button → trailing arrow** (outbound "go" cue):
-  "Open app →". **Secondary text / ghost link → small chevron** for affordance:
-  "Explore product ›". Keep arrows subtle — static or a gentle translate-on-hover
-  nudge, never aggressive. Applies to: `navbar.tsx` ("Open app →"),
-  `get_started.tsx` / `hero.tsx` ("Get started" with no icon; secondary "Explore
-  product ›").
+  "Start for free". **App-launch / nav button → trailing arrow** (outbound "go"
+  cue): "Open app →". **Secondary text / ghost link → small chevron** for
+  affordance: "Explore product ›". Keep arrows subtle — static or a gentle
+  translate-on-hover nudge, never aggressive. Applies to: `navbar.tsx` ("Open
+  app →"), `get_started.tsx` / `hero.tsx` ("Start for free" with no icon;
+  secondary "Explore product ›").
 - **Page-title format: center dot `·`, never a pipe `|`** — e.g.
   `Trading OS for India · Arthveda`.
 - **Naming — "Symbol" for feature names, "stock" for descriptive copy
@@ -230,6 +239,15 @@ interactive hook; the three product blocks below are calm, stacked, static. Hook
   equity F&O / index F&O / commodity F&O underlyings all resolve to a symbol, so
   naming it "Stock" now forces a rename later. **Don't mix both nouns in one tight
   phrase.** (Source of truth: `arthveda/docs/marketing_context.md` §8.)
+- **Naming — "Trade" is the canonical noun for a logged position; "Execution"
+  for an individual fill.** Locked 2026-05-28. **Use "trade" everywhere** in
+  marketing copy (hero, feature labels, table rows, body, CTAs) — never
+  "position." Inside a trade there are one or more **executions** (entries /
+  exits / partials); surface "executions" only when you actually need to talk
+  about row-level mechanics, never in headline copy. The app is renaming
+  `/positions` → `/trades` and the inner "Trades" table → "Executions" in
+  parallel (committed v2 — see `arthveda/docs/todo.md` §4) so the two surfaces
+  align at launch. Source of truth: `arthveda/docs/marketing_context.md` §5.
 
 ---
 
@@ -378,6 +396,214 @@ states; keep framing consistent with the Journal cards.
 > real surface area later, collapse Trader Profiles into 1–2 cards freely — nothing
 > in the nav changes.
 
+### `/pricing` page copy & UX
+
+> **Model locked 2026-05-28: FREEMIUM + 30-day Pro trial.** Everyone can use the
+> whole workflow free, with **hard caps**. Serious users upgrade to lift them.
+> **Always free, no caps (the growth engine — never touch this):** the Screener
+> (running scans, anon), viewing any published screener/watchlist/profile, any
+> stock's chart + performance, and **all of Social** (profile, publish, showcase,
+> activity, find/follow). Caps bite on **personal workflow depth** — watchlist
+> count/size, journal volume, history windows, broker accounts, screenshots, tags.
+> Price numbers stay a moving target; the *structure + caps* below are what's fixed.
+
+**Goal:** a visitor sees instantly that *the whole product is usable free*, and
+that Pro lifts the limits when serious daily use bumps into them.
+
+**Header — match the `/product/*` hub hero exactly** (so `/pricing` reads as a
+sibling of `/product/discover|journal|social`, not a different page template).
+Mirror the structure and spacing of `app/product/journal/page.tsx`:
+
+```
+<section className="pt-12 md:pt-16 lg:pt-20">
+  <FamilyLabel name="Pricing" Icon={...} />     {/* eyebrow */}
+  <h1 className="mt-5 max-w-3xl text-balance font-heading
+                 text-[40px] font-medium leading-[1.04]
+                 tracking-[-0.025em] text-text-primary
+                 sm:text-[52px] lg:max-w-none lg:text-[60px]">
+    {heading}
+  </h1>
+  <p className="mt-5 max-w-3xl font-content text-[15px]
+                leading-[1.6] text-text-muted">
+    {subline}
+  </p>
+</section>
+
+{/* Full-bleed divider, same as product hubs. */}
+<hr className="relative left-1/2 mt-20 w-screen -translate-x-1/2
+               border-t border-[hsl(220,20%,13.5%)] md:mt-24" />
+
+{/* Plans table starts here, mt-24 down from the hr. */}
+<div className="mt-24">...</div>
+```
+
+No CTAs in the hero. Left-aligned; **not** the centered `page-header`.
+
+- **Label:** Pricing
+- **Heading (locked from design 2026-05-28):** **Start free. Upgrade when you
+  need more.**
+- **Subline — doubles as the launch lifetime promo (locked from design
+  2026-05-28):**
+  *"🎉 Lifetime ₹3,999 + GST — first 10 users only. Then the price goes up."*
+  (`+ GST` inline — attaches to the actual charged amount; same convention as
+  the Pro card, see below. Avoids the checkout-surprise without breaking the
+  urgency rhythm.)
+  - Placing the promo in the hero subline (rather than a separate strip above
+    the table) keeps the hero as the page's single visual focus and lands the
+    urgency above the fold.
+  - **Post-promo fallback** (when the 10 seats are sold and the lifetime is
+    pulled): swap the subline to the access pitch — *"Do the whole workflow
+    free, with limits. Pro lifts them all — 30-day trial, no card."* Build the
+    subline so it's a single editable string driven by the same constant that
+    powers `lifetime_cohort_count` (when sold-out, render the fallback). Don't
+    leave a stale promo up.
+
+**Plans layout — one full-width 2-column table (ClickUp-style); NOT a centered card.**
+Each column's top is **name → price → (toggle on Pro) → CTA**; feature rows below.
+The full-width table sits comfortably under the left-aligned header (no narrow
+floating card mid-page).
+
+**Period toggle — sits ABOVE the cards, right-aligned, page-level control.**
+- **Default: Yearly.**
+- A small **"Save 44% with yearly"** label sits *above* the toggle (indigo,
+  right-aligned). It is **not** a pill *inside* the toggle.
+- The toggle is a **segmented control** (rounded pill background, the active
+  segment filled indigo). Only the Pro card's price reacts; the Free card is
+  identical at both periods.
+
+**Free card (always identical, period-agnostic):**
+- Heading: **Free**
+- Price: **₹0** with small `forever` beside it (same baseline).
+- CTA: **Start for free** (filled secondary tone — quieter than Pro's CTA).
+- **NO helper line.** Do not add "No credit card required" here (Free has no
+  card flow; the line belongs on Pro).
+
+**Pro card (period-aware):**
+- Heading: **Pro**
+- **Yearly view (default):**
+  - Price = **₹167** with small `/month` beside it (1999÷12 = ₹166.58, **round
+    up** — honest).
+  - Sub-line (muted): **`Billed yearly ₹1,999 + GST`** — *(the `+ GST` attaches
+    to the **billed** amount, not the per-month display rate, because ₹1,999 is
+    what actually gets charged.)*
+- **Monthly view:**
+  - Price = **₹299** with small `/month` beside it.
+  - Sub-line (muted): **`+ GST`** *(short — the price IS the billed amount
+    monthly, no separate qualifier needed; `+ GST` alone closes the loop.)*
+- **GST convention (locked 2026-05-28):** every displayed price on the page is
+  followed by an adjacent `+ GST` somewhere on the same visual block — never a
+  standalone "GST extra" line. Picked "+ GST" over "Excludes tax / Excludes
+  GST / Exclusive of GST / GST extra" because **inline `+ GST` is Indian B2C-
+  native** (every brokerage contract note ends with `+ GST 18%`), reads as a
+  *fact* not an apology, and stays consistent between the hero subtitle and the
+  card without a separate copy line. Same convention will apply to any future
+  paid surface (annual upsell modals, lifetime, etc.).
+- CTA: **Start 30-day trial** (filled primary; same component family as
+  hero/nav primary).
+- Helper line beneath the CTA: **No credit card required** *(Phase 1 only;
+  remove on Phase 2 MoR/Paddle switch and replace with* **First month free ·
+  card required** *).*
+
+**Table convention — list every feature, ✓ both columns when both have it.**
+Industry standard (Linear / Notion / Vercel / GitHub): the pricing table doubles
+as a feature inventory. When most rows are ✓✓, the rows with **caps** (3 /
+Unlimited, Last 12 months / Full history, 1 / Unlimited) **pop** — the
+repetition is the *background* against which the upgrade story stands out. Don't
+omit a feature just because both tiers have it.
+
+**Row explanations live in tooltips, not inline.** When a row label needs
+context (*what is* "Symbol Journey"? what counts as broker "sync"?), put a
+subtle **`(i)` icon** to the right of the label that opens a one-sentence
+tooltip on **hover AND tap** (mobile must work — no hover-only). Same rule for
+group headers. **Never** put prose under a row, **never** put parentheticals
+*inside* the row label — the row label is the label; everything else is the
+tooltip. Tooltip copy: ≤ ~20 words, plain language, no jargon if avoidable.
+
+**Tooltip candidates** (build session writes the final copy; this is the seed):
+
+| Row | Tooltip seed |
+|---|---|
+| Progressive Scan | Run several screeners into one session; symbols that repeat across them are your confluence. |
+| Watchlists | Notes on every add/remove · live since-add % / max gain / max DD · Arthveda-curated views · weekly + monthly review · publish & share. |
+| Symbol Journey | Per-symbol timeline of every watchlist add, note, and trade you've had with this stock. |
+| Explore (trades) | Filter, sort, and inspect every trade you've logged. |
+| Insights | The setups and mistakes that consistently make you — or cost you — money. |
+| Reports | Drill-down analytics by setup, instrument, broker, weekday, hold time. |
+| Notebook | Per-trade reflection — what you saw, what you did, what you'd do differently. |
+| Broker import | **File:** upload your broker's tradebook CSV. **Sync:** scheduled auto-pull (Pro). |
+| Tags | Setup, mistake, and custom tags grouped into categories you define. |
+| Uploads | Images attached to trades, notes, and future surfaces (day journal, knowledge base, chart studies). |
+| Social (group) | Trader profile · publish screeners + watchlists · showcase · activity heatmap · follow & be followed. All free, no caps — not a Pro upsell, by design. |
+
+**Feature rows (grouped):** `(i)` markers in the table below = a tooltip lives
+there (copy from the table above).
+
+| | **Free** | **Pro** |
+|---|---|---|
+| **Discover** | | |
+| Run screeners (all NSE/BSE) | Unlimited | Unlimited |
+| Saved screeners | **3** | Unlimited |
+| Publish · clone · star screeners | ✓ | ✓ |
+| Progressive Scan `(i)` | up to **3 screeners / session** | Unlimited |
+| Stock chart + performance | ✓ | ✓ |
+| Watchlists `(i)` | **1 list · 20 symbols** | Unlimited |
+| Symbol Journey `(i)` | Last 12 months | Full history |
+| **Journal** | | |
+| Add / import trades | Unlimited | Unlimited |
+| Explore (trades) `(i)` | Last 12 months | Full history |
+| Dashboard | Last 12 months | Full history |
+| Insights `(i)` | Last 12 months | Full history |
+| Reports `(i)` | Last 12 months | Full history |
+| Calendar | Last 12 months | Full history |
+| Notebook `(i)` | ✓ | ✓ |
+| Broker accounts | **1** | Unlimited |
+| Broker import `(i)` | File only | Sync + file |
+| Tags `(i)` | **2 groups × 2 tags** | Unlimited |
+| Uploads `(i)` | — | Up to 1 GB |
+| **Social** `(i)` | | |
+| Everything | ✓ | ✓ |
+| **Support** | Standard | Priority |
+
+**Lifetime offer (launch only) — lives in the hero subline, NOT a separate
+strip above the table** (decision 2026-05-28, locked from design). Subline text:
+*"🎉 Lifetime ₹3,999 — first 10 users only. Then the price goes up."*
+
+- **₹3,999** is deliberate symmetry with ₹299/mo + ₹1,999/yr (≈ 2× yearly + a
+  year buffer); the math reads obviously to a yearly buyer.
+- **First 10** is a deliberate scarcity choice — small, credible, urgent.
+  Tracked via `lifetime_cohort_count` (see `arthveda/docs/todo.md` §3);
+  **close the offer when it hits 10** and either pull the lifetime entirely or
+  raise the price + raise the cap (data-driven, not pre-committed).
+- **NOT a permanent 3rd column** in the plans table. The 2-card Free/Pro layout
+  stays; lifetime is a hero-subline promo until sold out, then the subline
+  swaps to the access fallback (see Header spec above).
+
+**Trial mechanics — two phases (note this in the page, not in the table):**
+- **At launch:** 30-day Pro trial, **no credit card required.** On expiry, the user
+  **drops to Free (capped)** — never locked out. Anti-abuse during this window:
+  email/IP rate-limits + block disposable email domains.
+- **Post-launch (soon, MoR/Paddle):** 30-day Pro trial becomes **card-required**,
+  marketed as **"First month free."** Same card can't be used twice. Auto-converts
+  to paid (monthly/yearly, picked at signup) unless cancelled — user can drop to
+  Free anytime.
+- **Grandfather** users who started under no-card — their trial finishes under
+  no-card terms.
+- **Measure first, then switch.** Watch abuse rate + trial→paid conversion during
+  the no-card window; the switch should be data-driven, not a calendar.
+
+**Yearly upsell — locked from design.** Period toggle defaults to **Yearly**;
+a small **"Save 44% with yearly"** label sits *above* the toggle (right-
+aligned, indigo — see the period-toggle spec above the cards). Pro's Yearly
+view displays the effective per-month rate **₹167/mo** (rounded up from
+1999÷12 = ₹166.58 — honest) + the muted sub-line **`Billed yearly ₹1,999 +
+GST`**. Same 30-day trial on either period.
+
+**Remove from the current `/pricing`:** the v1 journal-only `FEATURES` list
+(replace with the table above), the **"14-day money-back guarantee"** line
+(freemium + no-card trial replaces it — keep only the quiet `/refund` link), and
+the **"Arthveda is growing… See what's coming → /roadmap"** block. Also nuke the
+`/roadmap` route + any nav/footer link to it.
+
 ---
 
 ## 8. Roadmap handling (locked: do not leak)
@@ -413,15 +639,33 @@ That's the ceiling.
 
 ## 10. Access model (for CTAs / pricing copy)
 
-Single source of truth: `arthveda/docs/marketing_context.md` §6. Summary:
-- **Anonymous + free:** run any screener, view/explore published screeners,
-  view public profiles/watchlists.
-- **Free login:** save / star / clone / publish screeners; have a profile;
-  **Progressive Scan** (decision 2026-05-26: moving Pro → free + login; anon
-  deferred; pending product change).
-- **Pro/Trial (today):** Watchlists, Symbol Journey + private notes, full Journal.
-  The broader freemium split is **in flux** — keep the pricing teaser **soft**;
-  do not hardcode tier copy until the founder finalizes it.
+Single source of truth: `arthveda/docs/marketing_context.md` §6. **Model locked
+2026-05-28: FREEMIUM + 30-day Pro trial.** Summary:
+- **Anonymous (no account, uncapped — the growth engine):** run any screener, view
+  any published screener / watchlist / profile, any stock's chart + performance.
+- **Free account (everything, with hard caps):** save 3 screeners; publish · clone ·
+  star; Progressive Scan (up to 3 screeners/session); **1 watchlist, 20 symbols**
+  (with notes + intelligence); Symbol Journey limited to **last 12 months**;
+  Journal — import unlimited trades, but only the **last 12 months are visible**
+  (one window across trades + analytics + explore — full history is Pro), **1
+  broker account**, file-only import, **2 tag groups × 2 tags**, no uploads;
+  all of **Social free with no caps** (profile, publish, showcase, activity,
+  find/follow).
+- **Pro** (₹299/mo or ₹1,999/yr — **save 44%**; **GST extra**):
+  all caps lifted, full history everywhere, broker sync, uploads up to 1 GB,
+  priority support, every new feature.
+- **30-day Pro trial:**
+  - **At launch:** no credit card required → on expiry, **drops to Free** (not
+    locked out).
+  - **Soon after:** card-required via **MoR (Paddle)**, marketed as **"First month
+    free"**; same card can't be reused; auto-converts to paid unless cancelled.
+  - Grandfather no-card trialists; switch driven by abuse + conversion data, not a
+    calendar.
+- **Lifetime ₹3,999, first 10 users only** (launch promo — lives in the hero
+  subline of `/pricing`, not a separate strip; then raise/remove — symmetric
+  with ₹299/mo + ₹1,999/yr).
+- **Pricing numbers** stay a moving target — keep them in one easy-to-edit place,
+  don't hardcode across the page. See the §7 `/pricing` spec for the full table.
 
 ---
 
@@ -457,8 +701,13 @@ avoid cannibalization/duplicate content.
 
 ## 12. Open items (need founder input before/at build)
 
-- **Pricing architecture** — freemium vs Pro split beyond the Screener is undecided.
-  Pricing teaser stays soft until locked.
+- **Pricing architecture** — ✅ decided (**FREEMIUM** + 30-day Pro trial; see §7
+  `/pricing` + §10). Only the **price numbers** stay a moving target. ⚠️ This is a
+  real app-side build: server-side cap enforcement (watchlists, **12-month
+  visible window** across trades + analytics + explore, broker accounts, uploads,
+  tags) + trial state machine (Pro trial → drop to Free on expiry) +
+  (post-launch) MoR/Paddle integration + the **`/positions` → `/trades`** +
+  "Trades table → Executions" rename. Tracked in `arthveda/docs/todo.md` §3 + §4.
 - **Founder note copy** — to be rewritten.
 - **Real broker list** — confirm against `lib/brokers.ts`; never list unsupported
   brokers.

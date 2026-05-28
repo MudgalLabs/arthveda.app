@@ -6,11 +6,7 @@ export default function FounderLetter() {
         <section>
             <div className="mx-auto">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                    <h3 className="section-header">Why Arthveda exists</h3>
-
-                    <p className="text-text-muted mt-3">
-                        My small message to you.
-                    </p>
+                    <h3 className="section-header">A note from the founder</h3>
                 </div>
 
                 <div className="relative max-w-[814px] mx-auto my-12 sm:mt-12 md:mt-18 overflow-hidden sm:overflow-visible">
@@ -52,40 +48,48 @@ export default function FounderLetter() {
                         <div className="text-sm sm:text-base leading-snug space-y-6 not-italic">
                             <p>Hey,</p>
 
-                            <p>I’m Shikhar, founder of Arthveda.</p>
-
                             <p>
-                                When I started swing trading, my process was
-                                scattered across a dozen tabs. A screener here, a
-                                watchlist there, trade notes in a spreadsheet,
-                                and nothing that remembered why I made a call or
-                                whether it actually worked.
+                                Most trading tools remember what the market did.
+                                <br />
+                                Very few remember what you did.
                             </p>
 
                             <p>
-                                So the tools never helped me get better. They
-                                just stored data.
+                                I built Arthveda because I could never find a
+                                system that remembered my journey with a stock.
                             </p>
 
                             <p>
-                                I built Arthveda to hold the whole loop in one
-                                place: find an idea, track what happens to it,
-                                journal the decision, and learn from the outcome.
-                                Process over P&amp;L.
+                                The first time I noticed it.
+                                <br />
+                                The setup I saw.
+                                <br />
+                                The mistake I made.
+                                <br />
+                                The trade I took six months later.
+                                <br />
+                                The lesson I learned after all of it.
+                            </p>
+
+                            <p>Everything was fragmented.</p>
+
+                            <p>
+                                So I built the tool I wished existed when I
+                                started trading: a place to discover stocks,
+                                track decisions, journal trades, and build a
+                                real trading process over time.
                             </p>
 
                             <p>
-                                No tips. No signals. No leaderboards. Just a
-                                workspace that helps you trade more deliberately,
-                                and a track record you can stand behind.
+                                Most traders only share their P&amp;L. Arthveda
+                                lets you share the process behind it — the
+                                screener, the watchlist, the trades, the
+                                lessons.
                             </p>
 
-                            <p>
-                                If it helps you trade with more clarity, that’s a
-                                win.
-                            </p>
+                            <p>Private by default. Shared by choice.</p>
 
-                            <p>Thanks for taking a look.</p>
+                            <p>Thanks for being here.</p>
                         </div>
                         <div className="mt-10 flex items-center">
                             <Image
