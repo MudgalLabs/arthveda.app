@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -15,25 +16,49 @@ const FAQS = [
         ),
     },
     {
-        q: "Is the Screener free?",
+        q: "Do you give tips, signals, or trade calls?",
         a: (
             <>
-                Yes. You can run scans and open any published screener with no
-                signup. A free account lets you save, star, clone, and publish
-                screeners, and use Progressive Scan.
+                Never. We don&apos;t run a tip group and we&apos;ll never sell
+                you one. Arthveda is about your process: discovery, watchlists,
+                journaling, and review. No calls, no guaranteed returns, no
+                copy-trading.
             </>
         ),
     },
     {
-        q: "Which markets does it cover?",
-        a: <>Indian equities, on the NSE and BSE.</>,
-    },
-    {
-        q: "Is it for intraday trading?",
+        q: "Is Arthveda free?",
         a: (
             <>
-                No. Arthveda is built for swing and positional trading, on
-                daily, end-of-day workflows.
+                Yes. Arthveda is free forever, with limits. Every feature is
+                usable on the free plan except uploads. When you outgrow the
+                limits, Pro lifts them. See{" "}
+                <Link href="/pricing">pricing</Link>.
+            </>
+        ),
+    },
+    {
+        q: "Which markets and segments does it support?",
+        a: (
+            <>
+                Most of them. Your{" "}
+                <Link href="/product/journal">Journal</Link> takes everything
+                you trade: equity, crypto, and F&amp;O across stock, index, and
+                commodity, whether you sync it from Zerodha and other brokers or
+                log it by hand. The one stock-only part is{" "}
+                <Link href="/product/discover">Discover</Link>, our screener:
+                Indian equities on the NSE and BSE.
+            </>
+        ),
+    },
+    {
+        q: "Is it only for swing traders?",
+        a: (
+            <>
+                No. It fits any style, intraday included. Swing and positional
+                stock traders just get the most from it, because{" "}
+                <Link href="/product/discover">Discover</Link> is built to
+                surface stocks worth holding.
             </>
         ),
     },
@@ -41,26 +66,21 @@ const FAQS = [
         q: "Can I import trades from my broker?",
         a: (
             <>
-                Yes. The Journal supports manual logging and broker imports. See
-                the brokers page for the supported list.
+                Yes. Log trades manually, or pull them in automatically with
+                Broker Sync. SEBI requires brokers to log you out every morning,
+                so a synced setup needs a quick login to your broker once a day.
+                Broker Sync supports Zerodha today, with more{" "}
+                <Link href="/brokers">brokers</Link> planned.
             </>
         ),
     },
     {
-        q: "Will my trades and notes be public?",
+        q: "Will my trades, journals, and watchlists be public?",
         a: (
             <>
-                No. Everything is private by default. Nothing is public unless
-                you explicitly publish or share it.
-            </>
-        ),
-    },
-    {
-        q: "Do you give tips or signals?",
-        a: (
-            <>
-                Never. Arthveda is about process, discovery, journaling, and
-                review. No tips, no guaranteed returns, no copy-trading.
+                No. Everything is private by default. Your trades, journals, and
+                watchlists are yours alone. Nothing is public unless you
+                explicitly publish or share it.
             </>
         ),
     },
@@ -142,7 +162,7 @@ function FAQItem({ q, a, open, onToggle }: FAQItemProps) {
             <div
                 className={cn(
                     "overflow-hidden transition-all duration-300 ease-out",
-                    open ? "max-h-40 pb-5" : "max-h-0",
+                    open ? "max-h-72 pb-5" : "max-h-0",
                 )}
             >
                 <div className="text-sm text-text-muted leading-relaxed">
