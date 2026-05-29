@@ -8,23 +8,16 @@ interface FeatureCardProps {
     image: string | null;
     /** Short label shown inside the placeholder when `image` is null. */
     placeholderLabel?: string;
-    /** Use a gentler bottom fade when the screenshot has meaningful content
-        near its bottom edge (e.g. a callout note) that the default vignette
-        would wash out. */
-    softBottomFade?: boolean;
     priority?: boolean;
 }
 
-// Fade the screenshot into the page background on every edge (strongest at the
-// bottom), so it dissolves into the surrounding space rather than sitting on a
-// surface. The card itself has no background.
+// Fade the screenshot into the page background on every edge so it dissolves
+// into the surrounding space rather than sitting on a surface. The card itself
+// has no background. The feature images are tight crops with content close to
+// every edge, so the fade is gentle (a thin dissolve, ~2% sides/top, ~12%
+// bottom) rather than a heavy vignette that would eat into the screenshot.
 const FADE =
-    "linear-gradient(to bottom, transparent 0%, #000 3%, #000 62%, transparent 100%), linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%)";
-
-// Same as FADE but the bottom stays opaque much lower (88% vs 62%) before
-// dissolving, so content near the bottom edge stays legible.
-const FADE_SOFT_BOTTOM =
-    "linear-gradient(to bottom, transparent 0%, #000 3%, #000 88%, transparent 100%), linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%)";
+    "linear-gradient(to bottom, transparent 0%, #000 2%, #000 88%, transparent 100%), linear-gradient(to right, transparent 0%, #000 2%, #000 98%, transparent 100%)";
 
 // One feature cell: a tall, background-less cell. The screenshot floats in the
 // upper area (lit from the top, edges fading into the page) and the title +
@@ -35,10 +28,8 @@ export default function FeatureCard({
     subheading,
     image,
     placeholderLabel,
-    softBottomFade = false,
     priority = false,
 }: FeatureCardProps) {
-    const fade = softBottomFade ? FADE_SOFT_BOTTOM : FADE;
     return (
         <div className="group flex flex-col px-4 pb-4 pt-2.5 md:min-h-[calc(100svh-10rem)] md:p-6">
 
@@ -58,8 +49,8 @@ export default function FeatureCard({
                             <div
                                 className="absolute inset-0 overflow-hidden"
                                 style={{
-                                    maskImage: fade,
-                                    WebkitMaskImage: fade,
+                                    maskImage: FADE,
+                                    WebkitMaskImage: FADE,
                                     maskComposite: "intersect",
                                     WebkitMaskComposite: "source-in",
                                 }}

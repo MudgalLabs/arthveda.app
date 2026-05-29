@@ -19,7 +19,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "See what's actually hurting your trading.",
         subheading:
             "See why you lose money and what to change. Improve with clarity, not intuition.",
-        image: "/images/insights_hero.png",
+        image: "/images/product_journal_insights.png",
     },
     {
         id: "dashboard",
@@ -27,7 +27,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "Know if you're actually improving.",
         subheading:
             "Track PnL, win rate, and performance over time. Measure progress with data, not assumptions.",
-        image: "/images/dashboard-hero.png",
+        image: "/images/product_journal_dashboard.png",
     },
     {
         id: "reports",
@@ -35,7 +35,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "Find what's consistently working.",
         subheading:
             "Break performance down across setups, symbols, and patterns, so you can double down on what works and cut what doesn't.",
-        image: "/images/reports_hero.png",
+        image: "/images/product_journal_reports.png",
     },
     {
         id: "trades",
@@ -43,7 +43,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "All your trades, in one place.",
         subheading:
             "Your complete trading history with powerful filters and detailed breakdowns, so nothing gets lost or overlooked.",
-        image: "/images/trades_hero.png",
+        image: "/images/product_journal_trades.png",
     },
     {
         id: "notebook",
@@ -51,7 +51,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "Understand the why behind every trade.",
         subheading:
             "Write your reasoning, attach screenshots, and review your decisions, so you learn from every trade, not just the outcome.",
-        image: "/images/journal_hero.png",
+        image: "/images/product_journal_notebook.png",
     },
     {
         id: "calendar",
@@ -59,7 +59,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "See your trading over time.",
         subheading:
             "Your daily activity in a calendar view, so you can spot patterns, streaks, and consistency at a glance.",
-        image: "/images/calendar_hero.png",
+        image: "/images/product_journal_calendar.png",
     },
     {
         id: "tagging",
@@ -67,7 +67,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "Spot patterns you'd otherwise miss.",
         subheading:
             "Tag your trades by setup, mistake, or behavior, and uncover patterns that aren't visible otherwise.",
-        image: "/images/tagging_hero.png",
+        image: "/images/product_journal_tagging.png",
     },
     {
         id: "accounts",
@@ -75,6 +75,6 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "See everything, across all your accounts.",
         subheading:
             "Track multiple trading accounts in one place, across brokers, strategies, and capital, without losing clarity.",
-        image: "/images/accounts_hero.png",
+        image: "/images/product_journal_accounts.png",
     },
 ];
