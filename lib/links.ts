@@ -22,4 +22,4 @@ export const SCREENER_URL = IS_DEV
 // links here; the app handles the login/redirect if needed.
 export const PROFILE_URL = IS_DEV
     ? "http://localhost:6969/app/profile"
-    : "https://arthveda.app/profile";
+    : "https://arthveda.app/app/profile";
