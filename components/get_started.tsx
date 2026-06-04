@@ -16,6 +16,9 @@ interface GetStartedProps {
     variant?: "primary" | "secondary";
     /** Defaults to "large"; pass "default" inside dense layouts like /pricing. */
     size?: "default" | "large";
+    /** Extra properties merged into the "Clicked Get started" event (e.g. the
+        plan + billing interval on /pricing) for conversion-funnel segmentation. */
+    eventProps?: Record<string, unknown>;
 }
 
 // Primary product-level CTA. Filled → no icon, sentence case (plan §5 Copy
@@ -29,13 +32,14 @@ export const GetStarted = ({
     fullWidth = false,
     variant = "primary",
     size = "large",
+    eventProps,
 }: GetStartedProps) => {
     const text = label ?? "Start for free";
 
     return (
         <a
             href={href ?? APP_URL}
-            onClick={() => posthog.capture("Clicked Get started", { label: text })}
+            onClick={() => posthog.capture("Clicked Get started", { label: text, ...eventProps })}
             className={cn("unstyled-link", fullWidth && "block w-full")}
         >
             <Button variant={variant} size={size} className={cn(fullWidth && "w-full")}>

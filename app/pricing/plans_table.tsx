@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check } from "lucide-react";
+import posthog from "posthog-js";
 
 import { usePricing } from "@/lib/usePricing";
 import { cn, formatCurrency } from "@/lib/utils";
@@ -182,6 +183,11 @@ export function PlansTable() {
     const [interval, setInterval] = useState<Interval>("yearly");
     const isYearly = interval === "yearly";
 
+    const handleIntervalChange = (next: Interval) => {
+        setInterval(next);
+        posthog.capture("Pricing Interval Toggled", { interval: next });
+    };
+
     const money = (n: number) =>
         formatCurrency(n, {
             currency,
@@ -202,7 +208,7 @@ export function PlansTable() {
                     <p className="text-xs font-medium text-text-primary">
                         Save {yearlySavingPct}% with yearly
                     </p>
-                    <IntervalToggle value={interval} onChange={setInterval} />
+                    <IntervalToggle value={interval} onChange={handleIntervalChange} />
                 </div>
             </div>
 
@@ -257,6 +263,7 @@ export function PlansTable() {
                                 fullWidth
                                 variant="secondary"
                                 size="default"
+                                eventProps={{ plan: "free" }}
                             />
                         </div>
                     </div>
@@ -314,6 +321,7 @@ export function PlansTable() {
                                 label="Start 30-day free trial"
                                 fullWidth
                                 size="default"
+                                eventProps={{ plan: "pro", interval }}
                             />
                         </div>
                         <p className="mt-3 text-center text-xs text-text-subtle">
