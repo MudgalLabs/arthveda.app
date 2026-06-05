@@ -23,6 +23,17 @@ function captureInitialUtm() {
     if (Object.keys(utm).length > 0) posthog.register_once(utm);
 }
 
+// entry_surface = the FIRST Arthveda surface this anonymous visitor landed on.
+// register_once means first touch wins even across the marketing<->app boundary
+// (shared arthveda.app cookie). The app registers its own values (trader_profile,
+// shared_screener, ...); here we tag the marketing entry pages.
+function deriveEntrySurface(pathname: string): string {
+    if (pathname === "/") return "marketing_home";
+    if (pathname.startsWith("/pricing")) return "marketing_pricing";
+    if (pathname.startsWith("/product")) return "marketing_product";
+    return "marketing_other";
+}
+
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         if (process.env.NODE_ENV !== "production") return;
@@ -44,6 +55,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         // surface separates the marketing site's events from the app's in the
         // shared PostHog project. The app registers surface: "app".
         posthog.register({ surface: "landing" });
+        posthog.register_once({ entry_surface: deriveEntrySurface(window.location.pathname) });
         captureInitialUtm();
     }, []);
 
