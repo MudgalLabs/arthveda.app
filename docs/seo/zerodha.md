@@ -195,6 +195,27 @@ This is the template. To port to Upstox/Groww/Angel One/Fyers/Kotak/INDmoney/Dha
 
 Everything else — the "what to journal" four-fields section, the FAQ skeleton, the compound-over-time section, the CTA — ports unchanged.
 
+### Broker-series publishing cadence
+
+Do **not** publish all broker pages at once unless there is a product or launch reason to do so. Prefer spacing broker pages out by roughly **4–5 days**.
+
+Recommended rollout:
+
+1. Publish `/brokers/zerodha` first.
+2. Wait 4–5 days.
+3. Publish the next highest-demand broker page (likely Upstox, Groww, Fyers, or Angel One).
+4. Wait another 4–5 days between each broker page.
+5. After 3–4 broker pages are live, upgrade `/brokers` into a stronger hub that links to every broker-specific page.
+
+Why this cadence:
+
+- Creates multiple fresh crawl events instead of one burst.
+- Lets Search Console data from the first page inform the next pages.
+- Reduces the risk of publishing thin or overly templated pages in bulk.
+- Gives each broker page room for individual promotion, internal linking, and social/product update mentions.
+
+Important: do not just swap broker names. Keep the reusable bottom sections, but make the first broker-specific sections and FAQ genuinely specific to that broker's reports portal, import/export flow, supported instruments, sync behavior, and charges.
+
 ### Voice variants
 
 The current draft is **neutral product-voice**. Two alternatives to consider:
