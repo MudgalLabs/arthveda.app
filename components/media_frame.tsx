@@ -110,7 +110,7 @@ export default function MediaFrame({
                             alt={alt}
                             fill
                             quality={90}
-                            sizes="(max-width: 1024px) 100vw, 1200px"
+                            sizes="(max-width: 1024px) 100vw, 1500px"
                             priority={priority}
                             className="object-cover object-top"
                         />

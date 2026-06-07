@@ -543,7 +543,7 @@ tooltip. Tooltip copy: ≤ ~20 words, plain language, no jargon if avoidable.
 | Reports          | Drill-down analytics by setup, instrument, broker, weekday, hold time.                                                                                 |
 | Notebook         | Per-trade reflection — what you saw, what you did, what you'd do differently.                                                                          |
 | Broker import    | **File:** upload your broker's tradebook CSV. **Sync:** scheduled auto-pull (Pro).                                                                     |
-| Tags             | Setup, mistake, and custom tags grouped into categories you define.                                                                                    |
+| Tags             | Required Setups + Mistakes groups power consistent analytics; Pro adds custom groups and unlimited tags.                                               |
 | Uploads          | Images attached to trades, notes, and future surfaces (day journal, knowledge base, chart studies).                                                    |
 | Social (group)   | Trader profile · publish screeners + watchlists · showcase · activity heatmap · follow & be followed. All free, no caps — not a Pro upsell, by design. |
 
@@ -570,7 +570,7 @@ there (copy from the table above).
 | Notebook `(i)`                   | ✓                               | ✓            |
 | Broker accounts                  | **1**                           | Unlimited    |
 | Broker import `(i)`              | File only                       | Sync + file  |
-| Tags `(i)`                       | **2 groups × 2 tags**           | Unlimited    |
+| Tags `(i)`                       | **Setups + Mistakes · 2 tags each** | Unlimited groups + tags |
 | Uploads `(i)`                    | —                               | Up to 1 GB   |
 | **Social** `(i)`                 |                                 |              |
 | Everything                       | ✓                               | ✓            |
@@ -714,7 +714,8 @@ record); no trial on Lifetime.** Summary:
   (with notes + intelligence); Symbol Journey limited to **last 12 months**;
   Journal — import unlimited trades, but only the **last 12 months are visible**
   (one window across trades + analytics + explore — full history is Pro), **1
-  broker account**, file-only import, **2 tag groups × 2 tags**, no uploads;
+  broker account**, file-only import, required **Setups + Mistakes** tag groups
+  with **2 tags each**; custom tag groups and unlimited tags are Pro; no uploads;
   all of **Social free with no caps** (profile, publish, showcase, activity,
   find/follow).
 - **Pro** (₹299/mo or ₹1,999/yr — **save 44%**; **GST extra**):
