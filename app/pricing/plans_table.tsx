@@ -84,10 +84,10 @@ const ROWS: Row[] = [
     { kind: "feature", label: "Add / import trades", free: "Unlimited", pro: "Unlimited" },
     {
         kind: "feature",
-        label: "Explore (trades)",
+        label: "Trades",
         free: "Last 12 months",
         pro: "Full history",
-        tooltip: "Filter, sort, and inspect every trade you've logged.",
+        tooltip: "Filter, sort, and inspect every trade you've logged, with full history on Pro.",
     },
     { kind: "feature", label: "Dashboard", free: "Last 12 months", pro: "Full history" },
     {
@@ -127,10 +127,10 @@ const ROWS: Row[] = [
     {
         kind: "feature",
         label: "Tags",
-        free: "2 groups × 2 tags",
-        pro: "Unlimited",
+        free: "Setups + Mistakes · 2 tags each",
+        pro: "Unlimited groups + tags",
         tooltip:
-            "Setup, mistake, and custom tags grouped into categories you define.",
+            "Required Setups + Mistakes groups power consistent analytics; Pro adds custom groups and unlimited tags.",
     },
     {
         kind: "feature",

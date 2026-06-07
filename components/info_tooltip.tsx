@@ -20,16 +20,18 @@ export function InfoTooltip({
 }) {
     const [open, setOpen] = useState(false);
 
+    const show = () => setOpen(true);
+    const hide = () => setOpen(false);
+
     // Tap-away to close on touch devices (where there's no "mouse leave").
     useEffect(() => {
         if (!open) return;
         // Defer the listener so the click that opened the tooltip doesn't
         // immediately close it via this same handler.
-        const close = () => setOpen(false);
-        const t = setTimeout(() => document.addEventListener("click", close), 0);
+        const t = setTimeout(() => document.addEventListener("click", hide), 0);
         return () => {
             clearTimeout(t);
-            document.removeEventListener("click", close);
+            document.removeEventListener("click", hide);
         };
     }, [open]);
 
@@ -43,11 +45,16 @@ export function InfoTooltip({
             <button
                 type="button"
                 aria-label={label}
+                aria-expanded={open}
+                onMouseEnter={show}
+                onMouseLeave={hide}
+                onFocus={show}
+                onBlur={hide}
                 onClick={(e) => {
                     e.stopPropagation();
-                    setOpen((v) => !v);
+                    show();
                 }}
-                className="inline-flex translate-y-px items-center text-text-subtle transition-colors hover:text-text-muted focus:text-text-muted focus:outline-none"
+                className="inline-flex translate-y-px items-center text-text-subtle transition-colors hover:text-text-muted focus:outline-none focus-visible:text-text-muted"
             >
                 <Info size={13} aria-hidden />
             </button>
