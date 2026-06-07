@@ -28,6 +28,8 @@ interface MediaFrameProps {
     aspectClassName?: string;
     /** Overlay a top-down spotlight over the cover (matches the product images). */
     spotlight?: boolean;
+    /** Fade the frame itself into its parent at the bottom. */
+    bottomFade?: boolean;
     className?: string;
 }
 
@@ -44,6 +46,7 @@ export default function MediaFrame({
     priority = false,
     aspectClassName = "aspect-video",
     spotlight = false,
+    bottomFade = false,
     className,
 }: MediaFrameProps) {
     const [clicked, setClicked] = useState(false);
@@ -76,6 +79,16 @@ export default function MediaFrame({
                 "shadow-[0_8px_30px_rgba(0,0,0,0.4)]",
                 className,
             )}
+            style={
+                bottomFade
+                    ? {
+                          maskImage:
+                              "linear-gradient(to bottom, #000 0%, #000 66%, rgba(0,0,0,0.62) 78%, transparent 100%)",
+                          WebkitMaskImage:
+                              "linear-gradient(to bottom, #000 0%, #000 66%, rgba(0,0,0,0.62) 78%, transparent 100%)",
+                      }
+                    : undefined
+            }
         >
             {autoPlay && videoSrc ? (
                 // Hero flow-loop: autoplay, no controls, no play button.

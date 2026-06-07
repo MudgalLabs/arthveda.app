@@ -39,16 +39,33 @@ export function BrokerStripStatic() {
 
     return (
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            {featured.map(({ name, svg }) => (
-                <Image
-                    key={name}
-                    src={svg}
-                    alt={`${name} logo`}
-                    width={90}
-                    height={20}
-                    className="max-h-6 w-auto shrink-0 opacity-60 grayscale"
-                />
-            ))}
+            {featured.map(({ name, svg, landingPath }) => {
+                const logo = (
+                    <Image
+                        src={svg}
+                        alt={`${name} logo`}
+                        width={90}
+                        height={20}
+                        className="max-h-6 w-auto shrink-0 opacity-60 grayscale transition-opacity hover:opacity-100"
+                    />
+                );
+
+                // Brokers with a landing page link to it; the rest stay static.
+                return landingPath ? (
+                    <Link
+                        key={name}
+                        href={landingPath}
+                        aria-label={`${name} trading journal`}
+                        className="shrink-0"
+                    >
+                        {logo}
+                    </Link>
+                ) : (
+                    <span key={name} className="shrink-0">
+                        {logo}
+                    </span>
+                );
+            })}
 
             {moreCount > 0 && (
                 <Link

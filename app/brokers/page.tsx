@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Plug } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Plug } from "lucide-react";
 
 import { FamilyLabel } from "@/components/family_label";
 import { Broker, BROKERS } from "@/lib/brokers";
@@ -84,10 +85,19 @@ function BrokerCard({ broker }: { broker: Broker }) {
                     ))}
                 </div>
 
-                {/* Coming Soon */}
-                {/* {broker.isComingSoon && (
-                    <div className=" text-xs text-accent">Coming soon</div>
-                )} */}
+                {/* Learn more — only when a broker has a landing page. */}
+                {broker.landingPath && (
+                    <Link
+                        href={broker.landingPath}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-link no-underline! transition-colors hover:text-text-primary"
+                    >
+                        Learn more
+                        <ArrowRight
+                            size={14}
+                            className="transition-transform group-hover:translate-x-0.5"
+                        />
+                    </Link>
+                )}
             </CardContent>
         </Card>
     );

@@ -9,6 +9,9 @@ export interface Broker {
     instruments: PositionInstrument[];
     importTypes: ImportType[];
     isComingSoon?: boolean;
+    /** Internal SEO landing page for this broker, if one exists. Drives the
+        "Learn more" link on the /brokers card and the homepage logo link. */
+    landingPath?: string;
 }
 
 export const BROKERS: Broker[] = [
@@ -60,5 +63,6 @@ export const BROKERS: Broker[] = [
         homepage: "https://zerodha.com/",
         instruments: ["equity", "futures", "options"],
         importTypes: ["today", "file"],
+        landingPath: "/brokers/zerodha",
     },
 ];
