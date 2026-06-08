@@ -35,10 +35,7 @@ export const PromoBanner = () => {
     }, []);
 
     const visible =
-        mounted &&
-        !dismissed &&
-        !lifetimeSoldOut &&
-        pathname !== "/pricing";
+        mounted && !dismissed && !lifetimeSoldOut && pathname !== "/pricing";
 
     // Fire "Saw" once per page-visit when the banner actually renders.
     useEffect(() => {
@@ -69,14 +66,14 @@ export const PromoBanner = () => {
             onClick={() =>
                 posthog.capture("Clicked Promo Banner", { promo: PROMO_NAME })
             }
-            className="block w-full bg-accent-muted border-b border-white/[0.08] transition-colors hover:bg-accent/20"
+            className="block w-full bg-accent-muted border-b border-white/8 transition-colors hover:bg-accent/20"
         >
             <div className="relative mx-auto max-w-[1440px] px-4 py-2.5 pr-14 text-center text-sm text-text-primary">
                 <span aria-hidden>🎉 </span>
-                <span className="font-medium">
-                    Lifetime {price} + GST
-                </span>
-                {". First 10 users only, then the price goes up."}
+                <span className="font-medium">Arthveda is free to use.</span>
+                {" Upgrade to Pro for "}
+                <span className="font-medium">{price} + GST once.</span>
+                {" Lifetime offer for the first 10 users only."}
                 <button
                     type="button"
                     onClick={handleDismiss}
