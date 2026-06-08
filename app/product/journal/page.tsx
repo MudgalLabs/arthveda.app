@@ -52,6 +52,7 @@ export default function JournalHubPage() {
                     >
                         {pair.map((feature) => (
                             <FeatureCard
+                                id={feature.id}
                                 key={feature.id}
                                 label={feature.label}
                                 heading={feature.heading}

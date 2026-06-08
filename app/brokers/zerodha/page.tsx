@@ -72,7 +72,7 @@ const faqJsonLd = {
 // Shared prose styles for the long-form body.
 const H2 = "font-heading text-[26px] font-medium text-text-primary sm:text-[30px]";
 const P = "font-content text-[15px] leading-[1.7] text-text-muted";
-const INLINE_LINK = "text-[15px] text-text-primary underline underline-offset-4 hover:text-text-muted";
+const INLINE_LINK = "font-content text-[15px] text-text-primary underline underline-offset-4 hover:text-text-muted";
 
 const APP_BROKER_ACCOUNTS_URL = `${APP_URL}settings/broker-accounts`;
 
@@ -302,73 +302,90 @@ export default function ZerodhaLandingPage() {
                     </section>
 
                     <section id="after-import" className="scroll-mt-28 space-y-5">
-                        <h2 className={H2}>What you see after first import</h2>
+                        <h2 className={H2}>What you see after your first import</h2>
                         <p className={P}>
                             Once your Zerodha trades are in, Arthveda becomes
-                            the operating system around your trading history:
+                            the operating system around your trading history.
                         </p>
                         <ul className="space-y-2 pl-5">
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal" className={INLINE_LINK}>
+                                    <Link href="/product/journal#dashboard" className={INLINE_LINK}>
                                         Dashboard
                                     </Link>
                                 </strong>{" "}
-                                — net PnL, gross PnL, charges, cumulative PnL,
-                                win rate, average win/loss, profit factor,
-                                expectancy, and streaks
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>Trades</strong> — every grouped trade with
-                                symbol, direction, status, duration, R-factor,
-                                gross PnL, net PnL, charges, broker account, and
-                                the executions inside it
+                                — know if you are actually improving. Track net
+                                PnL, gross PnL, charges, win rate, average
+                                win/loss, expectancy, profit factor, streaks,
+                                and cumulative performance over time.
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal" className={INLINE_LINK}>
+                                    <Link href="/product/journal#trades" className={INLINE_LINK}>
+                                        Trades
+                                    </Link>
+                                </strong>{" "}
+                                — see your complete trading history in one place.
+                                Arthveda preserves every trade separately, then
+                                lets you search, filter, sort, and inspect
+                                detailed breakdowns, so nothing gets merged away,
+                                lost, or overlooked.
+                            </BulletItem>
+                            <BulletItem>
+                                <strong>
+                                    <Link href="/product/journal#insights" className={INLINE_LINK}>
                                         Insights
                                     </Link>
                                 </strong>{" "}
-                                — what&apos;s working and what&apos;s hurting across
-                                timing, behaviour, setups, and trade outcomes
+                                — see what is actually hurting your trading.
+                                Understand the patterns behind your wins, losses,
+                                timing, behaviour, setups, mistakes, and
+                                outcomes.
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal" className={INLINE_LINK}>
+                                    <Link href="/product/journal#reports" className={INLINE_LINK}>
                                         Reports
                                     </Link>
                                 </strong>{" "}
-                                — performance sliced by symbols, instruments,
-                                timeframes, and tags, with after-charges PnL and
-                                R-factor
+                                — find what is consistently working. Break
+                                performance down by symbols, instruments,
+                                timeframes, tags, and trading patterns, with
+                                after-charges PnL and R-factor included.
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal" className={INLINE_LINK}>
+                                    <Link href="/product/journal#tagging" className={INLINE_LINK}>
                                         Tagging
                                     </Link>
                                 </strong>{" "}
-                                — reusable tag groups for setups, mistakes,
-                                market conditions, emotions, or any trading lens
-                                you want to measure
+                                — spot patterns you would otherwise miss. Tag
+                                trades by setup, mistake, market condition,
+                                emotion, behaviour, or any trading lens you want
+                                to measure.
                             </BulletItem>
                             <BulletItem>
-                                <strong>Journal notes</strong> — notes and chart
-                                screenshots attached to the actual trade, not
-                                lost in a separate spreadsheet or Notion page
+                                <strong>
+                                    <Link href="/product/journal#notebook" className={INLINE_LINK}>
+                                        Journal notes
+                                    </Link>
+                                </strong>{" "}
+                                — understand the why behind every trade. Attach
+                                notes and chart screenshots directly to the
+                                actual trade, so your thinking stays connected to
+                                the outcome.
                             </BulletItem>
                         </ul>
                         <p className={P}>
-                            You don&apos;t set any of this up. It&apos;s computed
-                            from the trades Arthveda builds out of your Tradebook
-                            the moment you upload it.
+                            You do not set any of this up manually. Arthveda
+                            computes it from the trades it builds out of your
+                            Tradebook the moment you upload it.
                         </p>
                         <p className={P}>
-                            For example, you may discover your breakout trades
-                            have a +2.8R expectancy while reversal trades are net
-                            negative after charges. That is the kind of feedback
-                            a raw Tradebook will never volunteer.
+                            For example, you may discover that your breakout
+                            trades have a +2.8R expectancy while reversal trades
+                            are net negative after charges. That is the kind of
+                            feedback a raw Tradebook will never volunteer.
                         </p>
                     </section>
 
@@ -432,11 +449,11 @@ export default function ZerodhaLandingPage() {
                                     Screeners
                                 </Link>
                             </strong>{" "}
-                            — scan NSE and BSE stocks against price, volume,
-                            technicals, and candlestick signals. The same
-                            primitive that finds the trade reviews it later, so
-                            over time you can answer &quot;which of my screeners
-                            produces my best win rate?&quot;
+                            — scan NSE and BSE stocks using price, volume,
+                            technical, and candlestick filters. Arthveda
+                            remembers the source of every idea, so if a screened
+                            stock becomes a trade, you can later see which
+                            screeners are actually leading to better results.
                         </p>
                         <p className={P}>
                             <strong>
@@ -454,11 +471,11 @@ export default function ZerodhaLandingPage() {
                                     Public profile
                                 </Link>
                             </strong>{" "}
-                            — the social layer. Publish your best screeners and
-                            watchlists and build a verified record of how you
-                            actually trade. Useful if you want to learn in
-                            public, or if you&apos;re a small fund building a real
-                            track record.
+                            — build a public trading identity around your
+                            process, not just PnL. Publish selected screeners,
+                            watchlists, notes, and trade reviews so others can
+                            understand how you find ideas, track them, and learn
+                            from them over time.
                         </p>
                     </section>
 

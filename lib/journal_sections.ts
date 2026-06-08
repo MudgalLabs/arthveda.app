@@ -1,7 +1,6 @@
 // Journal family page: a left-aligned hero, then a 2-up grid of feature cards
 // (8 cards, 4 rows). Copy + images are the v1 feature pages, re-homed here.
-// `id` is the stable React key for the card list — NOT a deep-link anchor;
-// hubs are flat pages and we don't link to in-page sections (plan §4).
+// `id` is also used as the feature card's deep-link anchor.
 
 export interface JournalFeature {
     id: string;
