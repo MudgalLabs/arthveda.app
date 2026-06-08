@@ -19,6 +19,22 @@ export const metadata: Metadata = {
             "Turn your Zerodha Console Tradebook XLSX into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
         url: "https://arthveda.app/brokers/zerodha",
         type: "article",
+        images: [
+            {
+                url: "/images/og-image.jpg",
+                width: 1200,
+                height: 630,
+                type: "image/jpeg",
+                alt: "Trading Journal for Zerodha Users · Arthveda",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Trading Journal for Zerodha Users: From Tradebook to Real Insights",
+        description:
+            "Turn your Zerodha Console Tradebook XLSX into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
+        images: ["/images/og-image.jpg"],
     },
 };
 
