@@ -35,6 +35,7 @@ export const BROKERS: Broker[] = [
         homepage: "https://groww.in/",
         instruments: ["equity"],
         importTypes: ["file"],
+        landingPath: "/brokers/groww",
     },
     {
         name: "INDmoney",
