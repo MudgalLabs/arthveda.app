@@ -23,3 +23,10 @@ export const SCREENER_URL = IS_DEV
 export const PROFILE_URL = IS_DEV
     ? "http://localhost:6969/app/profile"
     : "https://arthveda.app/app/profile";
+
+// Backend API base. The marketing site only calls one endpoint (/me, to
+// identify an already-logged-in visitor for PostHog — see app/providers.tsx).
+// In prod the API is a sibling origin of the marketing site (both under
+// arthveda.app), so the session cookie (SameSite=None) rides along and CORS
+// allows the arthveda.app origin.
+export const API_URL = IS_DEV ? "http://localhost:1337" : "https://api.arthveda.app";

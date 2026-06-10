@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 
+import { API_URL } from "@/lib/links";
+
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 
 // Capture first-touch campaign attribution for the anonymous session. Because we
@@ -34,13 +36,52 @@ function deriveEntrySurface(pathname: string): string {
     return "marketing_other";
 }
 
+// Collapse the /me subscription into a single plan dimension. Mirrors the app's
+// auth_context derivation: a trial carries plan_id="pro" + is_trial, so check
+// is_trial first.
+function derivePlanTier(sub: {
+    status?: string;
+    plan_id?: string;
+    is_trial?: boolean;
+} | null | undefined): "free" | "trial" | "pro" {
+    if (sub && sub.status === "active") {
+        if (sub.is_trial || sub.plan_id === "trial") return "trial";
+        if (sub.plan_id === "pro") return "pro";
+    }
+    return "free";
+}
+
+// If the visitor is already logged into the app, the session cookie rides along
+// to the sibling API origin (SameSite=None), so /me tells us who they are. We
+// then identify() them on the marketing site too — distinct_id = user_id, with
+// name + plan_tier only (never email), matching the app. Anonymous visitors
+// (no/invalid session => 401, or a network error) are left untouched: no
+// identify(), no person profile.
+function identifyIfAuthed() {
+    fetch(`${API_URL}/v1/users/me`, { credentials: "include" })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((body) => {
+            const user = body?.data;
+            if (!user?.user_id) return; // anonymous — stay anonymous
+            posthog.identify(user.user_id, {
+                name: user.display_name ?? user.name,
+                plan_tier: derivePlanTier(user.subscription),
+            });
+        })
+        .catch(() => {
+            // Network/CORS error: stay anonymous, don't break the page.
+        });
+}
+
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         if (process.env.NODE_ENV !== "production") return;
 
-        // Anonymous analytics: no consent gate, no identify(), no PII. We track
-        // what visitors do, not who they are. `identified_only` means no person
-        // profile is ever created. See `arthveda/docs/analytics.md`.
+        // No consent gate. Anonymous visitors are never identified; we only
+        // identify() a visitor who is already logged into the app (see
+        // identifyIfAuthed below), with name + plan_tier and no email.
+        // `identified_only` means a person profile is created only on identify().
+        // See `arthveda/docs/analytics.md`.
         posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
             api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
             defaults: "2025-05-24",
@@ -57,6 +98,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         posthog.register({ surface: "landing" });
         posthog.register_once({ entry_surface: deriveEntrySurface(window.location.pathname) });
         captureInitialUtm();
+        identifyIfAuthed();
     }, []);
 
     return <PHProvider client={posthog}>{children}</PHProvider>;
