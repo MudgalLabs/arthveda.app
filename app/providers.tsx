@@ -51,25 +51,48 @@ function derivePlanTier(sub: {
     return "free";
 }
 
+// "Someone showed up" signal for anonymous visitors. Fires once per session —
+// the sessionStorage key is shared with the app (same arthveda.app origin), so a
+// visitor who lands on marketing then crosses into the app pings only once.
+// PostHog's built-in UA filter already drops known bots; JS-less crawlers never
+// run this. Which surface(s) actually alert Discord is decided by the
+// destination filter on `surface`, not here — the event is cheap to emit.
+function trackVisitorLanded() {
+    if (sessionStorage.getItem("av_visitor_landed")) return;
+    sessionStorage.setItem("av_visitor_landed", "1");
+    posthog.capture("Visitor Landed");
+}
+
 // If the visitor is already logged into the app, the session cookie rides along
 // to the sibling API origin (SameSite=None), so /me tells us who they are. We
 // then identify() them on the marketing site too — distinct_id = user_id, with
-// name + plan_tier only (never email), matching the app. Anonymous visitors
-// (no/invalid session => 401, or a network error) are left untouched: no
-// identify(), no person profile.
-function identifyIfAuthed() {
+// name + plan_tier only (never email), matching the app — and fire a once-per-
+// session "Returning Visitor" so the Discord alert pings when a known user comes
+// back. Anonymous visitors (no/invalid session => 401) are never identified; we
+// only emit the once-per-session "Visitor Landed" signal for them.
+function identifyVisitor() {
     fetch(`${API_URL}/v1/users/me`, { credentials: "include" })
         .then((res) => (res.ok ? res.json() : null))
         .then((body) => {
             const user = body?.data;
-            if (!user?.user_id) return; // anonymous — stay anonymous
-            posthog.identify(user.user_id, {
-                name: user.display_name ?? user.name,
-                plan_tier: derivePlanTier(user.subscription),
-            });
+            if (!user?.user_id) {
+                trackVisitorLanded(); // anonymous — stay anonymous, just count the visit
+                return;
+            }
+            const name = user.display_name ?? user.name;
+            const plan_tier = derivePlanTier(user.subscription);
+            posthog.identify(user.user_id, { name, plan_tier });
+            // Returning authed visitor browsing marketing. Once per session so
+            // navigating multiple pages doesn't spam. Self-contained props so the
+            // Discord alert renders without depending on person.properties.
+            if (!sessionStorage.getItem("av_returning_fired")) {
+                sessionStorage.setItem("av_returning_fired", "1");
+                posthog.capture("Returning Visitor", { name, plan_tier });
+            }
         })
         .catch(() => {
-            // Network/CORS error: stay anonymous, don't break the page.
+            // Network/CORS error: stay anonymous, don't break the page. Skip the
+            // visit signal — a clean anon visitor returns 401, not a throw.
         });
 }
 
@@ -98,7 +121,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         posthog.register({ surface: "landing" });
         posthog.register_once({ entry_surface: deriveEntrySurface(window.location.pathname) });
         captureInitialUtm();
-        identifyIfAuthed();
+        identifyVisitor();
     }, []);
 
     return <PHProvider client={posthog}>{children}</PHProvider>;
