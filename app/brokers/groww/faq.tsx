@@ -23,12 +23,13 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Does Arthveda support F&O for Groww?",
         a: (
             <>
-                Groww import on Arthveda is equity, which is what most Groww
-                accounts trade. Your journal itself takes everything &mdash;
-                equity, crypto, and F&amp;O across stock, index, and commodity
-                &mdash; whether you log it by hand or import it from a broker
-                whose F&amp;O we parse. The one stock-only surface is the
-                screener (NSE/BSE equities).
+                Not through the import. Groww only lets you export equity (your
+                Stock Order History), so that is all Arthveda can pull in. The
+                journal itself handles everything: equity, crypto, and F&amp;O
+                across stock, index, and commodity. You can log your Groww
+                F&amp;O trades by hand, or import F&amp;O from a broker that
+                exports it. The one stock-only surface is the screener (NSE/BSE
+                equities).
             </>
         ),
     },
@@ -82,7 +83,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
             <>
                 Brokerage, STT, GST, stamp duty, SEBI charges, and exchange
                 transaction charges are computed from the standard Groww rate
-                card &mdash; 0.1% brokerage with a ₹5 minimum, capped at ₹20 per
+                card: 0.1% brokerage with a ₹5 minimum, capped at ₹20 per
                 executed order, plus the DP charge on delivery sells. The PnL
                 Arthveda shows you is after charges, which is the only PnL that
                 actually matters.

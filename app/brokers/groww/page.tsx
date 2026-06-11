@@ -5,16 +5,20 @@ import { Plug } from "lucide-react";
 import { FamilyLabel } from "@/components/family_label";
 import { GetStarted } from "@/components/get_started";
 import LitMedia from "@/components/lit_media";
+import { SegmentChips } from "@/components/segment_chips";
+import { BROKERS } from "@/lib/brokers";
 import { APP_URL } from "@/lib/links";
 import GrowwFAQ from "./faq";
 
+const GROWW = BROKERS.find((b) => b.name === "Groww")!;
+
 export const metadata: Metadata = {
-    title: "Trading Journal for Groww Users: From Order History to Real Insights · Arthveda",
+    title: "Groww Trading Journal: From Order History to Real Insights · Arthveda",
     description:
         "Turn your Groww Stock Order History into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
     alternates: { canonical: "/brokers/groww" },
     openGraph: {
-        title: "Trading Journal for Groww Users: From Order History to Real Insights",
+        title: "Groww Trading Journal: From Order History to Real Insights",
         description:
             "Turn your Groww Stock Order History export into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
         url: "https://arthveda.app/brokers/groww",
@@ -25,13 +29,13 @@ export const metadata: Metadata = {
                 width: 1200,
                 height: 630,
                 type: "image/jpeg",
-                alt: "Trading Journal for Groww Users · Arthveda",
+                alt: "Groww Trading Journal · Arthveda",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Trading Journal for Groww Users: From Order History to Real Insights",
+        title: "Groww Trading Journal: From Order History to Real Insights",
         description:
             "Turn your Groww Stock Order History export into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
         images: ["/images/og-image.jpg"],
@@ -47,7 +51,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for Groww?",
-        a: "Groww import on Arthveda is equity, which is what most Groww accounts trade. Your journal itself takes everything: equity, crypto, and F&O across stock, index, and commodity, whether you log it by hand or import it from a broker whose F&O we parse. The one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Not through the import. Groww only lets you export equity (your Stock Order History), so that is all Arthveda can pull in. The journal itself handles everything: equity, crypto, and F&O across stock, index, and commodity. You can log your Groww F&O trades by hand, or import F&O from a broker that exports it. The one stock-only surface is the screener (NSE/BSE equities).",
     },
     {
         q: "Is there a sync, or is it file upload only?",
@@ -55,15 +59,15 @@ const FAQ_SCHEMA = [
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
-        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, Fyers, Kotak Securities, and INDmoney. Import from each broker account and the journal aggregates them so you can see your real performance picture.",
+        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, Fyers, Kotak Securities, and INDmoney. Import from each and the journal aggregates across all of them so you see your real performance picture.",
     },
     {
         q: "Will my trades be public?",
-        a: "No. Everything is private by default. You explicitly choose what to publish, such as screeners, watchlists, and public-profile fields. Individual trades are never auto-published.",
+        a: "No. Everything is private by default. You explicitly choose what to publish (screeners, watchlists, public-profile fields). Individual trades are never auto-published.",
     },
     {
         q: "What if I scale into a trade with multiple entries and partial exits?",
-        a: "Handled natively. If you bought 100 shares of RELIANCE in three tranches and exited in two, Arthveda treats that as one trade with five executions inside it: average cost computed, partial PnL on each exit, full PnL on close.",
+        a: "Handled natively. If you bought 100 shares of RELIANCE in three tranches and exited in two, that's one trade with five executions inside it: average cost computed, partial PnL on each exit, full PnL on close.",
     },
     {
         q: "What about charges?",
@@ -128,6 +132,7 @@ export default function GrowwLandingPage() {
                         A P&amp;L statement is what your accountant needs. A
                         journal is what <em>you</em> need to get better.
                     </p>
+                    <SegmentChips segments={GROWW.segments} className="mt-6" />
                     <div className="mt-8 w-fit">
                         <GetStarted label="Start your trading journal" href={APP_BROKER_ACCOUNTS_URL} />
                     </div>

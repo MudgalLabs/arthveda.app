@@ -2,11 +2,37 @@ type PositionInstrument = "equity" | "futures" | "options" | "crypto";
 
 type ImportType = "auto" | "today" | "file";
 
+/** How a trading segment can get into a user's Arthveda journal for a broker. */
+export type SegmentState =
+    /** Parsed automatically from the broker's export. */
+    | "supported"
+    /** The broker doesn't let you export this segment, so it can only be logged
+        manually. Arthveda still supports the segment, just not the import. */
+    | "manual"
+    /** Not built yet, but the broker does export it, so we can add it on request
+        once someone shares a sample export. */
+    | "on-request";
+
+/** The trading segments we describe on broker chips. Kept as a closed set so
+    the underlyings shown for each (see SEGMENT_DETAIL in segment_chips.tsx) stay
+    consistent across every broker and page. */
+export type SegmentLabel = "Cash" | "F&O" | "Options" | "Futures";
+
+export interface BrokerSegment {
+    label: SegmentLabel;
+    state: SegmentState;
+}
+
 export interface Broker {
     name: string;
     svg: string;
     homepage: string;
+    /** Raw instrument enum that the import can parse today (machine-facing,
+        used for logic). For human-facing display of segment support and the
+        manual / on-request states, use `segments`. */
     instruments: PositionInstrument[];
+    /** Human-facing segment support, grouped and labelled for display chips. */
+    segments: BrokerSegment[];
     importTypes: ImportType[];
     isComingSoon?: boolean;
     /** Internal SEO landing page for this broker, if one exists. Drives the
@@ -20,6 +46,10 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/angel_one.svg",
         homepage: "https://www.angelone.in/",
         instruments: ["equity", "futures", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "F&O", state: "supported" },
+        ],
         importTypes: ["file"],
     },
     {
@@ -27,6 +57,11 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/fyers.svg",
         homepage: "https://fyers.in/",
         instruments: ["options"],
+        segments: [
+            { label: "Options", state: "supported" },
+            { label: "Cash", state: "on-request" },
+            { label: "Futures", state: "on-request" },
+        ],
         importTypes: ["file"],
     },
     {
@@ -34,6 +69,10 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/groww.svg",
         homepage: "https://groww.in/",
         instruments: ["equity"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "F&O", state: "manual" },
+        ],
         importTypes: ["file"],
         landingPath: "/brokers/groww",
     },
@@ -42,6 +81,11 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/indmoney.svg",
         homepage: "https://www.indmoney.com/",
         instruments: ["equity", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "Options", state: "supported" },
+            { label: "Futures", state: "on-request" },
+        ],
         importTypes: ["file"],
     },
     {
@@ -49,6 +93,10 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/kotak_securities.svg",
         homepage: "https://www.kotaksecurities.com/",
         instruments: ["equity", "futures", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "F&O", state: "supported" },
+        ],
         importTypes: ["file"],
     },
     {
@@ -56,6 +104,11 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/upstox.svg",
         homepage: "https://upstox.com/",
         instruments: ["equity", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "Options", state: "supported" },
+            { label: "Futures", state: "on-request" },
+        ],
         importTypes: ["file"],
     },
     {
@@ -63,6 +116,10 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/zerodha.svg",
         homepage: "https://zerodha.com/",
         instruments: ["equity", "futures", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "F&O", state: "supported" },
+        ],
         importTypes: ["today", "file"],
         landingPath: "/brokers/zerodha",
     },

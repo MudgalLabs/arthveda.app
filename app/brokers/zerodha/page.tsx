@@ -5,8 +5,12 @@ import { Plug } from "lucide-react";
 import { FamilyLabel } from "@/components/family_label";
 import { GetStarted } from "@/components/get_started";
 import LitMedia from "@/components/lit_media";
+import { SegmentChips } from "@/components/segment_chips";
+import { BROKERS } from "@/lib/brokers";
 import { APP_URL } from "@/lib/links";
 import ZerodhaFAQ from "./faq";
+
+const ZERODHA = BROKERS.find((b) => b.name === "Zerodha")!;
 
 export const metadata: Metadata = {
     title: "Trading Journal for Zerodha Users: From Tradebook to Real Insights · Arthveda",
@@ -128,6 +132,7 @@ export default function ZerodhaLandingPage() {
                         A tradebook is what your accountant needs. A journal is
                         what <em>you</em> need to get better.
                     </p>
+                    <SegmentChips segments={ZERODHA.segments} className="mt-6" />
                     <div className="mt-8 w-fit">
                         <GetStarted label="Start your trading journal" href={APP_BROKER_ACCOUNTS_URL} />
                     </div>

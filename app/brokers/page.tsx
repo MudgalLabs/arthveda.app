@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowRight, Plug } from "lucide-react";
 
 import { FamilyLabel } from "@/components/family_label";
+import { SegmentChips } from "@/components/segment_chips";
 import { Broker, BROKERS } from "@/lib/brokers";
 import { Card, CardContent, CardTitle } from "@/ui/card";
-import { Tag } from "@/ui/tag";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -60,14 +60,8 @@ function BrokerCard({ broker }: { broker: Broker }) {
             </CardTitle>
 
             <CardContent className="space-y-4">
-                {/* Instruments */}
-                <div className="flex flex-wrap gap-2">
-                    {broker.instruments.map((type) => (
-                        <Tag key={type} variant="muted" size="small">
-                            {type.toUpperCase()}
-                        </Tag>
-                    ))}
-                </div>
+                {/* Segments */}
+                <SegmentChips segments={broker.segments} size="small" />
 
                 {/* Import Types (PRIMARY) */}
                 <div className="flex flex-wrap gap-4">
