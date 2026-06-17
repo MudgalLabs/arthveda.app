@@ -7,7 +7,7 @@ import { GetStarted } from "@/components/get_started";
 import LitMedia from "@/components/lit_media";
 import { SegmentChips } from "@/components/segment_chips";
 import { BROKERS } from "@/lib/brokers";
-import { APP_URL } from "@/lib/links";
+import { BROKER_ACCOUNTS_URL } from "@/lib/links";
 import GrowwFAQ from "./faq";
 
 const GROWW = BROKERS.find((b) => b.name === "Groww")!;
@@ -96,7 +96,7 @@ const P = "font-content text-[15px] leading-[1.7] text-text-muted";
 const INLINE_LINK =
     "font-content text-[15px] text-text-primary underline underline-offset-4 hover:text-text-muted";
 
-const APP_BROKER_ACCOUNTS_URL = `${APP_URL}settings/broker-accounts`;
+const APP_BROKER_ACCOUNTS_URL = BROKER_ACCOUNTS_URL;
 
 const SECTIONS = [
     { id: "what-groww-shows", label: "What Groww shows" },
@@ -342,7 +342,7 @@ export default function GrowwLandingPage() {
                                     rel="noopener noreferrer"
                                     className={INLINE_LINK}
                                 >
-                                    /settings/broker-accounts
+                                    /accounts
                                 </Link>{" "}
                                 and create a Groww broker account.
                             </Step>

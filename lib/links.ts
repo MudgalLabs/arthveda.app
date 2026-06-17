@@ -1,9 +1,10 @@
 // Outbound links to the live Arthveda app. The marketing site never hosts the
 // app/screener — these deep-link OUT. Centralized so URLs change in one place.
 //
-// Environment-aware: in production we point at arthveda.app; in dev we point at
-// the locally-running app on :6969, where every route is served under an /app
-// prefix. NODE_ENV is inlined at build time, so this works in client components.
+// Environment-aware: in production we point at arthveda.app; in dev at the
+// locally-running app on :6969. The app serves at clean URLs (no /app prefix);
+// only the home hub lives at /app. NODE_ENV is inlined at build time, so this
+// works in client components.
 
 const IS_DEV = process.env.NODE_ENV === "development";
 
@@ -23,6 +24,11 @@ export const SCREENER_URL = IS_DEV
 export const PROFILE_URL = IS_DEV
     ? "http://localhost:6969/profile"
     : "https://arthveda.app/profile";
+
+// Broker accounts / connect page -- the broker setup guides deep-link here.
+export const BROKER_ACCOUNTS_URL = IS_DEV
+    ? "http://localhost:6969/accounts"
+    : "https://arthveda.app/accounts";
 
 // Backend API base. The marketing site only calls one endpoint (/me, to
 // identify an already-logged-in visitor for PostHog — see app/providers.tsx).
