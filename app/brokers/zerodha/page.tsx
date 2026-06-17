@@ -90,9 +90,11 @@ const faqJsonLd = {
 };
 
 // Shared prose styles for the long-form body.
-const H2 = "font-heading text-[26px] font-medium text-text-primary sm:text-[30px]";
+const H2 =
+    "font-heading text-[26px] font-medium text-text-primary sm:text-[30px]";
 const P = "font-content text-[15px] leading-[1.7] text-text-muted";
-const INLINE_LINK = "font-content text-[15px] text-text-primary underline underline-offset-4 hover:text-text-muted";
+const INLINE_LINK =
+    "font-content text-[15px] text-text-primary underline underline-offset-4 hover:text-text-muted";
 
 const APP_BROKER_ACCOUNTS_URL = `${APP_URL}settings/broker-accounts`;
 
@@ -118,7 +120,8 @@ export default function ZerodhaLandingPage() {
                 <div>
                     <FamilyLabel name="Brokers" Icon={Plug} />
                     <h1 className="mt-5 max-w-4xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
-                        Turn your Zerodha Tradebook into a trading journal you can actually learn from.
+                        Turn your Zerodha Tradebook into a trading journal you
+                        can actually learn from.
                     </h1>
                     <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
                         Zerodha gives you trades. Arthveda gives you insights
@@ -132,9 +135,15 @@ export default function ZerodhaLandingPage() {
                         A tradebook is what your accountant needs. A journal is
                         what <em>you</em> need to get better.
                     </p>
-                    <SegmentChips segments={ZERODHA.segments} className="mt-6" />
+                    <SegmentChips
+                        segments={ZERODHA.segments}
+                        className="mt-6"
+                    />
                     <div className="mt-8 w-fit">
-                        <GetStarted label="Start your trading journal" href={APP_BROKER_ACCOUNTS_URL} />
+                        <GetStarted
+                            label="Start your trading journal"
+                            href={APP_BROKER_ACCOUNTS_URL}
+                        />
                     </div>
                     <p className="mt-4 font-content text-[15px] leading-6 text-text-muted">
                         Not on Zerodha?{" "}
@@ -148,7 +157,10 @@ export default function ZerodhaLandingPage() {
 
             <hr className="relative left-1/2 mt-12 w-screen -translate-x-1/2 border-t border-[hsl(220,20%,13.5%)] md:mt-16" />
 
-            <div className="mt-8 md:mt-10" aria-label="Arthveda trade journal preview">
+            <div
+                className="mt-8 md:mt-10"
+                aria-label="Arthveda trade journal preview"
+            >
                 <LitMedia
                     src="/images/v2/trade-view.png"
                     alt="Arthveda trade view with chart, PnL, duration, details, and journal notes"
@@ -165,11 +177,20 @@ export default function ZerodhaLandingPage() {
 
             <div className="mx-auto mt-24 grid max-w-6xl gap-14 lg:grid-cols-[minmax(0,768px)_220px] lg:items-start lg:justify-center">
                 <div className="space-y-20">
-                    <nav className="rounded-lg border border-white/[0.12] bg-surface-1/35 p-4 lg:hidden" aria-label="Article index">
-                        <p className="font-heading text-[15px] font-medium text-text-primary">Index</p>
+                    <nav
+                        className="rounded-lg border border-white/[0.12] bg-surface-1/35 p-4 lg:hidden"
+                        aria-label="Article index"
+                    >
+                        <p className="font-heading text-[15px] font-medium text-text-primary">
+                            Index
+                        </p>
                         <div className="mt-3 grid gap-2 sm:grid-cols-2">
                             {SECTIONS.map((section) => (
-                                <a key={section.id} href={`#${section.id}`} className="font-content text-[15px] leading-6 text-text-muted hover:text-text-primary">
+                                <a
+                                    key={section.id}
+                                    href={`#${section.id}`}
+                                    className="font-content text-[15px] leading-6 text-text-muted hover:text-text-primary"
+                                >
                                     {section.label}
                                 </a>
                             ))}
@@ -185,31 +206,39 @@ export default function ZerodhaLandingPage() {
                         <p className={P}>
                             You have a couple of hundred trades sitting in your
                             Zerodha account. You roughly know last quarter was
-                            green. You can&apos;t tell which setup delivered most
-                            of that PnL, which trades you held too long, or
-                            whether your &quot;high conviction&quot; trades actually
-                            outperformed your gut-feel ones.
+                            green. You can&apos;t tell which setup delivered
+                            most of that PnL, which trades you held too long, or
+                            whether your &quot;high conviction&quot; trades
+                            actually outperformed your gut-feel ones.
                         </p>
                         <p className={P}>
-                            The problem isn&apos;t your trading. The problem is that
-                            a tradebook and a journal solve completely different
-                            problems.
+                            The problem isn&apos;t your trading. The problem is
+                            that a tradebook and a journal solve completely
+                            different problems.
                         </p>
                     </section>
 
-                    <section id="what-zerodha-shows" className="scroll-mt-28 space-y-5">
+                    <section
+                        id="what-zerodha-shows"
+                        className="scroll-mt-28 space-y-5"
+                    >
                         <h2 className={H2}>What Zerodha actually shows you</h2>
                         <p className={P}>
-                            <Link href="https://console.zerodha.com" target="_blank" rel="noopener noreferrer" className={INLINE_LINK}>
+                            <Link
+                                href="https://console.zerodha.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={INLINE_LINK}
+                            >
                                 Console
                             </Link>{" "}
-                            is Zerodha&apos;s reports portal, and it&apos;s solid for
-                            what it covers:
+                            is Zerodha&apos;s reports portal, and it&apos;s
+                            solid for what it covers:
                         </p>
                         <ul className="space-y-2 pl-5">
                             <BulletItem>
-                                <strong>Tradebook</strong> — your executed trades
-                                history
+                                <strong>Tradebook</strong> — your executed
+                                trades history
                             </BulletItem>
                             <BulletItem>
                                 <strong>Tax PnL</strong> — realized PnL by
@@ -220,30 +249,37 @@ export default function ZerodhaLandingPage() {
                                 portfolio with average cost
                             </BulletItem>
                             <BulletItem>
-                                <strong>Funds</strong> — cash, margin, and ledger
-                                balances
+                                <strong>Funds</strong> — cash, margin, and
+                                ledger balances
                             </BulletItem>
                         </ul>
                         <p className={P}>
                             Useful, but notice the shape. Console is optimised
                             for the report your accountant needs, because
-                            that&apos;s what most retail traders explicitly ask for.
-                            The other artifact, the one that actually moves your
-                            edge, is the one most Zerodha users end up building
-                            themselves in Excel, Google Sheets, Notion, or a
-                            custom spreadsheet. Usually for two months. Usually
-                            it stops.
+                            that&apos;s what most retail traders explicitly ask
+                            for. The other artifact, the one that actually moves
+                            your edge, is the one most Zerodha users end up
+                            building themselves in Excel, Google Sheets, Notion,
+                            or a custom spreadsheet. Usually for two months.
+                            Usually it stops.
                         </p>
                     </section>
 
-                    <section id="tradebook-limits" className="scroll-mt-28 space-y-5">
-                        <h2 className={H2}>What Zerodha Console is not built for</h2>
+                    <section
+                        id="tradebook-limits"
+                        className="scroll-mt-28 space-y-5"
+                    >
+                        <h2 className={H2}>
+                            What Zerodha Console is not built for
+                        </h2>
                         <p className={P}>
                             Pull up your last hundred closed trades in your head
                             and try to answer these:
                         </p>
                         <ol className="list-decimal space-y-2 pl-5">
-                            <BulletItem>What&apos;s my win rate over the last quarter?</BulletItem>
+                            <BulletItem>
+                                What&apos;s my win rate over the last quarter?
+                            </BulletItem>
                             <BulletItem>
                                 What&apos;s my average winner versus my average
                                 loser, in R-multiples?
@@ -254,51 +290,75 @@ export default function ZerodhaLandingPage() {
                                 the dopamine ones?
                             </BulletItem>
                             <BulletItem>
-                                Do trades I hold overnight outperform my intraday
-                                ones after charges?
+                                Do trades I hold overnight outperform my
+                                intraday ones after charges?
                             </BulletItem>
                             <BulletItem>
-                                Which setup is dragging my overall PnL down, even
-                                though it feels good when it works?
+                                Which setup is dragging my overall PnL down,
+                                even though it feels good when it works?
                             </BulletItem>
                         </ol>
                         <p className={P}>
                             None of these are answerable from Console without
                             exporting the tradebook, opening Excel, writing
                             formulas, and tagging every trade by hand. Most
-                            traders never make it to step three. Arthveda answers
-                            them in a few clicks.
+                            traders never make it to step three. Arthveda
+                            answers them in a few clicks.
                         </p>
                     </section>
 
-                    <section id="import-flow" className="scroll-mt-28 space-y-5">
-                        <h2 className={H2}>How to import your Zerodha trades</h2>
+                    <section
+                        id="import-flow"
+                        className="scroll-mt-28 space-y-5"
+                    >
+                        <h2 className={H2}>
+                            How to import your Zerodha trades
+                        </h2>
                         <div className="space-y-6">
-                            <Step n="1" title="Export your tradebook from Zerodha">
+                            <Step
+                                n="1"
+                                title="Export your tradebook from Zerodha"
+                            >
                                 Log in at{" "}
-                                <Link href="https://console.zerodha.com" target="_blank" rel="noopener noreferrer" className={INLINE_LINK}>
+                                <Link
+                                    href="https://console.zerodha.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={INLINE_LINK}
+                                >
                                     console.zerodha.com
                                 </Link>
                                 , open Reports then Tradebook, select Current FY
                                 or Previous FY, click Submit, and download the
                                 XLSX.
                             </Step>
-                            <Step n="2" title="Create your Zerodha broker account">
+                            <Step
+                                n="2"
+                                title="Create your Zerodha broker account"
+                            >
                                 Sign up or log in to Arthveda. Follow onboarding
                                 and select Zerodha, or go to{" "}
-                                <Link href={APP_BROKER_ACCOUNTS_URL} target="_blank" rel="noopener noreferrer" className={INLINE_LINK}>
-                                    /app/settings/broker-accounts
+                                <Link
+                                    href={APP_BROKER_ACCOUNTS_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={INLINE_LINK}
+                                >
+                                    /settings/broker-accounts
                                 </Link>{" "}
                                 and create a Zerodha broker account.
                             </Step>
-                            <Step n="3" title="Click Import and upload the file">
+                            <Step
+                                n="3"
+                                title="Click Import and upload the file"
+                            >
                                 Choose Import on the Zerodha broker account,
                                 upload the Tradebook XLSX, review the parsed
                                 trades, and confirm the import. Arthveda groups
                                 your executions into trades automatically: one
-                                round trip becomes one trade with entry, scaling,
-                                exit, holding period, and after-charges PnL
-                                computed for you.
+                                round trip becomes one trade with entry,
+                                scaling, exit, holding period, and after-charges
+                                PnL computed for you.
                             </Step>
                             <Step n="4" title="Explore your journal">
                                 Open Trades, Dashboard, Insights, and Reports.
@@ -318,12 +378,21 @@ export default function ZerodhaLandingPage() {
                             fresh trades into the same journal.
                         </p>
                         <div className="pt-2">
-                            <GetStarted label="Import my Tradebook" href={APP_BROKER_ACCOUNTS_URL} size="default" />
+                            <GetStarted
+                                label="Import my Tradebook"
+                                href={APP_BROKER_ACCOUNTS_URL}
+                                size="default"
+                            />
                         </div>
                     </section>
 
-                    <section id="after-import" className="scroll-mt-28 space-y-5">
-                        <h2 className={H2}>What you see after your first import</h2>
+                    <section
+                        id="after-import"
+                        className="scroll-mt-28 space-y-5"
+                    >
+                        <h2 className={H2}>
+                            What you see after your first import
+                        </h2>
                         <p className={P}>
                             Once your Zerodha trades are in, Arthveda becomes
                             the operating system around your trading history.
@@ -331,7 +400,10 @@ export default function ZerodhaLandingPage() {
                         <ul className="space-y-2 pl-5">
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal#dashboard" className={INLINE_LINK}>
+                                    <Link
+                                        href="/product/journal#dashboard"
+                                        className={INLINE_LINK}
+                                    >
                                         Dashboard
                                     </Link>
                                 </strong>{" "}
@@ -342,30 +414,39 @@ export default function ZerodhaLandingPage() {
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal#trades" className={INLINE_LINK}>
+                                    <Link
+                                        href="/product/journal#trades"
+                                        className={INLINE_LINK}
+                                    >
                                         Trades
                                     </Link>
                                 </strong>{" "}
-                                — see your complete trading history in one place.
-                                Arthveda preserves every trade separately, then
-                                lets you search, filter, sort, and inspect
-                                detailed breakdowns, so nothing gets merged away,
-                                lost, or overlooked.
+                                — see your complete trading history in one
+                                place. Arthveda preserves every trade
+                                separately, then lets you search, filter, sort,
+                                and inspect detailed breakdowns, so nothing gets
+                                merged away, lost, or overlooked.
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal#insights" className={INLINE_LINK}>
+                                    <Link
+                                        href="/product/journal#insights"
+                                        className={INLINE_LINK}
+                                    >
                                         Insights
                                     </Link>
                                 </strong>{" "}
                                 — see what is actually hurting your trading.
-                                Understand the patterns behind your wins, losses,
-                                timing, behaviour, setups, mistakes, and
+                                Understand the patterns behind your wins,
+                                losses, timing, behaviour, setups, mistakes, and
                                 outcomes.
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal#reports" className={INLINE_LINK}>
+                                    <Link
+                                        href="/product/journal#reports"
+                                        className={INLINE_LINK}
+                                    >
                                         Reports
                                     </Link>
                                 </strong>{" "}
@@ -376,7 +457,10 @@ export default function ZerodhaLandingPage() {
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal#tagging" className={INLINE_LINK}>
+                                    <Link
+                                        href="/product/journal#tagging"
+                                        className={INLINE_LINK}
+                                    >
                                         Tagging
                                     </Link>
                                 </strong>{" "}
@@ -387,14 +471,17 @@ export default function ZerodhaLandingPage() {
                             </BulletItem>
                             <BulletItem>
                                 <strong>
-                                    <Link href="/product/journal#notebook" className={INLINE_LINK}>
+                                    <Link
+                                        href="/product/journal#notebook"
+                                        className={INLINE_LINK}
+                                    >
                                         Journal notes
                                     </Link>
                                 </strong>{" "}
                                 — understand the why behind every trade. Attach
                                 notes and chart screenshots directly to the
-                                actual trade, so your thinking stays connected to
-                                the outcome.
+                                actual trade, so your thinking stays connected
+                                to the outcome.
                             </BulletItem>
                         </ul>
                         <p className={P}>
@@ -410,7 +497,10 @@ export default function ZerodhaLandingPage() {
                         </p>
                     </section>
 
-                    <section id="what-to-journal" className="scroll-mt-28 space-y-5">
+                    <section
+                        id="what-to-journal"
+                        className="scroll-mt-28 space-y-5"
+                    >
                         <h2 className={H2}>What to actually journal</h2>
                         <p className={P}>
                             If you want the journal to do its job, every trade
@@ -420,14 +510,18 @@ export default function ZerodhaLandingPage() {
                         <ol className="list-decimal space-y-2 pl-5">
                             <BulletItem>
                                 <strong>Setup tag</strong> — what kind of trade
-                                was it? Keep the set small and reusable (eight to
-                                twelve tags is plenty).
+                                was it? Keep the set small and reusable (eight
+                                to twelve tags is plenty).
                             </BulletItem>
                             <BulletItem>
                                 <strong>Entry reason</strong> — one sentence on
-                                the trigger. <em>&quot;50 DMA reclaim with
-                                above-average volume&quot;</em> is good. <em>&quot;Looked
-                                strong&quot;</em> is not.
+                                the trigger.{" "}
+                                <em>
+                                    &quot;50 DMA reclaim with above-average
+                                    volume&quot;
+                                </em>{" "}
+                                is good. <em>&quot;Looked strong&quot;</em> is
+                                not.
                             </BulletItem>
                             <BulletItem>
                                 <strong>Exit reason</strong> — stop hit? target
@@ -444,29 +538,35 @@ export default function ZerodhaLandingPage() {
                         </ol>
                         <p className={P}>
                             You can also attach chart screenshots at entry and
-                            exit and a note on what you&apos;d do differently. After
-                            a month of consistency you&apos;ll see at least one
-                            pattern you didn&apos;t know existed.
+                            exit and a note on what you&apos;d do differently.
+                            After a month of consistency you&apos;ll see at
+                            least one pattern you didn&apos;t know existed.
                         </p>
                     </section>
 
-                    <section id="more-than-journal" className="scroll-mt-28 space-y-5 rounded-lg border border-white/[0.12] bg-surface-1/35 p-6">
+                    <section
+                        id="more-than-journal"
+                        className="scroll-mt-28 space-y-5 rounded-lg border border-white/[0.12] bg-surface-1/35 p-6"
+                    >
                         <h2 className={H2}>Arthveda is more than a journal</h2>
                         <p className={P}>
                             Most trading journals stop after the trade. Arthveda
-                            connects the workflow before and after it: discovery,
-                            watchlists, symbol research, execution, journaling,
-                            review, and your public trading record.
+                            connects the workflow before and after it:
+                            discovery, watchlists, symbol research, execution,
+                            journaling, review, and your public trading record.
                         </p>
                         <p className={P}>
-                            The same stock you discovered in a screener can later
-                            appear in your watchlist, trade journal, review
-                            reports, and symbol history, all connected in one
-                            workflow.
+                            The same stock you discovered in a screener can
+                            later appear in your watchlist, trade journal,
+                            review reports, and symbol history, all connected in
+                            one workflow.
                         </p>
                         <p className={P}>
                             <strong>
-                                <Link href="/product/discover" className={INLINE_LINK}>
+                                <Link
+                                    href="/product/discover"
+                                    className={INLINE_LINK}
+                                >
                                     Screeners
                                 </Link>
                             </strong>{" "}
@@ -478,17 +578,23 @@ export default function ZerodhaLandingPage() {
                         </p>
                         <p className={P}>
                             <strong>
-                                <Link href="/product/discover" className={INLINE_LINK}>
+                                <Link
+                                    href="/product/discover"
+                                    className={INLINE_LINK}
+                                >
                                     Watchlists and symbol pages
                                 </Link>
                             </strong>{" "}
                             — track the stocks you care about before and after
-                            you trade them, so your research and journal are part
-                            of the same workflow.
+                            you trade them, so your research and journal are
+                            part of the same workflow.
                         </p>
                         <p className={P}>
                             <strong>
-                                <Link href="/product/social" className={INLINE_LINK}>
+                                <Link
+                                    href="/product/social"
+                                    className={INLINE_LINK}
+                                >
                                     Public profile
                                 </Link>
                             </strong>{" "}
@@ -506,11 +612,20 @@ export default function ZerodhaLandingPage() {
                 </div>
 
                 <aside className="sticky top-28 hidden lg:block">
-                    <nav className="rounded-lg border border-white/[0.12] bg-surface-1/35 p-4" aria-label="Article index">
-                        <p className="font-heading text-[15px] font-medium text-text-primary">Index</p>
+                    <nav
+                        className="rounded-lg border border-white/[0.12] bg-surface-1/35 p-4"
+                        aria-label="Article index"
+                    >
+                        <p className="font-heading text-[15px] font-medium text-text-primary">
+                            Index
+                        </p>
                         <div className="mt-3 space-y-2">
                             {SECTIONS.map((section) => (
-                                <a key={section.id} href={`#${section.id}`} className="block font-content text-[15px] leading-6 text-text-muted hover:text-text-primary">
+                                <a
+                                    key={section.id}
+                                    href={`#${section.id}`}
+                                    className="block font-content text-[15px] leading-6 text-text-muted hover:text-text-primary"
+                                >
                                     {section.label}
                                 </a>
                             ))}
@@ -521,11 +636,15 @@ export default function ZerodhaLandingPage() {
 
             <div className="mx-auto mt-20 max-w-3xl rounded-lg border border-white/[0.12] bg-surface-1/35 px-6 py-10 text-center md:mt-24">
                 <h2 className="mx-auto max-w-2xl text-balance font-heading text-[28px] font-medium leading-tight tracking-[-0.015em] text-text-primary sm:text-[34px]">
-                    Turn your Zerodha Tradebook into a journal you can actually learn from.
+                    Turn your Zerodha Tradebook into a journal you can actually
+                    learn from.
                 </h2>
                 <div className="h-6" />
                 <div className="mx-auto w-fit">
-                    <GetStarted label="Start your trading journal" href={APP_BROKER_ACCOUNTS_URL} />
+                    <GetStarted
+                        label="Start your trading journal"
+                        href={APP_BROKER_ACCOUNTS_URL}
+                    />
                 </div>
             </div>
         </main>

@@ -9,24 +9,26 @@ const IS_DEV = process.env.NODE_ENV === "development";
 
 // App root.
 export const APP_URL = IS_DEV
-    ? "http://localhost:6969/app/"
-    : "https://arthveda.app/app/";
+    ? "http://localhost:6969/app"
+    : "https://arthveda.app/app";
 
 // The free Screener is the single primary CTA across the site (top-of-funnel,
 // ungated for anonymous visitors).
 export const SCREENER_URL = IS_DEV
-    ? "http://localhost:6969/app/screeners"
+    ? "http://localhost:6969/screeners"
     : "https://arthveda.app/screeners";
 
 // The viewer's own trader profile — the Social hub CTA ("Build your profile")
 // links here; the app handles the login/redirect if needed.
 export const PROFILE_URL = IS_DEV
-    ? "http://localhost:6969/app/profile"
-    : "https://arthveda.app/app/profile";
+    ? "http://localhost:6969/profile"
+    : "https://arthveda.app/profile";
 
 // Backend API base. The marketing site only calls one endpoint (/me, to
 // identify an already-logged-in visitor for PostHog — see app/providers.tsx).
 // In prod the API is a sibling origin of the marketing site (both under
 // arthveda.app), so the session cookie (SameSite=None) rides along and CORS
 // allows the arthveda.app origin.
-export const API_URL = IS_DEV ? "http://localhost:1337" : "https://api.arthveda.app";
+export const API_URL = IS_DEV
+    ? "http://localhost:1337"
+    : "https://api.arthveda.app";
