@@ -51,6 +51,7 @@ export const BROKERS: Broker[] = [
             { label: "F&O", state: "supported" },
         ],
         importTypes: ["file"],
+        landingPath: "/brokers/angel-one",
     },
     {
         name: "Fyers",

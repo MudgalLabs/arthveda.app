@@ -5,6 +5,7 @@ import { ArrowRight, Plug } from "lucide-react";
 import { FamilyLabel } from "@/components/family_label";
 import { SegmentChips } from "@/components/segment_chips";
 import { Broker, BROKERS } from "@/lib/brokers";
+import { cn } from "@/lib/utils";
 import { Card, CardContent, CardTitle } from "@/ui/card";
 import { Check } from "lucide-react";
 
@@ -47,7 +48,13 @@ export default function BrokersPage() {
 
 function BrokerCard({ broker }: { broker: Broker }) {
     return (
-        <Card className="group p-4 text-left">
+        <Card
+            className={cn(
+                "group relative p-4 text-left",
+                broker.landingPath &&
+                    "cursor-pointer transition-colors hover:border-border-accent hover:ring-1 hover:ring-border-accent/40",
+            )}
+        >
             {/* Header */}
             <CardTitle className="flex items-center gap-3 mb-4">
                 {/* <Image
@@ -79,11 +86,13 @@ function BrokerCard({ broker }: { broker: Broker }) {
                     ))}
                 </div>
 
-                {/* Learn more — only when a broker has a landing page. */}
+                {/* Learn more — only when a broker has a landing page. The
+                    stretched link (after:absolute after:inset-0) makes the whole
+                    card clickable, and the hover state is driven by card hover. */}
                 {broker.landingPath && (
                     <Link
                         href={broker.landingPath}
-                        className="inline-flex items-center gap-1 text-sm font-medium text-link no-underline! transition-colors hover:text-text-primary"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-link no-underline! transition-colors after:absolute after:inset-0 group-hover:text-text-primary"
                     >
                         Learn more
                         <ArrowRight
