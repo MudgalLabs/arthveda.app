@@ -19,7 +19,7 @@
         "ldrs": "^1.1.7",
         "lucide-react": "^0.517.0",
         "next": "^15.5.7",
-        "posthog-js": "^1.255.1",
+        "posthog-js": "^1.390.2",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "tailwind-merge": "^3.3.1"
