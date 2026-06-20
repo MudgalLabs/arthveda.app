@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Plug } from "lucide-react";
+import { Plug } from "lucide-react";
 
+import { BrokerDirectory } from "@/components/broker_directory";
 import { FamilyLabel } from "@/components/family_label";
-import { SegmentChips } from "@/components/segment_chips";
-import { Broker, BROKERS } from "@/lib/brokers";
-import { cn } from "@/lib/utils";
-import { Card, CardContent, CardTitle } from "@/ui/card";
-import { Check } from "lucide-react";
+import { CONTACT_EMAIL } from "@/components/segment_chips";
 
 export const metadata: Metadata = {
     title: "Brokers · Arthveda",
@@ -29,79 +25,22 @@ export default function BrokersPage() {
                     Import your trades from supported brokers in seconds. No
                     manual work.
                 </p>
+                <p className="mt-3 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
+                    If your broker is not in the list below, write to us at{" "}
+                    <a
+                        href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Add broker support")}`}
+                        className="text-[15px]! font-medium text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
+                    >
+                        {CONTACT_EMAIL}
+                    </a>{" "}
+                    and we&rsquo;ll be happy to integrate it.
+                </p>
             </section>
 
             {/* Full-bleed divider after the hero — same treatment as the hubs. */}
             <hr className="relative left-1/2 mt-20 w-screen -translate-x-1/2 border-t border-[hsl(220,20%,13.5%)] md:mt-24" />
 
-            <div className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {BROKERS.map(
-                    (b) =>
-                        !b.isComingSoon && (
-                            <BrokerCard key={b.name} broker={b} />
-                        ),
-                )}
-            </div>
+            <BrokerDirectory />
         </main>
-    );
-}
-
-function BrokerCard({ broker }: { broker: Broker }) {
-    return (
-        <Card
-            className={cn(
-                "group relative p-4 text-left",
-                broker.landingPath &&
-                    "cursor-pointer transition-colors hover:border-border-accent hover:ring-1 hover:ring-border-accent/40",
-            )}
-        >
-            {/* Header */}
-            <CardTitle className="flex items-center gap-3 mb-4">
-                {/* <Image
-                    src={broker.svg}
-                    alt={broker.name}
-                    width={96}
-                    height={32}
-                /> */}
-                <h3>{broker.name}</h3>
-            </CardTitle>
-
-            <CardContent className="space-y-4">
-                {/* Segments */}
-                <SegmentChips segments={broker.segments} size="small" />
-
-                {/* Import Types (PRIMARY) */}
-                <div className="flex flex-wrap gap-4">
-                    {broker.importTypes.map((type) => (
-                        <div key={type} className="flex-x gap-x-1 items-center">
-                            <span>
-                                <Check size={14} />
-                            </span>
-                            <span>
-                                {type === "auto" && "Auto sync"}
-                                {type === "today" && "Sync today"}
-                                {type === "file" && "File upload"}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Learn more — only when a broker has a landing page. The
-                    stretched link (after:absolute after:inset-0) makes the whole
-                    card clickable, and the hover state is driven by card hover. */}
-                {broker.landingPath && (
-                    <Link
-                        href={broker.landingPath}
-                        className="inline-flex items-center gap-1 text-sm font-medium text-link no-underline! transition-colors after:absolute after:inset-0 group-hover:text-text-primary"
-                    >
-                        Learn more
-                        <ArrowRight
-                            size={14}
-                            className="transition-transform group-hover:translate-x-0.5"
-                        />
-                    </Link>
-                )}
-            </CardContent>
-        </Card>
     );
 }

@@ -25,7 +25,12 @@ export interface BrokerSegment {
 
 export interface Broker {
     name: string;
+    /** Wide wordmark logo (brand name baked in). Used by the homepage scrolling
+        broker strip. */
     svg: string;
+    /** Square brand icon mark. Used next to the broker name on /brokers cards
+        and in the table view. */
+    icon: string;
     homepage: string;
     /** Raw instrument enum that the import can parse today (machine-facing,
         used for logic). For human-facing display of segment support and the
@@ -44,6 +49,7 @@ export const BROKERS: Broker[] = [
     {
         name: "Angel One",
         svg: "/svgs/angel_one.svg",
+        icon: "/svgs/icons/angel_one.svg",
         homepage: "https://www.angelone.in/",
         instruments: ["equity", "futures", "options"],
         segments: [
@@ -56,18 +62,20 @@ export const BROKERS: Broker[] = [
     {
         name: "Fyers",
         svg: "/svgs/fyers.svg",
+        icon: "/svgs/icons/fyers.svg",
         homepage: "https://fyers.in/",
-        instruments: ["options"],
+        instruments: ["equity", "options", "futures"],
         segments: [
+            { label: "Cash", state: "supported" },
             { label: "Options", state: "supported" },
-            { label: "Cash", state: "on-request" },
-            { label: "Futures", state: "on-request" },
+            { label: "Futures", state: "supported" },
         ],
         importTypes: ["file"],
     },
     {
         name: "Groww",
         svg: "/svgs/groww.svg",
+        icon: "/svgs/icons/groww.svg",
         homepage: "https://groww.in/",
         instruments: ["equity"],
         segments: [
@@ -80,6 +88,7 @@ export const BROKERS: Broker[] = [
     {
         name: "INDmoney",
         svg: "/svgs/indmoney.svg",
+        icon: "/svgs/icons/indmoney.svg",
         homepage: "https://www.indmoney.com/",
         instruments: ["equity", "options"],
         segments: [
@@ -92,6 +101,7 @@ export const BROKERS: Broker[] = [
     {
         name: "Kotak Securities",
         svg: "/svgs/kotak_securities.svg",
+        icon: "/svgs/icons/kotak_securities.svg",
         homepage: "https://www.kotaksecurities.com/",
         instruments: ["equity", "futures", "options"],
         segments: [
@@ -103,6 +113,7 @@ export const BROKERS: Broker[] = [
     {
         name: "Upstox",
         svg: "/svgs/upstox.svg",
+        icon: "/svgs/icons/upstox.svg",
         homepage: "https://upstox.com/",
         instruments: ["equity", "options"],
         segments: [
@@ -115,6 +126,7 @@ export const BROKERS: Broker[] = [
     {
         name: "Zerodha",
         svg: "/svgs/zerodha.svg",
+        icon: "/svgs/icons/zerodha.svg",
         homepage: "https://zerodha.com/",
         instruments: ["equity", "futures", "options"],
         segments: [

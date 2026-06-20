@@ -4,12 +4,12 @@ import type { BrokerSegment, SegmentLabel } from "@/lib/brokers";
 import { cn } from "@/lib/utils";
 import { Tag } from "@/ui/tag";
 
-const CONTACT_EMAIL = "hey@arthveda.app";
+export const CONTACT_EMAIL = "hey@arthveda.app";
 
 // The underlyings each segment covers. Centralized (keyed by the closed
 // SegmentLabel set) so every chip for the same segment reads identically across
 // all brokers and both the hub cards and broker pages.
-const SEGMENT_DETAIL: Record<SegmentLabel, string> = {
+export const SEGMENT_DETAIL: Record<SegmentLabel, string> = {
     Cash: "stocks, etfs",
     "F&O": "index, stocks, commodity",
     Options: "index, stocks, commodity",
