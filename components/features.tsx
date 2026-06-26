@@ -125,7 +125,7 @@ export default function Features() {
                     <div className="h-4" />
 
                     <p className="section-detail">
-                        We’re adding new features based on real trader feedback.
+                        I’m adding new features based on real trader feedback.
                         Arthveda will keep growing with you and your trading{" "}
                         <strong>journey</strong>.
                     </p>

@@ -6,7 +6,7 @@ export default function FounderLetter() {
         <section>
             <div className="mx-auto">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                    <h3 className="section-header">A note from the founder</h3>
+                    <h3 className="section-header">A note from the maker</h3>
                 </div>
 
                 <div className="relative max-w-[814px] mx-auto my-12 sm:mt-12 md:mt-18 overflow-hidden sm:overflow-visible">
@@ -106,7 +106,7 @@ export default function FounderLetter() {
                                     Shikhar Sharma
                                 </div>
                                 <div className="text-text-muted text-sm">
-                                    Founder
+                                    Maker of Arthveda
                                 </div>
                             </div>
                         </div>

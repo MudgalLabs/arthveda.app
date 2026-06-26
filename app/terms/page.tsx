@@ -110,9 +110,9 @@ export default function TermsPage() {
 
             <h2 className="sub-heading mt-4">8. Contact</h2>
             <p>
-                For questions or feedback, email us at{" "}
-                <a className="text-base!" href="mailto:hey@arthveda.app">
-                    hey@arthveda.app
+                For questions or feedback, email me at{" "}
+                <a className="text-base!" href="mailto:hey@ceoshikhar.com">
+                    hey@ceoshikhar.com
                 </a>
             </p>
         </div>

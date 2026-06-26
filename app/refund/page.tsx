@@ -27,7 +27,7 @@ export default function RefundPage() {
 
             <p className="mb-4">
                 <strong>Lifetime</strong> is a one-time purchase and is not
-                eligible for a trial. If you change your mind, contact us
+                eligible for a trial. If you change your mind, reach out
                 within <strong>14 days of payment</strong> for a refund.
                 After 14 days, Lifetime purchases are non-refundable.
             </p>
@@ -42,10 +42,10 @@ export default function RefundPage() {
             <p>
                 For questions or to request a refund, email{" "}
                 <a
-                    href="mailto:hey@arthveda.app"
+                    href="mailto:hey@ceoshikhar.com"
                     className="font-bold text-sm! sm:text-base!"
                 >
-                    hey@arthveda.app
+                    hey@ceoshikhar.com
                 </a>
                 .
             </p>

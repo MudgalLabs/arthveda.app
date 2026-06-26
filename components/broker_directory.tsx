@@ -125,7 +125,7 @@ function Legend() {
             <span className="inline-flex items-center gap-1.5">
                 <Check size={13} className="text-success" /> Supported
             </span>
-            <span>Request · email us</span>
+            <span>Request · email me</span>
             <span>Manual · log by hand</span>
         </p>
     );
@@ -179,7 +179,7 @@ function RequestLink({ label }: { label: string }) {
     return (
         <a
             href={segmentMailto(label)}
-            title={`Email us and we'll add ${label} support`}
+            title={`Email me and I'll add ${label} support`}
             className="relative z-10 text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
         >
             Request

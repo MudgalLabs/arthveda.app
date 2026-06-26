@@ -1,7 +1,9 @@
+import BuilderCard from "@/components/builder_card";
+
 export default function AboutPage() {
     return (
         <div className="mt-12">
-            <h1 className="big-heading mb-12">About Us</h1>
+            <h1 className="big-heading mb-12">About</h1>
 
             <p className="mb-4">
                 <strong>Arthveda</strong> is the Trading OS for India, built for
@@ -15,31 +17,20 @@ export default function AboutPage() {
                 process. One workspace, end to end.
             </p>
             <p className="mb-4">
-                Built by{" "}
-                <a
-                    className="text-base!"
-                    href="https://mudgallabs.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <strong>Mudgal Labs</strong>
-                </a>{" "}
-                in India, founded by{" "}
-                <a
-                    className="text-base!"
-                    href="https://ceoshikhar.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <strong>Shikhar Sharma</strong>
-                </a>
-                .
+                Hi, I&apos;m Shikhar. I build things. Sometimes they&apos;re
+                good. Arthveda is designed, developed, and maintained by me,
+                from India.
             </p>
             <p className="mb-4">
-                Our mission is simple: give Indian traders the tools to build a
+                The idea is simple: give Indian traders the tools to build a
                 real trading process, and a reputation that rests on it. Process
                 over P&amp;L.
             </p>
+            <p className="mb-8">
+                If you have feedback, I&apos;d love to hear from you.
+            </p>
+
+            <BuilderCard />
         </div>
     );
 }

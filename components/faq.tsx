@@ -19,7 +19,7 @@ const FAQS = [
         q: "Do you give tips, signals, or trade calls?",
         a: (
             <>
-                Never. We don&apos;t run a tip group and we&apos;ll never sell
+                Never. I don&apos;t run a tip group and I&apos;ll never sell
                 you one. Arthveda is about your process: discovery, watchlists,
                 journaling, and review. No calls, no guaranteed returns, no
                 copy-trading.
@@ -46,7 +46,7 @@ const FAQS = [
                 you trade: equity, crypto, and F&amp;O across stock, index, and
                 commodity, whether you sync it from Zerodha and other brokers or
                 log it by hand. The one stock-only part is{" "}
-                <Link href="/product/discover">Discover</Link>, our screener:
+                <Link href="/product/discover">Discover</Link>, the screener:
                 Indian equities on the NSE and BSE.
             </>
         ),

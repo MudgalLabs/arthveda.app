@@ -1,13 +1,29 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { Youtube, Instagram } from "lucide-react";
+
+import BuilderCard from "@/components/builder_card";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-accent-muted mt-24 sm:mt-32">
-            <div className="flex-x items-start justify-between mt-2">
-                <div className="flex-y gap-y-4!">
-                    <p className="text-sm">© 2026 Mudgal Labs</p>
+        <footer className="border-t border-accent-muted mt-24 sm:mt-32 mb-18">
+            <div className="flex-y sm:flex-x items-start justify-between gap-8 mt-8">
+                {/* Left column: branding, socials, copyright, builder card, feedback */}
+                <div className="flex flex-col items-start gap-6">
+                    <Link href="/" className="shrink-0">
+                        <Image
+                            src="/svgs/branding.svg"
+                            alt="Arthveda"
+                            width={160}
+                            height={23}
+                            className="h-auto"
+                        />
+                    </Link>
+
+                    <p className="text-sm text-text-muted">
+                        Copyright © 2026 · All rights reserved
+                    </p>
+
                     <div className="flex-x gap-x-4">
                         <a href="https://www.instagram.com/arthvedahq">
                             <Instagram size={24} />
@@ -17,42 +33,29 @@ export default function Footer() {
                             <Youtube size={24} />
                         </a>
                     </div>
-                </div>
 
-                <div className="flex-y sm:flex-x gap-x-4!">
-                    <Link href="/terms">Terms of Service</Link>
-                    <Link href="/privacy">Privacy Policy</Link>
-                    <Link href="/refund">Refund Policy</Link>
-                    <Link href="/about">About Us</Link>
-                    <Link href="/contact">Contact Us</Link>
-                </div>
-            </div>
+                    <BuilderCard />
 
-            <div className="py-4 flex-center mt-8 mb-18">
-                <div className="space-y-2 text-center">
-                    <p className="text-sm sm:text-base inline-block text-foreground">
-                        Built with 💙️️ by{" "}
-                        <a
-                            href="https://mudgallabs.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm! sm:text-base! inline-flex items-center"
-                        >
-                            Mudgal Labs <ArrowUpRight size={18} />
-                        </a>
-                    </p>
-
-                    <p className="text-sm sm:text-base">
+                    <p className="text-sm text-text-muted text-balance">
                         Give feedback, request a feature, report a bug or{" "}
                         <br className="block sm:hidden" />
                         just say hi on{" "}
                         <a
-                            href="mailto:hey@arthveda.app"
-                            className="font-bold text-sm! sm:text-base!"
+                            href="mailto:hey@ceoshikhar.com"
+                            className="font-bold text-sm!"
                         >
-                            hey@arthveda.app
+                            hey@ceoshikhar.com
                         </a>
                     </p>
+                </div>
+
+                {/* Right: footer navigation */}
+                <div className="flex-y sm:flex-x gap-x-4! self-start">
+                    <Link href="/terms">Terms of Service</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
+                    <Link href="/refund">Refund Policy</Link>
+                    <Link href="/about">About</Link>
+                    <Link href="/contact">Contact</Link>
                 </div>
             </div>
         </footer>

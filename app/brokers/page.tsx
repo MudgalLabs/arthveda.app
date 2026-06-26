@@ -26,14 +26,14 @@ export default function BrokersPage() {
                     manual work.
                 </p>
                 <p className="mt-3 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    If your broker is not in the list below, write to us at{" "}
+                    If your broker is not in the list below, write to me at{" "}
                     <a
                         href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Add broker support")}`}
                         className="text-[15px]! font-medium text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
                     >
                         {CONTACT_EMAIL}
                     </a>{" "}
-                    and we&rsquo;ll be happy to integrate it.
+                    and I&rsquo;ll be happy to add it.
                 </p>
             </section>
 

@@ -4,7 +4,7 @@ import type { BrokerSegment, SegmentLabel } from "@/lib/brokers";
 import { cn } from "@/lib/utils";
 import { Tag } from "@/ui/tag";
 
-export const CONTACT_EMAIL = "hey@arthveda.app";
+export const CONTACT_EMAIL = "hey@ceoshikhar.com";
 
 // The underlyings each segment covers. Centralized (keyed by the closed
 // SegmentLabel set) so every chip for the same segment reads identically across
@@ -96,7 +96,7 @@ function SegmentChip({
     return (
         <a
             href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Import support: ${label}`)}`}
-            title={`Email us a sample export and we'll add ${label} import support`}
+            title={`Email me a sample export and I'll add ${label} import support`}
             className="inline-flex max-w-full no-underline"
         >
             <Tag
