@@ -93,7 +93,7 @@ export default function FounderLetter() {
                         </div>
                         <div className="mt-10 flex items-center">
                             <Image
-                                src="/images/me.png"
+                                src="https://ceoshikhar.com/images/me.jpg"
                                 alt="Shikhar Sharma"
                                 className="rounded-full mr-4"
                                 width={64}

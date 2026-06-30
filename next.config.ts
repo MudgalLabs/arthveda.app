@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
         loader: "default",
         formats: ["image/webp"],
         unoptimized: false,
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "ceoshikhar.com",
+                pathname: "/images/**",
+            },
+        ],
     },
 
     // v1 → v2 redirects (plan §11). Old per-feature product pages collapse

@@ -25,7 +25,7 @@ export default function BuilderCard({ className }: BuilderCardProps) {
             )}
         >
             <Image
-                src="/images/me.png"
+                src="https://ceoshikhar.com/images/me.jpg"
                 alt="Shikhar Sharma"
                 width={48}
                 height={48}
