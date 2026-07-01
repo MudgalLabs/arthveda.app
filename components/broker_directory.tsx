@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
     ArrowRight,
+    ArrowUpRight,
     Check,
     LayoutGrid,
     Minus,
@@ -435,14 +436,33 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                             </span>
                         );
                         return (
-                            <TableRow key={broker.name}>
+                            <TableRow
+                                key={broker.name}
+                                // Only rows with a landing page are clickable, so
+                                // only those get the pointer + hover tint. The rest
+                                // suppress the default row hover so the tint never
+                                // implies a click that goes nowhere.
+                                className={cn(
+                                    broker.landingPath
+                                        ? "group relative cursor-pointer"
+                                        : "hover:bg-transparent",
+                                )}
+                            >
                                 <TableCell className="pl-0">
                                     {broker.landingPath ? (
+                                        // Stretched link (after:inset-0) makes the
+                                        // whole row clickable; the up-right arrow marks
+                                        // rows that have their own page and nudges on
+                                        // row hover.
                                         <Link
                                             href={broker.landingPath}
-                                            className="no-underline! transition-opacity hover:opacity-80"
+                                            className="inline-flex items-center gap-1.5 no-underline! after:absolute after:inset-0"
                                         >
                                             {name}
+                                            <ArrowUpRight
+                                                size={15}
+                                                className="shrink-0 text-text-subtle transition-all group-hover:text-text-primary"
+                                            />
                                         </Link>
                                     ) : (
                                         name
