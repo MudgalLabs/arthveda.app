@@ -71,6 +71,7 @@ export const BROKERS: Broker[] = [
             { label: "Futures", state: "supported" },
         ],
         importTypes: ["file"],
+        landingPath: "/brokers/fyers",
     },
     {
         name: "Groww",

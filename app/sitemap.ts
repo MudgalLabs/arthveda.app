@@ -14,6 +14,7 @@ const ROUTES: { path: string; priority: number }[] = [
     { path: "/brokers/zerodha", priority: 0.7 },
     { path: "/brokers/groww", priority: 0.7 },
     { path: "/brokers/angel-one", priority: 0.7 },
+    { path: "/brokers/fyers", priority: 0.7 },
     { path: "/about", priority: 0.5 },
     { path: "/contact", priority: 0.4 },
     { path: "/terms", priority: 0.2 },
