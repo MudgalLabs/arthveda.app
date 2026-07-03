@@ -25,7 +25,7 @@ schema_to_add:
   - Article (headline, author, datePublished, image)
   - FAQPage (FAQ block) — eligible for the rich result that doubles SERP real estate
 voice: neutral product-voice (founder-voice rewrite available on request)
-template_reuse: this is the template post for the broker-series (Upstox, Groww, Angel One, Fyers, Kotak, INDmoney, Dhan). Only broker-specific bits change: name throughout, the "What Zerodha shows you" section, the export steps, and the FAQ on charges.
+template_reuse: this is the template post for the broker-series (Upstox, Groww, Angel One, FYERS, Kotak, INDmoney, Dhan). Only broker-specific bits change: name throughout, the "What Zerodha shows you" section, the export steps, and the FAQ on charges.
 ---
 
 # Trading Journal for Zerodha Users: From Tradebook to Real Insights
@@ -132,7 +132,7 @@ Yes. The journal, the screener, your watchlists, and your public profile are all
 Equity is live and battle-tested. Stock futures and options are in active development with index F&O right after. If you only trade equity through Zerodha today, you're fully covered. If you trade F&O, equity imports work now and the rest is shipping soon.
 
 **I trade through more than one broker. Will it aggregate?**
-Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, Fyers, Kotak Securities, INDmoney, and others. Import from each broker and the journal aggregates across all of them so you can see your real performance picture.
+Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney, and others. Import from each broker and the journal aggregates across all of them so you can see your real performance picture.
 
 **Will my trades be public?**
 No. The journal is private by default. You explicitly choose what to publish (screeners, watchlists, public profile fields). Individual positions are never auto-published.
@@ -169,7 +169,7 @@ Both work. They optimize for different surfaces and shouldn't both exist for the
 
 - **`/blog/trading-journal-for-zerodha-users`** — content/blog framing. Reads as an editorial article. Good if you're building a broader content/SEO library and want this to sit alongside other educational posts. Easier to link to from social and email without feeling salesy.
 
-- **`/brokers/zerodha`** — landing-page framing. Reads as a "we support Zerodha" product page. Better long-term IA when there are 6+ broker pages (Upstox, Groww, Angel One, Fyers, Kotak, INDmoney, Dhan). Easier to surface as an evergreen comparison/landing surface. Slightly more direct intent → likely better conversion per visitor, slightly less link-worthy from third parties.
+- **`/brokers/zerodha`** — landing-page framing. Reads as a "we support Zerodha" product page. Better long-term IA when there are 6+ broker pages (Upstox, Groww, Angel One, FYERS, Kotak, INDmoney, Dhan). Easier to surface as an evergreen comparison/landing surface. Slightly more direct intent → likely better conversion per visitor, slightly less link-worthy from third parties.
 
 **Recommendation**: `/brokers/zerodha` if the broker series is going to become a real product-content section (probable, since the template ports across brokers cleanly). `/blog/...` if this is a one-off editorial piece. The two strategies actually compose: ship as `/brokers/zerodha` as the canonical destination, and later write a separate `/blog/...` post titled differently (e.g., "How to Build a Trading Journal Without Switching Brokers") that links to the broker page.
 
@@ -185,7 +185,7 @@ Both work. They optimize for different surfaces and shouldn't both exist for the
 
 ### Template reuse for the broker series
 
-This is the template. To port to Upstox/Groww/Angel One/Fyers/Kotak/INDmoney/Dhan, swap:
+This is the template. To port to Upstox/Groww/Angel One/FYERS/Kotak/INDmoney/Dhan, swap:
 
 - Broker name throughout (replace "Zerodha" globally)
 - The "What Zerodha shows you" section (each broker has a different reports portal — confirm the actual export path before editing)
@@ -203,7 +203,7 @@ Recommended rollout:
 
 1. Publish `/brokers/zerodha` first.
 2. Wait 4–5 days.
-3. Publish the next highest-demand broker page (likely Upstox, Groww, Fyers, or Angel One).
+3. Publish the next highest-demand broker page (likely Upstox, Groww, FYERS, or Angel One).
 4. Wait another 4–5 days between each broker page.
 5. After 3–4 broker pages are live, upgrade `/brokers` into a stronger hub that links to every broker-specific page.
 
@@ -228,5 +228,5 @@ Default to neutral. Switch to founder voice for the blog framing if /blog is the
 ### Open items
 
 - Verify F&O claim ("stock futures and options are in active development") matches current shipping timeline before publish
-- Confirm the broker list in the FAQ is up to date (this draft says: Zerodha, Upstox, Groww, Angel One, Fyers, Kotak Securities, INDmoney)
+- Confirm the broker list in the FAQ is up to date (this draft says: Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney)
 - Decide whether to add a small "what's coming next" section (mentions F&O support timing — could date the post fast, so probably skip)

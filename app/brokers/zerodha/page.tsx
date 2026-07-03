@@ -59,7 +59,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
-        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, Fyers, Kotak Securities, and INDmoney. Import from each broker account and the journal aggregates them so you can see your real performance picture.",
+        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, and INDmoney. Import from each broker account and the journal aggregates them so you can see your real performance picture.",
     },
     {
         q: "Will my trades be public?",

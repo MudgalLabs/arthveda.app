@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 // crawlable HTML head. Keep the two in sync when editing.
 const FAQS: { q: string; a: React.ReactNode }[] = [
     {
-        q: "What can Arthveda do with my Fyers trades?",
+        q: "What can Arthveda do with my FYERS trades?",
         a: (
             <>
-                Arthveda imports your Fyers order book (or trade book), groups
+                Arthveda imports your FYERS order book (or trade book), groups
                 executions into trades, calculates after-charges PnL, and gives
                 you a dashboard, trade list, journal notes, tags, insights, and
                 reports.
@@ -20,10 +20,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         ),
     },
     {
-        q: "Does Arthveda support F&O for Fyers?",
+        q: "Does Arthveda support F&O for FYERS?",
         a: (
             <>
-                Yes. Your Fyers report exports equity, futures, and options in
+                Yes. Your FYERS report exports equity, futures, and options in
                 one file, and Arthveda parses all three. Arthveda reads the
                 segment and contract on each row, so a NIFTY option or a stock
                 future comes in as the right instrument with the right expiry
@@ -37,7 +37,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         a: (
             <>
                 Either works, but the Order Book is recommended because it
-                carries more detail. In Fyers, open Reports, pick Order Book or
+                carries more detail. In FYERS, open Reports, pick Order Book or
                 Trade Book, choose your instruments and date range, and download
                 as CSV or Excel. Arthveda parses both.
             </>
@@ -47,8 +47,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Is there a sync, or is it file upload only?",
         a: (
             <>
-                File upload, for Fyers. Export your report from Fyers and import
-                it into Arthveda. Fyers doesn&apos;t offer trade sync yet, so to
+                File upload, for FYERS. Export your report from FYERS and import
+                it into Arthveda. FYERS doesn&apos;t offer trade sync yet, so to
                 add fresh trades later you export a new report for the recent
                 date range and import it again.
             </>
@@ -58,7 +58,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "I trade through more than one broker. Will it aggregate?",
         a: (
             <>
-                Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, Fyers,
+                Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS,
                 Kotak Securities, and INDmoney. Import from each and the journal
                 aggregates across all of them so you see your real performance
                 picture.
@@ -91,7 +91,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         a: (
             <>
                 Brokerage, STT, GST, stamp duty, SEBI charges, and exchange
-                transaction charges are computed from the standard Fyers rate
+                transaction charges are computed from the standard FYERS rate
                 card. The PnL Arthveda shows you is after charges, which is the
                 only PnL that actually matters.
             </>
@@ -104,7 +104,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 There is no fixed rule. A weekly or monthly export keeps your
                 journal current. A good habit is to download your report every
                 weekend and tag the week&apos;s trades while the reasoning is
-                still fresh. Since Fyers has no sync, just export the new date
+                still fresh. Since FYERS has no sync, just export the new date
                 range since your last import and upload it again.
             </>
         ),

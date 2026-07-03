@@ -60,7 +60,7 @@ export const BROKERS: Broker[] = [
         landingPath: "/brokers/angel-one",
     },
     {
-        name: "Fyers",
+        name: "FYERS",
         svg: "/svgs/fyers.svg",
         icon: "/svgs/icons/fyers.svg",
         homepage: "https://fyers.in/",

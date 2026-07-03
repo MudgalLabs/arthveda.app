@@ -10,17 +10,17 @@ import { BROKERS } from "@/lib/brokers";
 import { BROKER_ACCOUNTS_URL } from "@/lib/links";
 import FyersFAQ from "./faq";
 
-const FYERS = BROKERS.find((b) => b.name === "Fyers")!;
+const FYERS = BROKERS.find((b) => b.name === "FYERS")!;
 
 export const metadata: Metadata = {
-    title: "Trading Journal for Fyers Users: From Order Book to Real Insights · Arthveda",
+    title: "Trading Journal for FYERS Users: From Order Book to Real Insights · Arthveda",
     description:
-        "Turn your Fyers order book into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
+        "Turn your FYERS order book into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
     alternates: { canonical: "/brokers/fyers" },
     openGraph: {
-        title: "Trading Journal for Fyers Users: From Order Book to Real Insights",
+        title: "Trading Journal for FYERS Users: From Order Book to Real Insights",
         description:
-            "Turn your Fyers order book into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
+            "Turn your FYERS order book into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
         url: "https://arthveda.app/brokers/fyers",
         type: "article",
         images: [
@@ -29,15 +29,15 @@ export const metadata: Metadata = {
                 width: 1200,
                 height: 630,
                 type: "image/jpeg",
-                alt: "Trading Journal for Fyers Users · Arthveda",
+                alt: "Trading Journal for FYERS Users · Arthveda",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Trading Journal for Fyers Users: From Order Book to Real Insights",
+        title: "Trading Journal for FYERS Users: From Order Book to Real Insights",
         description:
-            "Turn your Fyers order book into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
+            "Turn your FYERS order book into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
         images: ["/images/og-image.jpg"],
     },
 };
@@ -46,24 +46,24 @@ export const metadata: Metadata = {
 // JSON-LD. Keep in sync with the accordion copy.
 const FAQ_SCHEMA = [
     {
-        q: "What can Arthveda do with my Fyers trades?",
-        a: "Arthveda imports your Fyers order book (or trade book), groups executions into trades, calculates after-charges PnL, and gives you a dashboard, trade list, journal notes, tags, insights, and reports.",
+        q: "What can Arthveda do with my FYERS trades?",
+        a: "Arthveda imports your FYERS order book (or trade book), groups executions into trades, calculates after-charges PnL, and gives you a dashboard, trade list, journal notes, tags, insights, and reports.",
     },
     {
-        q: "Does Arthveda support F&O for Fyers?",
-        a: "Yes. Your Fyers report exports equity, futures, and options in one file, and Arthveda parses all three. Arthveda reads the segment and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        q: "Does Arthveda support F&O for FYERS?",
+        a: "Yes. Your FYERS report exports equity, futures, and options in one file, and Arthveda parses all three. Arthveda reads the segment and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
     },
     {
         q: "Should I export the Order Book or the Trade Book?",
-        a: "Either works, but the Order Book is recommended because it carries more detail. In Fyers, open Reports, pick Order Book or Trade Book, choose your instruments and date range, and download as CSV or Excel. Arthveda parses both.",
+        a: "Either works, but the Order Book is recommended because it carries more detail. In FYERS, open Reports, pick Order Book or Trade Book, choose your instruments and date range, and download as CSV or Excel. Arthveda parses both.",
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for Fyers. Export your report from Fyers and import it into Arthveda. Fyers doesn't offer trade sync yet, so to add fresh trades later you export a new report for the recent date range and import it again.",
+        a: "File upload, for FYERS. Export your report from FYERS and import it into Arthveda. FYERS doesn't offer trade sync yet, so to add fresh trades later you export a new report for the recent date range and import it again.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
-        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, Fyers, Kotak Securities, and INDmoney. Import from each and the journal aggregates across all of them so you see your real performance picture.",
+        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, and INDmoney. Import from each and the journal aggregates across all of them so you see your real performance picture.",
     },
     {
         q: "Will my trades be public?",
@@ -75,11 +75,11 @@ const FAQ_SCHEMA = [
     },
     {
         q: "What about charges?",
-        a: "Brokerage, STT, GST, stamp duty, SEBI charges, and exchange transaction charges are computed from the standard Fyers rate card. The PnL Arthveda shows you is after charges, which is the only PnL that actually matters.",
+        a: "Brokerage, STT, GST, stamp duty, SEBI charges, and exchange transaction charges are computed from the standard FYERS rate card. The PnL Arthveda shows you is after charges, which is the only PnL that actually matters.",
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your report every weekend and tag the week's trades while the reasoning is still fresh. Since Fyers has no sync, just export the new date range since your last import and upload it again.",
+        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your report every weekend and tag the week's trades while the reasoning is still fresh. Since FYERS has no sync, just export the new date range since your last import and upload it again.",
     },
 ];
 
@@ -103,7 +103,7 @@ const INLINE_LINK =
 const APP_BROKER_ACCOUNTS_URL = BROKER_ACCOUNTS_URL;
 
 const SECTIONS = [
-    { id: "what-fyers-shows", label: "What Fyers shows" },
+    { id: "what-fyers-shows", label: "What FYERS shows" },
     { id: "reports-limits", label: "What it isn't built for" },
     { id: "import-flow", label: "How to import" },
     { id: "after-import", label: "After first import" },
@@ -124,12 +124,12 @@ export default function FyersLandingPage() {
                 <div>
                     <FamilyLabel name="Brokers" Icon={Plug} />
                     <h1 className="mt-5 max-w-4xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
-                        Turn your Fyers order book into a trading journal you can
+                        Turn your FYERS order book into a trading journal you can
                         actually learn from.
                     </h1>
                     <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                        Fyers gives you trades. Arthveda gives you insights and
-                        analytics. See how you can turn your Fyers order book,
+                        FYERS gives you trades. Arthveda gives you insights and
+                        analytics. See how you can turn your FYERS order book,
                         equity and F&amp;O in one file, into a journal with
                         performance analytics, insights that tell you where and
                         why you lose or make money, and a trade-level feedback
@@ -147,7 +147,7 @@ export default function FyersLandingPage() {
                         />
                     </div>
                     <p className="mt-4 font-content text-[15px] leading-6 text-text-muted">
-                        Not on Fyers?{" "}
+                        Not on FYERS?{" "}
                         <Link href="/brokers" className={INLINE_LINK}>
                             See all supported brokers
                         </Link>
@@ -172,7 +172,7 @@ export default function FyersLandingPage() {
                     fullBleed={false}
                     frameClassName="relative z-10 mx-auto w-[min(1500px,calc((100svh_-_5.5rem_-_3rem)*2940/1844))] max-w-full rounded-md border-white/[0.1] shadow-[0_16px_36px_-20px_rgba(0,0,0,0.45),inset_0_1px_0_0_rgba(255,255,255,0.08)]"
                     captionTitle="See the full trade, not just the execution."
-                    captionDescription="PnL, charges, duration, chart context, executions, notes, and tags, all tied to the same Fyers trade."
+                    captionDescription="PnL, charges, duration, chart context, executions, notes, and tags, all tied to the same FYERS trade."
                 />
             </div>
 
@@ -200,13 +200,13 @@ export default function FyersLandingPage() {
 
                     <section className="space-y-5">
                         <p className={P}>
-                            If you trade on Fyers and your history lives in order
+                            If you trade on FYERS and your history lives in order
                             book exports, this guide shows how to turn that file
                             into a journal you can actually learn from.
                         </p>
                         <p className={P}>
                             You have a couple of hundred trades sitting in your
-                            Fyers account. You roughly know last quarter was
+                            FYERS account. You roughly know last quarter was
                             green. You can&apos;t tell which setup delivered most
                             of that PnL, which trades you held too long, or
                             whether your &quot;high conviction&quot; trades
@@ -223,10 +223,10 @@ export default function FyersLandingPage() {
                         id="what-fyers-shows"
                         className="scroll-mt-28 space-y-5"
                     >
-                        <h2 className={H2}>What Fyers actually shows you</h2>
+                        <h2 className={H2}>What FYERS actually shows you</h2>
                         <p className={P}>
-                            Fyers&apos; reports, in the{" "}
-                            <strong>Reports</strong> section on Fyers Web and in
+                            FYERS&apos; reports, in the{" "}
+                            <strong>Reports</strong> section on FYERS Web and in
                             the app, are solid for what they cover:
                         </p>
                         <ul className="space-y-2 pl-5">
@@ -250,11 +250,11 @@ export default function FyersLandingPage() {
                             </BulletItem>
                         </ul>
                         <p className={P}>
-                            Useful, but notice the shape. Fyers&apos; reports are
+                            Useful, but notice the shape. FYERS&apos; reports are
                             optimised for the document your accountant needs,
                             because that&apos;s what most retail traders
                             explicitly ask for. The other artifact, the one that
-                            actually moves your edge, is the one most Fyers users
+                            actually moves your edge, is the one most FYERS users
                             end up building themselves in Excel, Google Sheets,
                             Notion, or a custom spreadsheet. Usually for two
                             months. Usually it stops.
@@ -266,7 +266,7 @@ export default function FyersLandingPage() {
                         className="scroll-mt-28 space-y-5"
                     >
                         <h2 className={H2}>
-                            What Fyers&apos; reports are not built for
+                            What FYERS&apos; reports are not built for
                         </h2>
                         <p className={P}>
                             Pull up your last hundred closed trades in your head
@@ -295,7 +295,7 @@ export default function FyersLandingPage() {
                             </BulletItem>
                         </ol>
                         <p className={P}>
-                            None of these are answerable from Fyers&apos; reports
+                            None of these are answerable from FYERS&apos; reports
                             without exporting your order book, opening Excel,
                             writing formulas, and tagging every trade by hand.
                             Most traders never make it to step three. Arthveda
@@ -307,11 +307,11 @@ export default function FyersLandingPage() {
                         id="import-flow"
                         className="scroll-mt-28 space-y-5"
                     >
-                        <h2 className={H2}>How to import your Fyers trades</h2>
+                        <h2 className={H2}>How to import your FYERS trades</h2>
                         <div className="space-y-6">
                             <Step
                                 n="1"
-                                title="Download your report from Fyers"
+                                title="Download your report from FYERS"
                             >
                                 Log in to{" "}
                                 <Link
@@ -320,7 +320,7 @@ export default function FyersLandingPage() {
                                     rel="noopener noreferrer"
                                     className={INLINE_LINK}
                                 >
-                                    Fyers
+                                    FYERS
                                 </Link>{" "}
                                 on the web or in the app, open Reports, and
                                 select Order Book (recommended, it carries more
@@ -331,10 +331,10 @@ export default function FyersLandingPage() {
                             </Step>
                             <Step
                                 n="2"
-                                title="Create your Fyers broker account"
+                                title="Create your FYERS broker account"
                             >
                                 Sign up or log in to Arthveda. Follow onboarding
-                                and select Fyers, or go to{" "}
+                                and select FYERS, or go to{" "}
                                 <Link
                                     href={APP_BROKER_ACCOUNTS_URL}
                                     target="_blank"
@@ -343,13 +343,13 @@ export default function FyersLandingPage() {
                                 >
                                     /accounts
                                 </Link>{" "}
-                                and create a Fyers broker account.
+                                and create a FYERS broker account.
                             </Step>
                             <Step
                                 n="3"
                                 title="Click Import and upload the file"
                             >
-                                Choose Import on the Fyers broker account, upload
+                                Choose Import on the FYERS broker account, upload
                                 the report file, review the parsed trades, and
                                 confirm the import. Arthveda groups your
                                 executions into trades automatically: one round
@@ -371,14 +371,14 @@ export default function FyersLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            Fyers doesn&apos;t offer trade sync yet, so when you
+                            FYERS doesn&apos;t offer trade sync yet, so when you
                             want to add fresh trades, download a new report for
                             the date range since your last import and upload it
                             again. Same five clicks, no spreadsheet.
                         </p>
                         <div className="pt-2">
                             <GetStarted
-                                label="Import my Fyers report"
+                                label="Import my FYERS report"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
                             />
@@ -393,7 +393,7 @@ export default function FyersLandingPage() {
                             What you see after your first import
                         </h2>
                         <p className={P}>
-                            Once your Fyers trades are in, Arthveda becomes the
+                            Once your FYERS trades are in, Arthveda becomes the
                             operating system around your trading history.
                         </p>
                         <ul className="space-y-2 pl-5">
@@ -635,7 +635,7 @@ export default function FyersLandingPage() {
 
             <div className="mx-auto mt-20 max-w-3xl rounded-lg border border-white/[0.12] bg-surface-1/35 px-6 py-10 text-center md:mt-24">
                 <h2 className="mx-auto max-w-2xl text-balance font-heading text-[28px] font-medium leading-tight tracking-[-0.015em] text-text-primary sm:text-[34px]">
-                    Turn your Fyers order book into a journal you can actually
+                    Turn your FYERS order book into a journal you can actually
                     learn from.
                 </h2>
                 <div className="h-6" />
