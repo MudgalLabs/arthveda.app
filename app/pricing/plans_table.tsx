@@ -9,7 +9,7 @@ import { cn, formatCurrency } from "@/lib/utils";
 import { GetStarted } from "@/components/get_started";
 import { InfoTooltip } from "@/components/info_tooltip";
 
-type Interval = "monthly" | "yearly";
+type Interval = "monthly" | "yearly" | "onetime";
 
 // Cells can be a check (✓), an em dash (—), or a literal value/limit string.
 // The "yes/no" sentinels render as a check / dash; everything else prints as-is
@@ -176,16 +176,25 @@ export function PlansTable() {
         yearlyPrice,
         yearlyMonthlyPrice,
         yearlySavingPct,
+        oneTimePrice,
         currency,
     } = usePricing();
 
     // Yearly is the default — building a track record is a long game (plan §7).
     const [interval, setInterval] = useState<Interval>("yearly");
     const isYearly = interval === "yearly";
+    const isOneTime = interval === "onetime";
+
+    // PostHog keeps the historical "lifetime" vocabulary for this plan so
+    // existing insights/filters don't fragment; only the UI says "One-time".
+    const analyticsInterval = (i: Interval) =>
+        i === "onetime" ? "lifetime" : i;
 
     const handleIntervalChange = (next: Interval) => {
         setInterval(next);
-        posthog.capture("Pricing Interval Toggled", { interval: next });
+        posthog.capture("Pricing Interval Toggled", {
+            interval: analyticsInterval(next),
+        });
     };
 
     const money = (n: number) =>
@@ -194,8 +203,16 @@ export function PlansTable() {
             localizationOpts: { maximumFractionDigits: 0 },
         });
 
-    // The headline number under the Pro column top: per-month either way.
-    const proPerMonth = isYearly ? yearlyMonthlyPrice : monthlyPrice;
+    // The headline is always the ACTUAL charged amount — showing the yearly
+    // plan as "₹208/mo" while monthly/one-time show their real stickers read
+    // as inconsistent (decision 2026-07-05); the per-month rate is the
+    // sub-line instead.
+    const proHeadline = isOneTime
+        ? oneTimePrice
+        : isYearly
+          ? yearlyPrice
+          : monthlyPrice;
+    const proUnit = isOneTime ? "once" : isYearly ? "per year" : "per month";
 
     return (
         <div>
@@ -286,31 +303,32 @@ export function PlansTable() {
                         <div className="mt-4">
                             <div className="flex items-baseline gap-2">
                                 <span className="font-heading text-3xl font-semibold text-text-primary">
-                                    {money(proPerMonth)}
+                                    {money(proHeadline)}
                                 </span>
                                 <span className="text-sm text-text-muted">
-                                    per month
+                                    {proUnit}
                                 </span>
                             </div>
                             {/* Sub-line stays short — the "Save X% with yearly"
                                 nudge sits next to the toggle now, so don't
                                 repeat the savings here.
-                                GST convention (plan §7, 2026-05-28): yearly
-                                attaches "+ GST" to the BILLED amount (₹1,999),
-                                not the per-month display rate. Monthly drops
-                                "Billed monthly" entirely — the headline IS the
-                                billed amount, so "+ GST" alone closes the loop. */}
+                                GST convention (2026-07-05): prices are
+                                GST-INCLUSIVE — the sticker is the charged
+                                amount, so the sub-line just confirms it.
+                                Yearly adds the effective per-month rate since
+                                the headline is the billed amount. */}
                             <p className="mt-2 text-sm text-text-muted">
                                 {isYearly ? (
                                     <>
-                                        Billed yearly{" "}
                                         <span className="text-text-primary">
-                                            {money(yearlyPrice)} + GST
+                                            {money(yearlyMonthlyPrice)} per
+                                            month
                                         </span>
+                                        , GST included
                                     </>
                                 ) : (
                                     <span className="text-text-primary">
-                                        + GST
+                                        GST included
                                     </span>
                                 )}
                             </p>
@@ -318,14 +336,23 @@ export function PlansTable() {
 
                         <div className="mt-5">
                             <GetStarted
-                                label="Start 30-day free trial"
+                                label={
+                                    isOneTime
+                                        ? "Get started"
+                                        : "Start 30-day free trial"
+                                }
                                 fullWidth
                                 size="default"
-                                eventProps={{ plan: "pro", interval }}
+                                eventProps={{
+                                    plan: "pro",
+                                    interval: analyticsInterval(interval),
+                                }}
                             />
                         </div>
                         <p className="mt-3 text-center text-xs text-text-subtle">
-                            Card required. No charge today.
+                            {isOneTime
+                                ? "No trial on One-time. 14-day money-back guarantee."
+                                : "Card required. No charge today."}
                         </p>
                     </div>
                 </div>
@@ -419,7 +446,7 @@ interface IntervalToggleProps {
 
 function IntervalToggle({ value, onChange }: IntervalToggleProps) {
     // Larger pill (ClickUp-sized) with the savings nudge lifted out — the
-    // selected option just shows "Monthly" / "Yearly", no inline % chip.
+    // selected option just shows its label, no inline % chip.
     const baseBtn =
         "relative z-10 rounded-full px-5 py-2 text-sm font-medium transition-colors";
 
@@ -446,6 +473,17 @@ function IntervalToggle({ value, onChange }: IntervalToggleProps) {
                 )}
             >
                 Yearly
+            </button>
+            <button
+                onClick={() => onChange("onetime")}
+                className={cn(
+                    baseBtn,
+                    value === "onetime"
+                        ? "bg-primary text-foreground"
+                        : "text-text-muted hover:text-text-primary",
+                )}
+            >
+                One-time
             </button>
         </div>
     );

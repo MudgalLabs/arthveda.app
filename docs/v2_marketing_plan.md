@@ -414,6 +414,21 @@ states; keep framing consistent with the Journal cards.
 > count/size, journal volume, history windows, broker accounts, screenshots, tags.
 > Price numbers stay a moving target; the _structure + caps_ below are what's fixed.
 
+> **Pricing amendment 2026-07-05 (supersedes every price/GST mention below):**
+> Monthly **₹399**, yearly **₹2,499** (default, save ~48%), **One-time**
+> **₹4,999** as a **standing plan** at ~2× yearly. The plan is called
+> **"One-time"** in all user-facing copy — never "Lifetime" (Paddle/env vars
+> keep their old lifetime names). All prices are now **GST-INCLUSIVE** (the
+> sticker is the charged amount; Paddle prices are configured tax-inclusive) —
+> the old "+ GST" convention is retired. Price headlines always show the
+> ACTUAL charged amount (yearly = "₹2,499 per year" with "₹208 per month" as
+> the sub-line, never ₹208 as the headline). The "first 10 users" launch
+> promo, the site-wide `<PromoBanner>`, and the `lifetimeSoldOut` kill-switch
+> are removed; One-time is a third option on the /pricing interval toggle
+> (Monthly / Yearly / One-time, no trial, 14-day money-back). 14-day
+> money-back guarantee applies to all three paid options. Numbers live in
+> `lib/usePricing.ts`.
+
 **Goal:** a visitor sees instantly that _the whole product is usable free_, and
 that Pro lifts the limits when serious daily use bumps into them.
 

@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { PromoBanner } from "@/components/promo_banner";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
@@ -99,7 +98,7 @@ export default function RootLayout({
                             url: "https://arthveda.app",
                             offers: {
                                 "@type": "Offer",
-                                price: "299",
+                                price: "399",
                                 priceCurrency: "INR",
                             },
                         }),
@@ -122,14 +121,7 @@ export default function RootLayout({
                             horizontal scroll. clip doesn't create a scroll
                             container, so the sticky navbar is unaffected. */}
                         <div className="w-full overflow-x-clip">
-                            {/* Sticky header unit — banner + navbar move as
-                                one. When the banner is hidden (dismissed /
-                                sold-out / on /pricing) the wrapper still
-                                keeps the navbar stuck to the top, identical
-                                to the pre-banner behavior. Launch-only promo
-                                rationale: see plan §7. */}
                             <div className="sticky top-0 z-50">
-                                <PromoBanner />
                                 <Navbar />
                             </div>
 

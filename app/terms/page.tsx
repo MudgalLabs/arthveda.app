@@ -25,13 +25,13 @@ export default function TermsPage() {
             </p>
 
             <h2 className="sub-heading mt-4">
-                2. Subscriptions and Lifetime Access
+                2. Subscriptions and One-time Access
             </h2>
             <p>
                 Arthveda offers monthly and yearly recurring plans, and a
-                one-time &ldquo;Lifetime&rdquo; purchase. A free tier is
-                available alongside these and does not require a payment
-                method.
+                &ldquo;One-time&rdquo; purchase (a single payment, no
+                renewals). A free tier is available alongside these and does
+                not require a payment method.
             </p>
             <p>
                 Monthly and yearly Pro plans include a 30-day free trial. A
@@ -41,7 +41,7 @@ export default function TermsPage() {
                 charged at the listed price; the subscription then continues
                 to renew at the end of each billing period until cancelled.
                 You can cancel anytime from your account; cancellation takes
-                effect at the end of the current billing period. Lifetime
+                effect at the end of the current billing period. One-time
                 purchases are not eligible for a trial.
             </p>
             <p>
@@ -49,15 +49,15 @@ export default function TermsPage() {
                 Paddle&rsquo;s terms also apply at checkout.
             </p>
             <p>
-                The word &ldquo;lifetime&rdquo; refers to the lifetime of the
+                A One-time purchase grants access for the lifetime of the
                 Arthveda product, not the lifetime of the user. If Arthveda is
                 shut down, discontinued, or otherwise ceases operation, access
-                to all plans &mdash; including Lifetime &mdash; ends with the
-                service. A Lifetime purchase is not a guarantee of perpetual
+                to all plans &mdash; including One-time &mdash; ends with the
+                service. A One-time purchase is not a guarantee of perpetual
                 service or of any specific runway.
             </p>
             <p>
-                Refunds for Lifetime purchases are handled per our{" "}
+                Refunds for One-time purchases are handled per our{" "}
                 <Link className="text-base!" href="/refund">
                     refund policy
                 </Link>
@@ -93,7 +93,7 @@ export default function TermsPage() {
                 no uptime or data-retention guarantees. Features may change
                 or be removed without notice. We may also discontinue the
                 service entirely with reasonable notice, after which all
-                access (including Lifetime) ends.
+                access (including One-time) ends.
             </p>
 
             <h2 className="sub-heading mt-4">6. Termination</h2>

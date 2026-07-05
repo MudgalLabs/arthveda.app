@@ -18,9 +18,9 @@ export default function Navbar() {
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     // Mobile menu top offset — measured off the nav's actual bottom so it sits
-    // flush under the sticky header, whether or not the promo banner is
-    // showing (banner pushes the nav down when present, see app/layout.tsx).
-    // Default 64 = h-16 = the nav's own height (correct when banner is hidden).
+    // flush under the sticky header even if something above the nav (e.g. a
+    // banner in app/layout.tsx) pushes it down.
+    // Default 64 = h-16 = the nav's own height.
     const navRef = useRef<HTMLElement>(null);
     const [navBottom, setNavBottom] = useState(64);
 
@@ -96,10 +96,7 @@ export default function Navbar() {
 
     return (
         <>
-        {/* Stickiness is owned by the wrapper in `app/layout.tsx` so the
-            promo banner + navbar move together as one sticky header unit.
-            When the banner is hidden, the wrapper still keeps the navbar
-            stuck to the top (same behavior as before). */}
+        {/* Stickiness is owned by the wrapper in `app/layout.tsx`. */}
         <nav ref={navRef} className="w-full backdrop-blur-md bg-background/70 border-b border-white/[0.08]">
             <div className="relative mx-auto flex h-16 max-w-[1360px] items-center justify-between px-4 md:px-6 lg:px-8">
                 {/* Branding (left) */}

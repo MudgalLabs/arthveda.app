@@ -4,7 +4,7 @@ export default function RefundPage() {
             <h1 className="big-heading mb-12">Refund Policy</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> June 1, 2026
+                <strong>Effective Date:</strong> July 5, 2026
             </p>
 
             <p className="mb-4">Thank you for trying Arthveda.</p>
@@ -12,6 +12,14 @@ export default function RefundPage() {
             <p className="mb-4">
                 Arthveda has a <strong>free tier</strong> you can use
                 indefinitely, with reasonable limits. No card required.
+            </p>
+
+            <p className="mb-4">
+                <strong>All paid plans</strong> (monthly, yearly, and
+                One-time) come with a{" "}
+                <strong>14-day money-back guarantee</strong>: if you change
+                your mind, reach out within 14 days of being charged for a
+                full refund. After 14 days, payments are non-refundable.
             </p>
 
             <p className="mb-4">
@@ -26,10 +34,10 @@ export default function RefundPage() {
             </p>
 
             <p className="mb-4">
-                <strong>Lifetime</strong> is a one-time purchase and is not
-                eligible for a trial. If you change your mind, reach out
-                within <strong>14 days of payment</strong> for a refund.
-                After 14 days, Lifetime purchases are non-refundable.
+                <strong>One-time</strong> is a single payment (no renewals)
+                and is not eligible for a trial, per how our payment provider
+                handles one-time payments. The 14-day money-back guarantee
+                above applies from the day of payment.
             </p>
 
             <p className="mb-4">
