@@ -116,28 +116,30 @@ export default function RootLayout({
                             lighting lives only in the hero + video container. */}
                         <div className="fixed inset-0 -z-10 bg-[#05070f]" />
 
-                        {/* Content. overflow-x-clip here (not on the inner
-                            column) lets full-bleed children — the hero stage —
-                            escape the max-width column while still preventing any
-                            horizontal scroll. clip doesn't create a scroll
-                            container, so the sticky navbar is unaffected. */}
-                        <div className="w-full overflow-x-clip">
-                            <div className="sticky top-0 z-50">
-                                <Navbar />
-                            </div>
+                        {/* Grahak customer-conversation widget (overlay/
+                            anonymous). Wraps the app so any "Contact"/"Talk to
+                            me" link can open it via <ChatLink>; the launcher
+                            itself renders through Grahak's own fixed portal. */}
+                        <GrahakWidget>
+                            {/* Content. overflow-x-clip here (not on the inner
+                                column) lets full-bleed children (the hero stage)
+                                escape the max-width column while still preventing
+                                any horizontal scroll. clip doesn't create a
+                                scroll container, so the sticky navbar is
+                                unaffected. */}
+                            <div className="w-full overflow-x-clip">
+                                <div className="sticky top-0 z-50">
+                                    <Navbar />
+                                </div>
 
-                            <div className="w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px] xl:px-16">
-                                {children}
-                                <Footer />
+                                <div className="w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px] xl:px-16">
+                                    {children}
+                                    <Footer />
+                                </div>
                             </div>
-                        </div>
+                        </GrahakWidget>
                     </TooltipProvider>
                 </PostHogProvider>
-
-                {/* Grahak customer-conversation widget (overlay/anonymous).
-                    Self-mounting floating launcher; renders its own portal, so
-                    it lives outside the providers it doesn't depend on. */}
-                <GrahakWidget />
             </body>
         </html>
     );

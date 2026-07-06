@@ -13,6 +13,7 @@ import {
     Table as TableIcon,
 } from "lucide-react";
 
+import { ChatLink } from "@/components/chat_link";
 import { CONTACT_EMAIL, SEGMENT_DETAIL } from "@/components/segment_chips";
 import {
     Broker,
@@ -178,13 +179,13 @@ function SectionLabel({ children }: { children: string }) {
 // just needs a nudge, so we invite the ask instead of showing a dead dash.
 function RequestLink({ label }: { label: string }) {
     return (
-        <a
+        <ChatLink
             href={segmentMailto(label)}
-            title={`Email me and I'll add ${label} support`}
+            title={`Ping me and I'll add ${label} support`}
             className="relative z-10 text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
         >
             Request
-        </a>
+        </ChatLink>
     );
 }
 

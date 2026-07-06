@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 
+import { ChatLink } from "@/components/chat_link";
 import type { BrokerSegment, SegmentLabel } from "@/lib/brokers";
 import { cn } from "@/lib/utils";
 import { Tag } from "@/ui/tag";
@@ -90,13 +91,15 @@ function SegmentChip({
         );
     }
 
-    // on-request: clickable, emails us with a prefilled subject. The base Tag
-    // has no "link" variant (it's kept in sync with the app's s8ly/tag), so the
-    // link look comes from a className override on the default variant.
+    // on-request: clickable, opens the chat widget so you can ask for it (the
+    // mailto, with a prefilled subject, is the fallback when the widget can't
+    // open, and keeps the address copyable). The base Tag has no "link" variant
+    // (it's kept in sync with the app's s8ly/tag), so the link look comes from a
+    // className override on the default variant.
     return (
-        <a
+        <ChatLink
             href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Import support: ${label}`)}`}
-            title={`Email me a sample export and I'll add ${label} import support`}
+            title={`Ping me a sample export and I'll add ${label} import support`}
             className="inline-flex max-w-full no-underline"
         >
             <Tag
@@ -105,6 +108,6 @@ function SegmentChip({
             >
                 {body}
             </Tag>
-        </a>
+        </ChatLink>
     );
 }

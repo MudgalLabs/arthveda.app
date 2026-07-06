@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Youtube, Instagram } from "lucide-react";
 
 import BuilderCard from "@/components/builder_card";
+import { ChatLink } from "@/components/chat_link";
 
 export default function Footer() {
     return (
@@ -37,9 +38,13 @@ export default function Footer() {
                     <BuilderCard />
 
                     <p className="text-sm text-text-muted text-balance">
-                        Give feedback, request a feature, report a bug or{" "}
-                        <br className="block sm:hidden" />
-                        just say hi on{" "}
+                        <ChatLink className="font-bold text-sm!">
+                            Talk to me
+                        </ChatLink>{" "}
+                        if you want to give feedback, request a feature, report a
+                        bug or just say hi.
+                        <br />
+                        You can also email me at{" "}
                         <a
                             href="mailto:hey@ceoshikhar.com"
                             className="font-bold text-sm!"

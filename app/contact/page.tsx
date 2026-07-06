@@ -1,3 +1,5 @@
+import { ChatLink } from "@/components/chat_link";
+
 export default function ContactPage() {
     return (
         <div className="mt-12">
@@ -8,10 +10,13 @@ export default function ContactPage() {
                 bug, or just say hello, I&apos;d love to hear from you.
             </p>
             <p className="mb-4">
-                You can reach me directly at:{" "}
+                You can{" "}
+                <ChatLink className="text-base!">message me right here</ChatLink>{" "}
+                using the chat widget, or email me at{" "}
                 <a className="text-base!" href="mailto:hey@ceoshikhar.com">
                     hey@ceoshikhar.com
                 </a>
+                .
             </p>
             <p className="mb-4">
                 I usually respond within 24–48 hours, Monday to Friday.

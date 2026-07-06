@@ -1,3 +1,5 @@
+import { ChatLink } from "@/components/chat_link";
+
 export default function PrivacyPage() {
     return (
         <div className="mt-12">
@@ -101,10 +103,13 @@ export default function PrivacyPage() {
 
             <h2 className="sub-heading mt-4">7. Contact</h2>
             <p>
-                Have questions or concerns? Reach out to{" "}
+                Have questions or concerns?{" "}
+                <ChatLink className="text-base!">Open the chat widget</ChatLink>{" "}
+                at the bottom-right, or email{" "}
                 <a className="text-base!" href="mailto:hey@ceoshikhar.com">
                     hey@ceoshikhar.com
                 </a>
+                .
             </p>
         </div>
     );

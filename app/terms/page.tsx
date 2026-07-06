@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { ChatLink } from "@/components/chat_link";
+
 export default function TermsPage() {
     return (
         <div className="mt-12">
@@ -110,10 +112,13 @@ export default function TermsPage() {
 
             <h2 className="sub-heading mt-4">8. Contact</h2>
             <p>
-                For questions or feedback, email me at{" "}
+                For questions or feedback,{" "}
+                <ChatLink className="text-base!">chat with me</ChatLink> using
+                the widget at the bottom-right, or email me at{" "}
                 <a className="text-base!" href="mailto:hey@ceoshikhar.com">
                     hey@ceoshikhar.com
                 </a>
+                .
             </p>
         </div>
     );

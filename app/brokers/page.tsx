@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plug } from "lucide-react";
 
 import { BrokerDirectory } from "@/components/broker_directory";
+import { ChatLink } from "@/components/chat_link";
 import { FamilyLabel } from "@/components/family_label";
 import { CONTACT_EMAIL } from "@/components/segment_chips";
 
@@ -26,14 +27,21 @@ export default function BrokersPage() {
                     manual work.
                 </p>
                 <p className="mt-3 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    If your broker is not in the list below, write to me at{" "}
+                    If your broker is not in the list below,{" "}
+                    <ChatLink
+                        href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Add broker support")}`}
+                        className="text-[15px]! font-medium text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
+                    >
+                        message me
+                    </ChatLink>{" "}
+                    (or email{" "}
                     <a
                         href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Add broker support")}`}
                         className="text-[15px]! font-medium text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
                     >
                         {CONTACT_EMAIL}
-                    </a>{" "}
-                    and I&rsquo;ll be happy to add it.
+                    </a>
+                    ) and I&rsquo;ll be happy to add it.
                 </p>
             </section>
 

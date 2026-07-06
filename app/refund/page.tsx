@@ -1,3 +1,5 @@
+import { ChatLink } from "@/components/chat_link";
+
 export default function RefundPage() {
     return (
         <div className="mt-12">
@@ -48,10 +50,14 @@ export default function RefundPage() {
             </p>
 
             <p>
-                For questions or to request a refund, email{" "}
+                For questions or to request a refund,{" "}
+                <ChatLink className="font-bold text-base!">
+                    message me
+                </ChatLink>{" "}
+                using the chat widget, or email{" "}
                 <a
                     href="mailto:hey@ceoshikhar.com"
-                    className="font-bold text-sm! sm:text-base!"
+                    className="font-bold text-base!"
                 >
                     hey@ceoshikhar.com
                 </a>

@@ -1,4 +1,5 @@
 import BuilderCard from "@/components/builder_card";
+import { ChatLink } from "@/components/chat_link";
 
 export default function AboutPage() {
     return (
@@ -27,7 +28,13 @@ export default function AboutPage() {
                 over P&amp;L.
             </p>
             <p className="mb-8">
-                If you have feedback, I&apos;d love to hear from you.
+                If you have feedback, I&apos;d love to hear from you.{" "}
+                <ChatLink className="text-base!">Talk to me</ChatLink> using the
+                chat widget, or email{" "}
+                <a className="text-base!" href="mailto:hey@ceoshikhar.com">
+                    hey@ceoshikhar.com
+                </a>
+                .
             </p>
 
             <BuilderCard />
