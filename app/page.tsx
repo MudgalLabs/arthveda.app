@@ -4,7 +4,6 @@ import FounderLetter from "@/components/founder_letter";
 import Testimonials from "@/components/testimonials";
 import BottomCTA from "@/components/bottom_cta";
 import FAQ from "@/components/faq";
-import FloatingGetStarted from "@/components/floating_get_started";
 
 export default function Home() {
     return (
@@ -15,7 +14,6 @@ export default function Home() {
             <FounderLetter />
             <FAQ />
             <BottomCTA />
-            <FloatingGetStarted />
         </div>
     );
 }

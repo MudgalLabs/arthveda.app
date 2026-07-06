@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import GrahakWidget from "@/components/grahak_widget";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
@@ -132,6 +133,11 @@ export default function RootLayout({
                         </div>
                     </TooltipProvider>
                 </PostHogProvider>
+
+                {/* Grahak customer-conversation widget (overlay/anonymous).
+                    Self-mounting floating launcher; renders its own portal, so
+                    it lives outside the providers it doesn't depend on. */}
+                <GrahakWidget />
             </body>
         </html>
     );
