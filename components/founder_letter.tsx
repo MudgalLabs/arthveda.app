@@ -6,7 +6,7 @@ export default function FounderLetter() {
         <section>
             <div className="mx-auto">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                    <h3 className="section-header">A note from the maker</h3>
+                    <h3 className="section-header">A note from the creator</h3>
                 </div>
 
                 <div className="relative max-w-[814px] mx-auto my-12 sm:mt-12 md:mt-18 overflow-hidden sm:overflow-visible">
@@ -26,7 +26,8 @@ export default function FounderLetter() {
                                 opacity: 0.7,
                             }}
                         />
-                        {/* Bottom stacks */}
+
+                        {/* Bottom stack */}
                         <div
                             className="dark:bg-surface-2 shadow-lg absolute w-full h-full"
                             style={{
@@ -43,7 +44,10 @@ export default function FounderLetter() {
                     <article
                         className="relative bg-surface-2 dark:bg-surface shadow-lg px-8 py-4 md:px-[93px] md:py-[87px] text-text-primary"
                         role="article"
-                        style={{ zIndex: 1, transform: "rotate(-0.5deg)" }}
+                        style={{
+                            zIndex: 1,
+                            transform: "rotate(-0.5deg)",
+                        }}
                     >
                         <div className="text-sm sm:text-base leading-snug space-y-6 not-italic">
                             <p>Hey,</p>
@@ -55,42 +59,55 @@ export default function FounderLetter() {
                             </p>
 
                             <p>
-                                I built Arthveda because I could never find a
-                                system that remembered my journey with a stock.
+                                I built Arthveda because my trading journey was
+                                scattered across too many places.
                             </p>
 
                             <p>
-                                The first time I noticed it.
+                                I discovered stocks in a screener.
                                 <br />
-                                The setup I saw.
+                                Tracked them in a watchlist somewhere else.
+                                <br />
+                                Placed trades through my broker.
+                                <br />
+                                Recorded my trades in a journal, with my notes
+                                and lessons somewhere else.
+                            </p>
+
+                            <p>
+                                The first time I noticed a stock.
+                                <br />
+                                The setup I was waiting for.
+                                <br />
+                                The trade I eventually took.
                                 <br />
                                 The mistake I made.
                                 <br />
-                                The trade I took six months later.
-                                <br />
-                                The lesson I learned after all of it.
+                                The lesson I carried into the next one.
                             </p>
 
-                            <p>Everything was fragmented.</p>
+                            <p>
+                                Every part of the journey was connected in my
+                                head, but fragmented across tools.
+                            </p>
 
                             <p>
                                 So I built the tool I wished existed when I
-                                started trading: a place to discover stocks,
-                                track decisions, journal trades, and build a
-                                real trading process over time.
+                                started trading — a trading workspace where I
+                                could discover stocks, build watchlists, track
+                                decisions, journal trades, and look back at how
+                                my thinking evolved over time.
                             </p>
 
                             <p>
-                                Most traders only share their P&amp;L. Arthveda
-                                lets you share the process behind it — the
-                                screener, the watchlist, the trades, the
-                                lessons.
+                                Because your trading journey is more than the
+                                trades you take. <br />
+                                Arthveda keeps the whole journey together.
                             </p>
-
-                            <p>Private by default. Shared by choice.</p>
 
                             <p>Thanks for being here.</p>
                         </div>
+
                         <div className="mt-10 flex items-center">
                             <Image
                                 src="https://ceoshikhar.com/images/me.jpg"
@@ -98,16 +115,22 @@ export default function FounderLetter() {
                                 className="rounded-full mr-4"
                                 width={64}
                                 height={64}
-                                sizes="(min-width: 768px) 64px, 64px" // ensures sharpness on high-DPI screens
+                                sizes="64px"
                                 loading="lazy"
                             />
+
                             <div>
-                                <div className="font-bold text-base text-text-primary">
+                                <div className="font-hand leading-none text-3xl text-text-primary">
                                     Shikhar Sharma
                                 </div>
-                                <div className="text-text-muted text-sm">
-                                    Maker of Arthveda
-                                </div>
+                                <a
+                                    href="https://ceoshikhar.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="text-xs! "
+                                >
+                                    Creator of Arthveda · ceoshikhar.com
+                                </a>
                             </div>
                         </div>
                     </article>

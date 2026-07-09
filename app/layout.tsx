@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Inter } from "next/font/google";
+import { Caveat, Inter } from "next/font/google";
 
 import { PostHogProvider } from "@/app/providers";
 import Navbar from "@/components/navbar";
@@ -13,6 +13,11 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
+});
+
+const caveat = Caveat({
+    variable: "--font-hand",
+    subsets: ["latin"],
 });
 
 // v2 metadata (plan §1). Center dot `·`, never a pipe. No "free" callout.
@@ -108,7 +113,7 @@ export default function RootLayout({
             </head>
 
             <body
-                className={`${GeistSans.variable} ${inter.variable} antialiased w-full flex justify-center`}
+                className={`${GeistSans.variable} ${inter.variable} ${caveat.variable} antialiased w-full flex justify-center`}
             >
                 <PostHogProvider>
                     <TooltipProvider>
