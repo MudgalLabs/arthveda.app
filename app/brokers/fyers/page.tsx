@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Plug } from "lucide-react";
 
+import { BrokerJournalShowcase } from "@/components/broker_journal_showcase";
+import { BrokerPricingSummary } from "@/components/broker_pricing_summary";
+import { BrokerTrustStrip } from "@/components/broker_trust_strip";
 import { FamilyLabel } from "@/components/family_label";
 import { GetStarted } from "@/components/get_started";
 import LitMedia from "@/components/lit_media";
@@ -98,7 +101,7 @@ const H2 =
     "font-heading text-[26px] font-medium text-text-primary sm:text-[30px]";
 const P = "font-content text-[15px] leading-[1.7] text-text-muted";
 const INLINE_LINK =
-    "font-content text-[15px] text-text-primary underline underline-offset-4 hover:text-text-muted";
+    "font-content text-[15px]! text-text-primary underline underline-offset-4 hover:text-text-muted";
 
 const APP_BROKER_ACCOUNTS_URL = BROKER_ACCOUNTS_URL;
 
@@ -106,7 +109,6 @@ const SECTIONS = [
     { id: "what-fyers-shows", label: "What FYERS shows" },
     { id: "reports-limits", label: "What it isn't built for" },
     { id: "import-flow", label: "How to import" },
-    { id: "after-import", label: "After first import" },
     { id: "what-to-journal", label: "What to journal" },
     { id: "more-than-journal", label: "More than a journal" },
     { id: "faq", label: "FAQ" },
@@ -176,6 +178,10 @@ export default function FyersLandingPage() {
                 />
             </div>
 
+            <BrokerJournalShowcase brokerName="FYERS" />
+
+            <BrokerTrustStrip broker={FYERS} />
+
             <div className="mx-auto mt-24 grid max-w-6xl gap-14 lg:grid-cols-[minmax(0,768px)_220px] lg:items-start lg:justify-center">
                 <div className="space-y-20">
                     <nav
@@ -190,7 +196,7 @@ export default function FyersLandingPage() {
                                 <a
                                     key={section.id}
                                     href={`#${section.id}`}
-                                    className="font-content text-[15px] leading-6 text-text-muted hover:text-text-primary"
+                                    className="font-content text-[15px]! leading-6 text-text-muted hover:text-text-primary"
                                 >
                                     {section.label}
                                 </a>
@@ -225,39 +231,16 @@ export default function FyersLandingPage() {
                     >
                         <h2 className={H2}>What FYERS actually shows you</h2>
                         <p className={P}>
-                            FYERS&apos; reports, in the{" "}
-                            <strong>Reports</strong> section on FYERS Web and in
-                            the app, are solid for what they cover:
+                            FYERS shows you your trades and PnL reports, the
+                            numbers your accountant needs at tax time. That is
+                            genuinely useful, but it is built for filing, not for
+                            working out how you actually trade.
                         </p>
-                        <ul className="space-y-2 pl-5">
-                            <BulletItem>
-                                <strong>Order book and trade book</strong> —
-                                your executed orders and trades across equity and
-                                F&amp;O, exportable as a file
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>P&amp;L statement</strong> — realized
-                                profit and loss, sorted for ITR filing
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>Holdings</strong> — current portfolio
-                                with average cost
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>Charges and contract notes</strong> —
-                                per-day trade confirmations with brokerage and
-                                taxes broken out
-                            </BulletItem>
-                        </ul>
                         <p className={P}>
-                            Useful, but notice the shape. FYERS&apos; reports are
-                            optimised for the document your accountant needs,
-                            because that&apos;s what most retail traders
-                            explicitly ask for. The other artifact, the one that
-                            actually moves your edge, is the one most FYERS users
-                            end up building themselves in Excel, Google Sheets,
-                            Notion, or a custom spreadsheet. Usually for two
-                            months. Usually it stops.
+                            The artifact that actually moves your edge is the one
+                            most FYERS users end up building themselves in Excel,
+                            Google Sheets, Notion, or a custom spreadsheet.
+                            Usually for two months. Usually it stops.
                         </p>
                     </section>
 
@@ -383,117 +366,6 @@ export default function FyersLandingPage() {
                                 size="default"
                             />
                         </div>
-                    </section>
-
-                    <section
-                        id="after-import"
-                        className="scroll-mt-28 space-y-5"
-                    >
-                        <h2 className={H2}>
-                            What you see after your first import
-                        </h2>
-                        <p className={P}>
-                            Once your FYERS trades are in, Arthveda becomes the
-                            operating system around your trading history.
-                        </p>
-                        <ul className="space-y-2 pl-5">
-                            <BulletItem>
-                                <strong>
-                                    <Link
-                                        href="/product/journal#dashboard"
-                                        className={INLINE_LINK}
-                                    >
-                                        Dashboard
-                                    </Link>
-                                </strong>{" "}
-                                — know if you are actually improving. Track net
-                                PnL, gross PnL, charges, win rate, average
-                                win/loss, expectancy, profit factor, streaks, and
-                                cumulative performance over time.
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>
-                                    <Link
-                                        href="/product/journal#trades"
-                                        className={INLINE_LINK}
-                                    >
-                                        Trades
-                                    </Link>
-                                </strong>{" "}
-                                — see your complete trading history in one place.
-                                Arthveda preserves every trade separately, then
-                                lets you search, filter, sort, and inspect
-                                detailed breakdowns, so nothing gets merged away,
-                                lost, or overlooked.
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>
-                                    <Link
-                                        href="/product/journal#insights"
-                                        className={INLINE_LINK}
-                                    >
-                                        Insights
-                                    </Link>
-                                </strong>{" "}
-                                — see what is actually hurting your trading.
-                                Understand the patterns behind your wins, losses,
-                                timing, behaviour, setups, mistakes, and
-                                outcomes.
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>
-                                    <Link
-                                        href="/product/journal#reports"
-                                        className={INLINE_LINK}
-                                    >
-                                        Reports
-                                    </Link>
-                                </strong>{" "}
-                                — find what is consistently working. Break
-                                performance down by symbols, instruments,
-                                timeframes, tags, and trading patterns, with
-                                after-charges PnL and R-factor included.
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>
-                                    <Link
-                                        href="/product/journal#tagging"
-                                        className={INLINE_LINK}
-                                    >
-                                        Tagging
-                                    </Link>
-                                </strong>{" "}
-                                — spot patterns you would otherwise miss. Tag
-                                trades by setup, mistake, market condition,
-                                emotion, behaviour, or any trading lens you want
-                                to measure.
-                            </BulletItem>
-                            <BulletItem>
-                                <strong>
-                                    <Link
-                                        href="/product/journal#notebook"
-                                        className={INLINE_LINK}
-                                    >
-                                        Journal notes
-                                    </Link>
-                                </strong>{" "}
-                                — understand the why behind every trade. Attach
-                                notes and chart screenshots directly to the
-                                actual trade, so your thinking stays connected to
-                                the outcome.
-                            </BulletItem>
-                        </ul>
-                        <p className={P}>
-                            You do not set any of this up manually. Arthveda
-                            computes it from the trades it builds out of your
-                            report the moment you upload it.
-                        </p>
-                        <p className={P}>
-                            For example, you may discover that your breakout
-                            trades have a +2.8R expectancy while reversal trades
-                            are net negative after charges. That is the kind of
-                            feedback a raw order book will never volunteer.
-                        </p>
                     </section>
 
                     <section
@@ -623,7 +495,7 @@ export default function FyersLandingPage() {
                                 <a
                                     key={section.id}
                                     href={`#${section.id}`}
-                                    className="block font-content text-[15px] leading-6 text-text-muted hover:text-text-primary"
+                                    className="block font-content text-[15px]! leading-6 text-text-muted hover:text-text-primary"
                                 >
                                     {section.label}
                                 </a>
@@ -632,6 +504,8 @@ export default function FyersLandingPage() {
                     </nav>
                 </aside>
             </div>
+
+            <BrokerPricingSummary />
 
             <div className="mx-auto mt-20 max-w-3xl rounded-lg border border-white/[0.12] bg-surface-1/35 px-6 py-10 text-center md:mt-24">
                 <h2 className="mx-auto max-w-2xl text-balance font-heading text-[28px] font-medium leading-tight tracking-[-0.015em] text-text-primary sm:text-[34px]">

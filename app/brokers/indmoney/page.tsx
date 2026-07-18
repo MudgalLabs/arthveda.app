@@ -11,20 +11,20 @@ import LitMedia from "@/components/lit_media";
 import { SegmentChips } from "@/components/segment_chips";
 import { BROKERS } from "@/lib/brokers";
 import { BROKER_ACCOUNTS_URL } from "@/lib/links";
-import AngelOneFAQ from "./faq";
+import INDmoneyFAQ from "./faq";
 
-const ANGEL_ONE = BROKERS.find((b) => b.name === "Angel One")!;
+const INDMONEY = BROKERS.find((b) => b.name === "INDmoney")!;
 
 export const metadata: Metadata = {
-    title: "Trading Journal for Angel One Users: From Trade History to Real Insights · Arthveda",
+    title: "Trading Journal for INDmoney Users: From Tradebook to Real Insights · Arthveda",
     description:
-        "Turn your Angel One trade history into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
-    alternates: { canonical: "/brokers/angel-one" },
+        "Turn your INDmoney tradebook into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
+    alternates: { canonical: "/brokers/indmoney" },
     openGraph: {
-        title: "Trading Journal for Angel One Users: From Trade History to Real Insights",
+        title: "Trading Journal for INDmoney Users: From Tradebook to Real Insights",
         description:
-            "Turn your Angel One trade history into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
-        url: "https://arthveda.app/brokers/angel-one",
+            "Turn your INDmoney tradebook into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
+        url: "https://arthveda.app/brokers/indmoney",
         type: "article",
         images: [
             {
@@ -32,33 +32,33 @@ export const metadata: Metadata = {
                 width: 1200,
                 height: 630,
                 type: "image/jpeg",
-                alt: "Trading Journal for Angel One Users · Arthveda",
+                alt: "Trading Journal for INDmoney Users · Arthveda",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Trading Journal for Angel One Users: From Trade History to Real Insights",
+        title: "Trading Journal for INDmoney Users: From Tradebook to Real Insights",
         description:
-            "Turn your Angel One trade history into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes. Equity and F&O in one file.",
+            "Turn your INDmoney tradebook into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback in under five minutes.",
         images: ["/images/og-image.jpg"],
     },
 };
 
-// Plain-text mirror of app/brokers/angel-one/faq.tsx, used only for the FAQPage
+// Plain-text mirror of app/brokers/indmoney/faq.tsx, used only for the FAQPage
 // JSON-LD. Keep in sync with the accordion copy.
 const FAQ_SCHEMA = [
     {
-        q: "What can Arthveda do with my Angel One trades?",
-        a: "Arthveda imports your Angel One trade history, groups executions into trades, calculates after-charges PnL, and gives you a dashboard, trade list, journal notes, tags, insights, and reports.",
+        q: "What can Arthveda do with my INDmoney trades?",
+        a: "Arthveda imports your INDmoney tradebook, groups executions into trades, calculates after-charges PnL, and gives you a dashboard, trade list, journal notes, tags, insights, and reports.",
     },
     {
-        q: "Does Arthveda support F&O for Angel One?",
-        a: "Yes. Your Angel One trade history exports equity, futures, and options in one file, and Arthveda parses all three. Arthveda reads the segment and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        q: "Does Arthveda support F&O for INDmoney?",
+        a: "Equity and options, yes. Arthveda reads your INDmoney tradebook and brings in stocks and options automatically, detecting the CE/PE contract on each row. Futures import isn't built yet, but INDmoney does export it, so ping us a sample tradebook and we can add it. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for Angel One. Export your trade history from the Angel One app and import it into Arthveda. Angel One doesn't offer trade sync yet, so to add fresh trades later you export a new trade history for the recent date range and import it again.",
+        a: "File upload, for INDmoney. Export your tradebook (Excel or CSV) from the INDmoney app and import it into Arthveda. INDmoney doesn't offer trade sync yet, so to add fresh trades later you export a new tradebook for the recent date range and import it again.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
@@ -74,11 +74,11 @@ const FAQ_SCHEMA = [
     },
     {
         q: "What about charges?",
-        a: "Brokerage, STT, GST, stamp duty, SEBI charges, and exchange transaction charges are computed from the standard Angel One rate card. The PnL Arthveda shows you is after charges, which is the only PnL that actually matters.",
+        a: "Brokerage, STT, GST, stamp duty, SEBI charges, and exchange transaction charges are computed from the standard INDmoney rate card. The PnL Arthveda shows you is after charges, which is the only PnL that actually matters.",
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your trade history every weekend and tag the week's trades while the reasoning is still fresh. Since Angel One has no sync, just export the new date range since your last import and upload it again.",
+        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to export your tradebook every weekend and tag the week's trades while the reasoning is still fresh. Since INDmoney has no sync, just export the new date range since your last import and upload it again.",
     },
 ];
 
@@ -102,7 +102,7 @@ const INLINE_LINK =
 const APP_BROKER_ACCOUNTS_URL = BROKER_ACCOUNTS_URL;
 
 const SECTIONS = [
-    { id: "what-angel-one-shows", label: "What Angel One shows" },
+    { id: "what-indmoney-shows", label: "What INDmoney shows" },
     { id: "reports-limits", label: "What it isn't built for" },
     { id: "import-flow", label: "How to import" },
     { id: "what-to-journal", label: "What to journal" },
@@ -110,7 +110,7 @@ const SECTIONS = [
     { id: "faq", label: "FAQ" },
 ];
 
-export default function AngelOneLandingPage() {
+export default function INDmoneyLandingPage() {
     return (
         <main className="pb-24">
             <script
@@ -122,23 +122,23 @@ export default function AngelOneLandingPage() {
                 <div>
                     <FamilyLabel name="Brokers" Icon={Plug} />
                     <h1 className="mt-5 max-w-4xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
-                        Turn your Angel One trade history into a trading journal
-                        you can actually learn from.
+                        Turn your INDmoney tradebook into a trading journal you
+                        can actually learn from.
                     </h1>
                     <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                        Angel One gives you trades. Arthveda gives you insights
-                        and analytics. See how you can turn your Angel One trade
-                        history, equity and F&amp;O in one file, into a journal
-                        with performance analytics, insights that tell you where
-                        and why you lose or make money, and a trade-level
-                        feedback loop in less than five minutes.
+                        INDmoney gives you trades. Arthveda gives you insights
+                        and analytics. See how you can turn your INDmoney
+                        tradebook into a journal with performance analytics,
+                        insights that tell you where and why you lose or make
+                        money, and a trade-level feedback loop in less than five
+                        minutes.
                     </p>
                     <p className="mt-4 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
                         A P&amp;L statement is what your accountant needs. A
                         journal is what <em>you</em> need to get better.
                     </p>
                     <SegmentChips
-                        segments={ANGEL_ONE.segments}
+                        segments={INDMONEY.segments}
                         className="mt-6"
                     />
                     <div className="mt-8 w-fit">
@@ -148,7 +148,7 @@ export default function AngelOneLandingPage() {
                         />
                     </div>
                     <p className="mt-4 font-content text-[15px] leading-6 text-text-muted">
-                        Not on Angel One?{" "}
+                        Not on INDmoney?{" "}
                         <Link href="/brokers" className={INLINE_LINK}>
                             See all supported brokers
                         </Link>
@@ -173,13 +173,13 @@ export default function AngelOneLandingPage() {
                     fullBleed={false}
                     frameClassName="relative z-10 mx-auto w-[min(1500px,calc((100svh_-_5.5rem_-_3rem)*2940/1844))] max-w-full rounded-md border-white/[0.1] shadow-[0_16px_36px_-20px_rgba(0,0,0,0.45),inset_0_1px_0_0_rgba(255,255,255,0.08)]"
                     captionTitle="See the full trade, not just the execution."
-                    captionDescription="PnL, charges, duration, chart context, executions, notes, and tags, all tied to the same Angel One trade."
+                    captionDescription="PnL, charges, duration, chart context, executions, notes, and tags, all tied to the same INDmoney trade."
                 />
             </div>
 
-            <BrokerJournalShowcase brokerName="Angel One" />
+            <BrokerJournalShowcase brokerName="INDmoney" />
 
-            <BrokerTrustStrip broker={ANGEL_ONE} />
+            <BrokerTrustStrip broker={INDMONEY} />
 
             <div className="mx-auto mt-24 grid max-w-6xl gap-14 lg:grid-cols-[minmax(0,768px)_220px] lg:items-start lg:justify-center">
                 <div className="space-y-20">
@@ -205,13 +205,13 @@ export default function AngelOneLandingPage() {
 
                     <section className="space-y-5">
                         <p className={P}>
-                            If you trade on Angel One and your history lives in
-                            trade-history exports, this guide shows how to turn
-                            that file into a journal you can actually learn from.
+                            If you trade on INDmoney and your history lives in
+                            tradebook exports, this guide shows how to turn that
+                            file into a journal you can actually learn from.
                         </p>
                         <p className={P}>
                             You have a couple of hundred trades sitting in your
-                            Angel One account. You roughly know last quarter was
+                            INDmoney account. You roughly know last quarter was
                             green. You can&apos;t tell which setup delivered most
                             of that PnL, which trades you held too long, or
                             whether your &quot;high conviction&quot; trades
@@ -219,25 +219,25 @@ export default function AngelOneLandingPage() {
                         </p>
                         <p className={P}>
                             The problem isn&apos;t your trading. The problem is
-                            that a trade history and a journal solve completely
+                            that a tradebook and a journal solve completely
                             different problems.
                         </p>
                     </section>
 
                     <section
-                        id="what-angel-one-shows"
+                        id="what-indmoney-shows"
                         className="scroll-mt-28 space-y-5"
                     >
-                        <h2 className={H2}>What Angel One actually shows you</h2>
+                        <h2 className={H2}>What INDmoney actually shows you</h2>
                         <p className={P}>
-                            Angel One shows you your trades and PnL reports, the
+                            INDmoney shows you your trades and PnL reports, the
                             numbers your accountant needs at tax time. That is
                             genuinely useful, but it is built for filing, not for
                             working out how you actually trade.
                         </p>
                         <p className={P}>
                             The artifact that actually moves your edge is the one
-                            most Angel One users end up building themselves in
+                            most INDmoney users end up building themselves in
                             Excel, Google Sheets, Notion, or a custom
                             spreadsheet. Usually for two months. Usually it
                             stops.
@@ -249,7 +249,7 @@ export default function AngelOneLandingPage() {
                         className="scroll-mt-28 space-y-5"
                     >
                         <h2 className={H2}>
-                            What Angel One&apos;s reports are not built for
+                            What INDmoney&apos;s reports are not built for
                         </h2>
                         <p className={P}>
                             Pull up your last hundred closed trades in your head
@@ -278,8 +278,8 @@ export default function AngelOneLandingPage() {
                             </BulletItem>
                         </ol>
                         <p className={P}>
-                            None of these are answerable from Angel One&apos;s
-                            reports without exporting your trade history, opening
+                            None of these are answerable from INDmoney&apos;s
+                            reports without exporting your tradebook, opening
                             Excel, writing formulas, and tagging every trade by
                             hand. Most traders never make it to step three.
                             Arthveda answers them in a few clicks.
@@ -291,33 +291,35 @@ export default function AngelOneLandingPage() {
                         className="scroll-mt-28 space-y-5"
                     >
                         <h2 className={H2}>
-                            How to import your Angel One trades
+                            How to import your INDmoney trades
                         </h2>
                         <div className="space-y-6">
                             <Step
                                 n="1"
-                                title="Download your trade history from Angel One"
+                                title="Export your tradebook from INDmoney"
                             >
                                 In the{" "}
                                 <Link
-                                    href="https://www.angelone.in/"
+                                    href="https://www.indmoney.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={INLINE_LINK}
                                 >
-                                    Angel One
+                                    INDmoney
                                 </Link>{" "}
-                                app, open Account, go to Trades and charges, and
-                                tap Download trade history. Pick your date range
-                                and save the file (XLSX, XLS, or CSV). Equity and
-                                F&amp;O come down together in the same export.
+                                app, open Stocks, go to Manage (or the Reports
+                                section), pick Tradebook or Transaction History,
+                                choose your date range, and download the Excel or
+                                CSV. If you can&apos;t find it, the Tax Filing
+                                Report usually carries a Trades tab with the same
+                                details.
                             </Step>
                             <Step
                                 n="2"
-                                title="Create your Angel One broker account"
+                                title="Create your INDmoney broker account"
                             >
                                 Sign up or log in to Arthveda. Follow onboarding
-                                and select Angel One, or go to{" "}
+                                and select INDmoney, or go to{" "}
                                 <Link
                                     href={APP_BROKER_ACCOUNTS_URL}
                                     target="_blank"
@@ -326,21 +328,21 @@ export default function AngelOneLandingPage() {
                                 >
                                     /accounts
                                 </Link>{" "}
-                                and create an Angel One broker account.
+                                and create an INDmoney broker account.
                             </Step>
                             <Step
                                 n="3"
                                 title="Click Import and upload the file"
                             >
-                                Choose Import on the Angel One broker account,
-                                upload the trade history file, review the parsed
+                                Choose Import on the INDmoney broker account,
+                                upload the tradebook file, review the parsed
                                 trades, and confirm the import. Arthveda groups
                                 your executions into trades automatically: one
                                 round trip becomes one trade with entry, scaling,
                                 exit, holding period, and after-charges PnL
-                                computed for you. Futures and options contracts
-                                are read straight from the file, with the right
-                                underlying, expiry, and strike.
+                                computed for you. Options contracts are read
+                                straight from the file, with the right underlying
+                                and strike.
                             </Step>
                             <Step n="4" title="Explore your journal">
                                 Open Trades, Dashboard, Insights, and Reports.
@@ -354,14 +356,14 @@ export default function AngelOneLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            Angel One doesn&apos;t offer trade sync yet, so when
-                            you want to add fresh trades, download a new trade
-                            history for the date range since your last import and
-                            upload it again. Same five clicks, no spreadsheet.
+                            INDmoney doesn&apos;t offer trade sync yet, so when
+                            you want to add fresh trades, export a new tradebook
+                            for the date range since your last import and upload
+                            it again. Same five clicks, no spreadsheet.
                         </p>
                         <div className="pt-2">
                             <GetStarted
-                                label="Import my trade history"
+                                label="Import my tradebook"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
                             />
@@ -478,7 +480,7 @@ export default function AngelOneLandingPage() {
                     </section>
 
                     <section id="faq" className="scroll-mt-28">
-                        <AngelOneFAQ />
+                        <INDmoneyFAQ />
                     </section>
                 </div>
 
@@ -509,8 +511,8 @@ export default function AngelOneLandingPage() {
 
             <div className="mx-auto mt-20 max-w-3xl rounded-lg border border-white/[0.12] bg-surface-1/35 px-6 py-10 text-center md:mt-24">
                 <h2 className="mx-auto max-w-2xl text-balance font-heading text-[28px] font-medium leading-tight tracking-[-0.015em] text-text-primary sm:text-[34px]">
-                    Turn your Angel One trade history into a journal you can
-                    actually learn from.
+                    Turn your INDmoney tradebook into a journal you can actually
+                    learn from.
                 </h2>
                 <div className="h-6" />
                 <div className="mx-auto w-fit">

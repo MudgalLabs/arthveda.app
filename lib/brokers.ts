@@ -60,6 +60,20 @@ export const BROKERS: Broker[] = [
         landingPath: "/brokers/angel-one",
     },
     {
+        name: "Dhan",
+        svg: "/svgs/dhan.svg",
+        icon: "/svgs/icons/dhan.svg",
+        homepage: "https://dhan.co/",
+        instruments: ["equity", "futures", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "F&O", state: "supported" },
+        ],
+        importTypes: ["auto"],
+        isComingSoon: true,
+        landingPath: "/brokers/dhan",
+    },
+    {
         name: "FYERS",
         svg: "/svgs/fyers.svg",
         icon: "/svgs/icons/fyers.svg",
@@ -98,6 +112,7 @@ export const BROKERS: Broker[] = [
             { label: "Futures", state: "on-request" },
         ],
         importTypes: ["file"],
+        landingPath: "/brokers/indmoney",
     },
     {
         name: "Kotak Securities",
@@ -110,6 +125,7 @@ export const BROKERS: Broker[] = [
             { label: "F&O", state: "supported" },
         ],
         importTypes: ["file"],
+        landingPath: "/brokers/kotak-securities",
     },
     {
         name: "Upstox",
@@ -123,6 +139,7 @@ export const BROKERS: Broker[] = [
             { label: "Futures", state: "on-request" },
         ],
         importTypes: ["file"],
+        landingPath: "/brokers/upstox",
     },
     {
         name: "Zerodha",

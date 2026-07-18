@@ -26,7 +26,7 @@ export default function Brokers() {
 
 // A few well-known brokers to feature on the homepage Journal block. The full
 // list lives on /brokers, so this stays compact as we add more integrations.
-const FEATURED_BROKERS = ["Angel One", "Groww", "Zerodha"];
+const FEATURED_BROKERS = ["Angel One", "Groww", "Zerodha", "Dhan"];
 
 // Compact, static broker strip for the homepage Journal block — a few logos +
 // "+N more" → /brokers, so adding brokers never expands this. See plan §5.
@@ -39,15 +39,22 @@ export function BrokerStripStatic() {
 
     return (
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            {featured.map(({ name, svg, landingPath }) => {
+            {featured.map(({ name, svg, landingPath, isComingSoon }) => {
                 const logo = (
-                    <Image
-                        src={svg}
-                        alt={`${name} logo`}
-                        width={90}
-                        height={20}
-                        className="max-h-6 w-auto shrink-0 opacity-60 grayscale transition-opacity hover:opacity-100"
-                    />
+                    <span className="inline-flex items-center gap-1.5">
+                        <Image
+                            src={svg}
+                            alt={`${name} logo`}
+                            width={90}
+                            height={20}
+                            className="max-h-6 w-auto shrink-0 opacity-60 grayscale transition-opacity hover:opacity-100"
+                        />
+                        {isComingSoon && (
+                            <Tag size="small" className="shrink-0">
+                                Soon
+                            </Tag>
+                        )}
+                    </span>
                 );
 
                 // Brokers with a landing page link to it; the rest stay static.

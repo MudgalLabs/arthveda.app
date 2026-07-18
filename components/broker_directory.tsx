@@ -25,6 +25,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Card } from "@/ui/card";
 import { Input } from "@/ui/input";
+import { Tag } from "@/ui/tag";
 import {
     Table,
     TableBody,
@@ -34,9 +35,13 @@ import {
     TableRow,
 } from "@/ui/table";
 
-// Brokers shown on the directory. Coming-soon brokers live in the homepage strip
-// only, not here. Computed once at module scope since the source list is static.
-const VISIBLE_BROKERS = BROKERS.filter((b) => !b.isComingSoon);
+// Brokers shown on the directory. Coming-soon brokers are listed too (badged
+// "Soon") but sorted to the end so the ready-now brokers lead. sort() is stable,
+// so alphabetical order is preserved within each group. Computed once at module
+// scope since the source list is static.
+const VISIBLE_BROKERS = [...BROKERS].sort(
+    (a, b) => Number(Boolean(a.isComingSoon)) - Number(Boolean(b.isComingSoon)),
+);
 
 // Email link prefilled to ask us to add import support for a segment.
 const segmentMailto = (label: string) =>
@@ -94,7 +99,11 @@ export function BrokerDirectory() {
                 </div>
             </div>
 
-            {brokers.length > 0 && <Legend />}
+            {brokers.length > 0 && (
+                <Legend
+                    hasComingSoon={brokers.some((b) => b.isComingSoon)}
+                />
+            )}
 
             {brokers.length === 0 ? (
                 <p className="mt-16 text-center text-sm text-text-muted">
@@ -121,7 +130,7 @@ export function BrokerDirectory() {
 
 // Key for the state markers, shared by both views. text-text-subtle muted so it
 // reads as a footnote, not a row of its own.
-function Legend() {
+function Legend({ hasComingSoon }: { hasComingSoon: boolean }) {
     return (
         <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-text-subtle">
             <span className="inline-flex items-center gap-1.5">
@@ -129,6 +138,7 @@ function Legend() {
             </span>
             <span>Request · email me</span>
             <span>Manual · log by hand</span>
+            {hasComingSoon && <span>Soon · coming soon</span>}
         </p>
     );
 }
@@ -243,16 +253,28 @@ function ImportItem({
     ok,
     okLabel,
     name,
+    unavailable = false,
 }: {
     ok: boolean;
     okLabel: string;
     name: string;
+    // See BoolCell: the broker can't offer this method at all, so show a muted
+    // "not available" rather than a "Request".
+    unavailable?: boolean;
 }) {
     if (ok) {
         return (
             <span className="inline-flex items-center gap-1.5 text-sm text-text-muted">
                 <Check size={14} className="shrink-0 text-success" />
                 {okLabel}
+            </span>
+        );
+    }
+    if (unavailable) {
+        return (
+            <span className="text-sm text-text-muted">
+                {name}
+                <span className="text-text-subtle"> · not available</span>
             </span>
         );
     }
@@ -296,6 +318,11 @@ function BrokerCard({ broker }: { broker: Broker }) {
                 <h3 className="text-lg font-medium text-text-primary">
                     {broker.name}
                 </h3>
+                {broker.isComingSoon && (
+                    <Tag size="small" className="relative z-10 ml-auto">
+                        Soon
+                    </Tag>
+                )}
             </div>
 
             {/* Segments */}
@@ -316,6 +343,7 @@ function BrokerCard({ broker }: { broker: Broker }) {
                         ok={hasUpload}
                         okLabel="File upload"
                         name="File upload"
+                        unavailable={hasSync && !hasUpload}
                     />
                     <ImportItem ok={hasSync} okLabel={syncLabel} name="Sync" />
                 </div>
@@ -392,12 +420,27 @@ function StateCell({
     return <RequestLink label={label} />;
 }
 
-function BoolCell({ ok, label }: { ok: boolean; label: string }) {
-    return ok ? (
-        <Check size={16} className="mx-auto text-success" aria-label={label} />
-    ) : (
-        <RequestLink label={label} />
-    );
+function BoolCell({
+    ok,
+    label,
+    unavailable = false,
+}: {
+    ok: boolean;
+    label: string;
+    // The broker can't offer this method at all (e.g. Dhan has no trade export,
+    // so file upload is impossible, not just unbuilt). Show a muted dash instead
+    // of inviting a "Request".
+    unavailable?: boolean;
+}) {
+    if (ok) {
+        return (
+            <Check size={16} className="mx-auto text-success" aria-label={label} />
+        );
+    }
+    if (unavailable) {
+        return <span className="text-sm text-text-subtle">—</span>;
+    }
+    return <RequestLink label={label} />;
 }
 
 function BrokerTable({ brokers }: { brokers: Broker[] }) {
@@ -412,7 +455,9 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                                 {c}
                             </TableHead>
                         ))}
-                        <TableHead className="text-center">Upload</TableHead>
+                        <TableHead className="text-center">
+                            File upload
+                        </TableHead>
                         <TableHead className="text-center">Sync</TableHead>
                     </TableRow>
                 </TableHeader>
@@ -434,6 +479,9 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                                 <span className="font-medium text-text-primary">
                                     {broker.name}
                                 </span>
+                                {broker.isComingSoon && (
+                                    <Tag size="small">Soon</Tag>
+                                )}
                             </span>
                         );
                         return (
@@ -481,6 +529,7 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                                     <BoolCell
                                         ok={canUpload}
                                         label="File upload"
+                                        unavailable={canSync && !canUpload}
                                     />
                                 </TableCell>
                                 <TableCell className="text-center">
