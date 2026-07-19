@@ -59,6 +59,11 @@ export default function Hero() {
                         </Button>
                     </Link>
                 </div>
+
+                {/* Sits OUTSIDE the CTA row: the row is a flex container, so a
+                    sibling inside it would land beside the buttons instead of
+                    beneath them. */}
+                <p className="mt-3 text-sm text-text-subtle">No card required</p>
             </div>
 
             <div className="h-8 sm:h-10 lg:h-14" />

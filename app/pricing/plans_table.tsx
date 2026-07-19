@@ -194,7 +194,8 @@ export function PlansTable() {
             </div>
 
             <p className="mt-4 text-center text-sm text-text-muted">
-                14-day refund on both plans, no questions asked.
+                No card required to start. 14-day refund on both plans, no
+                questions asked.
             </p>
 
             {/* Everything included */}

@@ -143,6 +143,7 @@ export default function AngelOneLandingPage() {
                     />
                     <div className="mt-8 w-fit">
                         <GetStarted
+                            noCardNote
                             label="Start your trading journal"
                             href={APP_BROKER_ACCOUNTS_URL}
                         />
@@ -361,6 +362,7 @@ export default function AngelOneLandingPage() {
                         </p>
                         <div className="pt-2">
                             <GetStarted
+                                noCardNote
                                 label="Import my trade history"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
@@ -515,6 +517,7 @@ export default function AngelOneLandingPage() {
                 <div className="h-6" />
                 <div className="mx-auto w-fit">
                     <GetStarted
+                        noCardNote
                         label="Start your trading journal"
                         href={APP_BROKER_ACCOUNTS_URL}
                     />

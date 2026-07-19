@@ -144,6 +144,7 @@ export default function FyersLandingPage() {
                     <SegmentChips segments={FYERS.segments} className="mt-6" />
                     <div className="mt-8 w-fit">
                         <GetStarted
+                            noCardNote
                             label="Start your trading journal"
                             href={APP_BROKER_ACCOUNTS_URL}
                         />
@@ -361,6 +362,7 @@ export default function FyersLandingPage() {
                         </p>
                         <div className="pt-2">
                             <GetStarted
+                                noCardNote
                                 label="Import my FYERS report"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
@@ -515,6 +517,7 @@ export default function FyersLandingPage() {
                 <div className="h-6" />
                 <div className="mx-auto w-fit">
                     <GetStarted
+                        noCardNote
                         label="Start your trading journal"
                         href={APP_BROKER_ACCOUNTS_URL}
                     />

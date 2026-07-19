@@ -143,6 +143,7 @@ export default function ZerodhaLandingPage() {
                     />
                     <div className="mt-8 w-fit">
                         <GetStarted
+                            noCardNote
                             label="Start your trading journal"
                             href={APP_BROKER_ACCOUNTS_URL}
                         />
@@ -358,6 +359,7 @@ export default function ZerodhaLandingPage() {
                         </p>
                         <div className="pt-2">
                             <GetStarted
+                                noCardNote
                                 label="Import my Tradebook"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
@@ -512,6 +514,7 @@ export default function ZerodhaLandingPage() {
                 <div className="h-6" />
                 <div className="mx-auto w-fit">
                     <GetStarted
+                        noCardNote
                         label="Start your trading journal"
                         href={APP_BROKER_ACCOUNTS_URL}
                     />

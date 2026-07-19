@@ -16,6 +16,13 @@ interface GetStartedProps {
     variant?: "primary" | "secondary";
     /** Defaults to "large"; pass "default" inside dense layouts like /pricing. */
     size?: "default" | "large";
+    /** Render a "No card required" line beneath the button. Opt-in rather
+        than automatic: the note belongs under PRIMARY trial CTAs, but this
+        component also renders inside flex rows and next to CTAs that start
+        no trial at all (e.g. "Open the screener", which is free anyway), so
+        defaulting it on would both break layouts and say something
+        irrelevant. */
+    noCardNote?: boolean;
     /** Extra properties merged into the "Clicked Get started" event (e.g. the
         plan + billing interval on /pricing) for conversion-funnel segmentation. */
     eventProps?: Record<string, unknown>;
@@ -38,11 +45,12 @@ export const GetStarted = ({
     fullWidth = false,
     variant = "primary",
     size = "large",
+    noCardNote = false,
     eventProps,
 }: GetStartedProps) => {
     const text = label ?? "Try it free for 14 days";
 
-    return (
+    const button = (
         <a
             href={href ?? APP_URL}
             onClick={() => posthog.capture("Clicked Get started", { label: text, ...eventProps })}
@@ -52,5 +60,17 @@ export const GetStarted = ({
                 {text}
             </Button>
         </a>
+    );
+
+    if (!noCardNote) return button;
+
+    // The note is the objection ("what's the catch?"), not the action, so it
+    // sits under the button rather than inside it. Alignment is inherited so
+    // this works in both centered and left-aligned CTA blocks.
+    return (
+        <div className={cn(fullWidth && "w-full")}>
+            {button}
+            <p className="mt-2 text-sm text-text-subtle">No card required</p>
+        </div>
     );
 };

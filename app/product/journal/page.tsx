@@ -72,7 +72,7 @@ export default function JournalHubPage() {
                 </h2>
                 <div className="h-8" />
                 <div className="mx-auto w-fit">
-                    <GetStarted label="Start journaling" />
+                    <GetStarted label="Start journaling" noCardNote />
                 </div>
             </div>
         </main>

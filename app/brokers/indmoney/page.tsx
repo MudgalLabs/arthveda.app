@@ -143,6 +143,7 @@ export default function INDmoneyLandingPage() {
                     />
                     <div className="mt-8 w-fit">
                         <GetStarted
+                            noCardNote
                             label="Start your trading journal"
                             href={APP_BROKER_ACCOUNTS_URL}
                         />
@@ -363,6 +364,7 @@ export default function INDmoneyLandingPage() {
                         </p>
                         <div className="pt-2">
                             <GetStarted
+                                noCardNote
                                 label="Import my tradebook"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
@@ -517,6 +519,7 @@ export default function INDmoneyLandingPage() {
                 <div className="h-6" />
                 <div className="mx-auto w-fit">
                     <GetStarted
+                        noCardNote
                         label="Start your trading journal"
                         href={APP_BROKER_ACCOUNTS_URL}
                     />
