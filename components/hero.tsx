@@ -45,7 +45,7 @@ export default function Hero() {
                         className="unstyled-link"
                     >
                         <Button variant="primary" size="large">
-                            Start for free
+                            Try it free for 14 days
                         </Button>
                     </a>
 

@@ -8,7 +8,7 @@ export default function TermsPage() {
             <h1 className="big-heading mb-12">Terms of Service</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> June 1, 2026
+                <strong>Effective Date:</strong> July 20, 2026
             </p>
 
             <p>Welcome to Arthveda!</p>
@@ -22,29 +22,38 @@ export default function TermsPage() {
             <p>
                 Arthveda is a Trading OS for Indian swing traders. It helps
                 you discover stocks, journal trades, and share your process.
-                A free tier is available with reasonable limits, alongside
-                paid plans.
+                New accounts include a 14-day free trial; continued use of
+                the paid features requires a subscription.
             </p>
 
             <h2 className="sub-heading mt-4">
                 2. Subscriptions and One-time Access
             </h2>
             <p>
-                Arthveda offers monthly and yearly recurring plans, and a
+                Arthveda offers a yearly recurring plan and a
                 &ldquo;One-time&rdquo; purchase (a single payment, no
-                renewals). A free tier is available alongside these and does
-                not require a payment method.
+                renewals). Legacy monthly subscriptions created before July
+                20, 2026 continue to renew on their existing terms until
+                cancelled, but monthly is no longer offered to new
+                subscribers.
             </p>
             <p>
-                Monthly and yearly Pro plans include a 30-day free trial. A
-                valid payment method is required to start the trial, but you
-                are not charged during the trial period. If you do not
-                cancel before the trial ends, the plan auto-renews and is
-                charged at the listed price; the subscription then continues
-                to renew at the end of each billing period until cancelled.
-                You can cancel anytime from your account; cancellation takes
-                effect at the end of the current billing period. One-time
-                purchases are not eligible for a trial.
+                Every new account includes a <strong>14-day free trial</strong>
+                with full access to the paid features. <strong>No payment
+                method is required to start the trial, and no charge is made
+                when it ends.</strong> There is nothing to cancel. The trial is
+                granted once per account.
+            </p>
+            <p>
+                When the trial ends, or if a subscription lapses or is
+                cancelled, the account moves to a <strong>read-only</strong>
+                state. You keep access to the data you created and may
+                continue to view, export and share it. You will not be able
+                to create or modify data until you subscribe. We do not
+                delete your data because a subscription ended. Recurring
+                subscriptions renew at the listed price until cancelled; you
+                can cancel anytime from your account, and cancellation takes
+                effect at the end of the current billing period.
             </p>
             <p>
                 Payments are processed by Paddle, our merchant of record.

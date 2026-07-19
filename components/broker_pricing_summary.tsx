@@ -9,13 +9,7 @@ import { formatCurrency } from "@/lib/utils";
 // source of truth (usePricing) so this never drifts from /pricing when the
 // numbers change. Sits right before a page's bottom CTA.
 export function BrokerPricingSummary() {
-    const {
-        monthlyPrice,
-        yearlyPrice,
-        oneTimePrice,
-        yearlySavingPct,
-        currency,
-    } = usePricing();
+    const { yearlyPrice, oneTimePrice, currency } = usePricing();
 
     const money = (n: number) =>
         formatCurrency(n, {
@@ -28,17 +22,16 @@ export function BrokerPricingSummary() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <p className="font-heading text-[20px] font-medium text-text-primary">
-                        Free to start. Pro when you want more.
+                        Try it free for 14 days. No card required.
                     </p>
                     <p className="mt-2 font-content text-[14px] leading-[1.6] text-text-muted">
-                        Do the whole workflow free, with limits. Pro lifts them
-                        all: {money(monthlyPrice)}/mo, {money(yearlyPrice)}/yr
-                        (save {yearlySavingPct}%), or {money(oneTimePrice)} once.
+                        The whole product, no limits, for 14 days. Then{" "}
+                        {money(yearlyPrice)}/yr or {money(oneTimePrice)} once.
                         All prices include GST.
                     </p>
                     <p className="mt-2 font-content text-[13px] leading-[1.6] text-text-subtle">
-                        30-day Pro trial. Add a card to start, cancel anytime
-                        before it ends.
+                        14-day refund on both plans. If you stop subscribing,
+                        your journal stays readable and exportable.
                     </p>
                 </div>
                 <Link href="/pricing" className="shrink-0 font-content text-[14px]!">

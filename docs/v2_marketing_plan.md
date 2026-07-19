@@ -404,7 +404,40 @@ states; keep framing consistent with the Journal cards.
 
 ### `/pricing` page copy & UX
 
-> **Model locked 2026-05-29: FREEMIUM + 30-day Pro trial (card-required,
+> **MODEL REPLACED 2026-07-20 (supersedes the freemium model and every
+> trial/monthly mention in this section, including the 2026-07-05 amendment's
+> interval toggle).** Freemium is retired: **there is no free tier.** New
+> accounts get a **14-day free trial, no card required**, granted at signup.
+> When it lapses the workspace goes **READ-ONLY**: the user keeps, reads,
+> re-runs, exports, publishes and shares everything they built, and creates
+> nothing new until they subscribe. Nothing is deleted.
+>
+> **Reads are free, creations are not.** Running a screener (and the
+> Playground) stays free for everyone including anon: the scan is the demo,
+> the workspace that remembers it is the product. Saving a screener is Pro.
+> This is a deliberate refusal of the "best free screener" axis against
+> Chartink/screener.in, which we would lose; we compete on continuity.
+> **Publish/share is never gated** for any artifact, including for lapsed
+> accounts: it hands us distribution rather than the user product value.
+> All of Social stays free for every account, as before.
+>
+> **We sell YEARLY (₹2,499) and ONE-TIME (₹4,999) only.** Monthly (₹399) is
+> retired from all UI; the Paddle price survives for legacy subscribers and
+> support only. The interval toggle is gone (two visible plans need no
+> toggle), and so is the "save ~48%" pill: it was measured against a price we
+> no longer sell. 14-day money-back on both plans; GST-inclusive convention
+> from 2026-07-05 still stands.
+>
+> `/pricing` is no longer a Free-vs-Pro matrix. It is two plan cards + one
+> "everything is included" list + a "what happens when the trial ends"
+> explainer. Default CTA is **"Try it free for 14 days"** with a **"No card
+> required"** sub-line (never a bare "free", which reads as a tier name).
+> Action-specific CTAs ("Start your trading journal", "Import my Tradebook",
+> "Open the screener") are unchanged.
+>
+> Full model + enforcement: `~/dev/arthveda/docs/business_context.md` §4.
+
+> **Model locked 2026-05-29 (SUPERSEDED, see above): FREEMIUM + 30-day Pro trial (card-required,
 > Paddle as merchant of record); no trial on Lifetime.** Everyone can use the
 > whole workflow free, with **hard caps**. Serious users upgrade to lift them.
 > **Always free, no caps (the growth engine — never touch this):** the Screener

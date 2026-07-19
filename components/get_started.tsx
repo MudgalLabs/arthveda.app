@@ -22,10 +22,16 @@ interface GetStartedProps {
 }
 
 // Primary product-level CTA. Filled → no icon, sentence case (plan §5 Copy
-// voice). The locked default label is **"Start for free"** (plan §5,
-// 2026-05-28) — the friction-reducer sits in the button itself, so callers that
-// want this wording shouldn't pass a label at all. Family hubs override via
-// `label` ("Start journaling", "Open the screener", etc.).
+// voice). The locked default label is **"Try it free for 14 days"**
+// (2026-07-20, replacing "Start for free"): there is no free tier any more, so
+// a bare "free" would read as a plan name and set up a nasty surprise at the
+// paywall. The duration does the work — it says low-commitment without
+// promising a tier we don't sell. Pair it with a "No card required" sub-line
+// at the big placements; it does not belong inside the button.
+//
+// Callers that want this wording shouldn't pass a label at all. Action-specific
+// placements override via `label` ("Start your trading journal", "Import my
+// Tradebook", "Open the screener", etc.) and are deliberately left alone.
 export const GetStarted = ({
     label,
     href,
@@ -34,7 +40,7 @@ export const GetStarted = ({
     size = "large",
     eventProps,
 }: GetStartedProps) => {
-    const text = label ?? "Start for free";
+    const text = label ?? "Try it free for 14 days";
 
     return (
         <a

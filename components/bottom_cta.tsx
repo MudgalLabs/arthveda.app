@@ -14,6 +14,10 @@ export default function BottomCTA() {
                 <GetStarted />
             </div>
 
+            {/* The reassurance lives here, not inside the button: it is the
+                objection ("what's the catch?"), not the action. */}
+            <p className="text-text-subtle mt-3 text-sm">No card required</p>
+
             <div className="h-8" />
 
             {/* The single, vague forward-looking line (plan §8 — no roadmap leak). */}

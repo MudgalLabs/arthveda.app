@@ -30,9 +30,12 @@ const FAQS = [
         q: "Is Arthveda free?",
         a: (
             <>
-                Yes. Arthveda is free forever, with limits. Every feature is
-                usable on the free plan except uploads. When you outgrow the
-                limits, Pro lifts them. See{" "}
+                There is a 14-day free trial, no card required. You get the
+                whole product during it, with no limits. After that you
+                subscribe to keep going. If you don&apos;t, nothing is deleted:
+                your trades, screeners and watchlists stay readable,
+                exportable and shareable, you just can&apos;t add to them until
+                you subscribe. Running screeners stays free for everyone. See{" "}
                 <Link href="/pricing">pricing</Link>.
             </>
         ),
