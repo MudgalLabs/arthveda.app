@@ -65,12 +65,16 @@ export const GetStarted = ({
     if (!noCardNote) return button;
 
     // The note is the objection ("what's the catch?"), not the action, so it
-    // sits under the button rather than inside it. Alignment is inherited so
-    // this works in both centered and left-aligned CTA blocks.
+    // sits under the button rather than inside it, centred on the button.
+    //
+    // `w-fit` is what makes the centring work: without it the wrapper spans
+    // the whole container and the note falls to the container's left edge
+    // instead of under the button. When fullWidth is set the button already
+    // fills its column, so the wrapper matches it.
     return (
-        <div className={cn(fullWidth && "w-full")}>
+        <div className={cn("w-fit", fullWidth && "w-full")}>
             {button}
-            <p className="mt-2 text-sm text-text-subtle">No card required</p>
+            <p className="mt-2 text-center text-sm text-text-subtle">No card required</p>
         </div>
     );
 };

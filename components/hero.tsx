@@ -31,23 +31,33 @@ export default function Hero() {
 
                 <div className="h-9 sm:h-10" />
 
-                <div className="flex flex-wrap items-center gap-3">
+                {/* items-start, not items-center: the primary CTA carries a
+                    note beneath it, so centring would push the ghost button
+                    down against the taller stack instead of keeping the two
+                    buttons level. */}
+                <div className="flex flex-wrap items-start gap-3">
                     {/* Primary, product-level CTA — filled, no icon, sentence
                         case (plan §5 Copy voice). Goes to the app, not the
-                        screener; we never anchor a screener-level CTA. */}
-                    <a
-                        href={APP_URL}
-                        onClick={() =>
-                            posthog.capture("Clicked Get started", {
-                                location: "hero",
-                            })
-                        }
-                        className="unstyled-link"
-                    >
-                        <Button variant="primary" size="large">
-                            Try it free for 14 days
-                        </Button>
-                    </a>
+                        screener; we never anchor a screener-level CTA.
+                        w-fit so the note centres on the button, not on the row. */}
+                    <div className="w-fit">
+                        <a
+                            href={APP_URL}
+                            onClick={() =>
+                                posthog.capture("Clicked Get started", {
+                                    location: "hero",
+                                })
+                            }
+                            className="unstyled-link"
+                        >
+                            <Button variant="primary" size="large">
+                                Try it free for 14 days
+                            </Button>
+                        </a>
+                        <p className="mt-2 text-center text-sm text-text-subtle">
+                            No card required
+                        </p>
+                    </div>
 
                     {/* Secondary ghost link — small chevron for affordance. */}
                     <Link href="#product" className="unstyled-link">
@@ -60,10 +70,6 @@ export default function Hero() {
                     </Link>
                 </div>
 
-                {/* Sits OUTSIDE the CTA row: the row is a flex container, so a
-                    sibling inside it would land beside the buttons instead of
-                    beneath them. */}
-                <p className="mt-3 text-sm text-text-subtle">No card required</p>
             </div>
 
             <div className="h-8 sm:h-10 lg:h-14" />
