@@ -55,13 +55,17 @@ const FAQS = [
         ),
     },
     {
-        q: "Is it only for swing traders?",
+        q: "Does it work for my trading style?",
         a: (
             <>
-                No. It fits any style, intraday included. Swing and positional
-                stock traders just get the most from it, because{" "}
-                <Link href="/product/discover">Discover</Link> is built to
-                surface stocks worth holding.
+                Yes. The{" "}
+                <Link href="/product/journal">Journal</Link> is
+                style-agnostic: intraday, swing, positional, long-term and
+                automated strategies all log, analyse and review the same way,
+                across equity and F&amp;O.{" "}
+                <Link href="/product/discover">Discover</Link> runs on
+                end-of-day data, so it suits traders scanning for the next few
+                days or weeks rather than intraday setups.
             </>
         ),
     },

@@ -88,8 +88,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "How often should I import?",
         a: (
             <>
-                Weekly is a good cadence. Even better: import nightly during a
-                swing-trading week so you tag trades while the reasoning is still
+                Weekly is a good cadence. Even better: import nightly during
+                an active week so you tag trades while the reasoning is still
                 fresh. For history, import the Current FY or Previous FY
                 Tradebook first. After your historical data is in Arthveda, use
                 Zerodha Sync regularly so fresh trades appear without repeating

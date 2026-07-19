@@ -23,7 +23,7 @@ const caveat = Caveat({
 // v2 metadata (plan §1). Center dot `·`, never a pipe. No "free" callout.
 const TITLE = "Trading OS for India · Arthveda";
 const DESCRIPTION =
-    "Built for Indian swing traders: discover stocks, build intelligent watchlists, track their journey with every stock, journal trades, and share their process.";
+    "Built for Indian traders: discover stocks, build intelligent watchlists, track their journey with every stock, journal trades, and share their process.";
 
 // Next 15 wants themeColor in a viewport export, not metadata.
 export const viewport: Viewport = {

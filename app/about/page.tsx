@@ -7,8 +7,8 @@ export default function AboutPage() {
             <h1 className="big-heading mb-12">About</h1>
 
             <p className="mb-4">
-                <strong>Arthveda</strong> is the Trading OS for India, built for
-                swing traders.
+                <strong>Arthveda</strong> is the Trading OS for India, built
+                for serious traders of every style.
             </p>
             <p className="mb-4">
                 It brings together three connected workflows:{" "}

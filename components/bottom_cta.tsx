@@ -18,8 +18,8 @@ export default function BottomCTA() {
 
             {/* The single, vague forward-looking line (plan §8 — no roadmap leak). */}
             <p className="text-text-subtle mx-auto max-w-2xl text-sm leading-relaxed">
-                Built for swing traders today. Growing into a broader workspace
-                for serious Indian traders.
+                One workspace for serious Indian traders. Any style, any
+                instrument, any holding period.
             </p>
         </div>
     );

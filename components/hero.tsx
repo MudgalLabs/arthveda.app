@@ -21,9 +21,11 @@ export default function Hero() {
 
                 <div className="h-6 sm:h-7" />
 
-                {/* Locked subtitle — verbatim from v2_marketing_plan.md §1. */}
+                {/* Subtitle. No holding-period qualifier (2026-07-20): the
+                    differentiation is "India" + "one workspace", never the
+                    trading style. */}
                 <h2 className="font-content text-[15px] leading-[1.6] text-text-muted max-w-2xl">
-                    Built for swing traders to discover stocks, build
+                    Built for Indian traders to discover stocks, build
                     intelligent watchlists, track their journey with every
                     stock, journal trades, and share their process — not just
                     P&amp;L. All from one workspace.

@@ -20,7 +20,7 @@ export default function TermsPage() {
 
             <h2 className="sub-heading">1. Overview</h2>
             <p>
-                Arthveda is a Trading OS for Indian swing traders. It helps
+                Arthveda is a Trading OS for Indian traders. It helps
                 you discover stocks, journal trades, and share your process.
                 New accounts include a 14-day free trial; continued use of
                 the paid features requires a subscription.
