@@ -46,24 +46,36 @@ export default function DiscoverHubPage() {
                 with a divider between them (Linear-style). Containers are spaced
                 evenly, matching the divider-to-first-row gap. */}
             <div className="mt-24 space-y-24">
-                {ROWS.map((pair, ri) => (
-                    <div
-                        key={ri}
-                        className="grid grid-cols-1 divide-y divide-white/[0.14] overflow-hidden rounded-md border border-white/[0.14] md:grid-cols-2 md:divide-x md:divide-y-0"
-                    >
-                        {pair.map((feature) => (
-                            <FeatureCard
-                                key={feature.id}
-                                label={feature.label}
-                                heading={feature.heading}
-                                subheading={feature.subheading}
-                                image={feature.image}
-                                placeholderLabel={feature.placeholderLabel}
-                                priority={ri === 0}
-                            />
-                        ))}
-                    </div>
-                ))}
+                {ROWS.map((pair, ri) => {
+                    // An odd feature count leaves a single card in the last row.
+                    // Center it at half width (md+) so it reads as intentional
+                    // rather than a half-empty two-column box.
+                    const lone = pair.length === 1;
+                    return (
+                        <div
+                            key={ri}
+                            className={
+                                "grid grid-cols-1 overflow-hidden rounded-md border border-white/[0.14] " +
+                                (lone
+                                    ? "md:mx-auto md:w-1/2"
+                                    : "divide-y divide-white/[0.14] md:grid-cols-2 md:divide-x md:divide-y-0")
+                            }
+                        >
+                            {pair.map((feature) => (
+                                <FeatureCard
+                                    key={feature.id}
+                                    label={feature.label}
+                                    heading={feature.heading}
+                                    subheading={feature.subheading}
+                                    image={feature.image}
+                                    placeholderLabel={feature.placeholderLabel}
+                                    aspectClass={feature.aspectClass}
+                                    priority={ri === 0}
+                                />
+                            ))}
+                        </div>
+                    );
+                })}
             </div>
 
             {/* CTA */}

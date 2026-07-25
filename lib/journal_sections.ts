@@ -8,7 +8,10 @@ export interface JournalFeature {
     label: string;
     heading: string;
     subheading: string;
-    image: string;
+    /** Screenshot path, or null to render a placeholder until captured. */
+    image: string | null;
+    /** Short label shown inside the placeholder when `image` is null. */
+    placeholderLabel?: string;
     /** Override the card's frame aspect when the screenshot isn't the default
         16:10 (otherwise `object-cover` clips its edges). */
     aspectClass?: string;
@@ -21,7 +24,7 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         heading: "The leaks you can't see in a P&L.",
         subheading:
             "Arthveda reads your whole journal and names the habits quietly costing you money, each with the rupees behind it, ranked by what hurts most.",
-        image: "/images/product_journal_insights_2.png",
+        image: "/images/product_journal_insights.png",
         // The new Insights shot is 16:9 (more tabs + cards); the default 16:10
         // frame would clip its left/right edges.
         aspectClass: "aspect-[16/9]",
@@ -57,6 +60,16 @@ export const JOURNAL_FEATURES: JournalFeature[] = [
         subheading:
             "Write your reasoning, attach screenshots, and review your decisions, so you learn from every trade, not just the outcome.",
         image: "/images/product_journal_notebook.png",
+    },
+    {
+        id: "trade-analysis",
+        label: "Trade Analysis",
+        heading: "Find out if you sold too early.",
+        subheading:
+            "Every closed trade replayed against the price that followed, so you see how efficiently you held it and how much you left on the table.",
+        image: "/images/product_journal_trade_analysis.png",
+        // Tall (~6:5) shot; the default 16:10 frame would crop the lower cards.
+        aspectClass: "aspect-[6/5]",
     },
     {
         id: "calendar",

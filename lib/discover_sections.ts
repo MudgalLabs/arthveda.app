@@ -16,6 +16,9 @@ export interface DiscoverFeature {
     image: string | null;
     /** Short label shown inside the placeholder when `image` is null. */
     placeholderLabel?: string;
+    /** Override the card's frame aspect when the screenshot isn't the default
+        16:10 (otherwise `object-cover` clips its edges). */
+    aspectClass?: string;
 }
 
 export const DISCOVER_FEATURES: DiscoverFeature[] = [
@@ -26,6 +29,16 @@ export const DISCOVER_FEATURES: DiscoverFeature[] = [
         subheading:
             "Filter every NSE/BSE stock by price, volume, technicals, and breakout signals. Inspect each hit with an inline chart and go from noise to a shortlist fast.",
         image: "/images/product_discover_screener.png",
+    },
+    {
+        id: "market-monitor",
+        label: "Market Monitor",
+        heading: "Read the market before you trade it.",
+        subheading:
+            "See where the money is with heatmaps, sector rotation, and breadth, so you know if the market has your back before you trade.",
+        image: "/images/product_discover_market_monitor.png",
+        // 16:9 shot; the default 16:10 frame would clip its left/right edges.
+        aspectClass: "aspect-[9/5]",
     },
     {
         id: "progressive-scan",

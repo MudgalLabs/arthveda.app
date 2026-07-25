@@ -55,6 +55,29 @@ shipped four surfaces the site says nothing about:
   14-day-trial-then-read-only. Only additive edits (new rows, stale JSON-LD fix).
 - **Build later, in phases.** This doc is the contract.
 
+### Scope update (2026-07-25) — after Phase A shipped
+
+Founder trimmed the remaining scope; these supersede the conflicting parts
+below:
+
+- **Phase C is cancelled.** No `/product/market-monitor` page, no homepage AI
+  band. `/product/ai` stays as the one dedicated page ("everyone wants AI").
+- **Market Monitor = ONE Discover card** (like Insights/Reports, which are also
+  single cards for multi-tab features), one screenshot, <=2 lines. **Recommended
+  showcase shot: the Heatmap** (most instantly legible; Breadth/RRG are the
+  alternatives). No standalone page. The "Is Market Monitor free?" FAQ link
+  keeps pointing at the live app permanently (there is no marketing page to
+  retarget to).
+- **No Charts card** on Discover. So Discover = 5 cards (odd).
+- **Trade Analysis = ONE Journal card**, leaning on holding/exit efficiency.
+- **No AI card on Journal** (it has its own page). So Journal = 9 cards (odd).
+- **Odd card counts** are handled in the hub pages: a lone final card centers at
+  half width (md+) so it reads as intentional.
+- **Phase D (2x screenshot migration) deferred** — separate day.
+
+Net remaining after Phase A: the two cards above (Phase B), built with
+placeholder frames until the two screenshots are captured.
+
 ### Guardrails carried forward (do not drift)
 
 - **Process over P&L.** No hype, tips, signals, get-rich, finfluencer energy.
