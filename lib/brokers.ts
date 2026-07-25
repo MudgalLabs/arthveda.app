@@ -70,7 +70,6 @@ export const BROKERS: Broker[] = [
             { label: "F&O", state: "supported" },
         ],
         importTypes: ["auto"],
-        isComingSoon: true,
         landingPath: "/brokers/dhan",
     },
     {

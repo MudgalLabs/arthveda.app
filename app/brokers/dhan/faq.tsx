@@ -12,22 +12,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "What can Arthveda do with my Dhan trades?",
         a: (
             <>
-                Once Dhan sync is live, Arthveda connects to your Dhan account,
-                pulls your trades, groups executions into trades, calculates
-                after-charges PnL, and gives you a dashboard, trade list,
-                journal notes, tags, insights, and reports.
-            </>
-        ),
-    },
-    {
-        q: "When will Dhan support be available?",
-        a: (
-            <>
-                It&apos;s coming soon. The integration is built and in final
-                testing. In the meantime you can start journaling today with
-                Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, or
-                INDmoney, and your Dhan trades will slot into the same journal
-                the moment sync goes live.
+                Arthveda connects to your Dhan account, pulls your trades, groups
+                executions into trades, calculates after-charges PnL, and gives
+                you a dashboard, trade list, journal notes, tags, insights, and
+                reports.
             </>
         ),
     },
@@ -59,9 +47,9 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         a: (
             <>
                 Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS,
-                Kotak Securities, and INDmoney, with Dhan on the way. Import from
-                each and the journal aggregates across all of them so you see
-                your real performance picture.
+                Kotak Securities, INDmoney, and Dhan. Import from each and the
+                journal aggregates across all of them so you see your real
+                performance picture.
             </>
         ),
     },
@@ -94,6 +82,17 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 transaction charges are computed from the standard Dhan rate
                 card. The PnL Arthveda shows you is after charges, which is the
                 only PnL that actually matters.
+            </>
+        ),
+    },
+    {
+        q: "How often should I sync?",
+        a: (
+            <>
+                Weekly is a good cadence, and nightly during an active week is
+                better, so you tag trades while the reasoning is still fresh.
+                Your first sync pulls your full history; after that a single
+                click keeps the journal current.
             </>
         ),
     },

@@ -11,7 +11,6 @@ import LitMedia from "@/components/lit_media";
 import { SegmentChips } from "@/components/segment_chips";
 import { BROKERS } from "@/lib/brokers";
 import { BROKER_ACCOUNTS_URL } from "@/lib/links";
-import { Tag } from "@/ui/tag";
 import DhanFAQ from "./faq";
 
 const DHAN = BROKERS.find((b) => b.name === "Dhan")!;
@@ -19,12 +18,12 @@ const DHAN = BROKERS.find((b) => b.name === "Dhan")!;
 export const metadata: Metadata = {
     title: "Trading Journal for Dhan Users: Sync Your Trades into Real Insights · Arthveda",
     description:
-        "Dhan sync is coming to Arthveda. Connect your Dhan account and pull today's and historical trades into a journal with performance analytics, insights, reports, tags, and notes. No file uploads.",
+        "Connect your Dhan account and pull today's and historical trades into a journal with performance analytics, insights, reports, tags, and notes. No file uploads.",
     alternates: { canonical: "/brokers/dhan" },
     openGraph: {
         title: "Trading Journal for Dhan Users: Sync Your Trades into Real Insights",
         description:
-            "Dhan sync is coming to Arthveda. Connect your Dhan account and pull today's and historical trades into a journal with performance analytics, insights, reports, tags, and notes. No file uploads.",
+            "Connect your Dhan account and pull today's and historical trades into a journal with performance analytics, insights, reports, tags, and notes. No file uploads.",
         url: "https://arthveda.app/brokers/dhan",
         type: "article",
         images: [
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Trading Journal for Dhan Users: Sync Your Trades into Real Insights",
         description:
-            "Dhan sync is coming to Arthveda. Connect your Dhan account and pull today's and historical trades into a journal with performance analytics, insights, reports, tags, and notes. No file uploads.",
+            "Connect your Dhan account and pull today's and historical trades into a journal with performance analytics, insights, reports, tags, and notes. No file uploads.",
         images: ["/images/og-image.jpg"],
     },
 };
@@ -51,11 +50,7 @@ export const metadata: Metadata = {
 const FAQ_SCHEMA = [
     {
         q: "What can Arthveda do with my Dhan trades?",
-        a: "Once Dhan sync is live, Arthveda connects to your Dhan account, pulls your trades, groups executions into trades, calculates after-charges PnL, and gives you a dashboard, trade list, journal notes, tags, insights, and reports.",
-    },
-    {
-        q: "When will Dhan support be available?",
-        a: "It's coming soon. The integration is built and in final testing. In the meantime you can start journaling today with Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, or INDmoney, and your Dhan trades will slot into the same journal the moment sync goes live.",
+        a: "Arthveda connects to your Dhan account, pulls your trades, groups executions into trades, calculates after-charges PnL, and gives you a dashboard, trade list, journal notes, tags, insights, and reports.",
     },
     {
         q: "Is it a file upload or a sync?",
@@ -67,7 +62,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
-        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, and INDmoney, with Dhan on the way. Import from each and the journal aggregates across all of them so you see your real performance picture.",
+        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney, and Dhan. Import from each and the journal aggregates across all of them so you see your real performance picture.",
     },
     {
         q: "Will my trades be public?",
@@ -80,6 +75,10 @@ const FAQ_SCHEMA = [
     {
         q: "What about charges?",
         a: "Brokerage, STT, GST, stamp duty, SEBI charges, and exchange transaction charges are computed from the standard Dhan rate card. The PnL Arthveda shows you is after charges, which is the only PnL that actually matters.",
+    },
+    {
+        q: "How often should I sync?",
+        a: "Weekly is a good cadence, and nightly during an active week is better, so you tag trades while the reasoning is still fresh. Your first sync pulls your full history; after that a single click keeps the journal current.",
     },
 ];
 
@@ -121,22 +120,19 @@ export default function DhanLandingPage() {
 
             <section className="pt-12 md:pt-16 lg:pt-20">
                 <div>
-                    <div className="flex items-center gap-3">
-                        <FamilyLabel name="Brokers" Icon={Plug} />
-                        <Tag size="small">Coming soon</Tag>
-                    </div>
+                    <FamilyLabel name="Brokers" Icon={Plug} />
                     <h1 className="mt-5 max-w-4xl text-balance font-heading text-[40px] font-medium leading-[1.04] tracking-[-0.025em] text-text-primary sm:text-[52px] lg:max-w-none lg:text-[60px]">
                         Sync your Dhan trades into a trading journal you can
                         actually learn from.
                     </h1>
                     <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
                         Dhan gives you trades. Arthveda gives you insights and
-                        analytics. Dhan sync is coming soon: connect your account
-                        once and a single click pulls today&apos;s and your full
-                        historical trades into a journal with performance
-                        analytics, insights that tell you where and why you lose
-                        or make money, and a trade-level feedback loop. No file
-                        to export, no monthly download ritual.
+                        analytics. Connect your account once and a single click
+                        pulls today&apos;s and your full historical trades into a
+                        journal with performance analytics, insights that tell
+                        you where and why you lose or make money, and a
+                        trade-level feedback loop. No file to export, no monthly
+                        download ritual.
                     </p>
                     <p className="mt-4 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
                         A P&amp;L statement is what your accountant needs. A
@@ -150,10 +146,8 @@ export default function DhanLandingPage() {
                             href={APP_BROKER_ACCOUNTS_URL}
                         />
                     </div>
-                    <p className="mt-4 max-w-2xl font-content text-[15px] leading-6 text-text-muted">
-                        Dhan sync is landing soon. Start today with any supported
-                        broker and your Dhan trades will join the same journal
-                        the moment it goes live.{" "}
+                    <p className="mt-4 font-content text-[15px] leading-6 text-text-muted">
+                        Not on Dhan?{" "}
                         <Link href="/brokers" className={INLINE_LINK}>
                             See all supported brokers
                         </Link>
@@ -211,9 +205,9 @@ export default function DhanLandingPage() {
                     <section className="space-y-5">
                         <p className={P}>
                             If you trade on Dhan and your history lives inside the
-                            app, this guide shows how Arthveda will turn that
-                            trade stream into a journal you can actually learn
-                            from, no exports required.
+                            app, this guide shows how Arthveda turns that trade
+                            stream into a journal you can actually learn from, no
+                            exports required.
                         </p>
                         <p className={P}>
                             You have a couple of hundred trades sitting in your
@@ -295,7 +289,7 @@ export default function DhanLandingPage() {
                         id="sync-flow"
                         className="scroll-mt-28 space-y-5"
                     >
-                        <h2 className={H2}>How the Dhan sync will work</h2>
+                        <h2 className={H2}>How the Dhan sync works</h2>
                         <div className="space-y-6">
                             <Step
                                 n="1"
@@ -349,8 +343,7 @@ export default function DhanLandingPage() {
                         <p className={P}>
                             No spreadsheets, no monthly export ritual. After the
                             first sync you just click Sync whenever you want fresh
-                            trades in the journal. Dhan sync is in final testing
-                            and rolling out soon.
+                            trades in the journal.
                         </p>
                         <div className="pt-2">
                             <GetStarted
@@ -503,7 +496,8 @@ export default function DhanLandingPage() {
 
             <div className="mx-auto mt-20 max-w-3xl rounded-lg border border-white/[0.12] bg-surface-1/35 px-6 py-10 text-center md:mt-24">
                 <h2 className="mx-auto max-w-2xl text-balance font-heading text-[28px] font-medium leading-tight tracking-[-0.015em] text-text-primary sm:text-[34px]">
-                    Dhan sync is coming soon. Start your journal today.
+                    Sync your Dhan trades into a journal you can actually learn
+                    from.
                 </h2>
                 <div className="h-6" />
                 <div className="mx-auto w-fit">

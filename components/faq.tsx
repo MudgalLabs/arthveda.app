@@ -77,7 +77,7 @@ const FAQS = [
                 Yes. Log trades manually, or pull them in automatically with
                 Broker Sync. SEBI requires brokers to log you out every morning,
                 so a synced setup needs a quick login to your broker once a day.
-                Broker Sync supports Zerodha today, with more{" "}
+                Broker Sync supports Zerodha and Dhan today, with more{" "}
                 <Link href="/brokers">brokers</Link> planned.
             </>
         ),
