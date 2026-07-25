@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { cn } from "@/lib/utils";
+
 interface FeatureCardProps {
     id?: string;
     label: string;
@@ -15,6 +17,10 @@ interface FeatureCardProps {
         doesn't clip its edges (e.g. a 16:9 shot would lose its left/right on the
         default 16:10 frame). */
     aspectClass?: string;
+    /** Extra classes merged onto the <Image> (via cn/tailwind-merge, so they win
+        over the defaults). Use to re-anchor or zoom a specific screenshot, e.g.
+        `object-left-top origin-top-left scale-[1.2]`. */
+    imageClassName?: string;
 }
 
 // Fade the screenshot into the page background on every edge so it dissolves
@@ -37,6 +43,7 @@ export default function FeatureCard({
     placeholderLabel,
     priority = false,
     aspectClass = "aspect-[16/10]",
+    imageClassName,
 }: FeatureCardProps) {
     return (
         <div id={id} className="group flex scroll-mt-28 flex-col px-4 pb-4 pt-2.5 md:min-h-[calc(100svh-10rem)] md:p-6">
@@ -70,7 +77,10 @@ export default function FeatureCard({
                                     quality={90}
                                     sizes="(max-width: 768px) 100vw, 660px"
                                     priority={priority}
-                                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+                                    className={cn(
+                                        "object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none",
+                                        imageClassName
+                                    )}
                                 />
                             </div>
 

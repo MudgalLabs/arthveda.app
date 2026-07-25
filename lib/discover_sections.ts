@@ -19,6 +19,8 @@ export interface DiscoverFeature {
     /** Override the card's frame aspect when the screenshot isn't the default
         16:10 (otherwise `object-cover` clips its edges). */
     aspectClass?: string;
+    /** Extra classes merged onto the <Image> (re-anchor / zoom a screenshot). */
+    imageClassName?: string;
 }
 
 export const DISCOVER_FEATURES: DiscoverFeature[] = [
@@ -39,6 +41,10 @@ export const DISCOVER_FEATURES: DiscoverFeature[] = [
         image: "/images/product_discover_market_monitor.png",
         // 16:9 shot; the default 16:10 frame would clip its left/right edges.
         aspectClass: "aspect-[9/5]",
+        // Pin top-left and zoom in 1.3x so the heatmap tiles read larger, with
+        // a gentle hover nudge to 1.35. origin-top-left keeps the corner fixed.
+        imageClassName:
+            "object-left-top origin-top-left scale-[1.3] group-hover:scale-[1.35]",
     },
     {
         id: "progressive-scan",

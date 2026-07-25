@@ -70,6 +70,7 @@ export default function DiscoverHubPage() {
                                     image={feature.image}
                                     placeholderLabel={feature.placeholderLabel}
                                     aspectClass={feature.aspectClass}
+                                    imageClassName={feature.imageClassName}
                                     priority={ri === 0}
                                 />
                             ))}
