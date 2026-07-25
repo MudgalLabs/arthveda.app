@@ -34,7 +34,7 @@ export const FAMILIES: ProductFamily[] = [
         key: "discover",
         name: "Discover",
         tagline: "Find ideas. Track what happens next.",
-        blurb: "Screen the whole NSE/BSE, combine scans into real signal, and save ideas to watchlists that track how each one plays out.",
+        blurb: "Screen the whole NSE/BSE, read the market with heatmaps, breadth and sector rotation, and save ideas to watchlists that track how each one plays out.",
         ctaLabel: "Explore Discover",
         href: "/product/discover",
         image: "/images/v2/product-discover.png",

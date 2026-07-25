@@ -15,7 +15,7 @@ const FEATURES = [
     {
         id: "insights",
         title: "Insights",
-        image: "/images/product_journal_insights.png",
+        image: "/images/product_journal_insights_2.png",
         blurb: "The patterns behind your wins, losses, timing, and mistakes.",
     },
     {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { MARKET_MONITOR_URL } from "@/lib/links";
 
 const FAQS = [
     {
@@ -78,6 +79,44 @@ const FAQS = [
                 so a synced setup needs a quick login to your broker once a day.
                 Broker Sync supports Zerodha today, with more{" "}
                 <Link href="/brokers">brokers</Link> planned.
+            </>
+        ),
+    },
+    {
+        q: "Can I connect Claude or another AI to my trading?",
+        a: (
+            <>
+                Yes. Create an API key in your settings and{" "}
+                <Link href="/product/ai">
+                    connect Claude, Codex, or any AI assistant
+                </Link>
+                , then ask your journal questions in plain English. It is
+                read-only: it reads your journal and never changes it. Your
+                written notes stay private unless you opt them in.
+            </>
+        ),
+    },
+    {
+        q: "Is Market Monitor free?",
+        a: (
+            <>
+                Yes, and you don&apos;t even need an account to look. Heatmaps,
+                sector rotation, market breadth, and the risk-on / risk-off
+                regime are open to everyone. It runs on end-of-day data, updated
+                after the close.{" "}
+                <a href={MARKET_MONITOR_URL}>Open Market Monitor</a>.
+            </>
+        ),
+    },
+    {
+        q: "Can it tell me if I exited a trade too early?",
+        a: (
+            <>
+                Yes. <Link href="/product/journal">Trade Analysis</Link> replays
+                every closed trade against the price that came after it and
+                shows how much of the move you captured and how much was still
+                on the table after you exited. The honest answer, from the
+                chart, not your memory.
             </>
         ),
     },

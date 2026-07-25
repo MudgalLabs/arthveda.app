@@ -32,9 +32,9 @@ export default function DiscoverHubPage() {
                     Find ideas. Track what happens next.
                 </h1>
                 <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
-                    Scan the whole market, save ideas with the reason you
-                    added them, and keep the full history of every stock you
-                    track.
+                    Scan the whole market, read the broader market before you
+                    commit, save ideas with the reason you added them, and keep
+                    the full history of every stock you track.
                 </p>
             </section>
 

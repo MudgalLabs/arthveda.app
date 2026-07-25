@@ -58,6 +58,7 @@ export default function JournalHubPage() {
                                 heading={feature.heading}
                                 subheading={feature.subheading}
                                 image={feature.image}
+                                aspectClass={feature.aspectClass}
                                 priority={ri === 0}
                             />
                         ))}

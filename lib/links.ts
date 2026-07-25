@@ -25,6 +25,20 @@ export const PROFILE_URL = IS_DEV
     ? "http://localhost:6969/profile"
     : "https://arthveda.app/profile";
 
+// Market Monitor — a FREE, anon-readable app surface (heatmaps, sector rotation,
+// breadth, FII/DII). Like the Screener, it's a top-of-funnel front door the
+// marketing site deep-links OUT to (no login required to look).
+export const MARKET_MONITOR_URL = IS_DEV
+    ? "http://localhost:6969/market-monitor"
+    : "https://arthveda.app/market-monitor";
+
+// AI / MCP setup — the API-keys settings page where a user creates a key to
+// connect Claude / Codex / any MCP client. The /product/ai marketing page's CTA
+// points here.
+export const AI_SETUP_URL = IS_DEV
+    ? "http://localhost:6969/settings/api-keys"
+    : "https://arthveda.app/settings/api-keys";
+
 // Broker accounts / connect page -- the broker setup guides deep-link here.
 export const BROKER_ACCOUNTS_URL = IS_DEV
     ? "http://localhost:6969/accounts"

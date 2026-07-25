@@ -43,6 +43,12 @@ export const metadata: Metadata = {
         "trading journal India",
         "trading watchlist",
         "trader profile",
+        "market breadth India",
+        "sector rotation RRG",
+        "Nifty heatmap",
+        "connect AI to trading journal",
+        "Claude trading journal",
+        "MCP trading",
     ],
 
     alternates: {
@@ -104,7 +110,7 @@ export default function RootLayout({
                             url: "https://arthveda.app",
                             offers: {
                                 "@type": "Offer",
-                                price: "399",
+                                price: "2499",
                                 priceCurrency: "INR",
                             },
                         }),

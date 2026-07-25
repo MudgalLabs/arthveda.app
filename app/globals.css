@@ -310,7 +310,10 @@ select:-webkit-autofill:focus {
     @apply font-heading text-text-primary mx-auto text-center text-[44px] sm:text-5xl md:text-7xl font-semibold leading-tight;
 }
 @utility section-header {
-    @apply big-heading font-heading text-text-primary;
+    /* text-balance evens out the wrapped lines so a short trailing word never
+       gets stranded on its own line (e.g. "Ready to talk to your journal?"
+       wraps to "…to your" / "journal?" instead of orphaning "journal?"). */
+    @apply big-heading font-heading text-text-primary text-balance;
 }
 @utility section-detail {
     @apply text-base sm:text-2xl text-text-muted max-w-3xl mx-auto;

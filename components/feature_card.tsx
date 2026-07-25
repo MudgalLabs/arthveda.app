@@ -10,6 +10,11 @@ interface FeatureCardProps {
     /** Short label shown inside the placeholder when `image` is null. */
     placeholderLabel?: string;
     priority?: boolean;
+    /** Frame aspect ratio. Defaults to 16:10, which fits most tight crops. A
+        card whose screenshot is a different shape overrides this so `object-cover`
+        doesn't clip its edges (e.g. a 16:9 shot would lose its left/right on the
+        default 16:10 frame). */
+    aspectClass?: string;
 }
 
 // Fade the screenshot into the page background on every edge so it dissolves
@@ -31,6 +36,7 @@ export default function FeatureCard({
     image,
     placeholderLabel,
     priority = false,
+    aspectClass = "aspect-[16/10]",
 }: FeatureCardProps) {
     return (
         <div id={id} className="group flex scroll-mt-28 flex-col px-4 pb-4 pt-2.5 md:min-h-[calc(100svh-10rem)] md:p-6">
@@ -44,7 +50,7 @@ export default function FeatureCard({
                 from the eyebrow (the eyebrow itself sits close to the top edge);
                 on md+ the image is vertically centered in the tall card. */}
             <div className="mt-6 flex flex-1 items-center md:mt-0">
-                <div className="relative aspect-[16/10] w-full">
+                <div className={`relative ${aspectClass} w-full`}>
                     {image ? (
                         <>
                             {/* Masked image — fades into the background on all edges. */}

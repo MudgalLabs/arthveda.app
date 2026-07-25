@@ -44,6 +44,11 @@ const GROUPS: Group[] = [
                 tooltip:
                     "Free for everyone, forever, signed in or not. Saving one to your workspace is what needs a subscription.",
             },
+            {
+                label: "Market Monitor",
+                tooltip:
+                    "Sector and index heatmaps, sector rotation, market breadth and the risk-on/risk-off regime. Free for everyone, signed in or not.",
+            },
             { label: "Unlimited saved screeners" },
             { label: "Publish, clone and star screeners" },
             {
@@ -75,7 +80,17 @@ const GROUPS: Group[] = [
             {
                 label: "Dashboard, Insights, Reports and Calendar",
                 tooltip:
-                    "The setups and mistakes that consistently make or cost you money, with drill-down by setup, instrument, broker, weekday and hold time.",
+                    "Insights names your behavioural leaks (cutting winners early, revenge-sizing, overtrading, exit quality, costs) with the money behind each, ranked by what hurts most. Plus drill-down by setup, instrument, broker, weekday and hold time.",
+            },
+            {
+                label: "Trade Analysis",
+                tooltip:
+                    "Every closed trade replayed against the price that followed it: the heat you sat through, how much of the move you captured, and what was left on the table after you exited.",
+            },
+            {
+                label: "Arthveda MCP: connect Claude, Codex, or any AI",
+                tooltip:
+                    "Read-only access for your AI assistant to your trades, tags and notes, so you can ask your journal questions in plain English. Notes are opt-in.",
             },
             {
                 label: "Notebook on every trade",

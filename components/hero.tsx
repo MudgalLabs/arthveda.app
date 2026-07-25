@@ -72,6 +72,25 @@ export default function Hero() {
                     </Link>
                 </div>
 
+                <div className="h-6 sm:h-7" />
+
+                {/* AI hook — a quiet link under the CTAs (not a second headline;
+                    the locked subtitle above stays verbatim). No leading icon, so
+                    it aligns flush-left with the title/subtitle on every screen;
+                    standard link styling (text-link + underline on hover, from the
+                    global `a` rule). Full pitch on /product/ai. */}
+                <Link
+                    href="/product/ai"
+                    onClick={() =>
+                        posthog.capture("Clicked AI hero link", {
+                            location: "hero",
+                        })
+                    }
+                >
+                    Arthveda MCP: connect an AI assistant to your journal and
+                    learn more about yourself and your trading.
+                </Link>
+
             </div>
 
             <div className="h-8 sm:h-10 lg:h-14" />

@@ -9,16 +9,22 @@ export interface JournalFeature {
     heading: string;
     subheading: string;
     image: string;
+    /** Override the card's frame aspect when the screenshot isn't the default
+        16:10 (otherwise `object-cover` clips its edges). */
+    aspectClass?: string;
 }
 
 export const JOURNAL_FEATURES: JournalFeature[] = [
     {
         id: "insights",
         label: "Insights",
-        heading: "See what's actually hurting your trading.",
+        heading: "The leaks you can't see in a P&L.",
         subheading:
-            "See why you lose money and what to change. Improve with clarity, not intuition.",
-        image: "/images/product_journal_insights.png",
+            "Arthveda reads your whole journal and names the habits quietly costing you money, each with the rupees behind it, ranked by what hurts most.",
+        image: "/images/product_journal_insights_2.png",
+        // The new Insights shot is 16:9 (more tabs + cards); the default 16:10
+        // frame would clip its left/right edges.
+        aspectClass: "aspect-[16/9]",
     },
     {
         id: "dashboard",
