@@ -8,7 +8,7 @@ export default function TermsPage() {
             <h1 className="big-heading mb-12">Terms of Service</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> July 20, 2026
+                <strong>Effective Date:</strong> August 26, 2026
             </p>
 
             <p>Welcome to Arthveda!</p>
@@ -75,7 +75,40 @@ export default function TermsPage() {
                 .
             </p>
 
-            <h2 className="sub-heading mt-4">3. Your Responsibilities</h2>
+            <h2 className="sub-heading mt-4">3. No Investment Advice</h2>
+            <p>
+                Arthveda is a trade journal and analytics tool. It is not an
+                investment adviser, research analyst or broker, and it is not
+                registered with SEBI or any other financial regulator.
+            </p>
+            <p>
+                Nothing Arthveda shows you is investment advice, a buy, sell or
+                hold recommendation, a trade signal, a target or stop-loss
+                level, or a suggestion of what to trade. Screeners return the
+                stocks that match the filters you select, using publicly
+                available price and volume data. Screener templates published
+                by Arthveda are saved combinations of standard technical
+                filters that you can run, edit and reject. The dashboard,
+                reports and insights describe trades you have already taken,
+                using data you imported or synced. Arthveda does not place
+                orders, does not route orders to any broker, and offers no
+                copy-trading or automated trading. Broker connections are
+                read-only and are used solely to import your executed trades.
+            </p>
+            <p>
+                Content published by other users, including public trader
+                profiles and shared positions, is their own and is not
+                reviewed, endorsed or verified as advice by Arthveda. Market
+                data may be delayed, incomplete or inaccurate, and past
+                performance is not a guarantee of future results. You make
+                your own trading decisions, and you are solely responsible for
+                them and for any resulting profit or loss. Trading in
+                securities and derivatives carries substantial risk of loss.
+                Consider consulting a SEBI-registered adviser before making
+                investment decisions.
+            </p>
+
+            <h2 className="sub-heading mt-4">4. Your Responsibilities</h2>
             <ul>
                 <li>
                     You agree to use Arthveda in compliance with all applicable
@@ -91,14 +124,14 @@ export default function TermsPage() {
                 </li>
             </ul>
 
-            <h2 className="sub-heading mt-4">4. Data Ownership</h2>
+            <h2 className="sub-heading mt-4">5. Data Ownership</h2>
             <p>
                 You own the trade data you import into Arthveda. We do not claim
                 ownership and will never share it without your consent. You can
                 export your data at any time (if the feature is supported).
             </p>
 
-            <h2 className="sub-heading mt-4">5. Service Availability</h2>
+            <h2 className="sub-heading mt-4">6. Service Availability</h2>
             <p>
                 We aim to keep the platform stable and accessible, but make
                 no uptime or data-retention guarantees. Features may change
@@ -107,19 +140,19 @@ export default function TermsPage() {
                 access (including One-time) ends.
             </p>
 
-            <h2 className="sub-heading mt-4">6. Termination</h2>
+            <h2 className="sub-heading mt-4">7. Termination</h2>
             <p>
                 You can stop using Arthveda anytime. We may suspend or terminate
                 accounts that abuse the system or violate these terms.
             </p>
 
-            <h2 className="sub-heading mt-4">7. Changes to These Terms</h2>
+            <h2 className="sub-heading mt-4">8. Changes to These Terms</h2>
             <p>
                 We may update these Terms of Service over time. Continued use
                 after changes means you accept the updated terms.
             </p>
 
-            <h2 className="sub-heading mt-4">8. Contact</h2>
+            <h2 className="sub-heading mt-4">9. Contact</h2>
             <p>
                 For questions or feedback,{" "}
                 <ChatLink className="text-base!">chat with me</ChatLink> using

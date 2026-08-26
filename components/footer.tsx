@@ -63,6 +63,19 @@ export default function Footer() {
                     <Link href="/contact">Contact</Link>
                 </div>
             </div>
+
+            <p className="text-xs text-text-muted mt-10 max-w-4xl">
+                <strong className="text-xs!">Disclaimer:</strong> Arthveda is a
+                trade journal and analytics tool. It is not an investment
+                adviser and is not registered with SEBI. Nothing on Arthveda is
+                investment advice, a buy, sell or hold recommendation, or a
+                trade signal. Screeners return whatever matches the filters you
+                choose, and the analytics describe trades you have already
+                taken. Every trading decision is yours alone, and you are
+                solely responsible for it. Market data may be delayed or
+                inaccurate, and past performance is not a guarantee of future
+                results.
+            </p>
         </footer>
     );
 }
