@@ -421,9 +421,10 @@ states; keep framing consistent with the Journal cards.
 > accounts: it hands us distribution rather than the user product value.
 > All of Social stays free for every account, as before.
 >
-> **We sell YEARLY (₹2,499) and ONE-TIME (₹4,999) only.** Monthly (₹399) is
-> retired from all UI; the Paddle price survives for legacy subscribers and
-> support only. The interval toggle is gone (two visible plans need no
+> **We sell YEARLY (₹2,999) and ONE-TIME (₹6,999) only.** (Amounts raised
+> 2026-08-28 from ₹2,499 / ₹4,999; the structure below is unchanged.) Monthly
+> (₹499) is retired from all UI; the Paddle price survives for legacy
+> subscribers and support only. The interval toggle is gone (two visible plans need no
 > toggle), and so is the "save ~48%" pill: it was measured against a price we
 > no longer sell. 14-day money-back on both plans; GST-inclusive convention
 > from 2026-07-05 still stands.

@@ -110,7 +110,7 @@ export default function RootLayout({
                             url: "https://arthveda.app",
                             offers: {
                                 "@type": "Offer",
-                                price: "2499",
+                                price: "2999",
                                 priceCurrency: "INR",
                             },
                         }),

@@ -8,7 +8,7 @@ import { CurrencyCode } from "@/lib/utils";
 //
 // Structure as of 2026-07-20: 14-day free trial (no card), then the workspace
 // goes read-only until you subscribe. We sell YEARLY and ONE-TIME only.
-// Monthly (₹399) still exists as a Paddle price for legacy subscribers and
+// Monthly (₹499) still exists as a Paddle price for legacy subscribers and
 // support, but it is never displayed — which is also why the old "save X% with
 // yearly" figure is gone: a saving measured against a price we don't sell
 // would be a false claim.
@@ -31,10 +31,11 @@ interface PricingInfo {
 }
 
 export function usePricing(): PricingInfo {
-    const yearlyPrice = 2499;
-    // One-time is a standing plan priced at ~2× yearly — deliberately close
-    // enough that "I'll trade for years anyway, pay once" is an easy yes.
-    const oneTimePrice = 4999;
+    const yearlyPrice = 2999;
+    // One-time is a standing plan priced a little over 2× yearly —
+    // deliberately close enough that "I'll trade for years anyway, pay once"
+    // is an easy yes.
+    const oneTimePrice = 6999;
     const currency: CurrencyCode = "inr";
 
     return {
