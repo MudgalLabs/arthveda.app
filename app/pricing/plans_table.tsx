@@ -97,7 +97,7 @@ const GROUPS: Group[] = [
                 tooltip:
                     "Per-trade reflection: what you saw, what you did, what you'd do differently.",
             },
-            { label: "Unlimited broker accounts" },
+            { label: "Up to 10 broker accounts" },
             {
                 label: "Broker sync and file import",
                 tooltip:
