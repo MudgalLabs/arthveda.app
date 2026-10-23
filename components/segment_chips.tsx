@@ -54,7 +54,7 @@ function SegmentChip({
     segment: BrokerSegment;
     size: "default" | "small";
 }) {
-    const { label, state } = segment;
+    const { label, state, detail } = segment;
     const iconSize = size === "small" ? 12 : 14;
 
     // Underlyings clarify what a segment we actually ingest covers. On-request
@@ -63,7 +63,10 @@ function SegmentChip({
         <span>
             {label}
             {state !== "on-request" && (
-                <span className="opacity-70"> · {SEGMENT_DETAIL[label]}</span>
+                <span className="opacity-70">
+                    {" · "}
+                    {detail ?? SEGMENT_DETAIL[label]}
+                </span>
             )}
             {state === "manual" && " · log manually"}
             {state === "on-request" && " · on request"}

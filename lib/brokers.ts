@@ -21,6 +21,9 @@ export type SegmentLabel = "Cash" | "F&O" | "Options" | "Futures";
 export interface BrokerSegment {
     label: SegmentLabel;
     state: SegmentState;
+    /** Overrides SEGMENT_DETAIL when a broker covers fewer underlyings than the
+        segment usually does (Groww's API has no MCX, so no commodity F&O). */
+    detail?: string;
 }
 
 export interface Broker {
@@ -73,6 +76,19 @@ export const BROKERS: Broker[] = [
         landingPath: "/brokers/dhan",
     },
     {
+        name: "Definedge",
+        svg: "/svgs/icons/definedge.svg",
+        icon: "/svgs/icons/definedge.svg",
+        homepage: "https://www.definedgesecurities.com/",
+        instruments: ["equity", "futures", "options"],
+        segments: [
+            { label: "Cash", state: "supported" },
+            { label: "F&O", state: "supported" },
+        ],
+        importTypes: ["today"],
+        landingPath: "/brokers/definedge",
+    },
+    {
         name: "FYERS",
         svg: "/svgs/fyers.svg",
         icon: "/svgs/icons/fyers.svg",
@@ -91,12 +107,12 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/groww.svg",
         icon: "/svgs/icons/groww.svg",
         homepage: "https://groww.in/",
-        instruments: ["equity"],
+        instruments: ["equity", "futures", "options"],
         segments: [
             { label: "Cash", state: "supported" },
-            { label: "F&O", state: "manual" },
+            { label: "F&O", state: "supported", detail: "index, stocks" },
         ],
-        importTypes: ["file"],
+        importTypes: ["today", "file"],
         landingPath: "/brokers/groww",
     },
     {
@@ -137,7 +153,7 @@ export const BROKERS: Broker[] = [
             { label: "Options", state: "supported" },
             { label: "Futures", state: "on-request" },
         ],
-        importTypes: ["file"],
+        importTypes: ["today", "file"],
         landingPath: "/brokers/upstox",
     },
     {

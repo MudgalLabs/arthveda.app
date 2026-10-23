@@ -203,7 +203,7 @@ function RequestLink({ label }: { label: string }) {
 // states as <SegmentChips>, but de-pilled so several rows stack quietly. See
 // SegmentState in lib/brokers.ts for what each state means.
 function SegmentRow({ segment }: { segment: BrokerSegment }) {
-    const { label, state } = segment;
+    const { label, state, detail } = segment;
 
     if (state === "supported") {
         return (
@@ -213,7 +213,7 @@ function SegmentRow({ segment }: { segment: BrokerSegment }) {
                     {label}
                     <span className="text-text-subtle">
                         {" · "}
-                        {SEGMENT_DETAIL[label]}
+                        {detail ?? SEGMENT_DETAIL[label]}
                     </span>
                 </span>
             </li>

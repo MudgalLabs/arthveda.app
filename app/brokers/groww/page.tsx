@@ -54,15 +54,15 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for Groww?",
-        a: "Not through the import. Groww only lets you export equity (your Stock Order History), so that is all Arthveda can pull in. The journal itself handles everything: equity, crypto, and F&O across stock, index, and commodity. You can log your Groww F&O trades by hand, or import F&O from a broker that exports it. The one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes, through Sync. Groww only lets you export equity (your Stock Order History), so the file import brings in stocks. Broker Sync pulls both stocks and F&O, so from the day you connect, your Groww F&O trades come in too. Older F&O trades can be logged by hand. The one stock-only surface is the screener (NSE/BSE equities).",
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for Groww. Export your Stock Order History (XLSX or CSV) from Groww and import it into Arthveda. Groww doesn't offer trade sync yet, so to add fresh trades later you export a new Stock Order History for the recent date range and import it again.",
+        a: "Both, for Groww. Import your Stock Order History (XLSX or CSV) once for your history. After that, connect your Groww Trading API key inside Arthveda and use Sync to pull today's trades with one click. Groww asks you to approve access once a day, and its Trading API needs an active subscription on your Groww account.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
-        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney, and Dhan. Import from each and the journal aggregates across all of them so you see your real performance picture.",
+        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney, Dhan, and Definedge. Import from each and the journal aggregates across all of them so you see your real performance picture.",
     },
     {
         q: "Will my trades be public?",
@@ -78,7 +78,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to export your Stock Order History every weekend and tag the week's trades while the reasoning is still fresh. Since Groww has no sync, just export the new date range since your last import and upload it again.",
+        a: "Import your history once, then Sync each trading day. Sync pulls only today's trades, so a quick Sync after the close keeps your journal current. A good habit is to tag the day's trades right then, while the reasoning is still fresh. If you miss a few days, export that date range and upload it.",
     },
 ];
 
@@ -348,11 +348,11 @@ export default function GrowwLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            Groww doesn&apos;t offer trade sync yet, so when you
-                            want to add fresh trades, export a new Stock Order
-                            History for the date range since your last import
-                            and upload it again. Same five clicks, no
-                            spreadsheet.
+                            Once your history is imported, use Groww Sync for
+                            the future: connect your Groww Trading API key,
+                            approve access on Groww when Arthveda asks, then one
+                            click pulls today&apos;s trades, F&amp;O included,
+                            into the same journal.
                         </p>
                         <div className="pt-2">
                             <GetStarted

@@ -58,11 +58,11 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for Upstox. Download your trade report (XLSX) from the Upstox Reports section and import it into Arthveda. Upstox doesn't offer trade sync yet, so to add fresh trades later you download a new report for the recent date range and import it again.",
+        a: "Both, for Upstox. Import your trade report (XLSX) from the Upstox Reports section once for your history. After that, connect your own Upstox API app inside Arthveda and use Sync to pull today's trades with one click.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
-        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney, and Dhan. Import from each and the journal aggregates across all of them so you see your real performance picture.",
+        a: "Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS, Kotak Securities, INDmoney, Dhan, and Definedge. Import from each and the journal aggregates across all of them so you see your real performance picture.",
     },
     {
         q: "Will my trades be public?",
@@ -78,7 +78,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your trade report every weekend and tag the week's trades while the reasoning is still fresh. Since Upstox has no sync, just download the new date range since your last import and upload it again.",
+        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your trade report every weekend and tag the week's trades while the reasoning is still fresh. If you use Sync, a quick Sync after the close each trading day keeps it current without any downloads.",
     },
 ];
 
@@ -347,10 +347,10 @@ export default function UpstoxLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            Upstox doesn&apos;t offer trade sync yet, so when you
-                            want to add fresh trades, download a new trade report
-                            for the date range since your last import and upload
-                            it again. Same five clicks, no spreadsheet.
+                            Once your history is imported, use Upstox Sync for
+                            the future: connect your Upstox API app, login
+                            through Upstox when Arthveda asks, then one click
+                            pulls today&apos;s trades into the same journal.
                         </p>
                         <div className="pt-2">
                             <GetStarted
