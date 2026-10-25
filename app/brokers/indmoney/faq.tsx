@@ -22,12 +22,13 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Does Arthveda support F&O for INDmoney?",
         a: (
             <>
-                Equity and options, yes. Arthveda reads your INDmoney tradebook
-                and brings in stocks and options automatically, detecting the
-                CE/PE contract on each row. Futures import isn&apos;t built yet,
-                but INDmoney does export it, so ping us a sample tradebook and we
-                can add it. The journal itself handles everything you trade, and
-                the one stock-only surface is the screener (NSE/BSE equities).
+                Yes. The tradebook import brings in stocks and options, detecting
+                the CE/PE contract on each row. Broker Sync pulls everything:
+                stocks, futures, options, and MCX commodities, so from the day
+                you connect, your futures come in too. Older futures trades can
+                be logged by hand. The journal itself handles everything you
+                trade, and the one stock-only surface is the screener (NSE/BSE
+                equities).
             </>
         ),
     },
@@ -35,11 +36,12 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Is there a sync, or is it file upload only?",
         a: (
             <>
-                File upload, for INDmoney. Export your tradebook (Excel or CSV)
-                from the INDmoney app and import it into Arthveda. INDmoney
-                doesn&apos;t offer trade sync yet, so to add fresh trades later
-                you export a new tradebook for the recent date range and import
-                it again.
+                Both, for INDmoney. Import your tradebook (Excel or CSV) from
+                the INDmoney app once for your history. After that, connect your
+                INDstocks API access inside Arthveda, login each trading day
+                with your authenticator code and MPIN, and use Sync to pull
+                today&apos;s trades with one click. Arthveda never stores your
+                MPIN.
             </>
         ),
     },
@@ -93,8 +95,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 There is no fixed rule. A weekly or monthly export keeps your
                 journal current. A good habit is to export your tradebook every
                 weekend and tag the week&apos;s trades while the reasoning is
-                still fresh. Since INDmoney has no sync, just export the new date
-                range since your last import and upload it again.
+                still fresh. If you use Sync, a quick Sync after the close each
+                trading day keeps it current without any downloads.
             </>
         ),
     },

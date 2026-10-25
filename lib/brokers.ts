@@ -59,7 +59,7 @@ export const BROKERS: Broker[] = [
             { label: "Cash", state: "supported" },
             { label: "F&O", state: "supported" },
         ],
-        importTypes: ["file"],
+        importTypes: ["today", "file"],
         landingPath: "/brokers/angel-one",
     },
     {
@@ -99,7 +99,7 @@ export const BROKERS: Broker[] = [
             { label: "Options", state: "supported" },
             { label: "Futures", state: "supported" },
         ],
-        importTypes: ["file"],
+        importTypes: ["auto", "file"],
         landingPath: "/brokers/fyers",
     },
     {
@@ -120,13 +120,12 @@ export const BROKERS: Broker[] = [
         svg: "/svgs/indmoney.svg",
         icon: "/svgs/icons/indmoney.svg",
         homepage: "https://www.indmoney.com/",
-        instruments: ["equity", "options"],
+        instruments: ["equity", "futures", "options"],
         segments: [
             { label: "Cash", state: "supported" },
-            { label: "Options", state: "supported" },
-            { label: "Futures", state: "on-request" },
+            { label: "F&O", state: "supported" },
         ],
-        importTypes: ["file"],
+        importTypes: ["today", "file"],
         landingPath: "/brokers/indmoney",
     },
     {
@@ -139,7 +138,7 @@ export const BROKERS: Broker[] = [
             { label: "Cash", state: "supported" },
             { label: "F&O", state: "supported" },
         ],
-        importTypes: ["file"],
+        importTypes: ["today", "file"],
         landingPath: "/brokers/kotak-securities",
     },
     {

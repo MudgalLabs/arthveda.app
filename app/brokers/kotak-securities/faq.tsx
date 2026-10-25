@@ -36,11 +36,12 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Is there a sync, or is it file upload only?",
         a: (
             <>
-                File upload, for Kotak Securities. Download your trade report
-                from Performance &amp; Reports and import it into Arthveda. Kotak
-                doesn&apos;t offer trade sync yet, so to add fresh trades later
-                you download a new report for the recent date range and import
-                it again.
+                Both, for Kotak Securities. Import your trade report from
+                Performance &amp; Reports once for your history. After that,
+                connect your own Neo Trade API app inside Arthveda, login each
+                trading day with your authenticator code and MPIN, and use Sync
+                to pull today&apos;s trades with one click. Arthveda never
+                stores your MPIN.
             </>
         ),
     },
@@ -94,8 +95,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 There is no fixed rule. A weekly or monthly export keeps your
                 journal current. A good habit is to download your report every
                 weekend and tag the week&apos;s trades while the reasoning is
-                still fresh. Since Kotak has no sync, just download the new date
-                range since your last import and upload it again.
+                still fresh. If you use Sync, a quick Sync after the close each
+                trading day keeps it current without any downloads.
             </>
         ),
     },

@@ -77,8 +77,10 @@ const FAQS = [
                 Yes. Log trades manually, or pull them in automatically with
                 Broker Sync. SEBI requires brokers to log you out every morning,
                 so a synced setup needs a quick login to your broker once a day.
-                Broker Sync supports Zerodha, Dhan, Upstox, Groww, and Definedge
-                today, with more <Link href="/brokers">brokers</Link> planned.
+                Broker Sync supports every broker Arthveda works with: Zerodha,
+                Dhan, Upstox, Groww, Angel One, FYERS, Kotak Securities,
+                INDmoney, and Definedge. See all{" "}
+                <Link href="/brokers">brokers</Link>.
             </>
         ),
     },

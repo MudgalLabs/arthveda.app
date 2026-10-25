@@ -62,7 +62,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for FYERS. Export your report from FYERS and import it into Arthveda. FYERS doesn't offer trade sync yet, so to add fresh trades later you export a new report for the recent date range and import it again.",
+        a: "Both, for FYERS. Import your report from FYERS once for your history. After that, connect your own FYERS API app inside Arthveda, login through FYERS when Arthveda asks, and use Sync to pull your trades with one click. Sync also catches up on any trading days you missed since your last sync.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
@@ -82,7 +82,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your report every weekend and tag the week's trades while the reasoning is still fresh. Since FYERS has no sync, just export the new date range since your last import and upload it again.",
+        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your report every weekend and tag the week's trades while the reasoning is still fresh. If you use Sync, a quick Sync after the close each trading day keeps it current without any downloads.",
     },
 ];
 
@@ -355,10 +355,11 @@ export default function FyersLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            FYERS doesn&apos;t offer trade sync yet, so when you
-                            want to add fresh trades, download a new report for
-                            the date range since your last import and upload it
-                            again. Same five clicks, no spreadsheet.
+                            Once your history is imported, use FYERS Sync for
+                            the future: connect your FYERS API app, login
+                            through FYERS when Arthveda asks, then one click
+                            pulls your trades into the same journal, including
+                            any days you missed.
                         </p>
                         <div className="pt-2">
                             <GetStarted

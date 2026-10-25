@@ -37,11 +37,11 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Is there a sync, or is it file upload only?",
         a: (
             <>
-                File upload, for Angel One. Export your trade history from the
-                Angel One app and import it into Arthveda. Angel One
-                doesn&apos;t offer trade sync yet, so to add fresh trades later
-                you export a new trade history for the recent date range and
-                import it again.
+                Both, for Angel One. Import your trade history from the Angel
+                One app once for your history. After that, connect your own
+                SmartAPI app inside Arthveda, login through Angel One when
+                Arthveda asks, and use Sync to pull today&apos;s trades with one
+                click.
             </>
         ),
     },
@@ -95,8 +95,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 There is no fixed rule. A weekly or monthly export keeps your
                 journal current. A good habit is to download your trade history
                 every weekend and tag the week&apos;s trades while the reasoning
-                is still fresh. Since Angel One has no sync, just export the new
-                date range since your last import and upload it again.
+                is still fresh. If you use Sync, a quick Sync after the close
+                each trading day keeps it current without any downloads.
             </>
         ),
     },

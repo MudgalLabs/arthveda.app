@@ -58,7 +58,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for Angel One. Export your trade history from the Angel One app and import it into Arthveda. Angel One doesn't offer trade sync yet, so to add fresh trades later you export a new trade history for the recent date range and import it again.",
+        a: "Both, for Angel One. Import your trade history from the Angel One app once for your history. After that, connect your own SmartAPI app inside Arthveda, login through Angel One when Arthveda asks, and use Sync to pull today's trades with one click.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
@@ -78,7 +78,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your trade history every weekend and tag the week's trades while the reasoning is still fresh. Since Angel One has no sync, just export the new date range since your last import and upload it again.",
+        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to download your trade history every weekend and tag the week's trades while the reasoning is still fresh. If you use Sync, a quick Sync after the close each trading day keeps it current without any downloads.",
     },
 ];
 
@@ -355,10 +355,10 @@ export default function AngelOneLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            Angel One doesn&apos;t offer trade sync yet, so when
-                            you want to add fresh trades, download a new trade
-                            history for the date range since your last import and
-                            upload it again. Same five clicks, no spreadsheet.
+                            Once your history is imported, use Angel One Sync
+                            for the future: connect your SmartAPI app, login
+                            through Angel One when Arthveda asks, then one click
+                            pulls today&apos;s trades into the same journal.
                         </p>
                         <div className="pt-2">
                             <GetStarted

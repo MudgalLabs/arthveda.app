@@ -47,10 +47,11 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         q: "Is there a sync, or is it file upload only?",
         a: (
             <>
-                File upload, for FYERS. Export your report from FYERS and import
-                it into Arthveda. FYERS doesn&apos;t offer trade sync yet, so to
-                add fresh trades later you export a new report for the recent
-                date range and import it again.
+                Both, for FYERS. Import your report from FYERS once for your
+                history. After that, connect your own FYERS API app inside
+                Arthveda, login through FYERS when Arthveda asks, and use Sync
+                to pull your trades with one click. Sync also catches up on any
+                trading days you missed since your last sync.
             </>
         ),
     },
@@ -104,8 +105,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 There is no fixed rule. A weekly or monthly export keeps your
                 journal current. A good habit is to download your report every
                 weekend and tag the week&apos;s trades while the reasoning is
-                still fresh. Since FYERS has no sync, just export the new date
-                range since your last import and upload it again.
+                still fresh. If you use Sync, a quick Sync after the close each
+                trading day keeps it current without any downloads.
             </>
         ),
     },

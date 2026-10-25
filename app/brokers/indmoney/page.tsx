@@ -54,11 +54,11 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for INDmoney?",
-        a: "Equity and options, yes. Arthveda reads your INDmoney tradebook and brings in stocks and options automatically, detecting the CE/PE contract on each row. Futures import isn't built yet, but INDmoney does export it, so ping us a sample tradebook and we can add it. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. The tradebook import brings in stocks and options, detecting the CE/PE contract on each row. Broker Sync pulls everything: stocks, futures, options, and MCX commodities, so from the day you connect, your futures come in too. Older futures trades can be logged by hand. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
     },
     {
         q: "Is there a sync, or is it file upload only?",
-        a: "File upload, for INDmoney. Export your tradebook (Excel or CSV) from the INDmoney app and import it into Arthveda. INDmoney doesn't offer trade sync yet, so to add fresh trades later you export a new tradebook for the recent date range and import it again.",
+        a: "Both, for INDmoney. Import your tradebook (Excel or CSV) from the INDmoney app once for your history. After that, connect your INDstocks API access inside Arthveda, login each trading day with your authenticator code and MPIN, and use Sync to pull today's trades with one click. Arthveda never stores your MPIN.",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",
@@ -78,7 +78,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "How often should I import?",
-        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to export your tradebook every weekend and tag the week's trades while the reasoning is still fresh. Since INDmoney has no sync, just export the new date range since your last import and upload it again.",
+        a: "There is no fixed rule. A weekly or monthly export keeps your journal current. A good habit is to export your tradebook every weekend and tag the week's trades while the reasoning is still fresh. If you use Sync, a quick Sync after the close each trading day keeps it current without any downloads.",
     },
 ];
 
@@ -357,10 +357,11 @@ export default function INDmoneyLandingPage() {
                         </div>
                         <p className={P}>
                             The whole flow is about five minutes the first time.
-                            INDmoney doesn&apos;t offer trade sync yet, so when
-                            you want to add fresh trades, export a new tradebook
-                            for the date range since your last import and upload
-                            it again. Same five clicks, no spreadsheet.
+                            Once your history is imported, use INDmoney Sync for
+                            the future: connect your INDstocks API access, login
+                            with your authenticator code and MPIN when Arthveda
+                            asks, then one click pulls today&apos;s trades into
+                            the same journal.
                         </p>
                         <div className="pt-2">
                             <GetStarted
