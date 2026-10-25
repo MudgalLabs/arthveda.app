@@ -42,6 +42,9 @@ export interface Broker {
     /** Human-facing segment support, grouped and labelled for display chips. */
     segments: BrokerSegment[];
     importTypes: ImportType[];
+    /** The broker has no per-trade export at all (Dhan), so file upload is
+        impossible, not just unbuilt: show a dash instead of "Request". */
+    fileUploadUnavailable?: boolean;
     isComingSoon?: boolean;
     /** Internal SEO landing page for this broker, if one exists. Drives the
         "Learn more" link on the /brokers card and the homepage logo link. */
@@ -73,6 +76,7 @@ export const BROKERS: Broker[] = [
             { label: "F&O", state: "supported" },
         ],
         importTypes: ["auto"],
+        fileUploadUnavailable: true,
         landingPath: "/brokers/dhan",
     },
     {

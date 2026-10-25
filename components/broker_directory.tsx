@@ -343,7 +343,7 @@ function BrokerCard({ broker }: { broker: Broker }) {
                         ok={hasUpload}
                         okLabel="File upload"
                         name="File upload"
-                        unavailable={hasSync && !hasUpload}
+                        unavailable={broker.fileUploadUnavailable}
                     />
                     <ImportItem ok={hasSync} okLabel={syncLabel} name="Sync" />
                 </div>
@@ -529,7 +529,7 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                                     <BoolCell
                                         ok={canUpload}
                                         label="File upload"
-                                        unavailable={canSync && !canUpload}
+                                        unavailable={broker.fileUploadUnavailable}
                                     />
                                 </TableCell>
                                 <TableCell className="text-center">
