@@ -9,7 +9,7 @@ import { CONTACT_EMAIL } from "@/components/segment_chips";
 export const metadata: Metadata = {
     title: "Brokers · Arthveda",
     description:
-        "Import your trades from supported Indian brokers in seconds. No manual work.",
+        "Import your trades from supported brokers in seconds. No manual work.",
     alternates: { canonical: "/brokers" },
 };
 

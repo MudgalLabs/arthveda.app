@@ -58,7 +58,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for Dhan?",
-        a: "Yes. Equity, futures, and options all come in through the Dhan sync, with each contract resolved to the right instrument, expiry, and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. Equity, futures, and options all come in through the Dhan sync, with each contract resolved to the right instrument, expiry, and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",

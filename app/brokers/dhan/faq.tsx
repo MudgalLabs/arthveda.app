@@ -37,8 +37,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 Yes. Equity, futures, and options all come in through the Dhan
                 sync, with each contract resolved to the right instrument,
                 expiry, and strike. The journal itself handles everything you
-                trade, and the one stock-only surface is the screener (NSE/BSE
-                equities).
+                trade, and the one stock-only surface is the screener (NSE, BSE
+                and US stocks).
             </>
         ),
     },

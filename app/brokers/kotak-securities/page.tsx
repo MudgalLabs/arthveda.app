@@ -54,7 +54,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for Kotak Securities?",
-        a: "Yes. Your Kotak Securities report carries equity, futures, and options, and Arthveda parses all three. It reads the exchange and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. Your Kotak Securities report carries equity, futures, and options, and Arthveda parses all three. It reads the exchange and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "Is there a sync, or is it file upload only?",

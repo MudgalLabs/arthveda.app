@@ -54,7 +54,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for FYERS?",
-        a: "Yes. Your FYERS report exports equity, futures, and options in one file, and Arthveda parses all three. Arthveda reads the segment and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. Your FYERS report exports equity, futures, and options in one file, and Arthveda parses all three. Arthveda reads the segment and contract on each row, so a NIFTY option or a stock future comes in as the right instrument with the right expiry and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "Should I export the Order Book or the Trade Book?",

@@ -29,7 +29,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 import isn&apos;t built yet, but Upstox does export it, so ping
                 us a sample report and we can add it. The journal itself handles
                 everything you trade, and the one stock-only surface is the
-                screener (NSE/BSE equities).
+                screener (NSE, BSE and US stocks).
             </>
         ),
     },

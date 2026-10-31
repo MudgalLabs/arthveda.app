@@ -54,7 +54,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for INDmoney?",
-        a: "Yes. The tradebook import brings in stocks and options, detecting the CE/PE contract on each row. Broker Sync pulls everything: stocks, futures, options, and MCX commodities, so from the day you connect, your futures come in too. Older futures trades can be logged by hand. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. The tradebook import brings in stocks and options, detecting the CE/PE contract on each row. Broker Sync pulls everything: stocks, futures, options, and MCX commodities, so from the day you connect, your futures come in too. Older futures trades can be logged by hand. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "Is there a sync, or is it file upload only?",

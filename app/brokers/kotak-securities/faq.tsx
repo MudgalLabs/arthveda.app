@@ -28,7 +28,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 and contract on each row, so a NIFTY option or a stock future
                 comes in as the right instrument with the right expiry and
                 strike. The journal itself handles everything you trade, and the
-                one stock-only surface is the screener (NSE/BSE equities).
+                one stock-only surface is the screener (NSE, BSE and US stocks).
             </>
         ),
     },

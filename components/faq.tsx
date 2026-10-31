@@ -45,13 +45,17 @@ const FAQS = [
         q: "Which markets and segments does it support?",
         a: (
             <>
-                Most of them. Your{" "}
+                India and the US. In India, your{" "}
                 <Link href="/product/journal">Journal</Link> takes everything
                 you trade: equity, crypto, and F&amp;O across stock, index, and
-                commodity, whether you sync it from Zerodha and other brokers or
-                log it by hand. The one stock-only part is{" "}
-                <Link href="/product/discover">Discover</Link>, the screener:
-                Indian equities on the NSE and BSE.
+                commodity on the NSE, BSE and MCX, whether you sync it from
+                Zerodha and other brokers or log it by hand. In the US,{" "}
+                <Link href="/product/discover">Discover</Link> covers the
+                S&amp;P 500, Nasdaq-100 and Dow stocks plus the major ETFs: the
+                screener, watchlists, Market Monitor and every stock&apos;s
+                chart and journey. US trades go in your journal by hand, in
+                dollars, alongside your rupee trades; US broker sync isn&apos;t
+                built yet.
             </>
         ),
     },

@@ -27,8 +27,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 stocks, futures, options, and MCX commodities, so from the day
                 you connect, your futures come in too. Older futures trades can
                 be logged by hand. The journal itself handles everything you
-                trade, and the one stock-only surface is the screener (NSE/BSE
-                equities).
+                trade, and the one stock-only surface is the screener (NSE, BSE
+                and US stocks).
             </>
         ),
     },

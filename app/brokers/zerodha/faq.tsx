@@ -26,7 +26,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 Yes. Your journal takes everything you trade: equity, crypto,
                 and F&amp;O across stock, index, and commodity, whether you sync
                 it from Zerodha or log it by hand. The one stock-only surface is
-                the screener (NSE/BSE equities).
+                the screener (NSE, BSE and US stocks).
             </>
         ),
     },

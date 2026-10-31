@@ -7,7 +7,7 @@ export default function AboutPage() {
             <h1 className="big-heading mb-12">About</h1>
 
             <p className="mb-4">
-                <strong>Arthveda</strong> is the Trading OS for India, built
+                <strong>Arthveda</strong> is the Trading OS, built
                 for serious traders of every style.
             </p>
             <p className="mb-4">
@@ -23,7 +23,7 @@ export default function AboutPage() {
                 from India.
             </p>
             <p className="mb-4">
-                The idea is simple: give Indian traders the tools to build a
+                The idea is simple: give traders the tools to build a
                 real trading process, and a reputation that rests on it. Process
                 over P&amp;L.
             </p>

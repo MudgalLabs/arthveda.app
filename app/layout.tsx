@@ -21,9 +21,9 @@ const caveat = Caveat({
 });
 
 // v2 metadata (plan §1). Center dot `·`, never a pipe. No "free" callout.
-const TITLE = "Trading OS for India · Arthveda";
+const TITLE = "Trading OS · Arthveda";
 const DESCRIPTION =
-    "Built for Indian traders: discover stocks, build intelligent watchlists, track their journey with every stock, journal trades, and share their process.";
+    "Built for traders: discover stocks, build intelligent watchlists, track their journey with every stock, journal trades, and share their process.";
 
 // Next 15 wants themeColor in a viewport export, not metadata.
 export const viewport: Viewport = {
@@ -36,7 +36,13 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
 
+    // India-first search terms stay alongside the global ones: the tagline
+    // went global (2026-10-30), but India is still where the depth is.
     keywords: [
+        "trading OS",
+        "trading journal",
+        "stock screener",
+        "US stock screener",
         "trading OS India",
         "stock screener India",
         "swing trading India",
@@ -67,7 +73,7 @@ export const metadata: Metadata = {
                 width: 1200,
                 height: 630,
                 type: "image/jpeg",
-                alt: "Trading OS for India · Arthveda",
+                alt: "Trading OS · Arthveda",
             },
         ],
     },
@@ -108,11 +114,21 @@ export default function RootLayout({
                             operatingSystem: "Web",
                             description: DESCRIPTION,
                             url: "https://arthveda.app",
-                            offers: {
-                                "@type": "Offer",
-                                price: "2999",
-                                priceCurrency: "INR",
-                            },
+                            // Yearly price: USD is Paddle's base price,
+                            // INR its India override (lib/usePricing.ts).
+                            offers: [
+                                {
+                                    "@type": "Offer",
+                                    price: "49",
+                                    priceCurrency: "USD",
+                                },
+                                {
+                                    "@type": "Offer",
+                                    price: "2999",
+                                    priceCurrency: "INR",
+                                    eligibleRegion: { "@type": "Country", name: "IN" },
+                                },
+                            ],
                         }),
                     }}
                 />

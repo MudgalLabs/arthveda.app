@@ -16,8 +16,8 @@ export default function Brokers() {
 
                 <p className="section-detail">
                     Import trades via file upload <strong>in seconds</strong>.
-                    Sync today’s trades with a single click. Supports India’s
-                    most popular brokers, and new ones on request.
+                    Sync today’s trades with a single click. Supports Zerodha,
+                    Upstox, Groww and other popular brokers, and new ones on request.
                 </p>
             </div>
         </section>

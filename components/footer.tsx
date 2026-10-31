@@ -67,7 +67,8 @@ export default function Footer() {
             <p className="text-xs text-text-muted mt-10 max-w-4xl">
                 <strong className="text-xs!">Disclaimer:</strong> Arthveda is a
                 trade journal and analytics tool. It is not an investment
-                adviser and is not registered with SEBI. Nothing on Arthveda is
+                adviser and is not registered with SEBI, the SEC, or any other
+                regulator. Nothing on Arthveda is
                 investment advice, a buy, sell or hold recommendation, or a
                 trade signal. Screeners return whatever matches the filters you
                 choose, and the analytics describe trades you have already

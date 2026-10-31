@@ -10,7 +10,7 @@ import { SCREENER_URL } from "@/lib/links";
 export const metadata: Metadata = {
     title: "Discover · Arthveda",
     description:
-        "Scan the whole NSE/BSE, build intelligent watchlists with the reason you added each stock, and keep a full history of every stock you track.",
+        "Scan the whole NSE/BSE and the major US indices, build intelligent watchlists with the reason you added each stock, and keep a full history of every stock you track.",
     alternates: { canonical: "/product/discover" },
 };
 

@@ -54,7 +54,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O?",
-        a: "Yes. Your journal takes everything you trade: equity, crypto, and F&O across stock, index, and commodity, whether you sync it from Zerodha or log it by hand. The one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. Your journal takes everything you trade: equity, crypto, and F&O across stock, index, and commodity, whether you sync it from Zerodha or log it by hand. The one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "Do I have to upload a file, or can it sync?",

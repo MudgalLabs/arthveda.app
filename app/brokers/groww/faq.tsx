@@ -28,7 +28,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 pulls both stocks and F&amp;O, so from the day you connect, your
                 Groww F&amp;O trades come in too. Older F&amp;O trades can be
                 logged by hand. The one stock-only surface is the screener
-                (NSE/BSE equities).
+                (NSE, BSE and US stocks).
             </>
         ),
     },

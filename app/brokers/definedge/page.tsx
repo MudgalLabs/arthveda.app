@@ -62,7 +62,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for Definedge?",
-        a: "Yes. NSE and BSE equity, F&O on NFO and BFO, and MCX commodity futures and options all come in through the Definedge sync, with each contract resolved to the right underlying, expiry, and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes. NSE and BSE equity, F&O on NFO and BFO, and MCX commodity futures and options all come in through the Definedge sync, with each contract resolved to the right underlying, expiry, and strike. The journal itself handles everything you trade, and the one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "I trade through more than one broker. Will it aggregate?",

@@ -54,7 +54,7 @@ const FAQ_SCHEMA = [
     },
     {
         q: "Does Arthveda support F&O for Groww?",
-        a: "Yes, through Sync. Groww only lets you export equity (your Stock Order History), so the file import brings in stocks. Broker Sync pulls both stocks and F&O, so from the day you connect, your Groww F&O trades come in too. Older F&O trades can be logged by hand. The one stock-only surface is the screener (NSE/BSE equities).",
+        a: "Yes, through Sync. Groww only lets you export equity (your Stock Order History), so the file import brings in stocks. Broker Sync pulls both stocks and F&O, so from the day you connect, your Groww F&O trades come in too. Older F&O trades can be logged by hand. The one stock-only surface is the screener (NSE, BSE and US stocks).",
     },
     {
         q: "Is there a sync, or is it file upload only?",

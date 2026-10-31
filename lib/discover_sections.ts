@@ -29,7 +29,7 @@ export const DISCOVER_FEATURES: DiscoverFeature[] = [
         label: "Screener",
         heading: "Scan the whole market in seconds.",
         subheading:
-            "Filter every NSE/BSE stock by price, volume, technicals, and breakout signals. Inspect each hit with an inline chart and go from noise to a shortlist fast.",
+            "Filter every NSE/BSE stock, or the S&P 500, Nasdaq-100 and Dow, by price, volume, technicals, and breakout signals. Inspect each hit with an inline chart and go from noise to a shortlist fast.",
         image: "/images/product_discover_screener.png",
     },
     {

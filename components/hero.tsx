@@ -15,20 +15,30 @@ export default function Hero() {
                 reads "inside" the layout, à la Linear (the full-bleed video
                 stage below ignores this padding). */}
             <div className="max-w-3xl text-left lg:pl-8 xl:pl-12">
+                {/* Which markets, stated once, India first (global but
+                    India-first, 2026-10-31). The tagline itself names no
+                    country. Pill style matches feature_card's. */}
+                <span className="inline-block rounded-full border border-white/[0.06] bg-background/60 px-4 py-1.5 text-xs font-medium tracking-wide text-text-muted">
+                    For Indian and US markets
+                </span>
+
+                <div className="h-5 sm:h-6" />
+
                 <h1 className="font-heading text-text-primary text-[40px] sm:text-[52px] lg:text-[64px] font-medium leading-[1.04] tracking-[-0.025em]">
-                    Trading OS for India
+                    Trading OS
                 </h1>
 
                 <div className="h-6 sm:h-7" />
 
-                {/* Subtitle. No holding-period qualifier (2026-07-20): the
-                    differentiation is "India" + "one workspace", never the
-                    trading style. */}
+                {/* Subtitle. No holding-period qualifier (2026-07-20) and no
+                    "Indian" qualifier (2026-10-30, global but India-first): the
+                    differentiation is "OS" + "one workspace", never the
+                    trading style or the country. */}
                 <h2 className="font-content text-[15px] leading-[1.6] text-text-muted max-w-2xl">
-                    Built for Indian traders to discover stocks, build
-                    intelligent watchlists, track their journey with every
-                    stock, journal trades, and share their process — not just
-                    P&amp;L. All from one workspace.
+                    Built for traders to discover stocks, build intelligent
+                    watchlists, track their journey with every stock, journal
+                    trades, and share their process, not just P&amp;L. All
+                    from one workspace.
                 </h2>
 
                 <div className="h-9 sm:h-10" />

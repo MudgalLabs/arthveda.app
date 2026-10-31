@@ -61,7 +61,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
                 contract resolved to the right underlying,
                 expiry, and strike. The journal itself handles
                 everything you trade, and the one stock-only
-                surface is the screener (NSE/BSE equities).
+                surface is the screener (NSE, BSE and US stocks).
             </>
         ),
     },
