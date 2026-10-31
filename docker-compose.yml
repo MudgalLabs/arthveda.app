@@ -1,9 +1,9 @@
 services:
     arthveda_app:
         container_name: arthveda_app
-        build:
-            context: .
-            dockerfile: Dockerfile
+        # Built and pushed by .github/workflows/build-and-publish.yaml.
+        # Do not build on the VPS: a Next.js build there exhausts its memory.
+        image: ceoshikhar/arthveda_app:latest
         env_file:
             - .env
         environment:
