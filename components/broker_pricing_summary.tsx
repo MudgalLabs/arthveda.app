@@ -9,7 +9,7 @@ import { formatCurrency } from "@/lib/utils";
 // source of truth (usePricing) so this never drifts from /pricing when the
 // numbers change. Sits right before a page's bottom CTA.
 export function BrokerPricingSummary() {
-    const { yearlyPrice, oneTimePrice, currency } = usePricing();
+    const { yearlyPrice, oneTimePrice, currency, taxName } = usePricing();
 
     const money = (n: number) =>
         formatCurrency(n, {
@@ -27,7 +27,7 @@ export function BrokerPricingSummary() {
                     <p className="mt-2 font-content text-[14px] leading-[1.6] text-text-muted">
                         The whole product, no limits, for 14 days. Then{" "}
                         {money(yearlyPrice)}/yr or {money(oneTimePrice)} once.
-                        All prices include GST.
+                        All prices include {taxName}.
                     </p>
                     <p className="mt-2 font-content text-[13px] leading-[1.6] text-text-subtle">
                         14-day refund on both plans. If you stop subscribing,

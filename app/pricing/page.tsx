@@ -7,7 +7,7 @@ import { PlansTable } from "@/app/pricing/plans_table";
 export const metadata: Metadata = {
     title: "Pricing · Arthveda",
     description:
-        "Try Arthveda free for 14 days. No card required. Then \u20b92,999 a year or \u20b96,999 once, GST included, with a 14-day refund on both.",
+        "Try Arthveda free for 14 days. No card required. Then $49 a year or $99 once (\u20b92,999 or \u20b96,999 in India), taxes included, with a 14-day refund on both.",
     alternates: { canonical: "/pricing" },
 };
 

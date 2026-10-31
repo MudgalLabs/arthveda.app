@@ -40,7 +40,7 @@ const GROUPS: Group[] = [
         label: "Discover",
         features: [
             {
-                label: "Run screeners across all of NSE/BSE",
+                label: "Run screeners across all of NSE/BSE and the major US indices",
                 tooltip:
                     "Free for everyone, forever, signed in or not. Saving one to your workspace is what needs a subscription.",
             },
@@ -128,7 +128,7 @@ const GROUPS: Group[] = [
 ];
 
 export function PlansTable() {
-    const { yearlyPrice, yearlyMonthlyPrice, oneTimePrice, currency } = usePricing();
+    const { yearlyPrice, yearlyMonthlyPrice, oneTimePrice, currency, taxName } = usePricing();
 
     const money = (n: number) =>
         formatCurrency(n, {
@@ -173,7 +173,7 @@ export function PlansTable() {
                         <span className="text-text-primary">
                             {money(yearlyMonthlyPrice)} per month
                         </span>
-                        , GST included
+                        , {taxName} included
                     </p>
 
                     <div className="mt-5">
@@ -194,7 +194,7 @@ export function PlansTable() {
                         <span className="text-sm text-text-muted">once</span>
                     </div>
                     <p className="mt-2 text-sm text-text-muted">
-                        Pay once, no renewals. GST included.
+                        Pay once, no renewals. {taxName === "GST" ? "GST" : "Taxes"} included.
                     </p>
 
                     <div className="mt-5">
