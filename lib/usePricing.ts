@@ -17,10 +17,12 @@ import { CurrencyCode } from "@/lib/utils";
 // false claim.
 //
 // Global pricing (2026-10-31): Paddle's base price is USD with an India
-// override in INR. India is told apart by the browser's time zone, which
-// needs the client: the server render (and crawlers) get India's prices, and
-// visitors elsewhere switch to USD right after mount. Checkout, in the app,
-// always shows Paddle's exact price for the buyer's location.
+// override in INR. India is told apart by the visitor's IP country
+// (/api/geo, Cloudflare's geolocation), the same signal Paddle's checkout
+// localizes by, so a VPN or a traveller sees the currency they'll be charged
+// in. The browser's time zone is only the fallback when the country is
+// unknown. Both need the client: the server render (and crawlers) get India's
+// prices, and visitors elsewhere switch to USD right after mount.
 //
 // All displayed prices are tax-INCLUSIVE (GST in India, decision 2026-07-05):
 // the sticker is the charged amount. Paddle prices must be configured as
@@ -45,6 +47,24 @@ interface PricingInfo {
     taxName: "GST" | "taxes";
 }
 
+// Cloudflare's codes for "unknown" and Tor exits carry no country.
+const UNKNOWN_COUNTRIES = new Set(["XX", "T1"]);
+
+let countryPromise: Promise<string | null> | null = null;
+
+// fetchCountry asks /api/geo once per page load; every usePricing caller on
+// the page shares the answer.
+function fetchCountry(): Promise<string | null> {
+    countryPromise ??= fetch("/api/geo")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data: { country?: string | null } | null) => {
+            const country = data?.country?.toUpperCase() ?? null;
+            return country && !UNKNOWN_COUNTRIES.has(country) ? country : null;
+        })
+        .catch(() => null);
+    return countryPromise;
+}
+
 function isIndiaTimeZone(): boolean {
     try {
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -58,7 +78,15 @@ export function usePricing(): PricingInfo {
     const [currency, setCurrency] = useState<CurrencyCode>("inr");
 
     useEffect(() => {
-        if (!isIndiaTimeZone()) setCurrency("usd");
+        let cancelled = false;
+        fetchCountry().then((country) => {
+            if (cancelled) return;
+            const inIndia = country ? country === "IN" : isIndiaTimeZone();
+            setCurrency(inIndia ? "inr" : "usd");
+        });
+        return () => {
+            cancelled = true;
+        };
     }, []);
 
     const { yearly, oneTime } = PRICES[currency];
