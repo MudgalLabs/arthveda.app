@@ -3,6 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     output: "standalone",
 
+    // geoip-country reads its MaxMind data files from its own folder at
+    // runtime (lib/visitor_currency.ts), so it stays a plain node_modules
+    // require and its data/ ships in the standalone build of the pages that
+    // price by visitor IP.
+    serverExternalPackages: ["geoip-country"],
+    outputFileTracingIncludes: {
+        "/pricing": ["./node_modules/geoip-country/data/**/*"],
+        "/brokers/**": ["./node_modules/geoip-country/data/**/*"],
+    },
+
     images: {
         loader: "default",
         formats: ["image/webp"],

@@ -17,6 +17,7 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "geist": "^1.7.0",
+        "geoip-country": "^5.0.202610310241",
         "ldrs": "^1.1.7",
         "lucide-react": "^0.517.0",
         "next": "^15.5.7",
