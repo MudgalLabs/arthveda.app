@@ -6,6 +6,7 @@ import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 
 import { API_URL } from "@/lib/links";
+import { captureReferral } from "@/lib/referral";
 
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 
@@ -98,6 +99,12 @@ function identifyVisitor() {
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
+        // Referral link (?ref=<code>, arthveda/docs/referrals.md). Runs before
+        // the production gate and independently of PostHog: the cookie is what
+        // the app claims onto the account after signup, so it must be written
+        // even when posthog-js is blocked.
+        const referralCode = captureReferral();
+
         if (process.env.NODE_ENV !== "production") return;
 
         // No consent gate. Anonymous visitors are never identified; we only
@@ -121,6 +128,9 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         posthog.register({ surface: "landing" });
         posthog.register_once({ entry_surface: deriveEntrySurface(window.location.pathname) });
         captureInitialUtm();
+        // First link wins, same as the app: initial_ref rides on every event,
+        // including the "Clicked Get started" that crosses into the app.
+        if (referralCode) posthog.register_once({ initial_ref: referralCode });
         identifyVisitor();
     }, []);
 
