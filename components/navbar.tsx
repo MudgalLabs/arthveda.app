@@ -10,10 +10,18 @@ import { Button } from "@/ui/button";
 import { cn } from "@/lib/utils";
 import { NAV_FAMILIES } from "@/lib/nav";
 import { APP_URL } from "@/lib/links";
+import { useHasUnseenUpdate } from "@/lib/updates_seen";
+
+// The "something new since you last looked" dot. Accent, not a badge with a
+// count: it says "go look", nothing more.
+const UnseenDot = ({ className }: { className?: string }) => (
+    <span aria-hidden className={cn("size-1.5 rounded-full bg-accent", className)} />
+);
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [productOpen, setProductOpen] = useState(false); // desktop hover
+    const unseenUpdate = useHasUnseenUpdate();
 
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -142,6 +150,14 @@ export default function Navbar() {
                     <Link href="/pricing" className="unstyled-link">
                         <Button variant="ghost">Pricing</Button>
                     </Link>
+
+                    <Link href="/updates" className="unstyled-link">
+                        <Button variant="ghost" className="relative">
+                            What&apos;s new
+                            {unseenUpdate && <UnseenDot className="absolute right-1.5 top-1.5" />}
+                            {unseenUpdate && <span className="sr-only">(new)</span>}
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* CTA + mobile toggle (right) */}
@@ -150,9 +166,12 @@ export default function Navbar() {
                     <button
                         aria-label="Open menu"
                         onClick={() => setMenuOpen((v) => !v)}
-                        className="text-text-muted lg:hidden"
+                        className="relative text-text-muted lg:hidden"
                     >
                         {menuOpen ? <X size={28} /> : <Menu size={28} />}
+                        {/* On mobile "What's new" lives inside the menu, so the
+                            toggle carries the dot until it's opened. */}
+                        {unseenUpdate && !menuOpen && <UnseenDot className="absolute -right-0.5 top-0.5 size-2" />}
                     </button>
                 </div>
 
@@ -233,6 +252,14 @@ export default function Navbar() {
                         className="block py-1.5 text-xl text-text-primary no-underline!"
                     >
                         Pricing
+                    </Link>
+                    <Link
+                        href="/updates"
+                        onClick={closeMenu}
+                        className="flex items-center gap-2 py-1.5 text-xl text-text-primary no-underline!"
+                    >
+                        What&apos;s new
+                        {unseenUpdate && <UnseenDot className="size-2" />}
                     </Link>
                 </div>
             </div>

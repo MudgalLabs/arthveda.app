@@ -52,3 +52,9 @@ export const BROKER_ACCOUNTS_URL = IS_DEV
 export const API_URL = IS_DEV
     ? "http://localhost:1337"
     : "https://api.arthveda.app";
+
+// The trader's dashboard. Release posts on /updates deep-link here ("add the
+// widget"); the app handles login if needed.
+export const DASHBOARD_URL = IS_DEV
+    ? "http://localhost:6969/dashboard"
+    : "https://arthveda.app/dashboard";
