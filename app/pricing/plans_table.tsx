@@ -69,7 +69,7 @@ const GROUPS: Group[] = [
             {
                 label: "Charts with indicators and drawing tools",
                 tooltip:
-                    "Saved per symbol, so your levels and annotations are still there next time.",
+                    "Free for every signed-in account. Saved per symbol, so your levels and annotations are still there next time.",
             },
         ],
     },
