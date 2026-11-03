@@ -17,8 +17,11 @@ export default function Hero() {
             <div className="max-w-3xl text-left lg:pl-8 xl:pl-12">
                 {/* Which markets, stated once, India first (global but
                     India-first, 2026-10-31). The tagline itself names no
-                    country. Pill style matches feature_card's. */}
-                <span className="inline-block rounded-full border border-white/[0.06] bg-background/60 px-4 py-1.5 text-xs font-medium tracking-wide text-text-muted">
+                    country. Shaped like feature_card's pill, but lifted
+                    (lighter fill, stronger border, brighter text): it sits on
+                    the bare page background, where that pill's
+                    bg-background/60 fill disappears. */}
+                <span className="inline-block rounded-full border border-white/[0.14] bg-white/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-text-primary">
                     For Indian and US markets
                 </span>
 
