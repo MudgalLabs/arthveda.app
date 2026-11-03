@@ -7,6 +7,8 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import GrahakWidget from "@/components/grahak_widget";
 
+import { fetchPricing } from "@/lib/pricing";
+
 import "@/app/globals.css";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 
@@ -95,11 +97,37 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
+// Re-render static pages every 10 minutes so the structured-data offers below
+// pick up a price changed in Paddle (and fill in after a build that couldn't
+// reach the API).
+export const revalidate = 600;
+
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    // Structured-data offers carry the live yearly price for the base (USD)
+    // and India (INR). Fetched with a revalidate window so every page stays
+    // static.
+    const [usd, inr] = await Promise.all([
+        fetchPricing("US", { revalidate: 600 }),
+        fetchPricing("IN", { revalidate: 600 }),
+    ]);
+    const offers = [
+        ...(usd ? [{ "@type": "Offer", price: String(usd.yearlyPrice), priceCurrency: usd.currency }] : []),
+        ...(inr
+            ? [
+                  {
+                      "@type": "Offer",
+                      price: String(inr.yearlyPrice),
+                      priceCurrency: inr.currency,
+                      eligibleRegion: { "@type": "Country", name: "IN" },
+                  },
+              ]
+            : []),
+    ];
+
     return (
         <html lang="en">
             <head>
@@ -114,21 +142,9 @@ export default function RootLayout({
                             operatingSystem: "Web",
                             description: DESCRIPTION,
                             url: "https://arthveda.app",
-                            // Yearly price: USD is Paddle's base price,
-                            // INR its India override (lib/usePricing.ts).
-                            offers: [
-                                {
-                                    "@type": "Offer",
-                                    price: "49",
-                                    priceCurrency: "USD",
-                                },
-                                {
-                                    "@type": "Offer",
-                                    price: "2999",
-                                    priceCurrency: "INR",
-                                    eligibleRegion: { "@type": "Country", name: "IN" },
-                                },
-                            ],
+                            // Yearly price, live from Paddle: USD is the
+                            // base price, INR the India override.
+                            ...(offers.length > 0 && { offers }),
                         }),
                     }}
                 />

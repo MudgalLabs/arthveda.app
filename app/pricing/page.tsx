@@ -3,21 +3,29 @@ import { Tag } from "lucide-react";
 
 import { FamilyLabel } from "@/components/family_label";
 import { PlansTable } from "@/app/pricing/plans_table";
+import { fetchPricing, formatPrice } from "@/lib/pricing";
 import { PricingProvider } from "@/lib/usePricing";
-import { visitorCurrency } from "@/lib/visitor_currency";
+import { visitorCountry } from "@/lib/visitor_country";
 
-export const metadata: Metadata = {
-    title: "Pricing · Arthveda",
-    description:
-        "Try Arthveda free for 14 days. No card required. Then $49 a year or $99 once (\u20b92,999 or \u20b96,999 in India), taxes included, with a 14-day refund on both.",
-    alternates: { canonical: "/pricing" },
-};
+// The description quotes the visitor's live prices (crawlers mostly get USD);
+// without them it still says everything but the numbers.
+export async function generateMetadata(): Promise<Metadata> {
+    const pricing = await fetchPricing(await visitorCountry());
+    const then = pricing
+        ? `Then ${formatPrice(pricing.monthlyPrice, pricing.currency)} a month, ${formatPrice(pricing.yearlyPrice, pricing.currency)} a year or ${formatPrice(pricing.oneTimePrice, pricing.currency)} once, ${pricing.taxName} included`
+        : "Then pay monthly, yearly or once";
+    return {
+        title: "Pricing · Arthveda",
+        description: `Try Arthveda free for 14 days. No card required. ${then}, with a 14-day refund on every plan.`,
+        alternates: { canonical: "/pricing" },
+    };
+}
 
 export default async function PricingPage() {
-    const currency = await visitorCurrency();
+    const pricing = await fetchPricing(await visitorCountry());
 
     return (
-        <PricingProvider currency={currency}>
+        <PricingProvider pricing={pricing}>
             <main className="pb-24">
                 {/* Header — match the /product/* hub hero exactly so /pricing reads
                     as a sibling of the family hubs (plan §7). No CTAs in the hero. */}
@@ -28,14 +36,14 @@ export default async function PricingPage() {
                     </h1>
                     <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
                         The whole workspace, no limits, for two weeks. Then pay
-                        yearly or pay once.
+                        monthly, yearly, or once.
                     </p>
                 </section>
 
                 {/* Full-bleed divider after the hero — same treatment as the hubs. */}
                 <hr className="relative left-1/2 mt-20 w-screen -translate-x-1/2 border-t border-[hsl(220,20%,13.5%)] md:mt-24" />
 
-                {/* Plans block — the two plans we sell, the full "everything is
+                {/* Plans block — the three plans we sell, the full "everything is
                     included" list, and the read-only explainer for what happens
                     after the trial. */}
                 <div className="mt-24">

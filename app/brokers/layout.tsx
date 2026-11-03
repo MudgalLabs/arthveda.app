@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
 
+import { fetchPricing } from "@/lib/pricing";
 import { PricingProvider } from "@/lib/usePricing";
-import { visitorCurrency } from "@/lib/visitor_currency";
+import { visitorCountry } from "@/lib/visitor_country";
 
 // Broker pages end with a pricing recap (BrokerPricingSummary), so they get
-// the visitor's currency the same way /pricing does.
+// the visitor's live prices the same way /pricing does.
 export default async function BrokersLayout({ children }: { children: ReactNode }) {
-    return <PricingProvider currency={await visitorCurrency()}>{children}</PricingProvider>;
+    return <PricingProvider pricing={await fetchPricing(await visitorCountry())}>{children}</PricingProvider>;
 }

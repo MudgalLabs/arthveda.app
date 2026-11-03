@@ -6,7 +6,7 @@ export default function RefundPage() {
             <h1 className="big-heading mb-12">Refund Policy</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> July 20, 2026
+                <strong>Effective Date:</strong> November 3, 2026
             </p>
 
             <p className="mb-4">Thank you for trying Arthveda.</p>
@@ -19,7 +19,7 @@ export default function RefundPage() {
             </p>
 
             <p className="mb-4">
-                <strong>All paid plans</strong> (yearly and One-time) come
+                <strong>All paid plans</strong> (monthly, yearly and One-time) come
                 with a{" "}
                 <strong>14-day money-back guarantee</strong>: if you change
                 your mind, reach out within 14 days of being charged for a

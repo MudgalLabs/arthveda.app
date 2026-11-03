@@ -2,17 +2,18 @@
 
 import { createContext, createElement, ReactNode, useContext } from "react";
 
-import { PricingCurrency, PricingInfo, pricingFor } from "@/lib/pricing";
+import type { PricingInfo } from "@/lib/pricing";
 
-// The currency is decided on the server (lib/visitor_currency.ts) and handed
-// down by PricingProvider, so the first paint already shows the visitor's
-// prices. Outside a provider it's India's.
-const PricingCurrencyContext = createContext<PricingCurrency>("inr");
+// The prices are fetched on the server (lib/pricing.ts) for the visitor's
+// country and handed down by PricingProvider, so the first paint already shows
+// the visitor's prices. Null means the API couldn't be reached: render the
+// plans without numbers.
+const PricingContext = createContext<PricingInfo | null>(null);
 
-export function PricingProvider({ currency, children }: { currency: PricingCurrency; children: ReactNode }) {
-    return createElement(PricingCurrencyContext.Provider, { value: currency }, children);
+export function PricingProvider({ pricing, children }: { pricing: PricingInfo | null; children: ReactNode }) {
+    return createElement(PricingContext.Provider, { value: pricing }, children);
 }
 
-export function usePricing(): PricingInfo {
-    return pricingFor(useContext(PricingCurrencyContext));
+export function usePricing(): PricingInfo | null {
+    return useContext(PricingContext);
 }

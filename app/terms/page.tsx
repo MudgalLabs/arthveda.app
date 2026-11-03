@@ -8,7 +8,7 @@ export default function TermsPage() {
             <h1 className="big-heading mb-12">Terms of Service</h1>
 
             <p className="mb-2">
-                <strong>Effective Date:</strong> August 26, 2026
+                <strong>Effective Date:</strong> November 3, 2026
             </p>
 
             <p>Welcome to Arthveda!</p>
@@ -30,12 +30,9 @@ export default function TermsPage() {
                 2. Subscriptions and One-time Access
             </h2>
             <p>
-                Arthveda offers a yearly recurring plan and a
+                Arthveda offers monthly and yearly recurring plans and a
                 &ldquo;One-time&rdquo; purchase (a single payment, no
-                renewals). Legacy monthly subscriptions created before July
-                20, 2026 continue to renew on their existing terms until
-                cancelled, but monthly is no longer offered to new
-                subscribers.
+                renewals).
             </p>
             <p>
                 Every new account includes a <strong>14-day free trial</strong>

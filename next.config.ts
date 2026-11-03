@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
     output: "standalone",
 
     // geoip-country reads its MaxMind data files from its own folder at
-    // runtime (lib/visitor_currency.ts), so it stays a plain node_modules
+    // runtime (lib/visitor_country.ts), so it stays a plain node_modules
     // require and its data/ ships in the standalone build of the pages that
     // price by visitor IP.
     serverExternalPackages: ["geoip-country"],

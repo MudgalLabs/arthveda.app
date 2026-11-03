@@ -2,20 +2,14 @@
 
 import Link from "next/link";
 
+import { formatPrice } from "@/lib/pricing";
 import { usePricing } from "@/lib/usePricing";
-import { formatCurrency } from "@/lib/utils";
 
-// Compact pricing recap for broker landing pages. Prices come from the single
-// source of truth (usePricing) so this never drifts from /pricing when the
-// numbers change. Sits right before a page's bottom CTA.
+// Compact pricing recap for broker landing pages. Prices are Paddle's live
+// ones (usePricing), the same numbers /pricing shows. Sits right before a
+// page's bottom CTA.
 export function BrokerPricingSummary() {
-    const { yearlyPrice, oneTimePrice, currency, taxName } = usePricing();
-
-    const money = (n: number) =>
-        formatCurrency(n, {
-            currency,
-            localizationOpts: { maximumFractionDigits: 0 },
-        });
+    const pricing = usePricing();
 
     return (
         <section className="mx-auto mt-20 max-w-3xl rounded-lg border border-white/[0.12] bg-surface-1/35 p-6 md:mt-24 md:p-8">
@@ -25,12 +19,20 @@ export function BrokerPricingSummary() {
                         Try it free for 14 days. No card required.
                     </p>
                     <p className="mt-2 font-content text-[14px] leading-[1.6] text-text-muted">
-                        The whole product, no limits, for 14 days. Then{" "}
-                        {money(yearlyPrice)}/yr or {money(oneTimePrice)} once.
-                        All prices include {taxName}.
+                        The whole product, no limits, for 14 days.{" "}
+                        {pricing ? (
+                            <>
+                                Then {formatPrice(pricing.monthlyPrice, pricing.currency)}/mo,{" "}
+                                {formatPrice(pricing.yearlyPrice, pricing.currency)}/yr or{" "}
+                                {formatPrice(pricing.oneTimePrice, pricing.currency)} once. All prices
+                                include {pricing.taxName}.
+                            </>
+                        ) : (
+                            "Then pay monthly, yearly, or once."
+                        )}
                     </p>
                     <p className="mt-2 font-content text-[13px] leading-[1.6] text-text-subtle">
-                        14-day refund on both plans. If you stop subscribing,
+                        14-day refund on every plan. If you stop subscribing,
                         your journal stays readable and exportable.
                     </p>
                 </div>

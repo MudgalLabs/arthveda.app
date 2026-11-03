@@ -3,7 +3,7 @@
 import { Check } from "lucide-react";
 
 import { usePricing } from "@/lib/usePricing";
-import { formatCurrency } from "@/lib/utils";
+import { formatPrice } from "@/lib/pricing";
 import { GetStarted } from "@/components/get_started";
 import { InfoTooltip } from "@/components/info_tooltip";
 
@@ -16,8 +16,8 @@ import { InfoTooltip } from "@/components/info_tooltip";
 //           readable, exportable and shareable, you just can't add to it
 //   always  running screeners stays free for everyone, signed in or not
 //
-// So the page is now one "everything is included" list plus the two plans we
-// actually sell. Deliberately NOT a comparison table: inviting a per-feature
+// So the page is now one "everything is included" list plus the three plans
+// we actually sell. Deliberately NOT a comparison table: inviting a per-feature
 // comparison implies there is a lesser tier to compare with, which is exactly
 // the impression we're trying to remove.
 
@@ -128,20 +128,36 @@ const GROUPS: Group[] = [
 ];
 
 export function PlansTable() {
-    const { yearlyPrice, yearlyMonthlyPrice, oneTimePrice, currency, taxName } = usePricing();
+    const pricing = usePricing();
 
-    const money = (n: number) =>
-        formatCurrency(n, {
-            currency,
-            localizationOpts: { maximumFractionDigits: 0 },
-        });
+    // Prices come live from Paddle (lib/pricing.ts). If they couldn't be
+    // loaded, the cards render without a number rather than a guess.
+    const money = (n: number) => (pricing ? formatPrice(n, pricing.currency) : "");
+    const taxIncluded = pricing?.taxName === "GST" ? "GST included" : "Taxes included";
 
     return (
         <div className="mx-auto max-w-4xl">
-            {/* Plans. Two cards, no interval toggle: with monthly retired there
-                are only two things to buy, and a toggle to switch between two
-                already-visible options is pure friction. */}
-            <div className="grid gap-4 sm:grid-cols-2">
+            {/* Plans. Three cards side by side, no interval toggle: every plan
+                we sell is visible at once, and the yearly card in the middle
+                is the one we recommend. */}
+            <div className="grid gap-4 md:grid-cols-3">
+                {/* Monthly */}
+                <div className="flex flex-col rounded-lg border border-white/[0.12] bg-surface-1/35 p-6">
+                    <h3 className="font-heading text-lg font-medium text-text-primary">Monthly</h3>
+
+                    <PriceHeadline amount={pricing && money(pricing.monthlyPrice)} unit="per month" />
+                    <p className="mt-2 text-sm text-text-muted">Cancel anytime. {taxIncluded}.</p>
+
+                    <div className="mt-auto pt-5">
+                        <GetStarted
+                            fullWidth
+                            variant="secondary"
+                            size="default"
+                            eventProps={{ plan: "monthly" }}
+                        />
+                    </div>
+                </div>
+
                 {/* Yearly — the recommended path, so it gets the "lit stage"
                     treatment (radial brand spotlight + tinted base) used on the
                     hero and product blocks. */}
@@ -156,48 +172,54 @@ export function PlansTable() {
                         <h3 className="font-heading text-lg font-medium text-text-primary">
                             Yearly
                         </h3>
-                        <span className="shrink-0 rounded-full bg-white/[0.08] px-2.5 py-0.5 text-xs text-text-muted">
-                            Most traders pick this
-                        </span>
+                        {/* Measured against monthly, a price we sell, so the
+                            saving is a true claim. */}
+                        {pricing && pricing.yearlySavingsPercent > 0 && (
+                            <span className="shrink-0 rounded-full bg-white/[0.08] px-2.5 py-0.5 text-xs text-text-muted">
+                                Save {pricing.yearlySavingsPercent}%
+                            </span>
+                        )}
                     </div>
 
                     {/* Headline is always the amount actually charged; the
                         per-month rate is a sub-line (decision 2026-07-05). */}
-                    <div className="mt-4 flex items-baseline gap-2">
-                        <span className="font-heading text-3xl font-semibold text-text-primary">
-                            {money(yearlyPrice)}
-                        </span>
-                        <span className="text-sm text-text-muted">per year</span>
-                    </div>
+                    <PriceHeadline amount={pricing && money(pricing.yearlyPrice)} unit="per year" />
                     <p className="mt-2 text-sm text-text-muted">
-                        <span className="text-text-primary">
-                            {money(yearlyMonthlyPrice)} per month
-                        </span>
-                        , {taxName} included
+                        {pricing ? (
+                            <>
+                                <span className="text-text-primary">
+                                    {money(pricing.yearlyMonthlyPrice)} per month
+                                </span>
+                                , {pricing.taxName} included
+                            </>
+                        ) : (
+                            "Most traders pick this."
+                        )}
                     </p>
 
-                    <div className="mt-5">
+                    <div className="mt-auto pt-5">
                         <GetStarted fullWidth size="default" eventProps={{ plan: "yearly" }} />
                     </div>
                 </div>
 
                 {/* One-time. PostHog keeps the historical "lifetime" vocabulary
                     for this plan so existing insights don't fragment; only the
-                    UI says "One-time". */}
+                    UI says "One-time". Its value depends on how long you stay,
+                    so it is framed by break-even against monthly, never as a
+                    percentage off. */}
                 <div className="flex flex-col rounded-lg border border-white/[0.12] bg-surface-1/35 p-6">
                     <h3 className="font-heading text-lg font-medium text-text-primary">One-time</h3>
 
-                    <div className="mt-4 flex items-baseline gap-2">
-                        <span className="font-heading text-3xl font-semibold text-text-primary">
-                            {money(oneTimePrice)}
-                        </span>
-                        <span className="text-sm text-text-muted">once</span>
-                    </div>
+                    <PriceHeadline amount={pricing && money(pricing.oneTimePrice)} unit="once" />
                     <p className="mt-2 text-sm text-text-muted">
-                        Pay once, no renewals. {taxName === "GST" ? "GST" : "Taxes"} included.
+                        Pay once, no renewals.
+                        {pricing && pricing.oneTimeBreakEvenMonths > 0 && (
+                            <> Less than {pricing.oneTimeBreakEvenMonths} months of monthly.</>
+                        )}{" "}
+                        {taxIncluded}.
                     </p>
 
-                    <div className="mt-5">
+                    <div className="mt-auto pt-5">
                         <GetStarted
                             fullWidth
                             variant="secondary"
@@ -209,7 +231,7 @@ export function PlansTable() {
             </div>
 
             <p className="mt-4 text-center text-sm text-text-muted">
-                No card required to start. 14-day refund on both plans, no
+                No card required to start. 14-day refund on every plan, no
                 questions asked.
             </p>
 
@@ -275,6 +297,17 @@ export function PlansTable() {
                     screeners stays free either way.
                 </p>
             </div>
+        </div>
+    );
+}
+
+// The sticker for one plan. Without live prices (the API was unreachable) it
+// keeps the card's height with a dash instead of showing a guessed number.
+function PriceHeadline({ amount, unit }: { amount: string | null; unit: string }) {
+    return (
+        <div className="mt-4 flex items-baseline gap-2">
+            <span className="font-heading text-3xl font-semibold text-text-primary">{amount ?? "\u2014"}</span>
+            {amount && <span className="text-sm text-text-muted">{unit}</span>}
         </div>
     );
 }
