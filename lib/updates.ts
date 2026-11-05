@@ -30,6 +30,31 @@ export type Update = {
 
 export const UPDATES: Update[] = [
     {
+        slug: "compare-symbols",
+        date: "2026-11-05",
+        title: "Compare: any stock against its sector",
+        summary:
+            "Put up to five stocks or indices on one chart, all starting from 0%, and see who led over any window. Arthveda suggests the stock's sector index.",
+        tags: ["Discover", "Charts"],
+        keywords: [
+            "compare stock with sector index",
+            "stock vs Nifty IT chart",
+            "relative performance stock vs index",
+            "compare two stocks chart",
+            "rebased percentage chart",
+            "NSE sector index comparison",
+            "stock vs S&P 500 chart",
+            "Arthveda Compare",
+        ],
+        cover: {
+            src: "/images/updates/compare-symbols-cover.png",
+            width: 2972,
+            height: 1510,
+            alt: "TCS compared with the Nifty IT index on Arthveda: TCS +11.18% against Nifty IT +10.33%, both lines starting from 0%",
+        },
+        og: { src: "/images/updates/compare-symbols-og.jpg", width: 1200, height: 630 },
+    },
+    {
         slug: "benchmark-widget",
         date: "2026-11-03",
         title: "Benchmark: did you beat the index?",

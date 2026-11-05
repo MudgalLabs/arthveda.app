@@ -53,6 +53,12 @@ export const API_URL = IS_DEV
     ? "http://localhost:1337"
     : "https://api.arthveda.app";
 
+// Symbol pages (/symbols/<TICKER>): public charts. Release posts deep-link a
+// ready-made comparison, e.g. `${SYMBOLS_URL}/TCS?compare=NIFTYIT`.
+export const SYMBOLS_URL = IS_DEV
+    ? "http://localhost:6969/symbols"
+    : "https://arthveda.app/symbols";
+
 // The trader's dashboard. Release posts on /updates deep-link here ("add the
 // widget"); the app handles login if needed.
 export const DASHBOARD_URL = IS_DEV
