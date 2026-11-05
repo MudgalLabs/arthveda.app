@@ -123,7 +123,7 @@ export default function CompareSymbols() {
             </P>
 
             <div className="mt-12">
-                <GetStarted label="Try TCS vs Nifty IT" href={`${SYMBOLS_URL}/TCS?compare=NIFTYIT`} />
+                <GetStarted label="Try TCS vs Nifty IT" href={`${SYMBOLS_URL}/TCS?compare=NIFTYIT&view=chart`} />
             </div>
         </>
     );
