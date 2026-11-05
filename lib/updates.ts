@@ -34,7 +34,7 @@ export const UPDATES: Update[] = [
         date: "2026-11-05",
         title: "Compare: up to 5 symbols on one chart",
         summary:
-            "Stock vs stock, stock vs sector, index vs index: put up to five symbols on one chart, all starting from 0%, and see who led over any window.",
+            "Stock vs stock, stock vs sector, index vs index: put up to five symbols on one chart and see who really led over any period you pick.",
         tags: ["Discover", "Charts"],
         keywords: [
             "compare stocks chart",
