@@ -43,6 +43,13 @@ export default function CompareSymbols() {
                 <Strong>Compare</Strong> and put up to five stocks or indices
                 on one chart, all starting from 0%.
             </P>
+            <P>
+                Any mix works: <Strong>stock vs stock</Strong> (HDFC Bank vs
+                ICICI Bank), <Strong>stock vs its sector</Strong> (TCS vs Nifty
+                IT), <Strong>stock vs the market</Strong> (Reliance vs Nifty
+                50) or <Strong>index vs index</Strong> (Nifty Bank vs Nifty
+                IT). Open an index&apos;s chart and compare from there too.
+            </P>
 
             <H2>Compare on any chart</H2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 font-content text-[16px] leading-[1.7] text-text-muted">

@@ -32,15 +32,17 @@ export const UPDATES: Update[] = [
     {
         slug: "compare-symbols",
         date: "2026-11-05",
-        title: "Compare: any stock against its sector",
+        title: "Compare: up to 5 symbols on one chart",
         summary:
-            "Put up to five stocks or indices on one chart, all starting from 0%, and see who led over any window. Arthveda suggests the stock's sector index.",
+            "Stock vs stock, stock vs sector, index vs index: put up to five symbols on one chart, all starting from 0%, and see who led over any window.",
         tags: ["Discover", "Charts"],
         keywords: [
+            "compare stocks chart",
+            "compare two stocks chart",
             "compare stock with sector index",
+            "compare indices chart",
             "stock vs Nifty IT chart",
             "relative performance stock vs index",
-            "compare two stocks chart",
             "rebased percentage chart",
             "NSE sector index comparison",
             "stock vs S&P 500 chart",
