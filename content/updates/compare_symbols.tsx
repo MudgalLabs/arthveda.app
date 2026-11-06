@@ -4,7 +4,7 @@ import { GetStarted } from "@/components/get_started";
 import { SYMBOLS_URL } from "@/lib/links";
 
 // Release post: Compare on the symbol chart (shipped 2026-11-05). Facts follow
-// arthveda/docs/symbols.md ("Chart: Compare, Expand, image export"); keep them
+// arthveda/docs/symbols.md ("Chart: Compare, layout, image export"); keep them
 // in step if the chart changes.
 
 const H2 = ({ children }: { children: ReactNode }) => (
@@ -108,9 +108,9 @@ export default function CompareSymbols() {
 
             <H2>Also new on the chart</H2>
             <P>
-                <Strong>Expand.</Strong> The button at the top right of the
-                chart gives it the whole screen, and Arthveda remembers your
-                choice as you move between symbols.
+                <Strong>A bigger chart.</Strong> The chart now runs the full
+                width of the page and fills your screen, with the symbol&apos;s
+                stats and your journey just below it.
             </P>
             <P>
                 <Strong>A tidier legend.</Strong> A long list of indicators
@@ -123,7 +123,7 @@ export default function CompareSymbols() {
             </P>
 
             <div className="mt-12">
-                <GetStarted label="Try TCS vs Nifty IT" href={`${SYMBOLS_URL}/TCS?compare=NIFTYIT&view=chart`} />
+                <GetStarted label="Try TCS vs Nifty IT" href={`${SYMBOLS_URL}/TCS?compare=NIFTYIT`} />
             </div>
         </>
     );
