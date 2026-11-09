@@ -63,14 +63,29 @@ export default function Hero() {
                                     location: "hero",
                                 })
                             }
-                            className="unstyled-link"
+                            className="unstyled-link block"
                         >
-                            <Button variant="primary" size="large">
+                            {/* w-full: the note below is wider than the label,
+                                so the button matches it and stays centred. */}
+                            <Button variant="primary" size="large" className="w-full">
                                 Try it free for 14 days
                             </Button>
                         </a>
-                        <p className="mt-2 text-center text-sm text-text-subtle">
-                            No card required
+                        {/* The price link sits here because "free for 14 days"
+                            is exactly where "and then what?" comes up, and on
+                            mobile the nav's Pricing link is behind the menu. */}
+                        <p className="mt-2 whitespace-nowrap text-center text-sm text-text-subtle">
+                            No card required ·{" "}
+                            <Link
+                                href="/pricing"
+                                onClick={() =>
+                                    posthog.capture("Clicked See pricing", {
+                                        location: "hero",
+                                    })
+                                }
+                            >
+                                See pricing
+                            </Link>
                         </p>
                     </div>
 

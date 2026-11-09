@@ -56,6 +56,7 @@ export default function Footer() {
 
                 {/* Right: footer navigation */}
                 <div className="flex-y sm:flex-x gap-x-4! self-start">
+                    <Link href="/pricing">Pricing</Link>
                     <Link href="/terms">Terms of Service</Link>
                     <Link href="/privacy">Privacy Policy</Link>
                     <Link href="/refund">Refund Policy</Link>
