@@ -10,6 +10,11 @@ interface LitMediaProps {
     /** Optional autoplay flow-loop video (poster = `src`). */
     videoSrc?: string;
     videoSrcWebm?: string;
+    /** MIME types (with codecs) for the sources; see MediaFrame. */
+    videoType?: string;
+    videoTypeWebm?: string;
+    /** Muted autoplay loop instead of click-to-play (the homepage hero). */
+    autoPlay?: boolean;
     /** Homepage is bottom-lit; broker pages use the Linear-style top-lit stage. */
     lightOrigin?: "top" | "bottom";
     /** Fade the lower edge of the whole stage into the page background. */
@@ -39,6 +44,9 @@ export default function LitMedia({
     aspectClassName = "aspect-video",
     videoSrc,
     videoSrcWebm,
+    videoType,
+    videoTypeWebm,
+    autoPlay = false,
     lightOrigin = "bottom",
     bottomFade = false,
     fullBleed = true,
@@ -93,7 +101,10 @@ export default function LitMedia({
                 aspectClassName={aspectClassName}
                 videoSrc={videoSrc}
                 videoSrcWebm={videoSrcWebm}
-                showPlay={Boolean(videoSrc)}
+                videoType={videoType}
+                videoTypeWebm={videoTypeWebm}
+                autoPlay={autoPlay}
+                showPlay={Boolean(videoSrc) && !autoPlay}
                 spotlight
                 bottomFade={bottomFade}
                 className={

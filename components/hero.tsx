@@ -123,18 +123,21 @@ export default function Hero() {
 
             <div className="h-8 sm:h-10 lg:h-14" />
 
-            {/* Hero flow-loop video — lit stage, single shell + content (no
-                extra panel). Poster = LCP (the /symbols/IRFC command center, §6);
-                the flow-loop video autoplays here later (no play button — that's
-                the walkthrough's). */}
+            {/* Hero loop video: lit stage, single shell + content. Autoplays
+                muted and loops seamlessly (frame 2399 flows into frame 0); the
+                poster is the video's exact first frame, so the LCP paint and
+                the first video frame match. Source lives in video/ (Remotion).
+                AV1 first for Chrome/Firefox/Edge and AV1-capable Safari; the
+                codecs string makes other browsers skip to the H.264 MP4. */}
             <LitMedia
-                src="/images/v2/video-poster.png"
-                alt="Arthveda — your stock's full journey: chart with your trade markers, timeline, and performance"
-                placeholderLabel="See the workflow in action · 48s"
+                src="/images/v2/hero-loop-poster.webp"
+                alt="Arthveda: every screen of the Trading OS around the logo, from Market Monitor and the Screener to the Symbol Journey, Journal and public profile"
                 priority
-                // Compressed flow-loop (see docs/v2_marketing_plan.md §6).
-                // Click-to-play; the poster is the crisp default + LCP.
-                videoSrc="/videos/flow-loop.mp4"
+                autoPlay
+                videoSrcWebm="/videos/hero-loop.webm"
+                videoTypeWebm='video/webm; codecs="av01.0.09M.10"'
+                videoSrc="/videos/hero-loop.mp4"
+                videoType='video/mp4; codecs="avc1.64002A"'
             />
         </section>
     );

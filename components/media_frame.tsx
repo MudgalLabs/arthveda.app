@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -17,6 +17,13 @@ interface MediaFrameProps {
     /** Video sources. WebM is preferred when present; MP4 is the fallback. */
     videoSrc?: string;
     videoSrcWebm?: string;
+    /**
+     * MIME types for the sources. Pass the codecs (e.g. AV1 in WebM) so a
+     * browser that can't decode them skips to the next source instead of
+     * failing on it (Safari without AV1 hardware does exactly that).
+     */
+    videoType?: string;
+    videoTypeWebm?: string;
     /**
      * Autoplay the video (muted, looping) instead of click-to-play — used for
      * the hero flow-loop. The poster (`src`) is the LCP paint; the video streams
@@ -42,6 +49,8 @@ export default function MediaFrame({
     showPlay = false,
     videoSrc,
     videoSrcWebm,
+    videoType = "video/mp4",
+    videoTypeWebm = "video/webm",
     autoPlay = false,
     priority = false,
     aspectClassName = "aspect-video",
@@ -50,6 +59,8 @@ export default function MediaFrame({
     className,
 }: MediaFrameProps) {
     const [clicked, setClicked] = useState(false);
+    // Autoplay hero: mirrors the <video> element so the toggle shows the right icon.
+    const [playing, setPlaying] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
 
     // Autoplay only when motion is allowed — drive it via JS (not the autoPlay
@@ -65,15 +76,15 @@ export default function MediaFrame({
 
     const renderVideoSources = () => (
         <>
-            {videoSrcWebm && <source src={videoSrcWebm} type="video/webm" />}
-            {videoSrc && <source src={videoSrc} type="video/mp4" />}
+            {videoSrcWebm && <source src={videoSrcWebm} type={videoTypeWebm} />}
+            {videoSrc && <source src={videoSrc} type={videoType} />}
         </>
     );
 
     return (
         <div
             className={cn(
-                "relative w-full overflow-hidden rounded-xl",
+                "group/media relative w-full overflow-hidden rounded-xl",
                 aspectClassName,
                 "border border-border-subtle bg-surface-1",
                 "shadow-[0_8px_30px_rgba(0,0,0,0.4)]",
@@ -91,18 +102,56 @@ export default function MediaFrame({
             }
         >
             {autoPlay && videoSrc ? (
-                // Hero flow-loop: autoplay, no controls, no play button.
-                <video
-                    ref={videoRef}
-                    poster={src ?? undefined}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="absolute inset-0 h-full w-full object-cover"
-                >
-                    {renderVideoSources()}
-                </video>
+                // Hero loop: autoplay, no controls, no play button. The poster
+                // is also rendered as an optimized priority <Image> underneath,
+                // so it stays the LCP paint; the video covers it once playing.
+                <>
+                    {src && (
+                        <Image
+                            src={src}
+                            alt={alt}
+                            fill
+                            quality={90}
+                            sizes="(max-width: 1024px) 100vw, 1500px"
+                            priority={priority}
+                            className="object-cover"
+                        />
+                    )}
+                    <video
+                        ref={videoRef}
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        aria-label={alt}
+                        onPlay={() => setPlaying(true)}
+                        onPause={() => setPlaying(false)}
+                        className="absolute inset-0 h-full w-full object-cover"
+                    >
+                        {renderVideoSources()}
+                    </video>
+                    {/* Pause/play (WCAG 2.2.2: moving content over 5s needs a
+                        pause). Faint until the frame is hovered; always reachable
+                        by keyboard. No scrubber: a seamless loop has no real
+                        start or end to seek between. */}
+                    <button
+                        type="button"
+                        aria-label={playing ? "Pause video" : "Play video"}
+                        onClick={() => {
+                            const v = videoRef.current;
+                            if (!v) return;
+                            if (v.paused) v.play().catch(() => {});
+                            else v.pause();
+                        }}
+                        className="absolute right-3 bottom-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-background/60 text-text-primary ring-1 ring-white/15 backdrop-blur-md opacity-50 transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 group-hover/media:opacity-100 sm:right-4 sm:bottom-4"
+                    >
+                        {playing ? (
+                            <Pause size={15} className="fill-current" />
+                        ) : (
+                            <Play size={15} className="translate-x-px fill-current" />
+                        )}
+                    </button>
+                </>
             ) : clicked && videoSrc ? (
                 <video
                     poster={src ?? undefined}
