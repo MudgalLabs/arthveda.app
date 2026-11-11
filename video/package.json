@@ -1,0 +1,24 @@
+{
+  "name": "arthveda-hero-video",
+  "private": true,
+  "description": "Source for the arthveda.app hero loop (Remotion). Rendered output lands in out/ and ships via public/videos.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts HeroLoop",
+    "render": "remotion render src/index.ts HeroLoop out/hero-master.mp4",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "@remotion/fonts": "4.0.542",
+    "@remotion/paths": "^4.0.542",
+    "lucide-react": "1.14.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

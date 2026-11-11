@@ -17,3 +17,5 @@ yarn-error.log*
 .env.*
 !.env.example
 .github
+# Remotion source for the hero video; only its rendered output ships (public/videos).
+video
