@@ -30,6 +30,32 @@ export type Update = {
 
 export const UPDATES: Update[] = [
     {
+        slug: "stats-over-time",
+        date: "2026-11-12",
+        title: "Your stats have a timeline now",
+        summary:
+            "Win rate, Expectancy, Profit Factor and Avg Win/Loss can now show period by period as a bar or line chart, not just one number for the range.",
+        tags: ["Journal", "Dashboard"],
+        keywords: [
+            "win rate by month",
+            "win rate over time chart",
+            "trading win rate chart",
+            "profit factor over time",
+            "expectancy by month trading",
+            "average win loss ratio chart",
+            "trading journal dashboard charts",
+            "track trading performance over time",
+            "Arthveda dashboard",
+        ],
+        cover: {
+            src: "/images/updates/stats-over-time-cover.png",
+            width: 2972,
+            height: 1532,
+            alt: "The Win rate widget as a monthly line chart from May to November 2026: 33% in May, up to 75% in June, down to 33% in August and up to 83% in November",
+        },
+        og: { src: "/images/updates/stats-over-time-og.jpg", width: 1200, height: 630 },
+    },
+    {
         slug: "compare-symbols",
         date: "2026-11-05",
         title: "Compare: up to 5 symbols on one chart",
