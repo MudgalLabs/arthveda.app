@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Tag } from "@/ui/tag";
 import { UPDATE_BODIES } from "@/content/updates";
-import { UPDATES, formatUpdateDate, getUpdate } from "@/lib/updates";
+import { UPDATES, formatUpdateDate, getUpdate, kindOf, ogFor } from "@/lib/updates";
 
 type Params = { slug: string };
 
@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     const title = `${u.title} · Arthveda`;
     const url = `/updates/${u.slug}`;
     const published = `${u.date}T00:00:00Z`;
-    const images = [{ url: u.og.src, width: u.og.width, height: u.og.height, alt: u.cover.alt, type: "image/jpeg" }];
+    const og = ogFor(u);
+    const images = [{ url: og.src, width: og.width, height: og.height, alt: og.alt, type: "image/jpeg" }];
     return {
         title,
         description: u.summary,
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
             card: "summary_large_image",
             title,
             description: u.summary,
-            images: [{ url: u.og.src, alt: u.cover.alt }],
+            images: [{ url: og.src, alt: og.alt }],
         },
     };
 }
@@ -78,7 +79,7 @@ export default async function UpdatePage({ params }: { params: Promise<Params> }
             description: u.summary,
             datePublished: u.date,
             dateModified: u.date,
-            image: [`${SITE}${u.cover.src}`, `${SITE}${u.og.src}`],
+            image: u.cover ? [`${SITE}${u.cover.src}`, `${SITE}${ogFor(u).src}`] : [`${SITE}${ogFor(u).src}`],
             url: pageURL,
             mainEntityOfPage: pageURL,
             keywords: u.tags.join(", "),
@@ -110,40 +111,53 @@ export default async function UpdatePage({ params }: { params: Promise<Params> }
                 </Link>
 
                 {/* The feature itself comes first: a real screenshot says what
-                    shipped faster than any paragraph. */}
-                <div className="relative mt-6 w-full">
-                    <div
-                        style={{
-                            maskImage: FADE,
-                            WebkitMaskImage: FADE,
-                            maskComposite: "intersect",
-                            WebkitMaskComposite: "source-in",
-                        }}
-                    >
-                        <Image
-                            src={u.cover.src}
-                            alt={u.cover.alt}
-                            width={u.cover.width}
-                            height={u.cover.height}
-                            quality={90}
-                            priority
-                            sizes="(min-width: 1024px) 1024px, 100vw"
-                            className="w-full"
+                    shipped faster than any paragraph. Posts without one
+                    (journey milestones, backfilled releases) open on the
+                    title instead. */}
+                {u.cover && (
+                    <div className="relative mt-6 w-full">
+                        <div
+                            style={{
+                                maskImage: FADE,
+                                WebkitMaskImage: FADE,
+                                maskComposite: "intersect",
+                                WebkitMaskComposite: "source-in",
+                            }}
+                        >
+                            <Image
+                                src={u.cover.src}
+                                alt={u.cover.alt}
+                                width={u.cover.width}
+                                height={u.cover.height}
+                                quality={90}
+                                priority
+                                sizes="(min-width: 1024px) 1024px, 100vw"
+                                className="w-full"
+                            />
+                        </div>
+                        <div
+                            aria-hidden
+                            className="pointer-events-none absolute inset-0"
+                            style={{ background: SPOTLIGHT }}
                         />
                     </div>
-                    <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-0"
-                        style={{ background: SPOTLIGHT }}
-                    />
-                </div>
+                )}
             </div>
 
             <article className="mx-auto max-w-3xl">
-                <div className="mt-6 flex flex-wrap items-center gap-2">
+                <div
+                    className={
+                        u.cover ? "mt-6 flex flex-wrap items-center gap-2" : "mt-10 flex flex-wrap items-center gap-2"
+                    }
+                >
                     <time dateTime={u.date} className="mr-1 font-content text-[13px] text-text-subtle">
                         {formatUpdateDate(u.date)}
                     </time>
+                    {kindOf(u) === "journey" && (
+                        <Tag size="small" className="border-warning-border bg-warning-bg text-warning-foreground">
+                            Journey
+                        </Tag>
+                    )}
                     {u.tags.map((t) => (
                         <Tag key={t} variant="muted" size="small">
                             {t}

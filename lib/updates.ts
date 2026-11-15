@@ -1,3 +1,5 @@
+import { HISTORY_2025, HISTORY_2026 } from "@/lib/updates_history";
+
 // One release post on /updates. The list is the timeline, newest first, and
 // each entry renders at /updates/<slug>. Post bodies live in
 // content/updates (UPDATE_BODIES), kept out of this file so the navbar dot
@@ -6,10 +8,25 @@
 // The slug is the URL the in-app "Product updates" notification links to
 // (arthveda/api cmd/send_announcement) and the URL the social posts share, so
 // never rename one after it has been sent.
+//
+// Two kinds share the timeline:
+//   - "release" (the default): something shipped in the product.
+//   - "journey": a milestone of the business itself (inception, open source,
+//     first sale, customer counts). Told in the first person, styled apart on
+//     the timeline and filterable, so a reader scanning for features is never
+//     confused by them.
+//
+// Posts dated before /updates existed (2026-11-03) were backfilled on
+// 2026-11-13 with their real ship dates from git, the prod invoice table and
+// the LinkedIn posts of the time. They never get a notification or a social
+// post: they are a late changelog, not news.
+export type UpdateKind = "release" | "journey";
+
 export type Update = {
     slug: string;
     // ISO date (YYYY-MM-DD) the release shipped.
     date: string;
+    kind?: UpdateKind;
     title: string;
     // One or two sentences: the timeline card, the meta description and the
     // social preview text. Keep it under ~160 characters.
@@ -20,15 +37,31 @@ export type Update = {
     keywords: string[];
     // A real screenshot of the feature, in /public. It is the post's hero, the
     // timeline thumbnail and the og:image, so a shared link previews with it.
-    // Aim for about 1.9:1 (the og:image shape).
-    cover: { src: string; width: number; height: number; alt: string };
+    // Aim for about 1.9:1 (the og:image shape). Optional: journey posts have
+    // nothing to screenshot, and a backfilled post about a feature whose UI
+    // has since changed must not show today's UI as if it shipped that way.
+    cover?: { src: string; width: number; height: number; alt: string };
     // The share card: the cover cut to 1200x630 JPG, the size LinkedIn, X,
     // WhatsApp and Discord all render without re-cropping, and light enough
-    // that no scraper times out on it.
-    og: { src: string; width: number; height: number };
+    // that no scraper times out on it. Falls back to the site card (ogFor).
+    og?: { src: string; width: number; height: number };
 };
 
-export const UPDATES: Update[] = [
+type Card = { src: string; width: number; height: number; alt: string };
+
+const SITE_OG: Card = { src: "/images/og-image.jpg", width: 1200, height: 630, alt: "Trading OS · Arthveda" };
+
+// The share card for a post: its own when it has one, else the site card.
+export function ogFor(u: Update): Card {
+    if (u.og) return { ...u.og, alt: u.cover?.alt ?? u.title };
+    return SITE_OG;
+}
+
+export function kindOf(u: Update): UpdateKind {
+    return u.kind ?? "release";
+}
+
+const ENTRIES: Update[] = [
     {
         slug: "stats-over-time",
         date: "2026-11-12",
@@ -107,7 +140,14 @@ export const UPDATES: Update[] = [
         },
         og: { src: "/images/updates/benchmark-widget-og.jpg", width: 1200, height: 630 },
     },
+    ...HISTORY_2026,
+    ...HISTORY_2025,
 ];
+
+// Newest first, always: the navbar dot and the timeline both read UPDATES[0]
+// as the latest, so order comes from the dates, never from where an entry
+// sits in the source.
+export const UPDATES: Update[] = [...ENTRIES].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
 export function getUpdate(slug: string): Update | undefined {
     return UPDATES.find((u) => u.slug === slug);
