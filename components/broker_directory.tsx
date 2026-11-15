@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 import {
     ArrowRight,
     ArrowUpRight,
@@ -43,9 +44,41 @@ const VISIBLE_BROKERS = [...BROKERS].sort(
     (a, b) => Number(Boolean(a.isComingSoon)) - Number(Boolean(b.isComingSoon)),
 );
 
-// Email link prefilled to ask us to add import support for a segment.
-const segmentMailto = (label: string) =>
-    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Import support: ${label}`)}`;
+// A request to add something for a SUPPORTED broker: a segment we don't parse
+// yet (Upstox Futures) or an import method nobody has asked for (Definedge file
+// upload). The chat opens pre-filled with this (see <ChatLink compose>), and
+// the mailto fallback carries the same subject + body, so either path tells me
+// exactly which broker and what's missing.
+type ImportRequest = { title: string; body: string };
+
+const METHOD_PHRASE: Record<string, string> = {
+    "File upload": "by uploading my broker's file",
+    Sync: "with broker sync",
+};
+
+function importRequest(broker: string, label: string): ImportRequest {
+    const method = METHOD_PHRASE[label];
+    return method
+        ? {
+              title: `Import request: ${broker} ${label.toLowerCase()}`,
+              body: `Hi, I trade on ${broker} and would like to import my trades into Arthveda ${method}.`,
+          }
+        : {
+              title: `Import request: ${broker} ${label}`,
+              body: `Hi, I trade ${label} on ${broker} and would like Arthveda to support importing those trades.`,
+          };
+}
+
+// The search's empty state: a broker we don't list at all.
+function brokerRequest(name: string): ImportRequest {
+    return {
+        title: `Broker request: ${name}`,
+        body: `Hi, I trade on ${name} and would like Arthveda to support importing my trades.`,
+    };
+}
+
+const requestMailto = ({ title, body }: ImportRequest) =>
+    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
 
 type View = "grid" | "table";
 
@@ -108,12 +141,23 @@ export function BrokerDirectory() {
             {brokers.length === 0 ? (
                 <p className="mt-16 text-center text-sm text-text-muted">
                     No brokers match “{query.trim()}”.{" "}
-                    <a
-                        href={segmentMailto(query.trim())}
+                    <ChatLink
+                        href={requestMailto(brokerRequest(query.trim()))}
+                        compose={brokerRequest(query.trim())}
+                        // What they searched for IS the broker they want.
+                        // Capped: it's free text, not a list value.
+                        onOpen={(via) =>
+                            posthog.capture("Broker Requested", {
+                                broker: query.trim().slice(0, 50),
+                                request: "Broker",
+                                group: "Search",
+                                via,
+                            })
+                        }
                         className="text-link no-underline! transition-colors hover:text-text-primary"
                     >
                         Request it →
-                    </a>
+                    </ChatLink>
                 </p>
             ) : view === "grid" ? (
                 <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -187,10 +231,19 @@ function SectionLabel({ children }: { children: string }) {
 // "Request" mailto for anything we don't support yet — a segment we haven't
 // built or an import method nobody has asked for. None of it is impossible, it
 // just needs a nudge, so we invite the ask instead of showing a dead dash.
-function RequestLink({ label }: { label: string }) {
+function RequestLink({ broker, label }: { broker: string; label: string }) {
+    const request = importRequest(broker, label);
     return (
         <ChatLink
-            href={segmentMailto(label)}
+            href={requestMailto(request)}
+            compose={request}
+            onOpen={(via) =>
+                posthog.capture("Broker Requested", {
+                    broker,
+                    request: label,
+                    via,
+                })
+            }
             title={`Ping me and I'll add ${label} support`}
             className="relative z-10 text-link no-underline! transition-colors hover:text-text-primary hover:underline!"
         >
@@ -202,7 +255,13 @@ function RequestLink({ label }: { label: string }) {
 // One segment as a row: a state marker + label + a muted note. Same data and
 // states as <SegmentChips>, but de-pilled so several rows stack quietly. See
 // SegmentState in lib/brokers.ts for what each state means.
-function SegmentRow({ segment }: { segment: BrokerSegment }) {
+function SegmentRow({
+    broker,
+    segment,
+}: {
+    broker: string;
+    segment: BrokerSegment;
+}) {
     const { label, state, detail } = segment;
 
     if (state === "supported") {
@@ -240,7 +299,7 @@ function SegmentRow({ segment }: { segment: BrokerSegment }) {
             <span className="text-text-muted">
                 {label}
                 <span className="text-text-subtle"> · </span>
-                <RequestLink label={label} />
+                <RequestLink broker={broker} label={label} />
             </span>
         </li>
     );
@@ -250,11 +309,13 @@ function SegmentRow({ segment }: { segment: BrokerSegment }) {
 // method name + a "Request" link (mirrors the table's Sync/Upload columns), so a
 // missing method reads as "ask us", not a dead end.
 function ImportItem({
+    broker,
     ok,
     okLabel,
     name,
     unavailable = false,
 }: {
+    broker: string;
     ok: boolean;
     okLabel: string;
     name: string;
@@ -283,7 +344,7 @@ function ImportItem({
         <span className="text-sm text-text-muted">
             {name}
             <span className="text-text-subtle"> · </span>
-            <RequestLink label={name} />
+            <RequestLink broker={broker} label={name} />
         </span>
     );
 }
@@ -331,7 +392,11 @@ function BrokerCard({ broker }: { broker: Broker }) {
             </div>
             <ul className="mt-2 space-y-1.5">
                 {broker.segments.map((segment) => (
-                    <SegmentRow key={segment.label} segment={segment} />
+                    <SegmentRow
+                        key={segment.label}
+                        broker={broker.name}
+                        segment={segment}
+                    />
                 ))}
             </ul>
 
@@ -340,12 +405,18 @@ function BrokerCard({ broker }: { broker: Broker }) {
                 <SectionLabel>Import</SectionLabel>
                 <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5">
                     <ImportItem
+                        broker={broker.name}
                         ok={hasUpload}
                         okLabel="File upload"
                         name="File upload"
                         unavailable={broker.fileUploadUnavailable}
                     />
-                    <ImportItem ok={hasSync} okLabel={syncLabel} name="Sync" />
+                    <ImportItem
+                        broker={broker.name}
+                        ok={hasSync}
+                        okLabel={syncLabel}
+                        name="Sync"
+                    />
                 </div>
             </div>
 
@@ -396,9 +467,11 @@ function segmentState(
 }
 
 function StateCell({
+    broker,
     state,
     label,
 }: {
+    broker: string;
     state: SegmentState | "none";
     label: string;
 }) {
@@ -417,14 +490,16 @@ function StateCell({
         return <span className="text-sm text-text-subtle">Manual</span>;
     }
     // on-request or none — not built yet, but requestable rather than impossible.
-    return <RequestLink label={label} />;
+    return <RequestLink broker={broker} label={label} />;
 }
 
 function BoolCell({
+    broker,
     ok,
     label,
     unavailable = false,
 }: {
+    broker: string;
     ok: boolean;
     label: string;
     // The broker can't offer this method at all (e.g. Dhan has no trade export,
@@ -440,7 +515,7 @@ function BoolCell({
     if (unavailable) {
         return <span className="text-sm text-text-subtle">—</span>;
     }
-    return <RequestLink label={label} />;
+    return <RequestLink broker={broker} label={label} />;
 }
 
 function BrokerTable({ brokers }: { brokers: Broker[] }) {
@@ -520,6 +595,7 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                                 {SEGMENT_COLUMNS.map((c) => (
                                     <TableCell key={c} className="text-center">
                                         <StateCell
+                                            broker={broker.name}
                                             state={segmentState(broker, c)}
                                             label={c}
                                         />
@@ -527,13 +603,18 @@ function BrokerTable({ brokers }: { brokers: Broker[] }) {
                                 ))}
                                 <TableCell className="text-center">
                                     <BoolCell
+                                        broker={broker.name}
                                         ok={canUpload}
                                         label="File upload"
                                         unavailable={broker.fileUploadUnavailable}
                                     />
                                 </TableCell>
                                 <TableCell className="text-center">
-                                    <BoolCell ok={canSync} label="Sync" />
+                                    <BoolCell
+                                        broker={broker.name}
+                                        ok={canSync}
+                                        label="Sync"
+                                    />
                                 </TableCell>
                             </TableRow>
                         );

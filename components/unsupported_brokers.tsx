@@ -95,6 +95,7 @@ function UnsupportedRow({ platform }: { platform: UnsupportedPlatform }) {
                 onOpen={(via) =>
                     posthog.capture("Broker Requested", {
                         broker: name,
+                        request: "Broker",
                         group,
                         via,
                     })
