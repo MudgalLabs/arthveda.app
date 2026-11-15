@@ -79,19 +79,13 @@ export function PlanCards({ withCta = false }: { withCta?: boolean }) {
 
             {/* One-time. PostHog keeps the historical "lifetime" vocabulary
                 for this plan so existing insights don't fragment; only the
-                UI says "One-time". Its value depends on how long you stay,
-                so it is framed by break-even against monthly, never as a
-                percentage off. */}
+                UI says "One-time". */}
             <div className="flex flex-col rounded-lg border border-white/[0.12] bg-surface-1/35 p-6">
                 <h3 className="font-heading text-lg font-medium text-text-primary">One-time</h3>
 
                 <PriceHeadline amount={pricing && money(pricing.oneTimePrice)} unit="once" />
                 <p className="mt-2 text-sm text-text-muted">
-                    Pay once, no renewals.
-                    {pricing && pricing.oneTimeBreakEvenMonths > 0 && (
-                        <> Less than {pricing.oneTimeBreakEvenMonths} months of monthly.</>
-                    )}{" "}
-                    {taxIncluded}.
+                    Pay once, no renewals. {taxIncluded}.
                 </p>
 
                 {withCta && (

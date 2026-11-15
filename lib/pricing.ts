@@ -36,8 +36,6 @@ export interface PricingInfo {
     yearlyMonthlyPrice: number;
     /** Yearly's saving over twelve months of monthly, floored to a whole percent. */
     yearlySavingsPercent: number;
-    /** How many months of monthly cost more than One-time (One-time is "less than N months"). */
-    oneTimeBreakEvenMonths: number;
     /** ISO 4217, upper case: usually USD or INR. */
     currency: string;
     /** India's tax is GST; elsewhere it's the local sales tax/VAT. */
@@ -91,7 +89,6 @@ function toPricingInfo(p: ApiPrices): PricingInfo {
         yearlyMonthlyPrice: perMonth < 100 ? Math.round(perMonth * 100) / 100 : Math.round(perMonth),
         yearlySavingsPercent:
             monthlyPrice > 0 ? Math.max(0, Math.floor((1 - yearlyPrice / (monthlyPrice * 12)) * 100)) : 0,
-        oneTimeBreakEvenMonths: monthlyPrice > 0 ? Math.ceil(oneTimePrice / monthlyPrice) : 0,
         currency,
         taxName: currency === "INR" ? "GST" : "taxes",
     };
