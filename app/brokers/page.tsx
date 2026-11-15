@@ -4,6 +4,7 @@ import { Plug } from "lucide-react";
 import { BrokerDirectory } from "@/components/broker_directory";
 import { ChatLink } from "@/components/chat_link";
 import { FamilyLabel } from "@/components/family_label";
+import { UnsupportedBrokers } from "@/components/unsupported_brokers";
 import { CONTACT_EMAIL } from "@/components/segment_chips";
 
 export const metadata: Metadata = {
@@ -49,6 +50,11 @@ export default function BrokersPage() {
             <hr className="relative left-1/2 mt-20 w-screen -translate-x-1/2 border-t border-[hsl(220,20%,13.5%)] md:mt-24" />
 
             <BrokerDirectory />
+
+            {/* Demand collection, kept apart from the supported directory. */}
+            <hr className="relative left-1/2 mt-24 w-screen -translate-x-1/2 border-t border-[hsl(220,20%,13.5%)]" />
+
+            <UnsupportedBrokers />
         </main>
     );
 }

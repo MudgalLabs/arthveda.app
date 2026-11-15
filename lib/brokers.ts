@@ -173,3 +173,78 @@ export const BROKERS: Broker[] = [
         landingPath: "/brokers/zerodha",
     },
 ];
+
+/** A broker or trading platform Arthveda does NOT support yet, listed on
+    /brokers only to collect demand ("Request this broker").
+
+    Deliberately a separate type and list from `Broker` / `BROKERS`: it has no
+    segments, import types, wordmark or `landingPath`, so the homepage logo
+    strip, the supported table and the sitemap can never pick one up. Don't add
+    landing pages or links for these; we don't want them ranking for
+    "<broker> trading journal" while the import doesn't exist. */
+export interface UnsupportedPlatform {
+    name: string;
+    /** Square brand icon, rendered muted. */
+    icon: string;
+    group: UnsupportedPlatformGroup;
+    /** Short qualifier under the name (e.g. "incl. thinkorswim"). */
+    note?: string;
+}
+
+export type UnsupportedPlatformGroup = "India" | "US" | "Platforms" | "Crypto";
+
+export const UNSUPPORTED_PLATFORM_GROUPS: UnsupportedPlatformGroup[] = [
+    "India",
+    "US",
+    "Platforms",
+    "Crypto",
+];
+
+export const UNSUPPORTED_PLATFORMS: UnsupportedPlatform[] = [
+    // India
+    { name: "ICICI Direct", icon: "/svgs/icons/icici_direct.svg", group: "India" },
+    {
+        name: "HDFC Securities",
+        icon: "/svgs/icons/hdfc_securities.svg",
+        group: "India",
+        note: "incl. HDFC Sky",
+    },
+    { name: "Motilal Oswal", icon: "/svgs/icons/motilal_oswal.svg", group: "India" },
+    { name: "Paytm Money", icon: "/svgs/icons/paytm_money.svg", group: "India" },
+    // US
+    {
+        name: "Interactive Brokers",
+        icon: "/svgs/icons/interactive_brokers.svg",
+        group: "US",
+    },
+    {
+        name: "Charles Schwab",
+        icon: "/svgs/icons/charles_schwab.svg",
+        group: "US",
+        note: "incl. thinkorswim",
+    },
+    { name: "Robinhood", icon: "/svgs/icons/robinhood.svg", group: "US" },
+    { name: "Webull", icon: "/svgs/icons/webull.svg", group: "US" },
+    // Platforms
+    {
+        name: "MetaTrader 4 / 5",
+        icon: "/svgs/icons/metatrader.svg",
+        group: "Platforms",
+    },
+    { name: "NinjaTrader", icon: "/svgs/icons/ninjatrader.svg", group: "Platforms" },
+    {
+        name: "TradingView",
+        icon: "/svgs/icons/tradingview.svg",
+        group: "Platforms",
+        note: "Paper trading",
+    },
+    // Crypto
+    { name: "Binance", icon: "/svgs/icons/binance.svg", group: "Crypto" },
+    { name: "Coinbase", icon: "/svgs/icons/coinbase.svg", group: "Crypto" },
+    { name: "Bybit", icon: "/svgs/icons/bybit.svg", group: "Crypto" },
+    {
+        name: "Delta Exchange",
+        icon: "/svgs/icons/delta_exchange.svg",
+        group: "Crypto",
+    },
+];

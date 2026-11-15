@@ -30,10 +30,17 @@ const GRAHAK_PROJECT_ID = process.env.NEXT_PUBLIC_GRAHAK_PROJECT_ID;
 // links deep in the tree can reach them. The default is "widget unavailable"
 // (no provider, or no project id) so <ChatLink> falls back to its mailto.
 interface ChatValue {
-    open: () => void;
+    /** Open the widget. Pass `compose` to land on a NEW conversation with the
+        title/body pre-filled, so the visitor only has to click Send. */
+    open: (options?: { compose?: ChatCompose }) => void;
     /** True once the iframe handshake completes; until then <ChatLink> lets its
         mailto fallback proceed instead of opening a not-yet-ready widget. */
     ready: boolean;
+}
+
+export interface ChatCompose {
+    title?: string;
+    body: string;
 }
 
 const ChatContext = createContext<ChatValue>({ open: () => {}, ready: false });
@@ -114,7 +121,10 @@ function GrahakLauncher({
 function ChatBridge({ children }: { children: ReactNode }) {
     const { open, isReady } = useGrahak();
     const value = useMemo<ChatValue>(
-        () => ({ open, ready: isReady }),
+        () => ({
+            open: (options?: { compose?: ChatCompose }) => open(options),
+            ready: isReady,
+        }),
         [open, isReady],
     );
     return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
