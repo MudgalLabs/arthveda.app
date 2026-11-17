@@ -63,6 +63,35 @@ export function kindOf(u: Update): UpdateKind {
 
 const ENTRIES: Update[] = [
     {
+        // The cover uses IBKR's official logo (their brand page asks for
+        // permission for this use; used knowingly, see
+        // arthveda/docs/ibkr_integration.md). "Works with", never "x": IBKR
+        // is not a partner.
+        slug: "interactive-brokers",
+        date: "2026-11-18",
+        title: "Interactive Brokers: import and Sync your US trades",
+        summary:
+            "Bring your US stock and ETF trades in from an Interactive Brokers Flex Query, or Sync them with no daily login, with IBKR's own commissions.",
+        tags: ["Journal", "Brokers"],
+        keywords: [
+            "Interactive Brokers trading journal",
+            "IBKR trading journal",
+            "IBKR Flex Query import",
+            "IBKR Flex Web Service",
+            "import Interactive Brokers trades",
+            "US stock trading journal",
+            "trading journal USD INR",
+            "Arthveda Interactive Brokers",
+        ],
+        cover: {
+            src: "/images/updates/interactive-brokers-cover.png",
+            width: 3440,
+            height: 1810,
+            alt: "The Arthveda and IBKR logos side by side with a two-way arrow: Now works with Interactive Brokers, US stocks and ETFs, Import and Sync",
+        },
+        og: { src: "/images/updates/interactive-brokers-og.jpg", width: 1200, height: 630 },
+    },
+    {
         slug: "stats-over-time",
         date: "2026-11-12",
         title: "Your stats have a timeline now",

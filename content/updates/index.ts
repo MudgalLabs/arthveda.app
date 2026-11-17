@@ -2,12 +2,14 @@ import type { ComponentType } from "react";
 
 import BenchmarkWidget from "@/content/updates/benchmark_widget";
 import CompareSymbols from "@/content/updates/compare_symbols";
+import InteractiveBrokers from "@/content/updates/interactive_brokers";
 import StatsOverTime from "@/content/updates/stats_over_time";
 import * as H2025 from "@/content/updates/history_2025";
 import * as H2026 from "@/content/updates/history_2026";
 
 // Post bodies by slug. Every UPDATES entry (lib/updates.ts) needs one here.
 export const UPDATE_BODIES: Record<string, ComponentType> = {
+    "interactive-brokers": InteractiveBrokers,
     "stats-over-time": StatsOverTime,
     "compare-symbols": CompareSymbols,
     "benchmark-widget": BenchmarkWidget,
