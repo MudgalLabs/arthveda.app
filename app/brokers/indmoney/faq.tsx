@@ -50,7 +50,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         a: (
             <>
                 Yes. Arthveda supports Zerodha, Upstox, Groww, Angel One, FYERS,
-                Kotak Securities, INDmoney, Dhan, and Definedge. Import from
+                Kotak Securities, INDmoney, Dhan, Definedge, and Interactive Brokers. Import from
                 each and the journal aggregates across all of them so you see
                 your real performance picture.
             </>

@@ -23,6 +23,7 @@ const ROUTES: { path: string; priority: number; lastModified?: string }[] = [
     { path: "/brokers/upstox", priority: 0.7 },
     { path: "/brokers/dhan", priority: 0.7 },
     { path: "/brokers/definedge", priority: 0.7 },
+    { path: "/brokers/interactive-brokers", priority: 0.7 },
     { path: "/updates", priority: 0.6, lastModified: UPDATES[0]?.date },
     ...UPDATES.map((u) => ({ path: `/updates/${u.slug}`, priority: 0.5, lastModified: u.date })),
     { path: "/about", priority: 0.5 },

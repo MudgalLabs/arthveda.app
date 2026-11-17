@@ -133,6 +133,22 @@ export const BROKERS: Broker[] = [
         landingPath: "/brokers/indmoney",
     },
     {
+        name: "Interactive Brokers",
+        // No wordmark yet: the square mark doubles for the homepage strip, as
+        // Definedge's does.
+        svg: "/svgs/icons/interactive_brokers.svg",
+        icon: "/svgs/icons/interactive_brokers.svg",
+        homepage: "https://www.interactivebrokers.com/",
+        instruments: ["equity"],
+        segments: [
+            { label: "Cash", state: "supported", detail: "US stocks, etfs" },
+            { label: "Options", state: "on-request" },
+            { label: "Futures", state: "on-request" },
+        ],
+        importTypes: ["auto", "file"],
+        landingPath: "/brokers/interactive-brokers",
+    },
+    {
         name: "Kotak Securities",
         svg: "/svgs/kotak_securities.svg",
         icon: "/svgs/icons/kotak_securities.svg",
@@ -212,11 +228,6 @@ export const UNSUPPORTED_PLATFORMS: UnsupportedPlatform[] = [
     { name: "Motilal Oswal", icon: "/svgs/icons/motilal_oswal.svg", group: "India" },
     { name: "Paytm Money", icon: "/svgs/icons/paytm_money.svg", group: "India" },
     // US
-    {
-        name: "Interactive Brokers",
-        icon: "/svgs/icons/interactive_brokers.svg",
-        group: "US",
-    },
     {
         name: "Charles Schwab",
         icon: "/svgs/icons/charles_schwab.svg",

@@ -53,9 +53,12 @@ const FAQS = [
                 <Link href="/product/discover">Discover</Link> covers the
                 S&amp;P 500, Nasdaq-100 and Dow stocks plus the major ETFs: the
                 screener, watchlists, Market Monitor and every stock&apos;s
-                chart and journey. US trades go in your journal by hand, in
-                dollars, alongside your rupee trades; US broker sync isn&apos;t
-                built yet.
+                chart and journey. US trades go in your journal in dollars,
+                alongside your rupee trades: by hand, or synced from{" "}
+                <Link href="/brokers/interactive-brokers">
+                    Interactive Brokers
+                </Link>
+                .
             </>
         ),
     },
@@ -79,11 +82,12 @@ const FAQS = [
         a: (
             <>
                 Yes. Log trades manually, or pull them in automatically with
-                Broker Sync. SEBI requires brokers to log you out every morning,
-                so a synced setup needs a quick login to your broker once a day.
+                Broker Sync. SEBI requires Indian brokers to log you out every
+                morning, so a synced Indian broker needs a quick login once a
+                day; Interactive Brokers syncs with a token you set up once.
                 Broker Sync supports every broker Arthveda works with: Zerodha,
                 Dhan, Upstox, Groww, Angel One, FYERS, Kotak Securities,
-                INDmoney, and Definedge. See all{" "}
+                INDmoney, Definedge, and Interactive Brokers. See all{" "}
                 <Link href="/brokers">brokers</Link>.
             </>
         ),
