@@ -28,7 +28,9 @@ const OL = ({ children }: { children: ReactNode }) => (
     </ol>
 );
 
-const INLINE_LINK = "text-text-primary underline underline-offset-4 hover:text-text-muted";
+// The global `a` rule (globals.css) sets text-sm and font-medium; `!` beats it
+// so the link matches the paragraph it sits in.
+const INLINE_LINK = "text-[length:inherit]! leading-[inherit]! font-normal! underline underline-offset-4";
 
 export default function InteractiveBrokers() {
     return (
