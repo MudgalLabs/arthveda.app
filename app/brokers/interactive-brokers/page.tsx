@@ -166,8 +166,8 @@ export default function InteractiveBrokersLandingPage() {
                 aria-label="Arthveda trade journal preview"
             >
                 <LitMedia
-                    src="/images/v2/trade-view.png"
-                    alt="Arthveda trade view with chart, PnL, duration, details, and journal notes"
+                    src="/images/v2/trade-view-ibkr.png"
+                    alt="An NVDA trade from Interactive Brokers in Arthveda: three buys and three sells on the chart, net PnL in dollars after IBKR commissions, duration, and details"
                     priority
                     aspectClassName="aspect-[2940/1844]"
                     lightOrigin="top"
