@@ -36,6 +36,14 @@ const TOP_HEAVY = {
     mask: `linear-gradient(to bottom, transparent 0%, #000 4%, #000 68%, transparent 100%), ${SIDE_FADE}`,
 };
 
+// Journal: a trade view, whose notes start ~92% down under the chart (its
+// height is 72vh). 16:9 with the fade held to the last few percent, so the
+// first line of the notes still reads.
+const JOURNAL = {
+    aspect: "aspect-video",
+    mask: `linear-gradient(to bottom, transparent 0%, #000 4%, #000 95%, transparent 100%), ${SIDE_FADE}`,
+};
+
 // Social: heatmap sits lower, so keep more of the bottom; fade top + sides.
 const BOTTOM_HEAVY = {
     aspect: "aspect-video",
@@ -43,7 +51,7 @@ const BOTTOM_HEAVY = {
 };
 
 function ProductBlock({ family }: { family: ProductFamily }) {
-    const t = family.key === "social" ? BOTTOM_HEAVY : TOP_HEAVY;
+    const t = family.key === "social" ? BOTTOM_HEAVY : family.key === "journal" ? JOURNAL : TOP_HEAVY;
 
     return (
         <div>

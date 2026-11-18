@@ -48,9 +48,9 @@ export const FAMILIES: ProductFamily[] = [
         blurb: "Log or import trades, journal the thinking behind them, and see where you make money, where you lose it, and what to fix.",
         ctaLabel: "Explore Journal",
         href: "/product/journal",
-        image: "/images/v2/product-journal.png",
-        imageAlt: "Arthveda Journal insights: where you make and lose money",
-        placeholderLabel: "Journal · insights",
+        image: "/images/v2/product-journal-trade.png",
+        imageAlt: "An NVDA trade in the Arthveda Journal: three buys and three sells marked on the chart, net PnL of $1,838.52 after charges, 3.68R, tagged VCP, with the trader's notes below",
+        placeholderLabel: "Journal · trade review",
     },
     {
         key: "social",
