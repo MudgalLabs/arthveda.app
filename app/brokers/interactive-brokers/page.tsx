@@ -16,9 +16,9 @@ import InteractiveBrokersFAQ from "./faq";
 const IBKR = BROKERS.find((b) => b.name === "Interactive Brokers")!;
 
 const TITLE =
-    "Trading Journal for Interactive Brokers: From Flex Query to Real Insights";
+    "Trading Journal for Interactive Brokers: From Executions to Real Insights";
 const DESCRIPTION =
-    "Turn your Interactive Brokers Flex Query into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback. US stocks and ETFs, IBKR's own commissions, synced with no daily login.";
+    "Turn your Interactive Brokers trades into a trading journal with performance analytics, insights, reports, tags, notes, and trade-level feedback. US stocks and ETFs, IBKR's own commissions, synced with no daily login.";
 
 export const metadata: Metadata = {
     title: `${TITLE} · Arthveda`,
@@ -130,8 +130,8 @@ export default function InteractiveBrokersLandingPage() {
                     </h1>
                     <p className="mt-5 max-w-3xl font-content text-[15px] leading-[1.6] text-text-muted">
                         Interactive Brokers gives you executions. Arthveda gives
-                        you insights and analytics. Import a Flex Query or sync
-                        it straight from IBKR, and your US stock and ETF trades
+                        you insights and analytics. Import your trades or Sync
+                        them straight from IBKR, and your US stock and ETF trades
                         become a journal with performance analytics, insights
                         that tell you where and why you lose or make money, and
                         a trade-level feedback loop, with the exact commissions
@@ -347,7 +347,7 @@ export default function InteractiveBrokersLandingPage() {
                         <div className="pt-2">
                             <GetStarted
                                 noCardNote
-                                label="Import my Flex Query"
+                                label="Import my trades"
                                 href={APP_BROKER_ACCOUNTS_URL}
                                 size="default"
                             />

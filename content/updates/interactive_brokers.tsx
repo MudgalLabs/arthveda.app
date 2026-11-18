@@ -35,8 +35,8 @@ export default function InteractiveBrokers() {
         <>
             <P>
                 Arthveda now works with <Strong>Interactive Brokers</Strong>,
-                our first US broker. Bring in your US stock and ETF trades from
-                a Flex Query, or let Sync pull them for you, and they land in
+                our first US broker. Import your US stock and ETF trades, or let
+                Sync pull them for you, and they land in
                 the same journal, dashboard, insights and reports as everything
                 else you trade.
             </P>
@@ -46,7 +46,7 @@ export default function InteractiveBrokers() {
                 year.
             </P>
 
-            <H2>Import a Flex Query</H2>
+            <H2>Import your trades</H2>
             <OL>
                 <li>
                     In IBKR Client Portal, open{" "}

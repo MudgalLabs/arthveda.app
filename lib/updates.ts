@@ -69,9 +69,9 @@ const ENTRIES: Update[] = [
         // is not a partner.
         slug: "interactive-brokers",
         date: "2026-11-18",
-        title: "Interactive Brokers: import and Sync your US trades",
+        title: "Interactive Brokers: Import and Sync your US trades",
         summary:
-            "Bring your US stock and ETF trades in from an Interactive Brokers Flex Query, or Sync them with no daily login, with IBKR's own commissions.",
+            "Import or Sync your US stock and ETF trades from Interactive Brokers, with no daily login and IBKR's own commissions on every trade.",
         tags: ["Journal", "Brokers"],
         keywords: [
             "Interactive Brokers trading journal",
