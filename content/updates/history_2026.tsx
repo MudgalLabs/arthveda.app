@@ -8,7 +8,7 @@ import {
     SCREENER_URL,
     SYMBOLS_URL,
 } from "@/lib/links";
-import { H2, P, SignOff, Since, Strong, UL } from "@/content/updates/prose";
+import { A, H2, P, SignOff, Since, Strong, UL } from "@/content/updates/prose";
 
 // Backfilled 2026 posts (lib/updates_history.ts), up to the first post
 // written live. Same rule as history_2025.tsx: the main text is the feature as
@@ -289,9 +289,7 @@ export function Help() {
             <H2>Built on Grahak</H2>
             <P>
                 The Help widget is{" "}
-                <a href="https://grahak.dev" target="_blank" rel="noopener">
-                    Grahak
-                </a>
+                <A href="https://grahak.dev">Grahak</A>
                 , a customer conversation tool I built at Mudgal Labs. Customers report bugs, ask questions and request
                 features from inside a product, and the team answers from one inbox, with the context of what the
                 customer was doing. It even wears Arthveda&apos;s theme.

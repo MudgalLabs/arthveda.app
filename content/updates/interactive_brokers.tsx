@@ -1,36 +1,18 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 
 import { GetStarted } from "@/components/get_started";
 import { BROKER_ACCOUNTS_URL } from "@/lib/links";
+import { A, H2, P, Strong } from "@/content/updates/prose";
 
 // Release post: Interactive Brokers import + Sync. Facts follow
 // arthveda/docs/ibkr_integration.md and docs/multi_currency.md (§4, §5); keep
 // them in step if the integration changes (instruments, sync window, charges).
-
-const H2 = ({ children }: { children: ReactNode }) => (
-    <h2 className="mt-12 font-heading text-[24px] font-medium leading-snug tracking-[-0.01em] text-text-primary">
-        {children}
-    </h2>
-);
-
-const P = ({ children }: { children: ReactNode }) => (
-    <p className="mt-4 font-content text-[16px] leading-[1.7] text-text-muted">{children}</p>
-);
-
-const Strong = ({ children }: { children: ReactNode }) => (
-    <strong className="font-medium text-text-primary">{children}</strong>
-);
 
 const OL = ({ children }: { children: ReactNode }) => (
     <ol className="mt-4 list-decimal space-y-2 pl-5 font-content text-[16px] leading-[1.7] text-text-muted">
         {children}
     </ol>
 );
-
-// The global `a` rule (globals.css) sets text-sm and font-medium; `!` beats it
-// so the link matches the paragraph it sits in.
-const INLINE_LINK = "text-[length:inherit]! leading-[inherit]! font-normal! underline underline-offset-4";
 
 export default function InteractiveBrokers() {
     return (
@@ -117,9 +99,7 @@ export default function InteractiveBrokers() {
             <P>
                 The same now holds for every broker&apos;s import and sync, not
                 just Interactive Brokers. See the{" "}
-                <Link href="/brokers/interactive-brokers" className={INLINE_LINK}>
-                    Interactive Brokers page
-                </Link>{" "}
+                <A href="/brokers/interactive-brokers">Interactive Brokers page</A>{" "}
                 for the full setup.
             </P>
 

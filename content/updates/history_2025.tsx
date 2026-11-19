@@ -1,6 +1,6 @@
 import { GetStarted } from "@/components/get_started";
 import { BROKER_ACCOUNTS_URL, DASHBOARD_URL } from "@/lib/links";
-import { H2, P, SignOff, Since, Strong, UL } from "@/content/updates/prose";
+import { A, H2, P, SignOff, Since, Strong, UL } from "@/content/updates/prose";
 
 // Backfilled 2025 posts (lib/updates_history.ts). Each body describes the
 // feature AS IT SHIPPED on its date, from the commits of the time; anything
@@ -208,9 +208,7 @@ export function Notifications() {
                 delivery, read state, broadcasts, per-user preferences. So I built it once, as its own product.
             </P>
             <P>
-                <a href="https://bodhveda.com" target="_blank" rel="noopener">
-                    Bodhveda
-                </a>{" "}
+                <A href="https://bodhveda.com">Bodhveda</A>{" "}
                 is an open-source notification platform from Mudgal Labs. Send a notification to one user or broadcast
                 it to everyone, let people choose what they hear about, and drop an inbox into your React app with its
                 SDK. The whole inbox in Arthveda is a few lines of <Strong>@bodhveda/react</Strong>.
